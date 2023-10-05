@@ -17,6 +17,7 @@ public class ShareVersityGUIFinal2 {
         // TODO code application logic here
        
         System.out.println("I am testing youuuu (again lol)");
+        System.out.println("Hello wordle");
     }
     
 }
