@@ -15,15 +15,15 @@ public class ShareVersityGUIFinal2 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-<<<<<<< Updated upstream
+
        
         System.out.println("I am testing youuuu (again lol)");
         System.out.println("Hello wordle");
-=======
+
         
         System.out.println("I am testing youuuu");
         System.out.println("I am testing github desktop");
->>>>>>> Stashed changes
+
     }
     
 }
