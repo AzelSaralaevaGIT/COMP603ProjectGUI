@@ -4,20 +4,43 @@
  */
 package shareversityguifinal2;
 
+import java.awt.CardLayout;
+import java.awt.Dimension;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Calendar;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
 
 /**
  *
  * @author Fran
  */
-public class ShareversityGUI extends javax.swing.JFrame {
 
+public class ShareversityGUI extends javax.swing.JFrame 
+{
+    static final int WIDTH = 1024;
+    static final int HEIGHT = 764;
+    
     /**
      * Creates new form ShareVersityGUI
      */
     public ShareversityGUI() {
+        Dimension dimension = new Dimension(WIDTH, HEIGHT);
+        
+        this.setResizable(false);
+        this.setPreferredSize(dimension);
+        
         initComponents();
+        updateDayComboBox();
+        
+        getContentPane().setLayout(cardLayout);
+        getContentPane().add(loginPanel, "loginPanel");
+        getContentPane().add(registerPanel, "registerPanel");
+        
+        cardLayout.show(this.getContentPane(), "loginPanel");
     }
 
     /**
@@ -29,169 +52,536 @@ public class ShareversityGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        loginPanel = new javax.swing.JPanel();
+        loginLeftPanel = new javax.swing.JPanel();
+        Logo = new javax.swing.JLabel();
+        loginRightPanel = new javax.swing.JPanel();
+        loginLabel = new javax.swing.JLabel();
+        loginPasswordLabel = new javax.swing.JLabel();
+        loginPasswordTextField = new javax.swing.JTextField();
+        loginUsernameLabel = new javax.swing.JLabel();
+        loginUsernameTextField = new javax.swing.JTextField();
+        loginButton = new javax.swing.JButton();
+        registerHereButton = new javax.swing.JLabel();
+        registerMsgLabel = new javax.swing.JLabel();
+        registerPanel = new javax.swing.JPanel();
+        registerLeftPanel = new javax.swing.JPanel();
+        Logo2 = new javax.swing.JLabel();
+        registerRightPanel = new javax.swing.JPanel();
+        newAccountLabel = new javax.swing.JLabel();
+        registerButton = new javax.swing.JButton();
+        loginHereButton = new javax.swing.JLabel();
+        loginMsgLabel = new javax.swing.JLabel();
+        registerUsernameLabel = new javax.swing.JLabel();
+        registerUsernameTextField = new javax.swing.JTextField();
+        registerPasswordTextField = new javax.swing.JTextField();
+        registerPasswordLabel = new javax.swing.JLabel();
+        registerFullNameTextField = new javax.swing.JTextField();
+        registerFullNameLabel = new javax.swing.JLabel();
+        registerBankAccountTextField = new javax.swing.JTextField();
+        registerBankAccountLabel = new javax.swing.JLabel();
+        dayComboBox = new javax.swing.JComboBox<>();
+        yearComboBox = new javax.swing.JComboBox<>();
+        monthComboBox = new javax.swing.JComboBox<>();
+        RegisterDateOfBirthLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Shareversity");
         setBackground(new java.awt.Color(253, 234, 239));
 
-        jPanel2.setBackground(new java.awt.Color(253, 234, 239));
-        jPanel2.setForeground(new java.awt.Color(253, 234, 239));
+        loginPanel.setLayout(new java.awt.GridLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/shareversityguifinal2/Group 1.png"))); // NOI18N
+        loginLeftPanel.setBackground(new java.awt.Color(253, 234, 239));
+        loginLeftPanel.setForeground(new java.awt.Color(253, 234, 239));
+        loginLeftPanel.setLayout(new java.awt.BorderLayout());
 
-        org.jdesktop.layout.GroupLayout jPanel2Layout = new org.jdesktop.layout.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel2Layout.createSequentialGroup()
-                .add(23, 23, 23)
-                .add(jLabel1)
-                .addContainerGap(26, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel2Layout.createSequentialGroup()
-                .add(233, 233, 233)
-                .add(jLabel1)
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/shareversityguifinal2/Group 1.png"))); // NOI18N
+        loginLeftPanel.add(Logo, java.awt.BorderLayout.CENTER);
 
-        jPanel3.setBackground(new java.awt.Color(227, 97, 115));
-        jPanel3.setForeground(new java.awt.Color(227, 97, 115));
+        loginPanel.add(loginLeftPanel);
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(253, 234, 239));
-        jLabel2.setText("Log in");
-        jLabel2.setToolTipText("");
-        jLabel2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        loginRightPanel.setBackground(new java.awt.Color(227, 97, 115));
+        loginRightPanel.setForeground(new java.awt.Color(227, 97, 115));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(253, 234, 239));
-        jLabel3.setText("Password");
-        jLabel3.setToolTipText("");
+        loginLabel.setFont(new java.awt.Font("Segoe UI Black", 0, 40)); // NOI18N
+        loginLabel.setForeground(new java.awt.Color(253, 234, 239));
+        loginLabel.setText("Log in");
+        loginLabel.setToolTipText("");
+        loginLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jTextField1.setBorder(null);
-        jTextField1.setOpaque(true);
-        jTextField1.setScrollOffset(5);
-        jTextField1.setSelectionColor(new java.awt.Color(100, 72, 145));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        loginPasswordLabel.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        loginPasswordLabel.setForeground(new java.awt.Color(253, 234, 239));
+        loginPasswordLabel.setText("Password");
+        loginPasswordLabel.setToolTipText("");
+
+        loginPasswordTextField.setBackground(new java.awt.Color(255, 255, 255));
+        loginPasswordTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        loginPasswordTextField.setBorder(null);
+        loginPasswordTextField.setOpaque(true);
+        loginPasswordTextField.setScrollOffset(5);
+        loginPasswordTextField.setSelectionColor(new java.awt.Color(100, 72, 145));
+        loginPasswordTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                loginPasswordTextFieldActionPerformed(evt);
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(253, 234, 239));
-        jLabel4.setText("Username");
-        jLabel4.setToolTipText("");
+        loginUsernameLabel.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        loginUsernameLabel.setForeground(new java.awt.Color(253, 234, 239));
+        loginUsernameLabel.setText("Username");
+        loginUsernameLabel.setToolTipText("");
 
-        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jTextField2.setBorder(null);
-        jTextField2.setOpaque(true);
-        jTextField2.setScrollOffset(5);
-        jTextField2.setSelectionColor(new java.awt.Color(100, 72, 145));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        loginUsernameTextField.setBackground(new java.awt.Color(255, 255, 255));
+        loginUsernameTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        loginUsernameTextField.setBorder(null);
+        loginUsernameTextField.setOpaque(true);
+        loginUsernameTextField.setScrollOffset(5);
+        loginUsernameTextField.setSelectionColor(new java.awt.Color(100, 72, 145));
+        loginUsernameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                loginUsernameTextFieldActionPerformed(evt);
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(100, 72, 145));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Login");
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        loginButton.setBackground(new java.awt.Color(100, 72, 145));
+        loginButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        loginButton.setForeground(new java.awt.Color(255, 255, 255));
+        loginButton.setText("Login");
+        loginButton.setBorder(null);
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                loginButtonActionPerformed(evt);
             }
         });
 
-        org.jdesktop.layout.GroupLayout jPanel3Layout = new org.jdesktop.layout.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel3Layout.createSequentialGroup()
-                .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel3Layout.createSequentialGroup()
-                        .add(78, 78, 78)
-                        .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jLabel3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 97, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 399, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(jPanel3Layout.createSequentialGroup()
-                                .add(jLabel4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 97, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(45, 45, 45)
-                                .add(jLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 122, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                            .add(jTextField2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 394, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                    .add(jPanel3Layout.createSequentialGroup()
-                        .add(106, 106, 106)
-                        .add(jButton1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 339, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(84, Short.MAX_VALUE))
+        registerHereButton.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        registerHereButton.setForeground(new java.awt.Color(253, 234, 239));
+        registerHereButton.setText("<HTML><U>Register here</U></HTML>");
+        registerHereButton.setToolTipText("");
+        registerHereButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                registerHereButtonMouseClicked(evt);
+            }
+        });
+
+        registerMsgLabel.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        registerMsgLabel.setForeground(new java.awt.Color(253, 234, 239));
+        registerMsgLabel.setText("Don't have an account? ");
+        registerMsgLabel.setToolTipText("");
+
+        org.jdesktop.layout.GroupLayout loginRightPanelLayout = new org.jdesktop.layout.GroupLayout(loginRightPanel);
+        loginRightPanel.setLayout(loginRightPanelLayout);
+        loginRightPanelLayout.setHorizontalGroup(
+            loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(loginRightPanelLayout.createSequentialGroup()
+                .add(64, 64, 64)
+                .add(loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(loginPasswordLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 97, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(loginPasswordTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 399, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(loginUsernameLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 97, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(loginUsernameTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 394, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(loginRightPanelLayout.createSequentialGroup()
+                        .add(141, 141, 141)
+                        .add(loginLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 122, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(loginRightPanelLayout.createSequentialGroup()
+                        .add(27, 27, 27)
+                        .add(loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(loginRightPanelLayout.createSequentialGroup()
+                                .add(registerMsgLabel)
+                                .add(3, 3, 3)
+                                .add(registerHereButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .add(loginButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 339, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel3Layout.createSequentialGroup()
-                .add(jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel3Layout.createSequentialGroup()
-                        .add(172, 172, 172)
-                        .add(jLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 74, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(55, 55, 55))
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .add(jLabel4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 56, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)))
-                .add(jTextField2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 45, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(18, 18, 18)
-                .add(jLabel3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 56, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+        loginRightPanelLayout.setVerticalGroup(
+            loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(loginRightPanelLayout.createSequentialGroup()
+                .add(178, 178, 178)
+                .add(loginLabel)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 45, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(44, 44, 44)
-                .add(jButton1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 56, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(193, Short.MAX_VALUE))
+                .add(loginUsernameLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 56, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(loginUsernameTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 45, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(loginPasswordLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 56, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(loginPasswordTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 45, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(56, 56, 56)
+                .add(loginButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 56, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                .add(loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(registerHereButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 56, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(registerMsgLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 56, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
+
+        loginPanel.add(loginRightPanel);
+
+        registerPanel.setLayout(new java.awt.GridLayout());
+
+        registerLeftPanel.setBackground(new java.awt.Color(253, 234, 239));
+        registerLeftPanel.setForeground(new java.awt.Color(253, 234, 239));
+        registerLeftPanel.setLayout(new java.awt.BorderLayout());
+
+        Logo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/shareversityguifinal2/Group 1.png"))); // NOI18N
+        registerLeftPanel.add(Logo2, java.awt.BorderLayout.CENTER);
+
+        registerPanel.add(registerLeftPanel);
+
+        registerRightPanel.setBackground(new java.awt.Color(227, 97, 115));
+        registerRightPanel.setForeground(new java.awt.Color(227, 97, 115));
+
+        newAccountLabel.setFont(new java.awt.Font("Segoe UI Black", 0, 40)); // NOI18N
+        newAccountLabel.setForeground(new java.awt.Color(253, 234, 239));
+        newAccountLabel.setText("New Account");
+        newAccountLabel.setToolTipText("");
+        newAccountLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        registerButton.setBackground(new java.awt.Color(100, 72, 145));
+        registerButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        registerButton.setForeground(new java.awt.Color(255, 255, 255));
+        registerButton.setText("Register");
+        registerButton.setBorder(null);
+        registerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerButtonActionPerformed(evt);
+            }
+        });
+
+        loginHereButton.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        loginHereButton.setForeground(new java.awt.Color(253, 234, 239));
+        loginHereButton.setText("<HTML><U>Login here</U></HTML>");
+        loginHereButton.setToolTipText("");
+        loginHereButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loginHereButtonMouseClicked(evt);
+            }
+        });
+
+        loginMsgLabel.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        loginMsgLabel.setForeground(new java.awt.Color(253, 234, 239));
+        loginMsgLabel.setText("Already have an account?");
+        loginMsgLabel.setToolTipText("");
+
+        registerUsernameLabel.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        registerUsernameLabel.setForeground(new java.awt.Color(253, 234, 239));
+        registerUsernameLabel.setText("Username");
+        registerUsernameLabel.setToolTipText("");
+
+        registerUsernameTextField.setBackground(new java.awt.Color(255, 255, 255));
+        registerUsernameTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        registerUsernameTextField.setBorder(null);
+        registerUsernameTextField.setOpaque(true);
+        registerUsernameTextField.setScrollOffset(5);
+        registerUsernameTextField.setSelectionColor(new java.awt.Color(100, 72, 145));
+        registerUsernameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerUsernameTextFieldActionPerformed(evt);
+            }
+        });
+
+        registerPasswordTextField.setBackground(new java.awt.Color(255, 255, 255));
+        registerPasswordTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        registerPasswordTextField.setBorder(null);
+        registerPasswordTextField.setOpaque(true);
+        registerPasswordTextField.setScrollOffset(5);
+        registerPasswordTextField.setSelectionColor(new java.awt.Color(100, 72, 145));
+        registerPasswordTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerPasswordTextFieldActionPerformed(evt);
+            }
+        });
+
+        registerPasswordLabel.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        registerPasswordLabel.setForeground(new java.awt.Color(253, 234, 239));
+        registerPasswordLabel.setText("Password");
+        registerPasswordLabel.setToolTipText("");
+
+        registerFullNameTextField.setBackground(new java.awt.Color(255, 255, 255));
+        registerFullNameTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        registerFullNameTextField.setBorder(null);
+        registerFullNameTextField.setOpaque(true);
+        registerFullNameTextField.setScrollOffset(5);
+        registerFullNameTextField.setSelectionColor(new java.awt.Color(100, 72, 145));
+        registerFullNameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerFullNameTextFieldActionPerformed(evt);
+            }
+        });
+
+        registerFullNameLabel.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        registerFullNameLabel.setForeground(new java.awt.Color(253, 234, 239));
+        registerFullNameLabel.setText("Full Name");
+        registerFullNameLabel.setToolTipText("");
+
+        registerBankAccountTextField.setBackground(new java.awt.Color(255, 255, 255));
+        registerBankAccountTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        registerBankAccountTextField.setBorder(null);
+        registerBankAccountTextField.setOpaque(true);
+        registerBankAccountTextField.setScrollOffset(5);
+        registerBankAccountTextField.setSelectionColor(new java.awt.Color(100, 72, 145));
+        registerBankAccountTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerBankAccountTextFieldActionPerformed(evt);
+            }
+        });
+
+        registerBankAccountLabel.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        registerBankAccountLabel.setForeground(new java.awt.Color(253, 234, 239));
+        registerBankAccountLabel.setText("Bank Account Number");
+        registerBankAccountLabel.setToolTipText("");
+
+        dayComboBox.setBackground(new java.awt.Color(255, 255, 255));
+        dayComboBox.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        dayComboBox.setForeground(new java.awt.Color(51, 51, 51));
+        dayComboBox.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dayComboBoxMouseClicked(evt);
+            }
+        });
+        dayComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dayComboBoxActionPerformed(evt);
+            }
+        });
+
+        yearComboBox.setBackground(new java.awt.Color(255, 255, 255));
+        yearComboBox.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        yearComboBox.setForeground(new java.awt.Color(51, 51, 51));
+        yearComboBox.setModel(this.generateYearArray());
+        yearComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yearComboBoxActionPerformed(evt);
+            }
+        });
+
+        monthComboBox.setBackground(new java.awt.Color(255, 255, 255));
+        monthComboBox.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        monthComboBox.setForeground(new java.awt.Color(51, 51, 51));
+        monthComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
+        monthComboBox.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                monthComboBoxMouseClicked(evt);
+            }
+        });
+        monthComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                monthComboBoxActionPerformed(evt);
+            }
+        });
+
+        RegisterDateOfBirthLabel.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        RegisterDateOfBirthLabel.setForeground(new java.awt.Color(253, 234, 239));
+        RegisterDateOfBirthLabel.setText("Date of birth");
+        RegisterDateOfBirthLabel.setToolTipText("");
+
+        org.jdesktop.layout.GroupLayout registerRightPanelLayout = new org.jdesktop.layout.GroupLayout(registerRightPanel);
+        registerRightPanel.setLayout(registerRightPanelLayout);
+        registerRightPanelLayout.setHorizontalGroup(
+            registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(registerRightPanelLayout.createSequentialGroup()
+                .addContainerGap(62, Short.MAX_VALUE)
+                .add(registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, registerRightPanelLayout.createSequentialGroup()
+                        .add(registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(registerButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 339, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(registerRightPanelLayout.createSequentialGroup()
+                                .add(loginMsgLabel)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                .add(loginHereButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                        .add(83, 83, 83))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, registerRightPanelLayout.createSequentialGroup()
+                        .add(registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, registerRightPanelLayout.createSequentialGroup()
+                                .add(newAccountLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 274, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(61, 61, 61))
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                .add(registerFullNameLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 97, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(registerFullNameTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 399, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(registerPasswordLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 97, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(registerPasswordTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 399, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(registerUsernameLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 97, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(registerUsernameTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 399, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                                    .add(registerRightPanelLayout.createSequentialGroup()
+                                        .add(dayComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 108, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                                        .add(monthComboBox, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                                        .add(yearComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 111, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                    .add(registerBankAccountTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 399, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                .add(RegisterDateOfBirthLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 155, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(registerBankAccountLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 232, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                        .add(51, 51, 51))))
+        );
+        registerRightPanelLayout.setVerticalGroup(
+            registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(registerRightPanelLayout.createSequentialGroup()
+                .addContainerGap(76, Short.MAX_VALUE)
+                .add(newAccountLabel)
+                .add(5, 5, 5)
+                .add(registerUsernameLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 29, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(registerUsernameTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 45, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(registerPasswordLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 29, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(registerPasswordTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 45, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(registerFullNameLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 29, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(registerFullNameTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 45, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(registerBankAccountLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 29, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(registerBankAccountTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(RegisterDateOfBirthLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 29, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(dayComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(yearComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(monthComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(18, 18, 18)
+                .add(registerButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 56, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(loginHereButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 56, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(loginMsgLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 56, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(49, 49, 49))
+        );
+
+        registerPanel.add(registerRightPanel);
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
-                .add(jPanel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(loginPanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(0, 0, 0)
-                .add(jPanel3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .add(registerPanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .add(jPanel3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .add(loginPanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+            .add(registerPanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void loginPasswordTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginPasswordTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_loginPasswordTextFieldActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void loginUsernameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginUsernameTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_loginUsernameTextFieldActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_loginButtonActionPerformed
 
+    private void registerHereButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerHereButtonMouseClicked
+        cardLayout.show(this.getContentPane(),"registerPanel");
+        System.out.println("register Here button clicked");
+    }//GEN-LAST:event_registerHereButtonMouseClicked
+
+    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_registerButtonActionPerformed
+
+    private void loginHereButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginHereButtonMouseClicked
+        
+        cardLayout.show(this.getContentPane(),"loginPanel");
+        System.out.println("login Here button clicked");
+    }//GEN-LAST:event_loginHereButtonMouseClicked
+
+    private void registerUsernameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerUsernameTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_registerUsernameTextFieldActionPerformed
+
+    private void registerPasswordTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerPasswordTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_registerPasswordTextFieldActionPerformed
+
+    private void registerFullNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerFullNameTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_registerFullNameTextFieldActionPerformed
+
+    private void registerBankAccountTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBankAccountTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_registerBankAccountTextFieldActionPerformed
+
+    private void dayComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dayComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dayComboBoxActionPerformed
+
+    private void yearComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_yearComboBoxActionPerformed
+
+    
+    private void monthComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthComboBoxActionPerformed
+
+        updateDayComboBox();
+        System.out.println("days updated");
+    }//GEN-LAST:event_monthComboBoxActionPerformed
+
+    private void dayComboBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dayComboBoxMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dayComboBoxMouseClicked
+
+    private void monthComboBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_monthComboBoxMouseClicked
+        //updateDayComboBox();
+        //System.out.println("days updated");
+    }//GEN-LAST:event_monthComboBoxMouseClicked
+
+    /*
+        This method gets this year and gets the previous 100 years as a list of years as a DefaultComboBoxModel (for registering year of birth)
+    */
+    private static DefaultComboBoxModel<String> generateYearArray()
+    {
+        int currentYear = Calendar.getInstance().get(Calendar.YEAR); 
+        
+        DefaultComboBoxModel<String> yearArray = new DefaultComboBoxModel<String>();
+
+        int minYear = currentYear-100;
+        for (int year = currentYear; year >= minYear; year--)
+        {
+            yearArray.addElement(String.valueOf(year));
+        }
+        
+        return yearArray;
+    }
+    
+    /*
+        This method gets the days in a month so that they appropriately correspond to month-day differences (28,30,31)
+    */
+    private static int getDaysInMonth(int month)
+    {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.MONTH, month);
+        return calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+    }
+    
+    /*
+        This method updates the number of days set to a month selected in the combo box
+    */
+    private static void updateDayComboBox() 
+    {
+        int selectedMonthIndex = monthComboBox.getSelectedIndex();
+        int daysInMonth = getDaysInMonth(selectedMonthIndex);
+
+        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+        for (int i = 1; i <= daysInMonth; i++) {
+            model.addElement(String.valueOf(i));
+        }
+
+        dayComboBox.setModel(model); 
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -229,14 +619,38 @@ public class ShareversityGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JLabel Logo;
+    private javax.swing.JLabel Logo2;
+    private javax.swing.JLabel RegisterDateOfBirthLabel;
+    private static javax.swing.JComboBox<String> dayComboBox;
+    private javax.swing.JButton loginButton;
+    private javax.swing.JLabel loginHereButton;
+    private javax.swing.JLabel loginLabel;
+    private javax.swing.JPanel loginLeftPanel;
+    private javax.swing.JLabel loginMsgLabel;
+    private javax.swing.JPanel loginPanel;
+    private javax.swing.JLabel loginPasswordLabel;
+    private javax.swing.JTextField loginPasswordTextField;
+    private javax.swing.JPanel loginRightPanel;
+    private javax.swing.JLabel loginUsernameLabel;
+    private javax.swing.JTextField loginUsernameTextField;
+    private static javax.swing.JComboBox<String> monthComboBox;
+    private javax.swing.JLabel newAccountLabel;
+    private javax.swing.JLabel registerBankAccountLabel;
+    private javax.swing.JTextField registerBankAccountTextField;
+    private javax.swing.JButton registerButton;
+    private javax.swing.JLabel registerFullNameLabel;
+    private javax.swing.JTextField registerFullNameTextField;
+    private javax.swing.JLabel registerHereButton;
+    private javax.swing.JPanel registerLeftPanel;
+    private javax.swing.JLabel registerMsgLabel;
+    private javax.swing.JPanel registerPanel;
+    private javax.swing.JLabel registerPasswordLabel;
+    private javax.swing.JTextField registerPasswordTextField;
+    private javax.swing.JPanel registerRightPanel;
+    private javax.swing.JLabel registerUsernameLabel;
+    private javax.swing.JTextField registerUsernameTextField;
+    private javax.swing.JComboBox<String> yearComboBox;
     // End of variables declaration//GEN-END:variables
+    CardLayout cardLayout = new CardLayout();
 }
