@@ -46,6 +46,7 @@ public class ShareversityGUI extends javax.swing.JFrame
         getContentPane().setLayout(cardLayout);
         getContentPane().add(loginPanel, "loginPanel");
         getContentPane().add(registerPanel, "registerPanel");
+        getContentPane().add(portfolioPanel, "portfolioPanel");
         
         cardLayout.show(this.getContentPane(), "loginPanel");
     }
@@ -91,6 +92,30 @@ public class ShareversityGUI extends javax.swing.JFrame
         yearComboBox = new javax.swing.JComboBox<>();
         monthComboBox = new javax.swing.JComboBox<>();
         RegisterDateOfBirthLabel = new javax.swing.JLabel();
+        portfolioPanel = new javax.swing.JPanel();
+        portfolioLeftPanel = new javax.swing.JPanel();
+        logo2 = new javax.swing.JLabel();
+        accountInformationButton = new javax.swing.JButton();
+        logoutButton = new javax.swing.JButton();
+        investButton = new javax.swing.JButton();
+        walletButton = new javax.swing.JButton();
+        portfolioButton = new javax.swing.JButton();
+        portfolioRightPanel = new javax.swing.JPanel();
+        portfolioLabel = new javax.swing.JLabel();
+        portfolioStatisticsLabel = new javax.swing.JLabel();
+        portfolioInvestmentsLabel = new javax.swing.JLabel();
+        portfolioInvestmentsInfoLabel = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jPanel1 = new javax.swing.JPanel();
+        portfolioStatsInfoLabel2 = new javax.swing.JLabel();
+        portfolioStatsInfoLabel3 = new javax.swing.JLabel();
+        portfolioStatsInfoLabel4 = new javax.swing.JLabel();
+        portfolioStatsInfoLabel5 = new javax.swing.JLabel();
+        portfolioStatsInfoLabel6 = new javax.swing.JLabel();
+        portfolioStatsInfoLabel7 = new javax.swing.JLabel();
+        portfolioStatsInfoLabel8 = new javax.swing.JLabel();
+        portfolioStatsInfoLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Shareversity");
@@ -199,7 +224,7 @@ public class ShareversityGUI extends javax.swing.JFrame
                                 .add(3, 3, 3)
                                 .add(registerHereButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                             .add(loginButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 339, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         loginRightPanelLayout.setVerticalGroup(
             loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -390,7 +415,7 @@ public class ShareversityGUI extends javax.swing.JFrame
         registerRightPanelLayout.setHorizontalGroup(
             registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(registerRightPanelLayout.createSequentialGroup()
-                .addContainerGap(78, Short.MAX_VALUE)
+                .addContainerGap(60, Short.MAX_VALUE)
                 .add(registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, registerRightPanelLayout.createSequentialGroup()
                         .add(registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -466,6 +491,250 @@ public class ShareversityGUI extends javax.swing.JFrame
 
         getContentPane().add(registerPanel, "card3");
 
+        portfolioPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        portfolioLeftPanel.setBackground(new java.awt.Color(253, 234, 239));
+        portfolioLeftPanel.setForeground(new java.awt.Color(253, 234, 239));
+        portfolioLeftPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        logo2.setIcon(resizeImage(logo2, "/resources/logo.png", 262, 169));
+        portfolioLeftPanel.add(logo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 280, 189));
+
+        accountInformationButton.setBackground(new java.awt.Color(203, 75, 93));
+        accountInformationButton.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        accountInformationButton.setForeground(new java.awt.Color(255, 255, 255));
+        accountInformationButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/accountInfoIcon.png"))); // NOI18N
+        accountInformationButton.setText("  Account Information");
+        accountInformationButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        accountInformationButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accountInformationButtonActionPerformed(evt);
+            }
+        });
+        portfolioLeftPanel.add(accountInformationButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 271, 45));
+
+        logoutButton.setBackground(new java.awt.Color(54, 54, 54));
+        logoutButton.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        logoutButton.setForeground(new java.awt.Color(255, 255, 255));
+        logoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/logoutIcon.png"))); // NOI18N
+        logoutButton.setText("     Log out");
+        logoutButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        logoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutButtonActionPerformed(evt);
+            }
+        });
+        portfolioLeftPanel.add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 640, 210, 45));
+
+        investButton.setBackground(new java.awt.Color(203, 75, 93));
+        investButton.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        investButton.setForeground(new java.awt.Color(255, 255, 255));
+        investButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/investIcon.png"))); // NOI18N
+        investButton.setText("     Invest");
+        investButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        investButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                investButtonActionPerformed(evt);
+            }
+        });
+        portfolioLeftPanel.add(investButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 271, 45));
+
+        walletButton.setBackground(new java.awt.Color(203, 75, 93));
+        walletButton.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        walletButton.setForeground(new java.awt.Color(255, 255, 255));
+        walletButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/walletIcon.png"))); // NOI18N
+        walletButton.setText("    Wallet");
+        walletButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        walletButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                walletButtonActionPerformed(evt);
+            }
+        });
+        portfolioLeftPanel.add(walletButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 271, 45));
+
+        portfolioButton.setBackground(new java.awt.Color(88, 88, 88));
+        portfolioButton.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        portfolioButton.setForeground(new java.awt.Color(255, 255, 255));
+        portfolioButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/portfolioIcon.png"))); // NOI18N
+        portfolioButton.setText("     Portfolio");
+        portfolioButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        portfolioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                portfolioButtonActionPerformed(evt);
+            }
+        });
+        portfolioLeftPanel.add(portfolioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 271, 45));
+
+        portfolioPanel.add(portfolioLeftPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 293, 764));
+
+        portfolioRightPanel.setBackground(new java.awt.Color(227, 97, 115));
+        portfolioRightPanel.setForeground(new java.awt.Color(227, 97, 115));
+
+        portfolioLabel.setFont(new java.awt.Font("Segoe UI Black", 0, 40)); // NOI18N
+        portfolioLabel.setForeground(new java.awt.Color(253, 234, 239));
+        portfolioLabel.setText("Portfolio");
+        portfolioLabel.setToolTipText("");
+        portfolioLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        portfolioStatisticsLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        portfolioStatisticsLabel.setForeground(new java.awt.Color(253, 234, 239));
+        portfolioStatisticsLabel.setText("Portfolio Statistics");
+        portfolioStatisticsLabel.setToolTipText("");
+
+        portfolioInvestmentsLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        portfolioInvestmentsLabel.setForeground(new java.awt.Color(253, 234, 239));
+        portfolioInvestmentsLabel.setText("Portfolio Investments");
+        portfolioInvestmentsLabel.setToolTipText("");
+
+        portfolioInvestmentsInfoLabel.setFont(new java.awt.Font("Segoe UI Semilight", 2, 18)); // NOI18N
+        portfolioInvestmentsInfoLabel.setForeground(new java.awt.Color(253, 234, 239));
+        portfolioInvestmentsInfoLabel.setText("<HTML><b>Click an investment to view more information and for the option sell shares");
+        portfolioInvestmentsInfoLabel.setToolTipText("");
+
+        jList1.setBackground(new java.awt.Color(255, 255, 255));
+        jList1.setFont(new java.awt.Font("Segoe UI Black", 0, 15)); // NOI18N
+        jList1.setForeground(new java.awt.Color(88, 88, 88));
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60", "Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60", "Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60", "Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60", "Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60", "Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60", "Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60", "Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60", "Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60", "Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60", "Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60", "Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60", "Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60", "Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        jList1.setSelectionBackground(new java.awt.Color(153, 107, 229));
+        jList1.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setViewportView(jList1);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        portfolioStatsInfoLabel2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        portfolioStatsInfoLabel2.setForeground(new java.awt.Color(88, 88, 88));
+        portfolioStatsInfoLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        portfolioStatsInfoLabel2.setText("$90.0");
+
+        portfolioStatsInfoLabel3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        portfolioStatsInfoLabel3.setForeground(new java.awt.Color(88, 88, 88));
+        portfolioStatsInfoLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        portfolioStatsInfoLabel3.setText("Total profit/loss:");
+
+        portfolioStatsInfoLabel4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        portfolioStatsInfoLabel4.setForeground(new java.awt.Color(88, 88, 88));
+        portfolioStatsInfoLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        portfolioStatsInfoLabel4.setText("Total amount invested:");
+
+        portfolioStatsInfoLabel5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        portfolioStatsInfoLabel5.setForeground(new java.awt.Color(88, 88, 88));
+        portfolioStatsInfoLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        portfolioStatsInfoLabel5.setText("$-1.40");
+
+        portfolioStatsInfoLabel6.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        portfolioStatsInfoLabel6.setForeground(new java.awt.Color(88, 88, 88));
+        portfolioStatsInfoLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        portfolioStatsInfoLabel6.setText("Total return on investment (ROI)");
+
+        portfolioStatsInfoLabel7.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        portfolioStatsInfoLabel7.setForeground(new java.awt.Color(88, 88, 88));
+        portfolioStatsInfoLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        portfolioStatsInfoLabel7.setText("-0.0155%");
+
+        portfolioStatsInfoLabel8.setFont(new java.awt.Font("Segoe UI Black", 1, 16)); // NOI18N
+        portfolioStatsInfoLabel8.setForeground(new java.awt.Color(88, 88, 88));
+        portfolioStatsInfoLabel8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        portfolioStatsInfoLabel8.setText("Total value:");
+
+        portfolioStatsInfoLabel9.setFont(new java.awt.Font("Segoe UI Black", 1, 16)); // NOI18N
+        portfolioStatsInfoLabel9.setForeground(new java.awt.Color(88, 88, 88));
+        portfolioStatsInfoLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        portfolioStatsInfoLabel9.setText("$88.60");
+
+        org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(jPanel1Layout.createSequentialGroup()
+                .add(25, 25, 25)
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .add(portfolioStatsInfoLabel8, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 264, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(portfolioStatsInfoLabel9, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 256, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                        .add(jPanel1Layout.createSequentialGroup()
+                            .add(portfolioStatsInfoLabel6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 264, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                            .add(portfolioStatsInfoLabel7, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 256, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .add(jPanel1Layout.createSequentialGroup()
+                            .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                                .add(portfolioStatsInfoLabel3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 264, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(portfolioStatsInfoLabel4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 264, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                            .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                .add(portfolioStatsInfoLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 256, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(portfolioStatsInfoLabel5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 256, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(jPanel1Layout.createSequentialGroup()
+                .add(31, 31, 31)
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(portfolioStatsInfoLabel2)
+                    .add(portfolioStatsInfoLabel4))
+                .add(30, 30, 30)
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(portfolioStatsInfoLabel3)
+                    .add(portfolioStatsInfoLabel5))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(portfolioStatsInfoLabel6)
+                    .add(portfolioStatsInfoLabel7))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(portfolioStatsInfoLabel8)
+                    .add(portfolioStatsInfoLabel9))
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+
+        org.jdesktop.layout.GroupLayout portfolioRightPanelLayout = new org.jdesktop.layout.GroupLayout(portfolioRightPanel);
+        portfolioRightPanel.setLayout(portfolioRightPanelLayout);
+        portfolioRightPanelLayout.setHorizontalGroup(
+            portfolioRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, portfolioRightPanelLayout.createSequentialGroup()
+                .addContainerGap(77, Short.MAX_VALUE)
+                .add(portfolioRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, portfolioRightPanelLayout.createSequentialGroup()
+                        .add(portfolioLabel)
+                        .add(268, 268, 268))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, portfolioRightPanelLayout.createSequentialGroup()
+                        .add(portfolioRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                            .add(portfolioStatisticsLabel)
+                            .add(portfolioInvestmentsLabel)
+                            .add(portfolioInvestmentsInfoLabel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE)
+                            .add(jScrollPane1)
+                            .add(jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .add(72, 72, 72))))
+        );
+        portfolioRightPanelLayout.setVerticalGroup(
+            portfolioRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(portfolioRightPanelLayout.createSequentialGroup()
+                .add(54, 54, 54)
+                .add(portfolioLabel)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(portfolioInvestmentsLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 26, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(portfolioInvestmentsInfoLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(18, 18, 18)
+                .add(portfolioStatisticsLabel)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(152, Short.MAX_VALUE))
+        );
+
+        portfolioPanel.add(portfolioRightPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 731, 764));
+
+        getContentPane().add(portfolioPanel, "card2");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -478,7 +747,8 @@ public class ShareversityGUI extends javax.swing.JFrame
     }//GEN-LAST:event_loginUsernameTextFieldActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        // TODO add your handling code here:
+        cardLayout.show(this.getContentPane(),"portfolioPanel");
+        System.out.println("Login button clicked");
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void registerHereButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerHereButtonMouseClicked
@@ -536,6 +806,27 @@ public class ShareversityGUI extends javax.swing.JFrame
         //System.out.println("days updated");
     }//GEN-LAST:event_monthComboBoxMouseClicked
 
+    private void accountInformationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountInformationButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_accountInformationButtonActionPerformed
+
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
+        cardLayout.show(this.getContentPane(),"loginPanel");
+        System.out.println("login Here button clicked");
+    }//GEN-LAST:event_logoutButtonActionPerformed
+
+    private void investButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_investButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_investButtonActionPerformed
+
+    private void walletButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_walletButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_walletButtonActionPerformed
+
+    private void portfolioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_portfolioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_portfolioButtonActionPerformed
+
     /*
         This method gets this year and gets the previous 100 years as a list of years as a DefaultComboBoxModel (for registering year of birth)
     */
@@ -580,6 +871,20 @@ public class ShareversityGUI extends javax.swing.JFrame
         dayComboBox.setModel(model); 
     }
     
+    /*
+        This method makes an inputted image resizable according to inputted label dimensions
+    */
+    private ImageIcon resizeImage(javax.swing.JLabel label, String imgPath, int w, int h)
+    {
+        javax.swing.ImageIcon img = new javax.swing.ImageIcon(getClass().getResource(imgPath));
+
+        Image resizableImg = img.getImage().getScaledInstance(w, h, Image.SCALE_SMOOTH); // make img resizable by getting scaled instance & setting to label dimensions
+        ImageIcon imageIcon = new ImageIcon(resizableImg); // create new ImageIcon from resizable img
+        
+        return imageIcon;
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -620,7 +925,12 @@ public class ShareversityGUI extends javax.swing.JFrame
     private javax.swing.JLabel Logo;
     private javax.swing.JLabel Logo1;
     private javax.swing.JLabel RegisterDateOfBirthLabel;
+    private javax.swing.JButton accountInformationButton;
     private static javax.swing.JComboBox<String> dayComboBox;
+    private javax.swing.JButton investButton;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton loginButton;
     private javax.swing.JLabel loginHereButton;
     private javax.swing.JLabel loginLabel;
@@ -632,8 +942,26 @@ public class ShareversityGUI extends javax.swing.JFrame
     private javax.swing.JPanel loginRightPanel;
     private javax.swing.JLabel loginUsernameLabel;
     private javax.swing.JTextField loginUsernameTextField;
+    private javax.swing.JLabel logo2;
+    private javax.swing.JButton logoutButton;
     private static javax.swing.JComboBox<String> monthComboBox;
     private javax.swing.JLabel newAccountLabel;
+    private javax.swing.JButton portfolioButton;
+    private javax.swing.JLabel portfolioInvestmentsInfoLabel;
+    private javax.swing.JLabel portfolioInvestmentsLabel;
+    private javax.swing.JLabel portfolioLabel;
+    private javax.swing.JPanel portfolioLeftPanel;
+    private javax.swing.JPanel portfolioPanel;
+    private javax.swing.JPanel portfolioRightPanel;
+    private javax.swing.JLabel portfolioStatisticsLabel;
+    private javax.swing.JLabel portfolioStatsInfoLabel2;
+    private javax.swing.JLabel portfolioStatsInfoLabel3;
+    private javax.swing.JLabel portfolioStatsInfoLabel4;
+    private javax.swing.JLabel portfolioStatsInfoLabel5;
+    private javax.swing.JLabel portfolioStatsInfoLabel6;
+    private javax.swing.JLabel portfolioStatsInfoLabel7;
+    private javax.swing.JLabel portfolioStatsInfoLabel8;
+    private javax.swing.JLabel portfolioStatsInfoLabel9;
     private javax.swing.JLabel registerBankAccountLabel;
     private javax.swing.JTextField registerBankAccountTextField;
     private javax.swing.JButton registerButton;
@@ -648,6 +976,7 @@ public class ShareversityGUI extends javax.swing.JFrame
     private javax.swing.JPanel registerRightPanel;
     private javax.swing.JLabel registerUsernameLabel;
     private javax.swing.JTextField registerUsernameTextField;
+    private javax.swing.JButton walletButton;
     private javax.swing.JComboBox<String> yearComboBox;
     // End of variables declaration//GEN-END:variables
     private CardLayout cardLayout;
