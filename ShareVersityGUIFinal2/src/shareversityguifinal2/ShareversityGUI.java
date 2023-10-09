@@ -9,7 +9,13 @@ import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
@@ -21,13 +27,14 @@ import javax.swing.JComboBox;
 
 public class ShareversityGUI extends javax.swing.JFrame 
 {
-    static final int WIDTH = 1024;
-    static final int HEIGHT = 764;
+    private static final int WIDTH = 1024;
+    private static final int HEIGHT = 764;
     
     /**
      * Creates new form ShareVersityGUI
      */
     public ShareversityGUI() {
+        this.cardLayout = new CardLayout();
         Dimension dimension = new Dimension(WIDTH, HEIGHT);
         
         this.setResizable(false);
@@ -66,7 +73,7 @@ public class ShareversityGUI extends javax.swing.JFrame
         registerMsgLabel = new javax.swing.JLabel();
         registerPanel = new javax.swing.JPanel();
         registerLeftPanel = new javax.swing.JPanel();
-        Logo2 = new javax.swing.JLabel();
+        Logo1 = new javax.swing.JLabel();
         registerRightPanel = new javax.swing.JPanel();
         newAccountLabel = new javax.swing.JLabel();
         registerButton = new javax.swing.JButton();
@@ -88,15 +95,16 @@ public class ShareversityGUI extends javax.swing.JFrame
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Shareversity");
         setBackground(new java.awt.Color(253, 234, 239));
+        getContentPane().setLayout(new java.awt.CardLayout());
 
-        loginPanel.setLayout(new java.awt.GridLayout());
+        loginPanel.setLayout(new java.awt.GridLayout(1, 0));
 
         loginLeftPanel.setBackground(new java.awt.Color(253, 234, 239));
         loginLeftPanel.setForeground(new java.awt.Color(253, 234, 239));
-        loginLeftPanel.setLayout(new java.awt.BorderLayout());
+        loginLeftPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/shareversityguifinal2/Group 1.png"))); // NOI18N
-        loginLeftPanel.add(Logo, java.awt.BorderLayout.CENTER);
+        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/logo.png"))); // NOI18N
+        loginLeftPanel.add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -40, 500, 764));
 
         loginPanel.add(loginLeftPanel);
 
@@ -174,7 +182,7 @@ public class ShareversityGUI extends javax.swing.JFrame
         loginRightPanelLayout.setHorizontalGroup(
             loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(loginRightPanelLayout.createSequentialGroup()
-                .add(64, 64, 64)
+                .add(61, 61, 61)
                 .add(loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(loginPasswordLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 97, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(loginPasswordTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 399, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -191,7 +199,7 @@ public class ShareversityGUI extends javax.swing.JFrame
                                 .add(3, 3, 3)
                                 .add(registerHereButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                             .add(loginButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 339, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
         loginRightPanelLayout.setVerticalGroup(
             loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -217,14 +225,16 @@ public class ShareversityGUI extends javax.swing.JFrame
 
         loginPanel.add(loginRightPanel);
 
-        registerPanel.setLayout(new java.awt.GridLayout());
+        getContentPane().add(loginPanel, "card2");
+
+        registerPanel.setLayout(new java.awt.GridLayout(1, 0));
 
         registerLeftPanel.setBackground(new java.awt.Color(253, 234, 239));
         registerLeftPanel.setForeground(new java.awt.Color(253, 234, 239));
-        registerLeftPanel.setLayout(new java.awt.BorderLayout());
+        registerLeftPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Logo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/shareversityguifinal2/Group 1.png"))); // NOI18N
-        registerLeftPanel.add(Logo2, java.awt.BorderLayout.CENTER);
+        Logo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/logo.png"))); // NOI18N
+        registerLeftPanel.add(Logo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -40, 500, 764));
 
         registerPanel.add(registerLeftPanel);
 
@@ -380,7 +390,7 @@ public class ShareversityGUI extends javax.swing.JFrame
         registerRightPanelLayout.setHorizontalGroup(
             registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(registerRightPanelLayout.createSequentialGroup()
-                .addContainerGap(62, Short.MAX_VALUE)
+                .addContainerGap(78, Short.MAX_VALUE)
                 .add(registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, registerRightPanelLayout.createSequentialGroup()
                         .add(registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -417,7 +427,7 @@ public class ShareversityGUI extends javax.swing.JFrame
         registerRightPanelLayout.setVerticalGroup(
             registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(registerRightPanelLayout.createSequentialGroup()
-                .addContainerGap(76, Short.MAX_VALUE)
+                .addContainerGap(89, Short.MAX_VALUE)
                 .add(newAccountLabel)
                 .add(5, 5, 5)
                 .add(registerUsernameLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 29, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -438,10 +448,11 @@ public class ShareversityGUI extends javax.swing.JFrame
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(RegisterDateOfBirthLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 29, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(dayComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(yearComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(monthComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .add(registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, monthComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                        .add(dayComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(yearComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                 .add(18, 18, 18)
                 .add(registerButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 56, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -453,20 +464,7 @@ public class ShareversityGUI extends javax.swing.JFrame
 
         registerPanel.add(registerRightPanel);
 
-        org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(layout.createSequentialGroup()
-                .add(loginPanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(0, 0, 0)
-                .add(registerPanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(loginPanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-            .add(registerPanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-        );
+        getContentPane().add(registerPanel, "card3");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -620,7 +618,7 @@ public class ShareversityGUI extends javax.swing.JFrame
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Logo;
-    private javax.swing.JLabel Logo2;
+    private javax.swing.JLabel Logo1;
     private javax.swing.JLabel RegisterDateOfBirthLabel;
     private static javax.swing.JComboBox<String> dayComboBox;
     private javax.swing.JButton loginButton;
@@ -652,5 +650,5 @@ public class ShareversityGUI extends javax.swing.JFrame
     private javax.swing.JTextField registerUsernameTextField;
     private javax.swing.JComboBox<String> yearComboBox;
     // End of variables declaration//GEN-END:variables
-    CardLayout cardLayout = new CardLayout();
+    private CardLayout cardLayout;
 }
