@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package shareversityguifinal2;
 
 import java.awt.CardLayout;
@@ -34,7 +30,10 @@ public class ShareversityGUI extends javax.swing.JFrame
      * Creates new form ShareVersityGUI
      */
     public ShareversityGUI() {
-        this.cardLayout = new CardLayout();
+        this.mainCardLayout = new CardLayout();
+        this.loginRegisterCardLayout = new CardLayout();
+        this.menuCardLayout = new CardLayout();
+        
         Dimension dimension = new Dimension(WIDTH, HEIGHT);
         
         this.setResizable(false);
@@ -43,13 +42,19 @@ public class ShareversityGUI extends javax.swing.JFrame
         initComponents();
         updateDayComboBox();
         
-        getContentPane().setLayout(cardLayout);
-        getContentPane().add(loginPanel, "loginPanel");
-        getContentPane().add(registerPanel, "registerPanel");
-        getContentPane().add(portfolioPanel, "portfolioPanel");
-        getContentPane().add(investmentInfoPanel, "investmentInfo");
+        getContentPane().setLayout(mainCardLayout);
+        getContentPane().add(loginRegisterPanel, "loginRegisterPanel");
+        getContentPane().add(menuPanel, "menuPanel");
         
-        cardLayout.show(this.getContentPane(), "loginPanel");
+        loginRegisterRightPanels.setLayout(loginRegisterCardLayout);
+        loginRegisterRightPanels.add(loginRightPanel, "login");
+        loginRegisterRightPanels.add(registerRightPanel, "register");
+        
+        menuRightPanels.setLayout(menuCardLayout);
+        menuRightPanels.add(portfolioRightPanel, "portfolio");
+        menuRightPanels.add(investmentInfoRightPanel, "portfolioInvestmentInfo");
+        
+        mainCardLayout.show(this.getContentPane(), "loginRegisterPanel");
     }
 
     /**
@@ -61,21 +66,19 @@ public class ShareversityGUI extends javax.swing.JFrame
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        loginPanel = new javax.swing.JPanel();
-        loginLeftPanel = new javax.swing.JPanel();
+        loginRegisterPanel = new javax.swing.JPanel();
+        loginRegisterLeftPanel = new javax.swing.JPanel();
         Logo = new javax.swing.JLabel();
+        loginRegisterRightPanels = new javax.swing.JPanel();
         loginRightPanel = new javax.swing.JPanel();
         loginLabel = new javax.swing.JLabel();
         loginPasswordLabel = new javax.swing.JLabel();
-        loginPasswordTextField = new javax.swing.JTextField();
         loginUsernameLabel = new javax.swing.JLabel();
         loginUsernameTextField = new javax.swing.JTextField();
         loginButton = new javax.swing.JButton();
         registerHereButton = new javax.swing.JLabel();
         registerMsgLabel = new javax.swing.JLabel();
-        registerPanel = new javax.swing.JPanel();
-        registerLeftPanel = new javax.swing.JPanel();
-        Logo1 = new javax.swing.JLabel();
+        loginPasswordTextField = new javax.swing.JPasswordField();
         registerRightPanel = new javax.swing.JPanel();
         newAccountLabel = new javax.swing.JLabel();
         registerButton = new javax.swing.JButton();
@@ -93,14 +96,16 @@ public class ShareversityGUI extends javax.swing.JFrame
         yearComboBox = new javax.swing.JComboBox<>();
         monthComboBox = new javax.swing.JComboBox<>();
         RegisterDateOfBirthLabel = new javax.swing.JLabel();
-        portfolioPanel = new javax.swing.JPanel();
-        portfolioLeftPanel = new javax.swing.JPanel();
+        menuPanel = new javax.swing.JPanel();
+        jSplitPane1 = new javax.swing.JSplitPane();
+        menuLeftPanel = new javax.swing.JPanel();
         logo2 = new javax.swing.JLabel();
         accountInformationButton = new javax.swing.JButton();
         logoutButton = new javax.swing.JButton();
         walletButton = new javax.swing.JButton();
         portfolioButton = new javax.swing.JButton();
         investButton2 = new javax.swing.JButton();
+        menuRightPanels = new javax.swing.JPanel();
         portfolioRightPanel = new javax.swing.JPanel();
         portfolioLabel = new javax.swing.JLabel();
         portfolioStatisticsLabel = new javax.swing.JLabel();
@@ -117,14 +122,6 @@ public class ShareversityGUI extends javax.swing.JFrame
         portfolioStatsInfoLabel7 = new javax.swing.JLabel();
         portfolioStatsInfoLabel8 = new javax.swing.JLabel();
         portfolioStatsInfoLabel9 = new javax.swing.JLabel();
-        investmentInfoPanel = new javax.swing.JPanel();
-        investmentInfoLeftPanel = new javax.swing.JPanel();
-        logo3 = new javax.swing.JLabel();
-        accountInformationButton1 = new javax.swing.JButton();
-        logoutButton1 = new javax.swing.JButton();
-        investButton1 = new javax.swing.JButton();
-        walletButton1 = new javax.swing.JButton();
-        portfolioButton1 = new javax.swing.JButton();
         investmentInfoRightPanel = new javax.swing.JPanel();
         portfolioLabel1 = new javax.swing.JLabel();
         portfolioStatisticsLabel1 = new javax.swing.JLabel();
@@ -145,24 +142,26 @@ public class ShareversityGUI extends javax.swing.JFrame
         portfolioStatsInfoLabel26 = new javax.swing.JLabel();
         portfolioStatsInfoLabel27 = new javax.swing.JLabel();
         portfolioStatsPanel2 = new javax.swing.JPanel();
-        investButton = new javax.swing.JButton();
-        investButton3 = new javax.swing.JButton();
+        investmentInfoBackButton = new javax.swing.JButton();
+        investmentInfoSellSharesButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Shareversity");
         setBackground(new java.awt.Color(253, 234, 239));
         getContentPane().setLayout(new java.awt.CardLayout());
 
-        loginPanel.setLayout(new java.awt.GridLayout(1, 0));
+        loginRegisterPanel.setLayout(new java.awt.GridLayout(1, 0));
 
-        loginLeftPanel.setBackground(new java.awt.Color(253, 234, 239));
-        loginLeftPanel.setForeground(new java.awt.Color(253, 234, 239));
-        loginLeftPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        loginRegisterLeftPanel.setBackground(new java.awt.Color(253, 234, 239));
+        loginRegisterLeftPanel.setForeground(new java.awt.Color(253, 234, 239));
+        loginRegisterLeftPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/logo.png"))); // NOI18N
-        loginLeftPanel.add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -40, 500, 764));
+        loginRegisterLeftPanel.add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -40, 500, 764));
 
-        loginPanel.add(loginLeftPanel);
+        loginRegisterPanel.add(loginRegisterLeftPanel);
+
+        loginRegisterRightPanels.setLayout(new java.awt.CardLayout());
 
         loginRightPanel.setBackground(new java.awt.Color(227, 97, 115));
         loginRightPanel.setForeground(new java.awt.Color(227, 97, 115));
@@ -178,18 +177,6 @@ public class ShareversityGUI extends javax.swing.JFrame
         loginPasswordLabel.setText("Password");
         loginPasswordLabel.setToolTipText("");
 
-        loginPasswordTextField.setBackground(new java.awt.Color(255, 255, 255));
-        loginPasswordTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        loginPasswordTextField.setBorder(null);
-        loginPasswordTextField.setOpaque(true);
-        loginPasswordTextField.setScrollOffset(5);
-        loginPasswordTextField.setSelectionColor(new java.awt.Color(100, 72, 145));
-        loginPasswordTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginPasswordTextFieldActionPerformed(evt);
-            }
-        });
-
         loginUsernameLabel.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         loginUsernameLabel.setForeground(new java.awt.Color(253, 234, 239));
         loginUsernameLabel.setText("Username");
@@ -197,7 +184,7 @@ public class ShareversityGUI extends javax.swing.JFrame
 
         loginUsernameTextField.setBackground(new java.awt.Color(255, 255, 255));
         loginUsernameTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        loginUsernameTextField.setBorder(null);
+        loginUsernameTextField.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         loginUsernameTextField.setOpaque(true);
         loginUsernameTextField.setScrollOffset(5);
         loginUsernameTextField.setSelectionColor(new java.awt.Color(100, 72, 145));
@@ -226,6 +213,9 @@ public class ShareversityGUI extends javax.swing.JFrame
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 registerHereButtonMouseClicked(evt);
             }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                registerHereButtonMouseReleased(evt);
+            }
         });
 
         registerMsgLabel.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -233,17 +223,28 @@ public class ShareversityGUI extends javax.swing.JFrame
         registerMsgLabel.setText("Don't have an account? ");
         registerMsgLabel.setToolTipText("");
 
+        loginPasswordTextField.setBackground(new java.awt.Color(255, 255, 255));
+        loginPasswordTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        loginPasswordTextField.setForeground(new java.awt.Color(0, 0, 0));
+        loginPasswordTextField.setBorder(javax.swing.BorderFactory.createEmptyBorder(8, 8, 8, 8));
+        loginPasswordTextField.setSelectedTextColor(new java.awt.Color(255, 255, 255));
+        loginPasswordTextField.setSelectionColor(new java.awt.Color(100, 72, 145));
+        loginPasswordTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginPasswordTextFieldActionPerformed(evt);
+            }
+        });
+
         org.jdesktop.layout.GroupLayout loginRightPanelLayout = new org.jdesktop.layout.GroupLayout(loginRightPanel);
         loginRightPanel.setLayout(loginRightPanelLayout);
         loginRightPanelLayout.setHorizontalGroup(
             loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(loginRightPanelLayout.createSequentialGroup()
                 .add(61, 61, 61)
-                .add(loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                     .add(loginPasswordLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 97, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(loginPasswordTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 399, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(loginUsernameLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 97, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(loginUsernameTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 394, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(loginUsernameTextField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
                     .add(loginRightPanelLayout.createSequentialGroup()
                         .add(141, 141, 141)
                         .add(loginLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 122, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
@@ -254,8 +255,9 @@ public class ShareversityGUI extends javax.swing.JFrame
                                 .add(registerMsgLabel)
                                 .add(3, 3, 3)
                                 .add(registerHereButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                            .add(loginButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 339, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(50, Short.MAX_VALUE))
+                            .add(loginButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 339, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, loginPasswordTextField))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         loginRightPanelLayout.setVerticalGroup(
             loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -270,29 +272,16 @@ public class ShareversityGUI extends javax.swing.JFrame
                 .add(loginPasswordLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 56, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(loginPasswordTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 45, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(56, 56, 56)
+                .add(68, 68, 68)
                 .add(loginButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 56, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(registerHereButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 56, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(registerMsgLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 56, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addContainerGap(821, Short.MAX_VALUE))
         );
 
-        loginPanel.add(loginRightPanel);
-
-        getContentPane().add(loginPanel, "card2");
-
-        registerPanel.setLayout(new java.awt.GridLayout(1, 0));
-
-        registerLeftPanel.setBackground(new java.awt.Color(253, 234, 239));
-        registerLeftPanel.setForeground(new java.awt.Color(253, 234, 239));
-        registerLeftPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Logo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/logo.png"))); // NOI18N
-        registerLeftPanel.add(Logo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, -40, 500, 764));
-
-        registerPanel.add(registerLeftPanel);
+        loginRegisterRightPanels.add(loginRightPanel, "card2");
 
         registerRightPanel.setBackground(new java.awt.Color(227, 97, 115));
         registerRightPanel.setForeground(new java.awt.Color(227, 97, 115));
@@ -321,6 +310,9 @@ public class ShareversityGUI extends javax.swing.JFrame
         loginHereButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 loginHereButtonMouseClicked(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                loginHereButtonMouseReleased(evt);
             }
         });
 
@@ -446,7 +438,7 @@ public class ShareversityGUI extends javax.swing.JFrame
         registerRightPanelLayout.setHorizontalGroup(
             registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(registerRightPanelLayout.createSequentialGroup()
-                .addContainerGap(60, Short.MAX_VALUE)
+                .addContainerGap(70, Short.MAX_VALUE)
                 .add(registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, registerRightPanelLayout.createSequentialGroup()
                         .add(registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -483,7 +475,7 @@ public class ShareversityGUI extends javax.swing.JFrame
         registerRightPanelLayout.setVerticalGroup(
             registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(registerRightPanelLayout.createSequentialGroup()
-                .addContainerGap(89, Short.MAX_VALUE)
+                .addContainerGap(797, Short.MAX_VALUE)
                 .add(newAccountLabel)
                 .add(5, 5, 5)
                 .add(registerUsernameLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 29, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
@@ -518,18 +510,22 @@ public class ShareversityGUI extends javax.swing.JFrame
                 .add(49, 49, 49))
         );
 
-        registerPanel.add(registerRightPanel);
+        loginRegisterRightPanels.add(registerRightPanel, "card3");
 
-        getContentPane().add(registerPanel, "card3");
+        loginRegisterPanel.add(loginRegisterRightPanels);
 
-        portfolioPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(loginRegisterPanel, "card2");
 
-        portfolioLeftPanel.setBackground(new java.awt.Color(253, 234, 239));
-        portfolioLeftPanel.setForeground(new java.awt.Color(253, 234, 239));
-        portfolioLeftPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        menuPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jSplitPane1.setDividerSize(0);
+
+        menuLeftPanel.setBackground(new java.awt.Color(253, 234, 239));
+        menuLeftPanel.setForeground(new java.awt.Color(253, 234, 239));
+        menuLeftPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logo2.setIcon(resizeImage(logo2, "/resources/logo.png", 262, 169));
-        portfolioLeftPanel.add(logo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 280, 189));
+        menuLeftPanel.add(logo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 280, 189));
 
         accountInformationButton.setBackground(new java.awt.Color(203, 75, 93));
         accountInformationButton.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
@@ -542,7 +538,7 @@ public class ShareversityGUI extends javax.swing.JFrame
                 accountInformationButtonActionPerformed(evt);
             }
         });
-        portfolioLeftPanel.add(accountInformationButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 271, 45));
+        menuLeftPanel.add(accountInformationButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 271, 45));
 
         logoutButton.setBackground(new java.awt.Color(54, 54, 54));
         logoutButton.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
@@ -555,7 +551,7 @@ public class ShareversityGUI extends javax.swing.JFrame
                 logoutButtonActionPerformed(evt);
             }
         });
-        portfolioLeftPanel.add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 640, 210, 45));
+        menuLeftPanel.add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 640, 210, 45));
 
         walletButton.setBackground(new java.awt.Color(203, 75, 93));
         walletButton.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
@@ -568,7 +564,7 @@ public class ShareversityGUI extends javax.swing.JFrame
                 walletButtonActionPerformed(evt);
             }
         });
-        portfolioLeftPanel.add(walletButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 271, 45));
+        menuLeftPanel.add(walletButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 271, 45));
 
         portfolioButton.setBackground(new java.awt.Color(88, 88, 88));
         portfolioButton.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
@@ -581,7 +577,7 @@ public class ShareversityGUI extends javax.swing.JFrame
                 portfolioButtonActionPerformed(evt);
             }
         });
-        portfolioLeftPanel.add(portfolioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 271, 45));
+        menuLeftPanel.add(portfolioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 271, 45));
 
         investButton2.setBackground(new java.awt.Color(203, 75, 93));
         investButton2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
@@ -594,9 +590,11 @@ public class ShareversityGUI extends javax.swing.JFrame
                 investButton2ActionPerformed(evt);
             }
         });
-        portfolioLeftPanel.add(investButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 271, 45));
+        menuLeftPanel.add(investButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 271, 45));
 
-        portfolioPanel.add(portfolioLeftPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 293, 764));
+        jSplitPane1.setLeftComponent(menuLeftPanel);
+
+        menuRightPanels.setLayout(new java.awt.CardLayout());
 
         portfolioRightPanel.setBackground(new java.awt.Color(227, 97, 115));
         portfolioRightPanel.setForeground(new java.awt.Color(227, 97, 115));
@@ -735,19 +733,19 @@ public class ShareversityGUI extends javax.swing.JFrame
         portfolioRightPanelLayout.setHorizontalGroup(
             portfolioRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(org.jdesktop.layout.GroupLayout.TRAILING, portfolioRightPanelLayout.createSequentialGroup()
-                .addContainerGap(77, Short.MAX_VALUE)
+                .add(74, 74, 74)
                 .add(portfolioRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, portfolioRightPanelLayout.createSequentialGroup()
-                        .add(portfolioLabel)
-                        .add(268, 268, 268))
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, portfolioRightPanelLayout.createSequentialGroup()
-                        .add(portfolioRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                            .add(portfolioStatisticsLabel)
-                            .add(portfolioInvestmentsLabel)
-                            .add(portfolioInvestmentsInfoLabel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE)
-                            .add(portfolioInvestmentsScrollPane)
-                            .add(portfolioStatsPanel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .add(72, 72, 72))))
+                    .add(portfolioInvestmentsLabel)
+                    .add(portfolioStatisticsLabel)
+                    .add(portfolioRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                        .add(portfolioInvestmentsInfoLabel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
+                        .add(portfolioInvestmentsScrollPane)
+                        .add(portfolioStatsPanel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .add(72, 72, 72))
+            .add(portfolioRightPanelLayout.createSequentialGroup()
+                .add(268, 268, 268)
+                .add(portfolioLabel)
+                .addContainerGap())
         );
         portfolioRightPanelLayout.setVerticalGroup(
             portfolioRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -764,88 +762,10 @@ public class ShareversityGUI extends javax.swing.JFrame
                 .add(portfolioStatisticsLabel)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(portfolioStatsPanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(152, Short.MAX_VALUE))
+                .addContainerGap(868, Short.MAX_VALUE))
         );
 
-        portfolioPanel.add(portfolioRightPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 731, 764));
-
-        getContentPane().add(portfolioPanel, "card2");
-
-        investmentInfoPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        investmentInfoLeftPanel.setBackground(new java.awt.Color(253, 234, 239));
-        investmentInfoLeftPanel.setForeground(new java.awt.Color(253, 234, 239));
-        investmentInfoLeftPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        logo3.setIcon(resizeImage(logo2, "/resources/logo.png", 262, 169));
-        investmentInfoLeftPanel.add(logo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 280, 189));
-
-        accountInformationButton1.setBackground(new java.awt.Color(203, 75, 93));
-        accountInformationButton1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        accountInformationButton1.setForeground(new java.awt.Color(255, 255, 255));
-        accountInformationButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/accountInfoIcon.png"))); // NOI18N
-        accountInformationButton1.setText("  Account Information");
-        accountInformationButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        accountInformationButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                accountInformationButton1ActionPerformed(evt);
-            }
-        });
-        investmentInfoLeftPanel.add(accountInformationButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 271, 45));
-
-        logoutButton1.setBackground(new java.awt.Color(54, 54, 54));
-        logoutButton1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        logoutButton1.setForeground(new java.awt.Color(255, 255, 255));
-        logoutButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/logoutIcon.png"))); // NOI18N
-        logoutButton1.setText("     Log out");
-        logoutButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        logoutButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoutButton1ActionPerformed(evt);
-            }
-        });
-        investmentInfoLeftPanel.add(logoutButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 640, 210, 45));
-
-        investButton1.setBackground(new java.awt.Color(203, 75, 93));
-        investButton1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        investButton1.setForeground(new java.awt.Color(255, 255, 255));
-        investButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/investIcon.png"))); // NOI18N
-        investButton1.setText("     Invest");
-        investButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        investButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                investButton1ActionPerformed(evt);
-            }
-        });
-        investmentInfoLeftPanel.add(investButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 271, 45));
-
-        walletButton1.setBackground(new java.awt.Color(203, 75, 93));
-        walletButton1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        walletButton1.setForeground(new java.awt.Color(255, 255, 255));
-        walletButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/walletIcon.png"))); // NOI18N
-        walletButton1.setText("    Wallet");
-        walletButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        walletButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                walletButton1ActionPerformed(evt);
-            }
-        });
-        investmentInfoLeftPanel.add(walletButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 271, 45));
-
-        portfolioButton1.setBackground(new java.awt.Color(88, 88, 88));
-        portfolioButton1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        portfolioButton1.setForeground(new java.awt.Color(255, 255, 255));
-        portfolioButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/portfolioIcon.png"))); // NOI18N
-        portfolioButton1.setText("     Portfolio");
-        portfolioButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        portfolioButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                portfolioButton1ActionPerformed(evt);
-            }
-        });
-        investmentInfoLeftPanel.add(portfolioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 271, 45));
-
-        investmentInfoPanel.add(investmentInfoLeftPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 293, 764));
+        menuRightPanels.add(portfolioRightPanel, "card2");
 
         investmentInfoRightPanel.setBackground(new java.awt.Color(227, 97, 115));
         investmentInfoRightPanel.setForeground(new java.awt.Color(227, 97, 115));
@@ -966,23 +886,23 @@ public class ShareversityGUI extends javax.swing.JFrame
             .add(0, 192, Short.MAX_VALUE)
         );
 
-        investButton.setBackground(new java.awt.Color(54, 54, 54));
-        investButton.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        investButton.setForeground(new java.awt.Color(255, 255, 255));
-        investButton.setText("Back");
-        investButton.addActionListener(new java.awt.event.ActionListener() {
+        investmentInfoBackButton.setBackground(new java.awt.Color(54, 54, 54));
+        investmentInfoBackButton.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        investmentInfoBackButton.setForeground(new java.awt.Color(255, 255, 255));
+        investmentInfoBackButton.setText("Back");
+        investmentInfoBackButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                investButtonActionPerformed(evt);
+                investmentInfoBackButtonActionPerformed(evt);
             }
         });
 
-        investButton3.setBackground(new java.awt.Color(100, 72, 145));
-        investButton3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
-        investButton3.setForeground(new java.awt.Color(255, 255, 255));
-        investButton3.setText("Sell Shares");
-        investButton3.addActionListener(new java.awt.event.ActionListener() {
+        investmentInfoSellSharesButton.setBackground(new java.awt.Color(100, 72, 145));
+        investmentInfoSellSharesButton.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        investmentInfoSellSharesButton.setForeground(new java.awt.Color(255, 255, 255));
+        investmentInfoSellSharesButton.setText("Sell Shares");
+        investmentInfoSellSharesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                investButton3ActionPerformed(evt);
+                investmentInfoSellSharesButtonActionPerformed(evt);
             }
         });
 
@@ -991,24 +911,24 @@ public class ShareversityGUI extends javax.swing.JFrame
         investmentInfoRightPanelLayout.setHorizontalGroup(
             investmentInfoRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(investmentInfoRightPanelLayout.createSequentialGroup()
-                .addContainerGap(90, Short.MAX_VALUE)
                 .add(investmentInfoRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, investmentInfoRightPanelLayout.createSequentialGroup()
+                    .add(investmentInfoRightPanelLayout.createSequentialGroup()
+                        .add(75, 75, 75)
                         .add(investmentInfoRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(investmentInfoRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                                 .add(portfolioInvestmentsLabel1)
                                 .add(portfolioStatsPanel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .add(investmentInfoRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                                 .add(investmentInfoRightPanelLayout.createSequentialGroup()
-                                    .add(investButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 235, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(investmentInfoBackButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 235, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .add(investButton3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 235, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                    .add(investmentInfoSellSharesButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 235, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                                 .add(portfolioStatisticsLabel1)
-                                .add(portfolioStatsPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 569, Short.MAX_VALUE)))
-                        .add(72, 72, 72))
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, investmentInfoRightPanelLayout.createSequentialGroup()
-                        .add(portfolioLabel1)
-                        .add(100, 100, 100))))
+                                .add(portfolioStatsPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 569, Short.MAX_VALUE))))
+                    .add(investmentInfoRightPanelLayout.createSequentialGroup()
+                        .add(107, 107, 107)
+                        .add(portfolioLabel1)))
+                .addContainerGap())
         );
         investmentInfoRightPanelLayout.setVerticalGroup(
             investmentInfoRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -1023,36 +943,34 @@ public class ShareversityGUI extends javax.swing.JFrame
                 .add(portfolioStatisticsLabel1)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(portfolioStatsPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 188, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(51, 51, 51)
+                .add(53, 53, 53)
                 .add(investmentInfoRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(investButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 45, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(investButton3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 45, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(83, Short.MAX_VALUE))
+                    .add(investmentInfoBackButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 45, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(investmentInfoSellSharesButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 45, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(797, Short.MAX_VALUE))
         );
 
-        investmentInfoPanel.add(investmentInfoRightPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 731, 764));
+        menuRightPanels.add(investmentInfoRightPanel, "card3");
 
-        getContentPane().add(investmentInfoPanel, "card2");
+        jSplitPane1.setRightComponent(menuRightPanels);
+
+        menuPanel.add(jSplitPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, -8, 1040, 1480));
+
+        getContentPane().add(menuPanel, "card2");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void loginPasswordTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginPasswordTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_loginPasswordTextFieldActionPerformed
 
     private void loginUsernameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginUsernameTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_loginUsernameTextFieldActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        cardLayout.show(this.getContentPane(),"portfolioPanel");
+        mainCardLayout.show(this.getContentPane(),"menuPanel");
         System.out.println("Login button clicked");
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void registerHereButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerHereButtonMouseClicked
-        cardLayout.show(this.getContentPane(),"registerPanel");
-        System.out.println("register Here button clicked");
     }//GEN-LAST:event_registerHereButtonMouseClicked
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
@@ -1060,9 +978,7 @@ public class ShareversityGUI extends javax.swing.JFrame
     }//GEN-LAST:event_registerButtonActionPerformed
 
     private void loginHereButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginHereButtonMouseClicked
-        
-        cardLayout.show(this.getContentPane(),"loginPanel");
-        System.out.println("login Here button clicked");
+
     }//GEN-LAST:event_loginHereButtonMouseClicked
 
     private void registerUsernameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerUsernameTextFieldActionPerformed
@@ -1088,7 +1004,6 @@ public class ShareversityGUI extends javax.swing.JFrame
     private void yearComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_yearComboBoxActionPerformed
-
     
     private void monthComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthComboBoxActionPerformed
 
@@ -1110,13 +1025,14 @@ public class ShareversityGUI extends javax.swing.JFrame
     }//GEN-LAST:event_accountInformationButtonActionPerformed
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
-        cardLayout.show(this.getContentPane(),"loginPanel");
-        System.out.println("login Here button clicked");
+        mainCardLayout.show(this.getContentPane(),"loginRegisterPanel");
+        System.out.println("logout button clicked");
     }//GEN-LAST:event_logoutButtonActionPerformed
 
-    private void investButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_investButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_investButtonActionPerformed
+    private void investmentInfoBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_investmentInfoBackButtonActionPerformed
+        menuCardLayout.show(menuRightPanels,"portfolio");
+        System.out.println("Investment back button clicked");
+    }//GEN-LAST:event_investmentInfoBackButtonActionPerformed
 
     private void walletButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_walletButtonActionPerformed
         // TODO add your handling code here:
@@ -1127,37 +1043,31 @@ public class ShareversityGUI extends javax.swing.JFrame
     }//GEN-LAST:event_portfolioButtonActionPerformed
 
     private void portfolioInvestmentsListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_portfolioInvestmentsListMouseClicked
-        cardLayout.show(this.getContentPane(),"investmentInfo");
+        menuCardLayout.show(menuRightPanels,"portfolioInvestmentInfo");
         System.out.println("Investment list item clicked");
     }//GEN-LAST:event_portfolioInvestmentsListMouseClicked
-
-    private void accountInformationButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountInformationButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_accountInformationButton1ActionPerformed
-
-    private void logoutButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_logoutButton1ActionPerformed
-
-    private void investButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_investButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_investButton1ActionPerformed
-
-    private void walletButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_walletButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_walletButton1ActionPerformed
-
-    private void portfolioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_portfolioButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_portfolioButton1ActionPerformed
 
     private void investButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_investButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_investButton2ActionPerformed
 
-    private void investButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_investButton3ActionPerformed
+    private void investmentInfoSellSharesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_investmentInfoSellSharesButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_investButton3ActionPerformed
+    }//GEN-LAST:event_investmentInfoSellSharesButtonActionPerformed
+
+    private void loginPasswordTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginPasswordTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loginPasswordTextFieldActionPerformed
+
+    private void registerHereButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerHereButtonMouseReleased
+        loginRegisterCardLayout.show(loginRegisterRightPanels,"register");
+        System.out.println("register Here button clicked");
+    }//GEN-LAST:event_registerHereButtonMouseReleased
+
+    private void loginHereButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginHereButtonMouseReleased
+        loginRegisterCardLayout.show(loginRegisterRightPanels,"login");
+        System.out.println("login Here button clicked");
+    }//GEN-LAST:event_loginHereButtonMouseReleased
 
     /*
         This method gets this year and gets the previous 100 years as a list of years as a DefaultComboBoxModel (for registering year of birth)
@@ -1255,39 +1165,36 @@ public class ShareversityGUI extends javax.swing.JFrame
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Logo;
-    private javax.swing.JLabel Logo1;
     private javax.swing.JLabel RegisterDateOfBirthLabel;
     private javax.swing.JButton accountInformationButton;
-    private javax.swing.JButton accountInformationButton1;
     private javax.swing.JLabel currentCPSLabel;
     private static javax.swing.JComboBox<String> dayComboBox;
-    private javax.swing.JButton investButton;
-    private javax.swing.JButton investButton1;
     private javax.swing.JButton investButton2;
-    private javax.swing.JButton investButton3;
-    private javax.swing.JPanel investmentInfoLeftPanel;
-    private javax.swing.JPanel investmentInfoPanel;
+    private javax.swing.JButton investmentInfoBackButton;
     private javax.swing.JPanel investmentInfoRightPanel;
+    private javax.swing.JButton investmentInfoSellSharesButton;
+    private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JButton loginButton;
     private javax.swing.JLabel loginHereButton;
     private javax.swing.JLabel loginLabel;
-    private javax.swing.JPanel loginLeftPanel;
     private javax.swing.JLabel loginMsgLabel;
-    private javax.swing.JPanel loginPanel;
     private javax.swing.JLabel loginPasswordLabel;
-    private javax.swing.JTextField loginPasswordTextField;
+    private javax.swing.JPasswordField loginPasswordTextField;
+    private javax.swing.JPanel loginRegisterLeftPanel;
+    private javax.swing.JPanel loginRegisterPanel;
+    private javax.swing.JPanel loginRegisterRightPanels;
     private javax.swing.JPanel loginRightPanel;
     private javax.swing.JLabel loginUsernameLabel;
     private javax.swing.JTextField loginUsernameTextField;
     private javax.swing.JLabel logo2;
-    private javax.swing.JLabel logo3;
     private javax.swing.JButton logoutButton;
-    private javax.swing.JButton logoutButton1;
+    private javax.swing.JPanel menuLeftPanel;
+    private javax.swing.JPanel menuPanel;
+    private javax.swing.JPanel menuRightPanels;
     private static javax.swing.JComboBox<String> monthComboBox;
     private javax.swing.JLabel newAccountLabel;
     private javax.swing.JLabel numberOfSharesLabel;
     private javax.swing.JButton portfolioButton;
-    private javax.swing.JButton portfolioButton1;
     private javax.swing.JLabel portfolioInvestmentsInfoLabel;
     private javax.swing.JLabel portfolioInvestmentsLabel;
     private javax.swing.JLabel portfolioInvestmentsLabel1;
@@ -1295,8 +1202,6 @@ public class ShareversityGUI extends javax.swing.JFrame
     private javax.swing.JScrollPane portfolioInvestmentsScrollPane;
     private javax.swing.JLabel portfolioLabel;
     private javax.swing.JLabel portfolioLabel1;
-    private javax.swing.JPanel portfolioLeftPanel;
-    private javax.swing.JPanel portfolioPanel;
     private javax.swing.JPanel portfolioRightPanel;
     private javax.swing.JLabel portfolioStatisticsLabel;
     private javax.swing.JLabel portfolioStatisticsLabel1;
@@ -1329,17 +1234,16 @@ public class ShareversityGUI extends javax.swing.JFrame
     private javax.swing.JLabel registerFullNameLabel;
     private javax.swing.JTextField registerFullNameTextField;
     private javax.swing.JLabel registerHereButton;
-    private javax.swing.JPanel registerLeftPanel;
     private javax.swing.JLabel registerMsgLabel;
-    private javax.swing.JPanel registerPanel;
     private javax.swing.JLabel registerPasswordLabel;
     private javax.swing.JTextField registerPasswordTextField;
     private javax.swing.JPanel registerRightPanel;
     private javax.swing.JLabel registerUsernameLabel;
     private javax.swing.JTextField registerUsernameTextField;
     private javax.swing.JButton walletButton;
-    private javax.swing.JButton walletButton1;
     private javax.swing.JComboBox<String> yearComboBox;
     // End of variables declaration//GEN-END:variables
-    private CardLayout cardLayout;
+    private CardLayout mainCardLayout;
+    private CardLayout loginRegisterCardLayout;
+    private CardLayout menuCardLayout;
 }
