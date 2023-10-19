@@ -55,6 +55,8 @@ public class ShareversityGUI extends javax.swing.JFrame
         menuRightPanels.add(portfolioRightPanel, "portfolio");
         menuRightPanels.add(portfolioInvestInfoRightPanel, "portfolioInvestInfo");
         menuRightPanels.add(investRightPanel, "invest");
+        menuRightPanels.add(investBuySharesRightPanel, "buyShares");
+        menuRightPanels.add(investBuySharesConfirmationRightPanel, "buySharesConfirmation");
         menuRightPanels.add(investInfoRightPanel, "investInfo");
         menuRightPanels.add(walletRightPanel, "wallet");
         menuRightPanels.add(accountInfoRightPanel, "accountInfo");
@@ -78,6 +80,7 @@ public class ShareversityGUI extends javax.swing.JFrame
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        valueNumSharesButtonGroup = new javax.swing.ButtonGroup();
         loginRegisterPanel = new javax.swing.JPanel();
         loginRegisterLeftPanel = new javax.swing.JPanel();
         Logo = new javax.swing.JLabel();
@@ -174,6 +177,34 @@ public class ShareversityGUI extends javax.swing.JFrame
         investCPSGraph = new javax.swing.JPanel();
         investInfoBackButton = new javax.swing.JButton();
         investInfoBuyShares = new javax.swing.JButton();
+        investBuySharesRightPanel = new javax.swing.JPanel();
+        buySharesLabel = new javax.swing.JLabel();
+        BuySharesCPSGraphLabel = new javax.swing.JLabel();
+        BuySharesCPSGraph = new javax.swing.JPanel();
+        buySharesBackButton = new javax.swing.JButton();
+        buySharesButtonFinal = new javax.swing.JButton();
+        bsValueRadioButton = new javax.swing.JRadioButton();
+        bsValueDollarSign = new javax.swing.JLabel();
+        bsNumSharesRadioButton = new javax.swing.JRadioButton();
+        bsWalletBalancePanel = new javax.swing.JPanel();
+        bsWalletBalanceLabel = new javax.swing.JLabel();
+        bsWalletBalanceAmount = new javax.swing.JLabel();
+        bsNumSharesSpinner = new javax.swing.JSpinner();
+        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        investBuySharesConfirmationRightPanel = new javax.swing.JPanel();
+        investLabel3 = new javax.swing.JLabel();
+        bscPurchaseConfirmedPanel = new javax.swing.JPanel();
+        bscInvestIcon = new javax.swing.JLabel();
+        bscPurchaseConfirmedLabel = new javax.swing.JLabel();
+        buySharesConfirmBackButton = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        buySharesStatsPanel = new javax.swing.JPanel();
+        bscPurchaseCPSLabel = new javax.swing.JLabel();
+        bscNumSharesLabel = new javax.swing.JLabel();
+        pscAmountInvestedLabel = new javax.swing.JLabel();
+        bscPurchaseCPSVariable = new javax.swing.JLabel();
+        bscNumSharesVariable = new javax.swing.JLabel();
+        pscAmountInvestedVariables = new javax.swing.JLabel();
         walletRightPanel = new javax.swing.JPanel();
         walletLabel = new javax.swing.JLabel();
         walletBalancePanel = new javax.swing.JPanel();
@@ -638,7 +669,7 @@ public class ShareversityGUI extends javax.swing.JFrame
         investButton.setBackground(new java.awt.Color(203, 75, 93));
         investButton.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
         investButton.setForeground(new java.awt.Color(255, 255, 255));
-        investButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/investIcon.png"))); // NOI18N
+        investButton.setIcon(resizeImage(logo2, "/resources/investIcon.png", 32,32));
         investButton.setText("     Invest");
         investButton.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         investButton.addActionListener(new java.awt.event.ActionListener() {
@@ -690,6 +721,9 @@ public class ShareversityGUI extends javax.swing.JFrame
         portfolioInvestmentsList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 portfolioInvestmentsListMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                portfolioInvestmentsListMousePressed(evt);
             }
         });
         portfolioInvestmentsScrollPane.setViewportView(portfolioInvestmentsList);
@@ -1228,6 +1262,281 @@ public class ShareversityGUI extends javax.swing.JFrame
 
         menuRightPanels.add(investInfoRightPanel, "card3");
 
+        investBuySharesRightPanel.setBackground(new java.awt.Color(227, 97, 115));
+        investBuySharesRightPanel.setForeground(new java.awt.Color(227, 97, 115));
+        investBuySharesRightPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        buySharesLabel.setFont(new java.awt.Font("Segoe UI Black", 0, 40)); // NOI18N
+        buySharesLabel.setForeground(new java.awt.Color(253, 234, 239));
+        buySharesLabel.setText("Buy Shares: Delicious Bites");
+        buySharesLabel.setToolTipText("");
+        buySharesLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        investBuySharesRightPanel.add(buySharesLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, -1, -1));
+
+        BuySharesCPSGraphLabel.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        BuySharesCPSGraphLabel.setForeground(new java.awt.Color(253, 234, 239));
+        BuySharesCPSGraphLabel.setText("Cost Per Share History Graph");
+        BuySharesCPSGraphLabel.setToolTipText("");
+        investBuySharesRightPanel.add(BuySharesCPSGraphLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, -1, -1));
+
+        BuySharesCPSGraph.setBackground(new java.awt.Color(255, 255, 255));
+
+        org.jdesktop.layout.GroupLayout BuySharesCPSGraphLayout = new org.jdesktop.layout.GroupLayout(BuySharesCPSGraph);
+        BuySharesCPSGraph.setLayout(BuySharesCPSGraphLayout);
+        BuySharesCPSGraphLayout.setHorizontalGroup(
+            BuySharesCPSGraphLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(0, 579, Short.MAX_VALUE)
+        );
+        BuySharesCPSGraphLayout.setVerticalGroup(
+            BuySharesCPSGraphLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(0, 240, Short.MAX_VALUE)
+        );
+
+        investBuySharesRightPanel.add(BuySharesCPSGraph, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 579, -1));
+
+        buySharesBackButton.setBackground(new java.awt.Color(54, 54, 54));
+        buySharesBackButton.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        buySharesBackButton.setForeground(new java.awt.Color(255, 255, 255));
+        buySharesBackButton.setText("Back");
+        buySharesBackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buySharesBackButtonActionPerformed(evt);
+            }
+        });
+        investBuySharesRightPanel.add(buySharesBackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 640, 235, 45));
+
+        buySharesButtonFinal.setBackground(new java.awt.Color(100, 72, 145));
+        buySharesButtonFinal.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        buySharesButtonFinal.setForeground(new java.awt.Color(255, 255, 255));
+        buySharesButtonFinal.setText("Buy Shares");
+        buySharesButtonFinal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buySharesButtonFinalActionPerformed(evt);
+            }
+        });
+        investBuySharesRightPanel.add(buySharesButtonFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 640, 235, 45));
+
+        valueNumSharesButtonGroup.add(bsValueRadioButton);
+        bsValueRadioButton.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        bsValueRadioButton.setForeground(new java.awt.Color(255, 255, 255));
+        bsValueRadioButton.setText("Value");
+        bsValueRadioButton.setBorderPainted(true);
+        bsValueRadioButton.setMaximumSize(new java.awt.Dimension(25, 25));
+        bsValueRadioButton.setMinimumSize(new java.awt.Dimension(25, 25));
+        bsValueRadioButton.setPreferredSize(new java.awt.Dimension(19, 19));
+        bsValueRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bsValueRadioButtonActionPerformed(evt);
+            }
+        });
+        investBuySharesRightPanel.add(bsValueRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 420, 90, -1));
+
+        bsValueDollarSign.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
+        bsValueDollarSign.setForeground(new java.awt.Color(88, 88, 88));
+        bsValueDollarSign.setText("$");
+        investBuySharesRightPanel.add(bsValueDollarSign, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, 20, -1));
+
+        valueNumSharesButtonGroup.add(bsNumSharesRadioButton);
+        bsNumSharesRadioButton.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        bsNumSharesRadioButton.setForeground(new java.awt.Color(255, 255, 255));
+        bsNumSharesRadioButton.setText("Number of Shares");
+        bsNumSharesRadioButton.setBorderPainted(true);
+        bsNumSharesRadioButton.setMaximumSize(new java.awt.Dimension(25, 25));
+        bsNumSharesRadioButton.setMinimumSize(new java.awt.Dimension(25, 25));
+        bsNumSharesRadioButton.setPreferredSize(new java.awt.Dimension(19, 19));
+        bsNumSharesRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bsNumSharesRadioButtonActionPerformed(evt);
+            }
+        });
+        investBuySharesRightPanel.add(bsNumSharesRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 420, 210, -1));
+
+        bsWalletBalancePanel.setBackground(new java.awt.Color(255, 255, 255));
+
+        bsWalletBalanceLabel.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        bsWalletBalanceLabel.setForeground(new java.awt.Color(88, 88, 88));
+        bsWalletBalanceLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        bsWalletBalanceLabel.setText("$1,000.00");
+
+        bsWalletBalanceAmount.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        bsWalletBalanceAmount.setForeground(new java.awt.Color(88, 88, 88));
+        bsWalletBalanceAmount.setText("Wallet Balance:  ");
+
+        org.jdesktop.layout.GroupLayout bsWalletBalancePanelLayout = new org.jdesktop.layout.GroupLayout(bsWalletBalancePanel);
+        bsWalletBalancePanel.setLayout(bsWalletBalancePanelLayout);
+        bsWalletBalancePanelLayout.setHorizontalGroup(
+            bsWalletBalancePanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(bsWalletBalancePanelLayout.createSequentialGroup()
+                .add(110, 110, 110)
+                .add(bsWalletBalanceAmount, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 175, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                .add(bsWalletBalanceLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 155, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(128, Short.MAX_VALUE))
+        );
+        bsWalletBalancePanelLayout.setVerticalGroup(
+            bsWalletBalancePanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, bsWalletBalancePanelLayout.createSequentialGroup()
+                .addContainerGap(27, Short.MAX_VALUE)
+                .add(bsWalletBalancePanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(bsWalletBalanceLabel)
+                    .add(bsWalletBalanceAmount))
+                .add(25, 25, 25))
+        );
+
+        investBuySharesRightPanel.add(bsWalletBalancePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 520, 580, 80));
+
+        bsNumSharesSpinner.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        bsNumSharesSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+        bsNumSharesSpinner.setBackground(new java.awt.Color(255, 255, 255));
+        bsNumSharesSpinner.setEditor(new javax.swing.JSpinner.DefaultEditor(bsNumSharesSpinner));
+        investBuySharesRightPanel.add(bsNumSharesSpinner, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 450, 210, 40));
+
+        jFormattedTextField1.setBackground(new java.awt.Color(255, 255, 255));
+        jFormattedTextField1.setForeground(new java.awt.Color(88, 88, 88));
+        jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,###.00"))));
+        jFormattedTextField1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        investBuySharesRightPanel.add(jFormattedTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, 210, 40));
+
+        menuRightPanels.add(investBuySharesRightPanel, "card3");
+
+        investBuySharesConfirmationRightPanel.setBackground(new java.awt.Color(227, 97, 115));
+        investBuySharesConfirmationRightPanel.setForeground(new java.awt.Color(227, 97, 115));
+
+        investLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 40)); // NOI18N
+        investLabel3.setForeground(new java.awt.Color(253, 234, 239));
+        investLabel3.setText("Buy Shares: Delicious Bites");
+        investLabel3.setToolTipText("");
+        investLabel3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        bscPurchaseConfirmedPanel.setBackground(new java.awt.Color(100, 72, 145));
+        bscPurchaseConfirmedPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        bscInvestIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/investIcon.png"))); // NOI18N
+        bscPurchaseConfirmedPanel.add(bscInvestIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
+
+        bscPurchaseConfirmedLabel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
+        bscPurchaseConfirmedLabel.setForeground(new java.awt.Color(255, 255, 255));
+        bscPurchaseConfirmedLabel.setText("Investment Purchase Confirmed!");
+        bscPurchaseConfirmedPanel.add(bscPurchaseConfirmedLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, -1, -1));
+
+        buySharesConfirmBackButton.setBackground(new java.awt.Color(54, 54, 54));
+        buySharesConfirmBackButton.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        buySharesConfirmBackButton.setForeground(new java.awt.Color(255, 255, 255));
+        buySharesConfirmBackButton.setText("Back");
+        buySharesConfirmBackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buySharesConfirmBackButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Investment Statistics");
+
+        buySharesStatsPanel.setBackground(new java.awt.Color(153, 107, 229));
+        buySharesStatsPanel.setForeground(new java.awt.Color(255, 255, 255));
+
+        bscPurchaseCPSLabel.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        bscPurchaseCPSLabel.setForeground(new java.awt.Color(255, 255, 255));
+        bscPurchaseCPSLabel.setText("Purchase CPS: ");
+
+        bscNumSharesLabel.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        bscNumSharesLabel.setForeground(new java.awt.Color(255, 255, 255));
+        bscNumSharesLabel.setText("Number of shares:");
+
+        pscAmountInvestedLabel.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        pscAmountInvestedLabel.setForeground(new java.awt.Color(255, 255, 255));
+        pscAmountInvestedLabel.setText("Amount invested:");
+
+        bscPurchaseCPSVariable.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        bscPurchaseCPSVariable.setForeground(new java.awt.Color(255, 255, 255));
+        bscPurchaseCPSVariable.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        bscPurchaseCPSVariable.setText("05-09-2023: $21.08");
+
+        bscNumSharesVariable.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        bscNumSharesVariable.setForeground(new java.awt.Color(255, 255, 255));
+        bscNumSharesVariable.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        bscNumSharesVariable.setText("4.27");
+
+        pscAmountInvestedVariables.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        pscAmountInvestedVariables.setForeground(new java.awt.Color(255, 255, 255));
+        pscAmountInvestedVariables.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        pscAmountInvestedVariables.setText("$90.0");
+
+        org.jdesktop.layout.GroupLayout buySharesStatsPanelLayout = new org.jdesktop.layout.GroupLayout(buySharesStatsPanel);
+        buySharesStatsPanel.setLayout(buySharesStatsPanelLayout);
+        buySharesStatsPanelLayout.setHorizontalGroup(
+            buySharesStatsPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(buySharesStatsPanelLayout.createSequentialGroup()
+                .add(36, 36, 36)
+                .add(buySharesStatsPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                    .add(bscPurchaseCPSLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 204, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(pscAmountInvestedLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 204, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(bscNumSharesLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 204, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 52, Short.MAX_VALUE)
+                .add(buySharesStatsPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
+                    .add(bscPurchaseCPSVariable, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                    .add(bscNumSharesVariable, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(pscAmountInvestedVariables, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .add(40, 40, 40))
+        );
+        buySharesStatsPanelLayout.setVerticalGroup(
+            buySharesStatsPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(buySharesStatsPanelLayout.createSequentialGroup()
+                .add(44, 44, 44)
+                .add(buySharesStatsPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                    .add(buySharesStatsPanelLayout.createSequentialGroup()
+                        .add(bscPurchaseCPSVariable)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(bscNumSharesVariable)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(pscAmountInvestedVariables))
+                    .add(buySharesStatsPanelLayout.createSequentialGroup()
+                        .add(bscPurchaseCPSLabel)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(bscNumSharesLabel)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(pscAmountInvestedLabel)))
+                .addContainerGap(49, Short.MAX_VALUE))
+        );
+
+        org.jdesktop.layout.GroupLayout investBuySharesConfirmationRightPanelLayout = new org.jdesktop.layout.GroupLayout(investBuySharesConfirmationRightPanel);
+        investBuySharesConfirmationRightPanel.setLayout(investBuySharesConfirmationRightPanelLayout);
+        investBuySharesConfirmationRightPanelLayout.setHorizontalGroup(
+            investBuySharesConfirmationRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(investBuySharesConfirmationRightPanelLayout.createSequentialGroup()
+                .add(90, 90, 90)
+                .add(investLabel3))
+            .add(investBuySharesConfirmationRightPanelLayout.createSequentialGroup()
+                .add(70, 70, 70)
+                .add(bscPurchaseConfirmedPanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 579, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+            .add(investBuySharesConfirmationRightPanelLayout.createSequentialGroup()
+                .add(250, 250, 250)
+                .add(jLabel3))
+            .add(investBuySharesConfirmationRightPanelLayout.createSequentialGroup()
+                .add(70, 70, 70)
+                .add(buySharesStatsPanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+            .add(investBuySharesConfirmationRightPanelLayout.createSequentialGroup()
+                .add(250, 250, 250)
+                .add(buySharesConfirmBackButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 235, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+        );
+        investBuySharesConfirmationRightPanelLayout.setVerticalGroup(
+            investBuySharesConfirmationRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(investBuySharesConfirmationRightPanelLayout.createSequentialGroup()
+                .add(50, 50, 50)
+                .add(investLabel3)
+                .add(55, 55, 55)
+                .add(bscPurchaseConfirmedPanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 170, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(50, 50, 50)
+                .add(jLabel3)
+                .add(7, 7, 7)
+                .add(buySharesStatsPanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(40, 40, 40)
+                .add(buySharesConfirmBackButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 45, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+        );
+
+        menuRightPanels.add(investBuySharesConfirmationRightPanel, "card3");
+
         walletRightPanel.setBackground(new java.awt.Color(227, 97, 115));
         walletRightPanel.setForeground(new java.awt.Color(227, 97, 115));
 
@@ -1368,21 +1677,21 @@ public class ShareversityGUI extends javax.swing.JFrame
                 .add(walletBalancePanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(55, 55, 55)
                 .add(walletRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(walletRightPanelLayout.createSequentialGroup()
+                        .add(13, 13, 13)
+                        .add(withdrawDollarSign))
                     .add(walletRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                         .add(withdrawAmountTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 61, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(withdrawAmountLabel)
-                        .add(walletRightPanelLayout.createSequentialGroup()
-                            .add(13, 13, 13)
-                            .add(withdrawDollarSign)))
+                        .add(withdrawAmountLabel))
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, walletWithdrawButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 61, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .add(34, 34, 34)
                 .add(walletRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(walletRightPanelLayout.createSequentialGroup()
+                        .add(13, 13, 13)
+                        .add(topUpDollarSign))
                     .add(walletRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                         .add(topUpAmountTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 61, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(topUpAmountLabel)
-                        .add(walletRightPanelLayout.createSequentialGroup()
-                            .add(13, 13, 13)
-                            .add(topUpDollarSign)))
+                        .add(topUpAmountLabel))
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, walletTopUpButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 61, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(936, Short.MAX_VALUE))
         );
@@ -1640,7 +1949,8 @@ public class ShareversityGUI extends javax.swing.JFrame
     }//GEN-LAST:event_investInfoBackButtonActionPerformed
 
     private void investInfoBuySharesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_investInfoBuySharesActionPerformed
-        // TODO add your handling code here:
+        menuCardLayout.show(menuRightPanels,"buyShares");
+        System.out.println("buy shares button clicked");
     }//GEN-LAST:event_investInfoBuySharesActionPerformed
 
     private void lowRiskInvestmentsListMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lowRiskInvestmentsListMouseReleased
@@ -1652,6 +1962,33 @@ public class ShareversityGUI extends javax.swing.JFrame
         menuCardLayout.show(menuRightPanels,"investInfo");
         System.out.println("startup investment item clicked");
     }//GEN-LAST:event_startupInvestmentsListMouseReleased
+
+    private void buySharesButtonFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buySharesButtonFinalActionPerformed
+        menuCardLayout.show(menuRightPanels,"buySharesConfirmation");
+        System.out.println("buy shares button pressed");
+    }//GEN-LAST:event_buySharesButtonFinalActionPerformed
+
+    private void buySharesBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buySharesBackButtonActionPerformed
+        menuCardLayout.show(menuRightPanels,"investInfo");
+        System.out.println("buy shares back button pressed");
+    }//GEN-LAST:event_buySharesBackButtonActionPerformed
+
+    private void bsValueRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bsValueRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bsValueRadioButtonActionPerformed
+
+    private void bsNumSharesRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bsNumSharesRadioButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bsNumSharesRadioButtonActionPerformed
+
+    private void portfolioInvestmentsListMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_portfolioInvestmentsListMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_portfolioInvestmentsListMousePressed
+
+    private void buySharesConfirmBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buySharesConfirmBackButtonActionPerformed
+        menuCardLayout.show(menuRightPanels,"buyShares");
+        System.out.println("buySharesConfirmBackButton clicked");
+    }//GEN-LAST:event_buySharesConfirmBackButtonActionPerformed
 
     /*
         This method gets this year and gets the previous 100 years as a list of years as a DefaultComboBoxModel (for registering year of birth)
@@ -1775,13 +2112,36 @@ public class ShareversityGUI extends javax.swing.JFrame
     private javax.swing.JLabel AccInfoUsernameVariable;
     private javax.swing.JLabel AccInfoWalletBalanceLabel;
     private javax.swing.JLabel AccInfoWalletBalanceVariable;
+    private javax.swing.JPanel BuySharesCPSGraph;
+    private javax.swing.JLabel BuySharesCPSGraphLabel;
     private javax.swing.JLabel Logo;
     private javax.swing.JLabel RegisterDateOfBirthLabel;
     private javax.swing.JButton accountInfoButton;
     private javax.swing.JLabel accountInfoLabel;
     private javax.swing.JPanel accountInfoRightPanel;
+    private javax.swing.JRadioButton bsNumSharesRadioButton;
+    private javax.swing.JSpinner bsNumSharesSpinner;
+    private javax.swing.JLabel bsValueDollarSign;
+    private javax.swing.JRadioButton bsValueRadioButton;
+    private javax.swing.JLabel bsWalletBalanceAmount;
+    private javax.swing.JLabel bsWalletBalanceLabel;
+    private javax.swing.JPanel bsWalletBalancePanel;
+    private javax.swing.JLabel bscInvestIcon;
+    private javax.swing.JLabel bscNumSharesLabel;
+    private javax.swing.JLabel bscNumSharesVariable;
+    private javax.swing.JLabel bscPurchaseCPSLabel;
+    private javax.swing.JLabel bscPurchaseCPSVariable;
+    private javax.swing.JLabel bscPurchaseConfirmedLabel;
+    private javax.swing.JPanel bscPurchaseConfirmedPanel;
+    private javax.swing.JButton buySharesBackButton;
+    private javax.swing.JButton buySharesButtonFinal;
+    private javax.swing.JButton buySharesConfirmBackButton;
+    private javax.swing.JLabel buySharesLabel;
+    private javax.swing.JPanel buySharesStatsPanel;
     private static javax.swing.JComboBox<String> dayComboBox;
     private javax.swing.JButton investButton;
+    private javax.swing.JPanel investBuySharesConfirmationRightPanel;
+    private javax.swing.JPanel investBuySharesRightPanel;
     private javax.swing.JPanel investCPSGraph;
     private javax.swing.JButton investInfoBackButton;
     private javax.swing.JButton investInfoBuyShares;
@@ -1791,9 +2151,12 @@ public class ShareversityGUI extends javax.swing.JFrame
     private javax.swing.JPanel investInfoRightPanel;
     private javax.swing.JLabel investLabel;
     private javax.swing.JLabel investLabel1;
+    private javax.swing.JLabel investLabel3;
     private javax.swing.JPanel investRightPanel;
     private javax.swing.JScrollPane investScrollPane1;
     private javax.swing.JScrollPane investScrollPane2;
+    private javax.swing.JFormattedTextField jFormattedTextField1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JButton loginButton;
@@ -1859,6 +2222,8 @@ public class ShareversityGUI extends javax.swing.JFrame
     private javax.swing.JPanel portfolioStatsPanel;
     private javax.swing.JPanel portfolioStatsPanel1;
     private javax.swing.JPanel portfolioStatsPanel2;
+    private javax.swing.JLabel pscAmountInvestedLabel;
+    private javax.swing.JLabel pscAmountInvestedVariables;
     private javax.swing.JLabel registerBankAccountLabel;
     private javax.swing.JTextField registerBankAccountTextField;
     private javax.swing.JButton registerButton;
@@ -1875,9 +2240,19 @@ public class ShareversityGUI extends javax.swing.JFrame
     private javax.swing.JLabel topUpAmountLabel;
     private javax.swing.JTextField topUpAmountTextField;
     private javax.swing.JLabel topUpDollarSign;
+    private javax.swing.ButtonGroup valueNumSharesButtonGroup;
     private javax.swing.JLabel walletBalanceAmount;
+    private javax.swing.JLabel walletBalanceAmount1;
+    private javax.swing.JLabel walletBalanceAmount2;
+    private javax.swing.JLabel walletBalanceAmount3;
     private javax.swing.JLabel walletBalanceLabel;
+    private javax.swing.JLabel walletBalanceLabel1;
+    private javax.swing.JLabel walletBalanceLabel2;
+    private javax.swing.JLabel walletBalanceLabel3;
     private javax.swing.JPanel walletBalancePanel;
+    private javax.swing.JPanel walletBalancePanel1;
+    private javax.swing.JPanel walletBalancePanel2;
+    private javax.swing.JPanel walletBalancePanel3;
     private javax.swing.JButton walletButton;
     private javax.swing.JLabel walletLabel;
     private javax.swing.JPanel walletRightPanel;
