@@ -101,7 +101,7 @@ public class ShareversityGUI extends javax.swing.JFrame
         yearComboBox = new javax.swing.JComboBox<>();
         monthComboBox = new javax.swing.JComboBox<>();
         RegisterDateOfBirthLabel = new javax.swing.JLabel();
-        registerBankAccountNumTF = new javax.swing.JFormattedTextField();
+        jFormattedTextField4 = new javax.swing.JFormattedTextField();
         loginRightPanel = new javax.swing.JPanel();
         loginLabel = new javax.swing.JLabel();
         loginPasswordLabel = new javax.swing.JLabel();
@@ -235,7 +235,7 @@ public class ShareversityGUI extends javax.swing.JFrame
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Shareversity");
         setBackground(new java.awt.Color(253, 234, 239));
-        getContentPane().setLayout(new java.awt.GridLayout());
+        getContentPane().setLayout(new java.awt.CardLayout());
 
         loginRegisterPanel.setLayout(new java.awt.GridLayout(1, 0));
 
@@ -391,23 +391,22 @@ public class ShareversityGUI extends javax.swing.JFrame
         RegisterDateOfBirthLabel.setText("Date of birth");
         RegisterDateOfBirthLabel.setToolTipText("");
 
-        registerBankAccountNumTF.setBackground(new java.awt.Color(255, 255, 255));
-        registerBankAccountNumTF.setBorder(javax.swing.BorderFactory.createEmptyBorder(8, 8, 8, 8));
-        registerBankAccountNumTF.setForeground(new java.awt.Color(51, 51, 51));
+        jFormattedTextField4.setBackground(new java.awt.Color(255, 255, 255));
+        jFormattedTextField4.setBorder(javax.swing.BorderFactory.createEmptyBorder(8, 8, 8, 8));
+        jFormattedTextField4.setForeground(new java.awt.Color(51, 51, 51));
         try {
-            registerBankAccountNumTF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-####-#######-###")));
-            registerBankAccountNumTF.setFocusLostBehavior(javax.swing.JFormattedTextField.COMMIT);
+            jFormattedTextField4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-####-#######-###")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        registerBankAccountNumTF.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jFormattedTextField4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         org.jdesktop.layout.GroupLayout registerRightPanelLayout = new org.jdesktop.layout.GroupLayout(registerRightPanel);
         registerRightPanel.setLayout(registerRightPanelLayout);
         registerRightPanelLayout.setHorizontalGroup(
             registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(registerRightPanelLayout.createSequentialGroup()
-                .addContainerGap(70, Short.MAX_VALUE)
+                .addContainerGap(591, Short.MAX_VALUE)
                 .add(registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, registerRightPanelLayout.createSequentialGroup()
                         .add(registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -437,7 +436,7 @@ public class ShareversityGUI extends javax.swing.JFrame
                                     .add(yearComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 111, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                                 .add(RegisterDateOfBirthLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 155, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .add(registerBankAccountLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 232, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(registerBankAccountNumTF)))
+                                .add(jFormattedTextField4)))
                         .add(51, 51, 51))))
         );
         registerRightPanelLayout.setVerticalGroup(
@@ -460,7 +459,7 @@ public class ShareversityGUI extends javax.swing.JFrame
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(registerBankAccountLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 29, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(4, 4, 4)
-                .add(registerBankAccountNumTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(jFormattedTextField4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(RegisterDateOfBirthLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 29, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -575,7 +574,7 @@ public class ShareversityGUI extends javax.swing.JFrame
                                 .add(registerHereButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                             .add(loginButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 339, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, loginPasswordTextField))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(586, Short.MAX_VALUE))
         );
         loginRightPanelLayout.setVerticalGroup(
             loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -603,7 +602,7 @@ public class ShareversityGUI extends javax.swing.JFrame
 
         loginRegisterPanel.add(loginRegisterRightPanels);
 
-        getContentPane().add(loginRegisterPanel);
+        getContentPane().add(loginRegisterPanel, "card2");
 
         menuPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -1798,7 +1797,7 @@ public class ShareversityGUI extends javax.swing.JFrame
 
         menuPanel.add(jSplitPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, -8, 1040, 1480));
 
-        getContentPane().add(menuPanel);
+        getContentPane().add(menuPanel, "card3");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -2145,6 +2144,7 @@ public class ShareversityGUI extends javax.swing.JFrame
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JFormattedTextField jFormattedTextField2;
     private javax.swing.JFormattedTextField jFormattedTextField3;
+    private javax.swing.JFormattedTextField jFormattedTextField4;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSplitPane jSplitPane1;
@@ -2214,7 +2214,6 @@ public class ShareversityGUI extends javax.swing.JFrame
     private javax.swing.JLabel pscAmountInvestedLabel;
     private javax.swing.JLabel pscAmountInvestedVariables;
     private javax.swing.JLabel registerBankAccountLabel;
-    private javax.swing.JFormattedTextField registerBankAccountNumTF;
     private javax.swing.JButton registerButton;
     private javax.swing.JLabel registerFullNameLabel;
     private javax.swing.JTextField registerFullNameTextField;
