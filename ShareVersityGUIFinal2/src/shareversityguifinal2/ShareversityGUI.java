@@ -54,6 +54,7 @@ public class ShareversityGUI extends javax.swing.JFrame
         menuRightPanels.setLayout(menuCardLayout);
         menuRightPanels.add(portfolioRightPanel, "portfolio");
         menuRightPanels.add(portfolioInvestInfoRightPanel, "portfolioInvestInfo");
+        menuRightPanels.add(portfolioSharesSoldRightPanel, "portfolioSharesSold");
         menuRightPanels.add(investRightPanel, "invest");
         menuRightPanels.add(investBuySharesRightPanel, "buyShares");
         menuRightPanels.add(investBuySharesConfirmationRightPanel, "buySharesConfirmation");
@@ -159,6 +160,28 @@ public class ShareversityGUI extends javax.swing.JFrame
         portfolioStatsPanel2 = new javax.swing.JPanel();
         pInvestInfoBackButton = new javax.swing.JButton();
         pInvestInfoSellSharesButton = new javax.swing.JButton();
+        portfolioSharesSoldRightPanel = new javax.swing.JPanel();
+        portfolioLabel2 = new javax.swing.JLabel();
+        portfolioStatisticsLabel2 = new javax.swing.JLabel();
+        pssInvestmentStatsPanel = new javax.swing.JPanel();
+        pssCurrentCPSLabel = new javax.swing.JLabel();
+        pssPurchaseCPSLabel = new javax.swing.JLabel();
+        pssNumOfSharesLabel = new javax.swing.JLabel();
+        pssAmountInvestedLabel = new javax.swing.JLabel();
+        pssProfitLossLabel = new javax.swing.JLabel();
+        pssReturnOnInvLabel = new javax.swing.JLabel();
+        pssTotalValueLabel = new javax.swing.JLabel();
+        pssCurrentCPSVariable = new javax.swing.JLabel();
+        pssPurchaseCPSVariable = new javax.swing.JLabel();
+        pssNumOfSharesVariable = new javax.swing.JLabel();
+        pssAmountInvestedVariable = new javax.swing.JLabel();
+        pssProfitLossVariable = new javax.swing.JLabel();
+        pssReturnOnInvVariable = new javax.swing.JLabel();
+        pssTotalValueVariable = new javax.swing.JLabel();
+        pSharesSoldBackButton = new javax.swing.JButton();
+        pssSharesSoldPanel = new javax.swing.JPanel();
+        pssInvestIcon = new javax.swing.JLabel();
+        bssSharesSoldLabel = new javax.swing.JLabel();
         investRightPanel = new javax.swing.JPanel();
         investLabel = new javax.swing.JLabel();
         investInfoLabel = new javax.swing.JLabel();
@@ -406,7 +429,7 @@ public class ShareversityGUI extends javax.swing.JFrame
         registerRightPanelLayout.setHorizontalGroup(
             registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(registerRightPanelLayout.createSequentialGroup()
-                .addContainerGap(591, Short.MAX_VALUE)
+                .addContainerGap(70, Short.MAX_VALUE)
                 .add(registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, registerRightPanelLayout.createSequentialGroup()
                         .add(registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -574,7 +597,7 @@ public class ShareversityGUI extends javax.swing.JFrame
                                 .add(registerHereButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                             .add(loginButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 339, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, loginPasswordTextField))
-                .addContainerGap(586, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         loginRightPanelLayout.setVerticalGroup(
             loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -1040,6 +1063,166 @@ public class ShareversityGUI extends javax.swing.JFrame
         );
 
         menuRightPanels.add(portfolioInvestInfoRightPanel, "card3");
+
+        portfolioSharesSoldRightPanel.setBackground(new java.awt.Color(227, 97, 115));
+        portfolioSharesSoldRightPanel.setForeground(new java.awt.Color(227, 97, 115));
+
+        portfolioLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 40)); // NOI18N
+        portfolioLabel2.setForeground(new java.awt.Color(253, 234, 239));
+        portfolioLabel2.setText("Portfolio: Delicious Bites ");
+        portfolioLabel2.setToolTipText("");
+        portfolioLabel2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        portfolioStatisticsLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        portfolioStatisticsLabel2.setForeground(new java.awt.Color(253, 234, 239));
+        portfolioStatisticsLabel2.setText("Investment Statistics");
+        portfolioStatisticsLabel2.setToolTipText("");
+
+        pssInvestmentStatsPanel.setBackground(new java.awt.Color(153, 107, 229));
+        pssInvestmentStatsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pssCurrentCPSLabel.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        pssCurrentCPSLabel.setForeground(new java.awt.Color(255, 255, 255));
+        pssCurrentCPSLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        pssCurrentCPSLabel.setText("Current cost per share:");
+        pssInvestmentStatsPanel.add(pssCurrentCPSLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 264, -1));
+
+        pssPurchaseCPSLabel.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        pssPurchaseCPSLabel.setForeground(new java.awt.Color(255, 255, 255));
+        pssPurchaseCPSLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        pssPurchaseCPSLabel.setText("Purchase cost per share:");
+        pssInvestmentStatsPanel.add(pssPurchaseCPSLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 264, -1));
+
+        pssNumOfSharesLabel.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        pssNumOfSharesLabel.setForeground(new java.awt.Color(255, 255, 255));
+        pssNumOfSharesLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        pssNumOfSharesLabel.setText("Number of shares:");
+        pssInvestmentStatsPanel.add(pssNumOfSharesLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 264, -1));
+
+        pssAmountInvestedLabel.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        pssAmountInvestedLabel.setForeground(new java.awt.Color(255, 255, 255));
+        pssAmountInvestedLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        pssAmountInvestedLabel.setText("Amount invested:");
+        pssInvestmentStatsPanel.add(pssAmountInvestedLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 264, -1));
+
+        pssProfitLossLabel.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        pssProfitLossLabel.setForeground(new java.awt.Color(255, 255, 255));
+        pssProfitLossLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        pssProfitLossLabel.setText("Profit/Loss:");
+        pssInvestmentStatsPanel.add(pssProfitLossLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 264, -1));
+
+        pssReturnOnInvLabel.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        pssReturnOnInvLabel.setForeground(new java.awt.Color(255, 255, 255));
+        pssReturnOnInvLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        pssReturnOnInvLabel.setText("Return on Investment:");
+        pssInvestmentStatsPanel.add(pssReturnOnInvLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 264, -1));
+
+        pssTotalValueLabel.setFont(new java.awt.Font("Segoe UI Black", 1, 16)); // NOI18N
+        pssTotalValueLabel.setForeground(new java.awt.Color(255, 255, 255));
+        pssTotalValueLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        pssTotalValueLabel.setText("Total value: ");
+        pssInvestmentStatsPanel.add(pssTotalValueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 126, -1));
+
+        pssCurrentCPSVariable.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        pssCurrentCPSVariable.setForeground(new java.awt.Color(255, 255, 255));
+        pssCurrentCPSVariable.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        pssCurrentCPSVariable.setText("05-09-2023: $21.08");
+        pssInvestmentStatsPanel.add(pssCurrentCPSVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 264, -1));
+
+        pssPurchaseCPSVariable.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        pssPurchaseCPSVariable.setForeground(new java.awt.Color(255, 255, 255));
+        pssPurchaseCPSVariable.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        pssPurchaseCPSVariable.setText("27-09-2023: $20.75");
+        pssInvestmentStatsPanel.add(pssPurchaseCPSVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 264, -1));
+
+        pssNumOfSharesVariable.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        pssNumOfSharesVariable.setForeground(new java.awt.Color(255, 255, 255));
+        pssNumOfSharesVariable.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        pssNumOfSharesVariable.setText("4.27");
+        pssInvestmentStatsPanel.add(pssNumOfSharesVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 264, -1));
+
+        pssAmountInvestedVariable.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        pssAmountInvestedVariable.setForeground(new java.awt.Color(255, 255, 255));
+        pssAmountInvestedVariable.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        pssAmountInvestedVariable.setText("$90.0");
+        pssInvestmentStatsPanel.add(pssAmountInvestedVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 264, -1));
+
+        pssProfitLossVariable.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        pssProfitLossVariable.setForeground(new java.awt.Color(255, 255, 255));
+        pssProfitLossVariable.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        pssProfitLossVariable.setText("$-1.40");
+        pssInvestmentStatsPanel.add(pssProfitLossVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 264, -1));
+
+        pssReturnOnInvVariable.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        pssReturnOnInvVariable.setForeground(new java.awt.Color(255, 255, 255));
+        pssReturnOnInvVariable.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        pssReturnOnInvVariable.setText("-0.0155%");
+        pssInvestmentStatsPanel.add(pssReturnOnInvVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, 264, -1));
+
+        pssTotalValueVariable.setFont(new java.awt.Font("Segoe UI Black", 1, 16)); // NOI18N
+        pssTotalValueVariable.setForeground(new java.awt.Color(255, 255, 255));
+        pssTotalValueVariable.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        pssTotalValueVariable.setText(" $88.60");
+        pssInvestmentStatsPanel.add(pssTotalValueVariable, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, 126, -1));
+
+        pSharesSoldBackButton.setBackground(new java.awt.Color(54, 54, 54));
+        pSharesSoldBackButton.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        pSharesSoldBackButton.setForeground(new java.awt.Color(255, 255, 255));
+        pSharesSoldBackButton.setText("Back");
+        pSharesSoldBackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pSharesSoldBackButtonActionPerformed(evt);
+            }
+        });
+
+        pssSharesSoldPanel.setBackground(new java.awt.Color(100, 72, 145));
+        pssSharesSoldPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pssInvestIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/investIcon.png"))); // NOI18N
+        pssSharesSoldPanel.add(pssInvestIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
+
+        bssSharesSoldLabel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
+        bssSharesSoldLabel.setForeground(new java.awt.Color(255, 255, 255));
+        bssSharesSoldLabel.setText("Your shares have been sold!");
+        pssSharesSoldPanel.add(bssSharesSoldLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, -1, -1));
+
+        org.jdesktop.layout.GroupLayout portfolioSharesSoldRightPanelLayout = new org.jdesktop.layout.GroupLayout(portfolioSharesSoldRightPanel);
+        portfolioSharesSoldRightPanel.setLayout(portfolioSharesSoldRightPanelLayout);
+        portfolioSharesSoldRightPanelLayout.setHorizontalGroup(
+            portfolioSharesSoldRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(portfolioSharesSoldRightPanelLayout.createSequentialGroup()
+                .add(portfolioSharesSoldRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(portfolioSharesSoldRightPanelLayout.createSequentialGroup()
+                        .add(75, 75, 75)
+                        .add(portfolioSharesSoldRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                            .add(portfolioStatisticsLabel2)
+                            .add(pssInvestmentStatsPanel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
+                            .add(pssSharesSoldPanel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .add(portfolioSharesSoldRightPanelLayout.createSequentialGroup()
+                        .add(116, 116, 116)
+                        .add(portfolioLabel2))
+                    .add(portfolioSharesSoldRightPanelLayout.createSequentialGroup()
+                        .add(249, 249, 249)
+                        .add(pSharesSoldBackButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 235, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(87, Short.MAX_VALUE))
+        );
+        portfolioSharesSoldRightPanelLayout.setVerticalGroup(
+            portfolioSharesSoldRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(portfolioSharesSoldRightPanelLayout.createSequentialGroup()
+                .add(56, 56, 56)
+                .add(portfolioLabel2)
+                .add(49, 49, 49)
+                .add(pssSharesSoldPanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 170, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(29, 29, 29)
+                .add(portfolioStatisticsLabel2)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(pssInvestmentStatsPanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 188, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(48, 48, 48)
+                .add(pSharesSoldBackButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 45, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(802, Short.MAX_VALUE))
+        );
+
+        menuRightPanels.add(portfolioSharesSoldRightPanel, "card3");
 
         investRightPanel.setBackground(new java.awt.Color(227, 97, 115));
         investRightPanel.setForeground(new java.awt.Color(227, 97, 115));
@@ -1896,7 +2079,8 @@ public class ShareversityGUI extends javax.swing.JFrame
     }//GEN-LAST:event_investButtonActionPerformed
 
     private void pInvestInfoSellSharesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pInvestInfoSellSharesButtonActionPerformed
-        // TODO add your handling code here:
+        menuCardLayout.show(menuRightPanels,"portfolioSharesSold");
+        System.out.println("Sell shares button clicked");
     }//GEN-LAST:event_pInvestInfoSellSharesButtonActionPerformed
 
     private void loginPasswordTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginPasswordTextFieldActionPerformed
@@ -1975,6 +2159,11 @@ public class ShareversityGUI extends javax.swing.JFrame
         menuCardLayout.show(menuRightPanels,"buyShares");
         System.out.println("buySharesConfirmBackButton clicked");
     }//GEN-LAST:event_buySharesConfirmBackButtonActionPerformed
+
+    private void pSharesSoldBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pSharesSoldBackButtonActionPerformed
+        menuCardLayout.show(menuRightPanels,"portfolioInvestInfo");
+        System.out.println("shares sold back button clicked");
+    }//GEN-LAST:event_pSharesSoldBackButtonActionPerformed
 
     /*
         This method gets this year and gets the previous 100 years as a list of years as a DefaultComboBoxModel (for registering year of birth)
@@ -2119,6 +2308,7 @@ public class ShareversityGUI extends javax.swing.JFrame
     private javax.swing.JLabel bscPurchaseCPSVariable;
     private javax.swing.JLabel bscPurchaseConfirmedLabel;
     private javax.swing.JPanel bscPurchaseConfirmedPanel;
+    private javax.swing.JLabel bssSharesSoldLabel;
     private javax.swing.JButton buySharesBackButton;
     private javax.swing.JButton buySharesButtonFinal;
     private javax.swing.JButton buySharesConfirmBackButton;
@@ -2184,6 +2374,7 @@ public class ShareversityGUI extends javax.swing.JFrame
     private javax.swing.JLabel pPurchaseCPSVariable;
     private javax.swing.JLabel pReturnOnInvLabel;
     private javax.swing.JLabel pReturnOnInvVariable;
+    private javax.swing.JButton pSharesSoldBackButton;
     private javax.swing.JLabel pTotalValueLabel;
     private javax.swing.JLabel pTotalValueVariable;
     private javax.swing.JButton portfolioButton;
@@ -2195,9 +2386,12 @@ public class ShareversityGUI extends javax.swing.JFrame
     private javax.swing.JScrollPane portfolioInvestmentsScrollPane;
     private javax.swing.JLabel portfolioLabel;
     private javax.swing.JLabel portfolioLabel1;
+    private javax.swing.JLabel portfolioLabel2;
     private javax.swing.JPanel portfolioRightPanel;
+    private javax.swing.JPanel portfolioSharesSoldRightPanel;
     private javax.swing.JLabel portfolioStatisticsLabel;
     private javax.swing.JLabel portfolioStatisticsLabel1;
+    private javax.swing.JLabel portfolioStatisticsLabel2;
     private javax.swing.JLabel portfolioStatisticsLabel3;
     private javax.swing.JLabel portfolioStatisticsLabel4;
     private javax.swing.JLabel portfolioStatsInfoLabel2;
@@ -2213,6 +2407,23 @@ public class ShareversityGUI extends javax.swing.JFrame
     private javax.swing.JPanel portfolioStatsPanel2;
     private javax.swing.JLabel pscAmountInvestedLabel;
     private javax.swing.JLabel pscAmountInvestedVariables;
+    private javax.swing.JLabel pssAmountInvestedLabel;
+    private javax.swing.JLabel pssAmountInvestedVariable;
+    private javax.swing.JLabel pssCurrentCPSLabel;
+    private javax.swing.JLabel pssCurrentCPSVariable;
+    private javax.swing.JLabel pssInvestIcon;
+    private javax.swing.JPanel pssInvestmentStatsPanel;
+    private javax.swing.JLabel pssNumOfSharesLabel;
+    private javax.swing.JLabel pssNumOfSharesVariable;
+    private javax.swing.JLabel pssProfitLossLabel;
+    private javax.swing.JLabel pssProfitLossVariable;
+    private javax.swing.JLabel pssPurchaseCPSLabel;
+    private javax.swing.JLabel pssPurchaseCPSVariable;
+    private javax.swing.JLabel pssReturnOnInvLabel;
+    private javax.swing.JLabel pssReturnOnInvVariable;
+    private javax.swing.JPanel pssSharesSoldPanel;
+    private javax.swing.JLabel pssTotalValueLabel;
+    private javax.swing.JLabel pssTotalValueVariable;
     private javax.swing.JLabel registerBankAccountLabel;
     private javax.swing.JButton registerButton;
     private javax.swing.JLabel registerFullNameLabel;
