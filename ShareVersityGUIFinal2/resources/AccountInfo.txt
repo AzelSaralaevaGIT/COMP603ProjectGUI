@@ -1,0 +1,20 @@
+azel00,12345,Azel Saralaeva,06-0648-2536-9175,20th May 2000,887605.0
+fran01,123,FRanny Fran,06-0648-1425-9175,16th June 2012,0.9
+FranTheCaveman3,12345,Francisca Nel,83-2345-2345-53456,21 Nov 2003,0.0
+Frasd,12345,Frab asdfg,06-0648-2536-9175,20th Dec 2010,100.0
+aaaa,12345,Frannyyeye,123-123-123,91st Desepter 1900,2000000.0
+bbbb,12345,Frannyyeye,123-123-123,91st Desepter 1900,4000000.0
+Frannf,12340,Franny Smoth,12-1234-35234-53,20th may 1000,50.0
+
+
+
+
+
+
+
+azel12345,1234,Azel Saralaeva,01-1313-54522-42525--5245,1st August 2000,0.0
+
+
+
+johncena123,123,JOhn Cena,12-1234-242323-53352-64634534,1st January 2000,100.0
+
