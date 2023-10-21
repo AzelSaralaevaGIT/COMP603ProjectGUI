@@ -85,15 +85,6 @@ public class ShareversityGUI extends javax.swing.JFrame
         loginRegisterLeftPanel = new javax.swing.JPanel();
         Logo = new javax.swing.JLabel();
         loginRegisterRightPanels = new javax.swing.JPanel();
-        loginRightPanel = new javax.swing.JPanel();
-        loginLabel = new javax.swing.JLabel();
-        loginPasswordLabel = new javax.swing.JLabel();
-        loginUsernameLabel = new javax.swing.JLabel();
-        loginUsernameTextField = new javax.swing.JTextField();
-        loginButton = new javax.swing.JButton();
-        registerHereButton = new javax.swing.JLabel();
-        registerMsgLabel = new javax.swing.JLabel();
-        loginPasswordTextField = new javax.swing.JPasswordField();
         registerRightPanel = new javax.swing.JPanel();
         newAccountLabel = new javax.swing.JLabel();
         registerButton = new javax.swing.JButton();
@@ -105,12 +96,21 @@ public class ShareversityGUI extends javax.swing.JFrame
         registerPasswordLabel = new javax.swing.JLabel();
         registerFullNameTextField = new javax.swing.JTextField();
         registerFullNameLabel = new javax.swing.JLabel();
-        registerBankAccountTextField = new javax.swing.JTextField();
         registerBankAccountLabel = new javax.swing.JLabel();
         dayComboBox = new javax.swing.JComboBox<>();
         yearComboBox = new javax.swing.JComboBox<>();
         monthComboBox = new javax.swing.JComboBox<>();
         RegisterDateOfBirthLabel = new javax.swing.JLabel();
+        registerBankAccountNumTF = new javax.swing.JFormattedTextField();
+        loginRightPanel = new javax.swing.JPanel();
+        loginLabel = new javax.swing.JLabel();
+        loginPasswordLabel = new javax.swing.JLabel();
+        loginUsernameLabel = new javax.swing.JLabel();
+        loginUsernameTextField = new javax.swing.JTextField();
+        loginButton = new javax.swing.JButton();
+        registerHereButton = new javax.swing.JLabel();
+        registerMsgLabel = new javax.swing.JLabel();
+        loginPasswordTextField = new javax.swing.JPasswordField();
         menuPanel = new javax.swing.JPanel();
         jSplitPane1 = new javax.swing.JSplitPane();
         menuLeftPanel = new javax.swing.JPanel();
@@ -213,11 +213,11 @@ public class ShareversityGUI extends javax.swing.JFrame
         withdrawAmountLabel = new javax.swing.JLabel();
         walletWithdrawButton = new javax.swing.JButton();
         withdrawDollarSign = new javax.swing.JLabel();
-        withdrawAmountTextField = new javax.swing.JTextField();
         walletTopUpButton = new javax.swing.JButton();
-        topUpAmountTextField = new javax.swing.JTextField();
         topUpDollarSign = new javax.swing.JLabel();
         topUpAmountLabel = new javax.swing.JLabel();
+        jFormattedTextField2 = new javax.swing.JFormattedTextField();
+        jFormattedTextField3 = new javax.swing.JFormattedTextField();
         accountInfoRightPanel = new javax.swing.JPanel();
         accountInfoLabel = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -235,7 +235,7 @@ public class ShareversityGUI extends javax.swing.JFrame
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Shareversity");
         setBackground(new java.awt.Color(253, 234, 239));
-        getContentPane().setLayout(new java.awt.CardLayout());
+        getContentPane().setLayout(new java.awt.GridLayout());
 
         loginRegisterPanel.setLayout(new java.awt.GridLayout(1, 0));
 
@@ -249,126 +249,6 @@ public class ShareversityGUI extends javax.swing.JFrame
         loginRegisterPanel.add(loginRegisterLeftPanel);
 
         loginRegisterRightPanels.setLayout(new java.awt.CardLayout());
-
-        loginRightPanel.setBackground(new java.awt.Color(227, 97, 115));
-        loginRightPanel.setForeground(new java.awt.Color(227, 97, 115));
-
-        loginLabel.setFont(new java.awt.Font("Segoe UI Black", 0, 40)); // NOI18N
-        loginLabel.setForeground(new java.awt.Color(253, 234, 239));
-        loginLabel.setText("Log in");
-        loginLabel.setToolTipText("");
-        loginLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-
-        loginPasswordLabel.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        loginPasswordLabel.setForeground(new java.awt.Color(253, 234, 239));
-        loginPasswordLabel.setText("Password");
-        loginPasswordLabel.setToolTipText("");
-
-        loginUsernameLabel.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        loginUsernameLabel.setForeground(new java.awt.Color(253, 234, 239));
-        loginUsernameLabel.setText("Username");
-        loginUsernameLabel.setToolTipText("");
-
-        loginUsernameTextField.setBackground(new java.awt.Color(255, 255, 255));
-        loginUsernameTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        loginUsernameTextField.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        loginUsernameTextField.setOpaque(true);
-        loginUsernameTextField.setScrollOffset(5);
-        loginUsernameTextField.setSelectionColor(new java.awt.Color(100, 72, 145));
-        loginUsernameTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginUsernameTextFieldActionPerformed(evt);
-            }
-        });
-
-        loginButton.setBackground(new java.awt.Color(100, 72, 145));
-        loginButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        loginButton.setForeground(new java.awt.Color(255, 255, 255));
-        loginButton.setText("Login");
-        loginButton.setBorder(null);
-        loginButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginButtonActionPerformed(evt);
-            }
-        });
-
-        registerHereButton.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        registerHereButton.setForeground(new java.awt.Color(253, 234, 239));
-        registerHereButton.setText("<HTML><U>Register here</U></HTML>");
-        registerHereButton.setToolTipText("");
-        registerHereButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                registerHereButtonMouseClicked(evt);
-            }
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                registerHereButtonMouseReleased(evt);
-            }
-        });
-
-        registerMsgLabel.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        registerMsgLabel.setForeground(new java.awt.Color(253, 234, 239));
-        registerMsgLabel.setText("Don't have an account? ");
-        registerMsgLabel.setToolTipText("");
-
-        loginPasswordTextField.setBackground(new java.awt.Color(255, 255, 255));
-        loginPasswordTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        loginPasswordTextField.setForeground(new java.awt.Color(0, 0, 0));
-        loginPasswordTextField.setBorder(javax.swing.BorderFactory.createEmptyBorder(8, 8, 8, 8));
-        loginPasswordTextField.setSelectedTextColor(new java.awt.Color(255, 255, 255));
-        loginPasswordTextField.setSelectionColor(new java.awt.Color(100, 72, 145));
-        loginPasswordTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginPasswordTextFieldActionPerformed(evt);
-            }
-        });
-
-        org.jdesktop.layout.GroupLayout loginRightPanelLayout = new org.jdesktop.layout.GroupLayout(loginRightPanel);
-        loginRightPanel.setLayout(loginRightPanelLayout);
-        loginRightPanelLayout.setHorizontalGroup(
-            loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(loginRightPanelLayout.createSequentialGroup()
-                .add(61, 61, 61)
-                .add(loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                    .add(loginPasswordLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 97, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(loginUsernameLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 97, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(loginUsernameTextField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
-                    .add(loginRightPanelLayout.createSequentialGroup()
-                        .add(141, 141, 141)
-                        .add(loginLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 122, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                    .add(loginRightPanelLayout.createSequentialGroup()
-                        .add(27, 27, 27)
-                        .add(loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(loginRightPanelLayout.createSequentialGroup()
-                                .add(registerMsgLabel)
-                                .add(3, 3, 3)
-                                .add(registerHereButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                            .add(loginButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 339, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, loginPasswordTextField))
-                .addContainerGap(66, Short.MAX_VALUE))
-        );
-        loginRightPanelLayout.setVerticalGroup(
-            loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(loginRightPanelLayout.createSequentialGroup()
-                .add(178, 178, 178)
-                .add(loginLabel)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(loginUsernameLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 56, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(loginUsernameTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 45, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(loginPasswordLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 56, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(loginPasswordTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 45, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(68, 68, 68)
-                .add(loginButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 56, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(registerHereButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 56, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(registerMsgLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 56, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(821, Short.MAX_VALUE))
-        );
-
-        loginRegisterRightPanels.add(loginRightPanel, "card2");
 
         registerRightPanel.setBackground(new java.awt.Color(227, 97, 115));
         registerRightPanel.setForeground(new java.awt.Color(227, 97, 115));
@@ -415,7 +295,8 @@ public class ShareversityGUI extends javax.swing.JFrame
 
         registerUsernameTextField.setBackground(new java.awt.Color(255, 255, 255));
         registerUsernameTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        registerUsernameTextField.setBorder(null);
+        registerUsernameTextField.setForeground(new java.awt.Color(51, 51, 51));
+        registerUsernameTextField.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         registerUsernameTextField.setOpaque(true);
         registerUsernameTextField.setScrollOffset(5);
         registerUsernameTextField.setSelectionColor(new java.awt.Color(100, 72, 145));
@@ -427,7 +308,8 @@ public class ShareversityGUI extends javax.swing.JFrame
 
         registerPasswordTextField.setBackground(new java.awt.Color(255, 255, 255));
         registerPasswordTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        registerPasswordTextField.setBorder(null);
+        registerPasswordTextField.setForeground(new java.awt.Color(51, 51, 51));
+        registerPasswordTextField.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         registerPasswordTextField.setOpaque(true);
         registerPasswordTextField.setScrollOffset(5);
         registerPasswordTextField.setSelectionColor(new java.awt.Color(100, 72, 145));
@@ -444,7 +326,8 @@ public class ShareversityGUI extends javax.swing.JFrame
 
         registerFullNameTextField.setBackground(new java.awt.Color(255, 255, 255));
         registerFullNameTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        registerFullNameTextField.setBorder(null);
+        registerFullNameTextField.setForeground(new java.awt.Color(51, 51, 51));
+        registerFullNameTextField.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         registerFullNameTextField.setOpaque(true);
         registerFullNameTextField.setScrollOffset(5);
         registerFullNameTextField.setSelectionColor(new java.awt.Color(100, 72, 145));
@@ -458,18 +341,6 @@ public class ShareversityGUI extends javax.swing.JFrame
         registerFullNameLabel.setForeground(new java.awt.Color(253, 234, 239));
         registerFullNameLabel.setText("Full Name");
         registerFullNameLabel.setToolTipText("");
-
-        registerBankAccountTextField.setBackground(new java.awt.Color(255, 255, 255));
-        registerBankAccountTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        registerBankAccountTextField.setBorder(null);
-        registerBankAccountTextField.setOpaque(true);
-        registerBankAccountTextField.setScrollOffset(5);
-        registerBankAccountTextField.setSelectionColor(new java.awt.Color(100, 72, 145));
-        registerBankAccountTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerBankAccountTextFieldActionPerformed(evt);
-            }
-        });
 
         registerBankAccountLabel.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         registerBankAccountLabel.setForeground(new java.awt.Color(253, 234, 239));
@@ -520,12 +391,23 @@ public class ShareversityGUI extends javax.swing.JFrame
         RegisterDateOfBirthLabel.setText("Date of birth");
         RegisterDateOfBirthLabel.setToolTipText("");
 
+        registerBankAccountNumTF.setBackground(new java.awt.Color(255, 255, 255));
+        registerBankAccountNumTF.setBorder(javax.swing.BorderFactory.createEmptyBorder(8, 8, 8, 8));
+        registerBankAccountNumTF.setForeground(new java.awt.Color(51, 51, 51));
+        try {
+            registerBankAccountNumTF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-####-#######-###")));
+            registerBankAccountNumTF.setFocusLostBehavior(javax.swing.JFormattedTextField.COMMIT);
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        registerBankAccountNumTF.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
         org.jdesktop.layout.GroupLayout registerRightPanelLayout = new org.jdesktop.layout.GroupLayout(registerRightPanel);
         registerRightPanel.setLayout(registerRightPanelLayout);
         registerRightPanelLayout.setHorizontalGroup(
             registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(registerRightPanelLayout.createSequentialGroup()
-                .addContainerGap(71, Short.MAX_VALUE)
+                .addContainerGap(70, Short.MAX_VALUE)
                 .add(registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, registerRightPanelLayout.createSequentialGroup()
                         .add(registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -540,23 +422,22 @@ public class ShareversityGUI extends javax.swing.JFrame
                             .add(org.jdesktop.layout.GroupLayout.TRAILING, registerRightPanelLayout.createSequentialGroup()
                                 .add(newAccountLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 274, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .add(61, 61, 61))
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                                 .add(registerFullNameLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 97, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(registerFullNameTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 399, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(registerFullNameTextField)
                                 .add(registerPasswordLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 97, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(registerPasswordTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 399, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(registerPasswordTextField)
                                 .add(registerUsernameLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 97, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(registerUsernameTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 399, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                                    .add(registerRightPanelLayout.createSequentialGroup()
-                                        .add(dayComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 108, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                        .add(monthComboBox, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                        .add(yearComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 111, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                                    .add(registerBankAccountTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 399, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                .add(registerUsernameTextField)
+                                .add(registerRightPanelLayout.createSequentialGroup()
+                                    .add(dayComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 108, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                                    .add(monthComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 156, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                                    .add(yearComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 111, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                                 .add(RegisterDateOfBirthLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 155, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(registerBankAccountLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 232, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                                .add(registerBankAccountLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 232, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(registerBankAccountNumTF)))
                         .add(51, 51, 51))))
         );
         registerRightPanelLayout.setVerticalGroup(
@@ -578,8 +459,8 @@ public class ShareversityGUI extends javax.swing.JFrame
                 .add(registerFullNameTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 45, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(registerBankAccountLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 29, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(registerBankAccountTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(4, 4, 4)
+                .add(registerBankAccountNumTF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(RegisterDateOfBirthLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 29, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -599,9 +480,130 @@ public class ShareversityGUI extends javax.swing.JFrame
 
         loginRegisterRightPanels.add(registerRightPanel, "card3");
 
+        loginRightPanel.setBackground(new java.awt.Color(227, 97, 115));
+        loginRightPanel.setForeground(new java.awt.Color(227, 97, 115));
+
+        loginLabel.setFont(new java.awt.Font("Segoe UI Black", 0, 40)); // NOI18N
+        loginLabel.setForeground(new java.awt.Color(253, 234, 239));
+        loginLabel.setText("Log in");
+        loginLabel.setToolTipText("");
+        loginLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        loginPasswordLabel.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        loginPasswordLabel.setForeground(new java.awt.Color(253, 234, 239));
+        loginPasswordLabel.setText("Password");
+        loginPasswordLabel.setToolTipText("");
+
+        loginUsernameLabel.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        loginUsernameLabel.setForeground(new java.awt.Color(253, 234, 239));
+        loginUsernameLabel.setText("Username");
+        loginUsernameLabel.setToolTipText("");
+
+        loginUsernameTextField.setBackground(new java.awt.Color(255, 255, 255));
+        loginUsernameTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        loginUsernameTextField.setForeground(new java.awt.Color(51, 51, 51));
+        loginUsernameTextField.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        loginUsernameTextField.setOpaque(true);
+        loginUsernameTextField.setScrollOffset(5);
+        loginUsernameTextField.setSelectionColor(new java.awt.Color(100, 72, 145));
+        loginUsernameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginUsernameTextFieldActionPerformed(evt);
+            }
+        });
+
+        loginButton.setBackground(new java.awt.Color(100, 72, 145));
+        loginButton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        loginButton.setForeground(new java.awt.Color(255, 255, 255));
+        loginButton.setText("Login");
+        loginButton.setBorder(null);
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginButtonActionPerformed(evt);
+            }
+        });
+
+        registerHereButton.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        registerHereButton.setForeground(new java.awt.Color(253, 234, 239));
+        registerHereButton.setText("<HTML><U>Register here</U></HTML>");
+        registerHereButton.setToolTipText("");
+        registerHereButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                registerHereButtonMouseClicked(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                registerHereButtonMouseReleased(evt);
+            }
+        });
+
+        registerMsgLabel.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        registerMsgLabel.setForeground(new java.awt.Color(253, 234, 239));
+        registerMsgLabel.setText("Don't have an account? ");
+        registerMsgLabel.setToolTipText("");
+
+        loginPasswordTextField.setBackground(new java.awt.Color(255, 255, 255));
+        loginPasswordTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        loginPasswordTextField.setForeground(new java.awt.Color(51, 51, 51));
+        loginPasswordTextField.setBorder(javax.swing.BorderFactory.createEmptyBorder(8, 8, 8, 8));
+        loginPasswordTextField.setSelectedTextColor(new java.awt.Color(255, 255, 255));
+        loginPasswordTextField.setSelectionColor(new java.awt.Color(100, 72, 145));
+        loginPasswordTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginPasswordTextFieldActionPerformed(evt);
+            }
+        });
+
+        org.jdesktop.layout.GroupLayout loginRightPanelLayout = new org.jdesktop.layout.GroupLayout(loginRightPanel);
+        loginRightPanel.setLayout(loginRightPanelLayout);
+        loginRightPanelLayout.setHorizontalGroup(
+            loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(loginRightPanelLayout.createSequentialGroup()
+                .add(61, 61, 61)
+                .add(loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                    .add(loginPasswordLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 97, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(loginUsernameLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 97, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(loginUsernameTextField, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
+                    .add(loginRightPanelLayout.createSequentialGroup()
+                        .add(141, 141, 141)
+                        .add(loginLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 122, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(loginRightPanelLayout.createSequentialGroup()
+                        .add(27, 27, 27)
+                        .add(loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(loginRightPanelLayout.createSequentialGroup()
+                                .add(registerMsgLabel)
+                                .add(3, 3, 3)
+                                .add(registerHereButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .add(loginButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 339, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, loginPasswordTextField))
+                .addContainerGap(65, Short.MAX_VALUE))
+        );
+        loginRightPanelLayout.setVerticalGroup(
+            loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(loginRightPanelLayout.createSequentialGroup()
+                .add(178, 178, 178)
+                .add(loginLabel)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(loginUsernameLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 56, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(loginUsernameTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 45, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(loginPasswordLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 56, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(loginPasswordTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 45, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(68, 68, 68)
+                .add(loginButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 56, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                .add(loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(registerHereButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 56, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(registerMsgLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 56, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(821, Short.MAX_VALUE))
+        );
+
+        loginRegisterRightPanels.add(loginRightPanel, "card2");
+
         loginRegisterPanel.add(loginRegisterRightPanels);
 
-        getContentPane().add(loginRegisterPanel, "card2");
+        getContentPane().add(loginRegisterPanel);
 
         menuPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -1597,17 +1599,6 @@ public class ShareversityGUI extends javax.swing.JFrame
         withdrawDollarSign.setForeground(new java.awt.Color(88, 88, 88));
         withdrawDollarSign.setText("$");
 
-        withdrawAmountTextField.setBackground(new java.awt.Color(255, 255, 255));
-        withdrawAmountTextField.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        withdrawAmountTextField.setForeground(new java.awt.Color(88, 88, 88));
-        withdrawAmountTextField.setBorder(javax.swing.BorderFactory.createEmptyBorder(8, 8, 8, 8));
-        withdrawAmountTextField.setSelectionColor(new java.awt.Color(100, 72, 145));
-        withdrawAmountTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                withdrawAmountTextFieldActionPerformed(evt);
-            }
-        });
-
         walletTopUpButton.setBackground(new java.awt.Color(100, 72, 145));
         walletTopUpButton.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         walletTopUpButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -1619,17 +1610,6 @@ public class ShareversityGUI extends javax.swing.JFrame
             }
         });
 
-        topUpAmountTextField.setBackground(new java.awt.Color(255, 255, 255));
-        topUpAmountTextField.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        topUpAmountTextField.setForeground(new java.awt.Color(88, 88, 88));
-        topUpAmountTextField.setBorder(javax.swing.BorderFactory.createEmptyBorder(8, 8, 8, 8));
-        topUpAmountTextField.setSelectionColor(new java.awt.Color(100, 72, 145));
-        topUpAmountTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                topUpAmountTextFieldActionPerformed(evt);
-            }
-        });
-
         topUpDollarSign.setFont(new java.awt.Font("Segoe UI", 1, 26)); // NOI18N
         topUpDollarSign.setForeground(new java.awt.Color(88, 88, 88));
         topUpDollarSign.setText("$");
@@ -1637,6 +1617,16 @@ public class ShareversityGUI extends javax.swing.JFrame
         topUpAmountLabel.setFont(new java.awt.Font("Segoe UI Black", 0, 19)); // NOI18N
         topUpAmountLabel.setForeground(new java.awt.Color(255, 255, 255));
         topUpAmountLabel.setText("Top Up Amount");
+
+        jFormattedTextField2.setBackground(new java.awt.Color(255, 255, 255));
+        jFormattedTextField2.setForeground(new java.awt.Color(88, 88, 88));
+        jFormattedTextField2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,###.00"))));
+        jFormattedTextField2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+
+        jFormattedTextField3.setBackground(new java.awt.Color(255, 255, 255));
+        jFormattedTextField3.setForeground(new java.awt.Color(88, 88, 88));
+        jFormattedTextField3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,###.00"))));
+        jFormattedTextField3.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
 
         org.jdesktop.layout.GroupLayout walletRightPanelLayout = new org.jdesktop.layout.GroupLayout(walletRightPanel);
         walletRightPanel.setLayout(walletRightPanelLayout);
@@ -1646,23 +1636,24 @@ public class ShareversityGUI extends javax.swing.JFrame
                 .add(79, 79, 79)
                 .add(walletRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, walletRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
-                        .add(walletRightPanelLayout.createSequentialGroup()
+                        .add(walletBalancePanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(org.jdesktop.layout.GroupLayout.LEADING, walletRightPanelLayout.createSequentialGroup()
+                            .add(2, 2, 2)
                             .add(withdrawAmountLabel)
-                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                            .add(4, 4, 4)
                             .add(withdrawDollarSign, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .add(withdrawAmountTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 176, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(18, 18, 18)
+                            .add(jFormattedTextField2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 176, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                             .add(walletWithdrawButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 145, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                         .add(walletRightPanelLayout.createSequentialGroup()
                             .add(topUpAmountLabel)
-                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .add(47, 47, 47)
                             .add(topUpDollarSign, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                            .add(topUpAmountTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 176, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(18, 18, 18)
-                            .add(walletTopUpButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 145, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                        .add(walletBalancePanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                            .add(jFormattedTextField3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 176, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(12, 12, 12)
+                            .add(walletTopUpButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 145, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, walletRightPanelLayout.createSequentialGroup()
                         .add(walletLabel)
                         .add(208, 208, 208)))
@@ -1675,24 +1666,32 @@ public class ShareversityGUI extends javax.swing.JFrame
                 .add(walletLabel)
                 .add(49, 49, 49)
                 .add(walletBalancePanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(55, 55, 55)
                 .add(walletRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(walletRightPanelLayout.createSequentialGroup()
-                        .add(13, 13, 13)
+                        .add(68, 68, 68)
                         .add(withdrawDollarSign))
-                    .add(walletRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                        .add(withdrawAmountTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 61, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(withdrawAmountLabel))
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, walletWithdrawButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 61, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(34, 34, 34)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, walletRightPanelLayout.createSequentialGroup()
+                        .add(55, 55, 55)
+                        .add(walletRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, walletRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                                .add(walletWithdrawButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 61, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(jFormattedTextField2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 61, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, walletRightPanelLayout.createSequentialGroup()
+                                .add(withdrawAmountLabel)
+                                .add(17, 17, 17)))))
                 .add(walletRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, walletRightPanelLayout.createSequentialGroup()
+                        .add(34, 34, 34)
+                        .add(walletRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                            .add(walletTopUpButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 61, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(jFormattedTextField3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 61, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                     .add(walletRightPanelLayout.createSequentialGroup()
-                        .add(13, 13, 13)
-                        .add(topUpDollarSign))
-                    .add(walletRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                        .add(topUpAmountTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 61, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(topUpAmountLabel))
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, walletTopUpButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 61, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .add(47, 47, 47)
+                        .add(walletRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(topUpDollarSign)
+                            .add(walletRightPanelLayout.createSequentialGroup()
+                                .add(5, 5, 5)
+                                .add(topUpAmountLabel)))))
                 .addContainerGap(936, Short.MAX_VALUE))
         );
 
@@ -1799,7 +1798,7 @@ public class ShareversityGUI extends javax.swing.JFrame
 
         menuPanel.add(jSplitPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, -8, 1040, 1480));
 
-        getContentPane().add(menuPanel, "card2");
+        getContentPane().add(menuPanel);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1835,10 +1834,6 @@ public class ShareversityGUI extends javax.swing.JFrame
     private void registerFullNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerFullNameTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_registerFullNameTextFieldActionPerformed
-
-    private void registerBankAccountTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBankAccountTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_registerBankAccountTextFieldActionPerformed
 
     private void dayComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dayComboBoxActionPerformed
         // TODO add your handling code here:
@@ -1927,17 +1922,9 @@ public class ShareversityGUI extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_walletWithdrawButtonActionPerformed
 
-    private void withdrawAmountTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawAmountTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_withdrawAmountTextFieldActionPerformed
-
     private void walletTopUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_walletTopUpButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_walletTopUpButtonActionPerformed
-
-    private void topUpAmountTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_topUpAmountTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_topUpAmountTextFieldActionPerformed
 
     private void lowRiskInvestmentsListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lowRiskInvestmentsListMouseClicked
         // TODO add your handling code here:
@@ -2156,6 +2143,8 @@ public class ShareversityGUI extends javax.swing.JFrame
     private javax.swing.JScrollPane investScrollPane1;
     private javax.swing.JScrollPane investScrollPane2;
     private javax.swing.JFormattedTextField jFormattedTextField1;
+    private javax.swing.JFormattedTextField jFormattedTextField2;
+    private javax.swing.JFormattedTextField jFormattedTextField3;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSplitPane jSplitPane1;
@@ -2225,7 +2214,7 @@ public class ShareversityGUI extends javax.swing.JFrame
     private javax.swing.JLabel pscAmountInvestedLabel;
     private javax.swing.JLabel pscAmountInvestedVariables;
     private javax.swing.JLabel registerBankAccountLabel;
-    private javax.swing.JTextField registerBankAccountTextField;
+    private javax.swing.JFormattedTextField registerBankAccountNumTF;
     private javax.swing.JButton registerButton;
     private javax.swing.JLabel registerFullNameLabel;
     private javax.swing.JTextField registerFullNameTextField;
@@ -2238,28 +2227,17 @@ public class ShareversityGUI extends javax.swing.JFrame
     private javax.swing.JTextField registerUsernameTextField;
     private javax.swing.JList<String> startupInvestmentsList;
     private javax.swing.JLabel topUpAmountLabel;
-    private javax.swing.JTextField topUpAmountTextField;
     private javax.swing.JLabel topUpDollarSign;
     private javax.swing.ButtonGroup valueNumSharesButtonGroup;
     private javax.swing.JLabel walletBalanceAmount;
-    private javax.swing.JLabel walletBalanceAmount1;
-    private javax.swing.JLabel walletBalanceAmount2;
-    private javax.swing.JLabel walletBalanceAmount3;
     private javax.swing.JLabel walletBalanceLabel;
-    private javax.swing.JLabel walletBalanceLabel1;
-    private javax.swing.JLabel walletBalanceLabel2;
-    private javax.swing.JLabel walletBalanceLabel3;
     private javax.swing.JPanel walletBalancePanel;
-    private javax.swing.JPanel walletBalancePanel1;
-    private javax.swing.JPanel walletBalancePanel2;
-    private javax.swing.JPanel walletBalancePanel3;
     private javax.swing.JButton walletButton;
     private javax.swing.JLabel walletLabel;
     private javax.swing.JPanel walletRightPanel;
     private javax.swing.JButton walletTopUpButton;
     private javax.swing.JButton walletWithdrawButton;
     private javax.swing.JLabel withdrawAmountLabel;
-    private javax.swing.JTextField withdrawAmountTextField;
     private javax.swing.JLabel withdrawDollarSign;
     private javax.swing.JComboBox<String> yearComboBox;
     // End of variables declaration//GEN-END:variables
