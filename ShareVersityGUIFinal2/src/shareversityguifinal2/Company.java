@@ -141,6 +141,21 @@ public class Company
         return max;
     }
     
+    public final double computeMinPrice()
+    {
+        double min = computeMaxPrice();
+        
+        for (int i=costPerShareHistory.size(); i-- > 0;)
+        {
+            if (costPerShareHistory.get(i).getCost() < min)
+            {
+                min = costPerShareHistory.get(i).getCost();
+            }
+        }
+        
+        return min;
+    }
+    
     // This method randomly generates the share price history of the company over the past inputted number of days 
     public final ArrayList<CostPerShare> generateSharePrices(double currentPrice, int numDays)
     {

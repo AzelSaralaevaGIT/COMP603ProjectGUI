@@ -37,6 +37,10 @@ public class LowRiskInvestment extends InvestmentType
         InvestmentType lowRiskInvestments = new LowRiskInvestment(i);
         
         System.out.println(lowRiskInvestments); 
+        
+        System.out.println(lowRiskInvestments.companyList.get(0));
+        
+        
     }
 }
     
