@@ -2509,11 +2509,6 @@
                           </SubComponents>
                         </Container>
                         <Container class="javax.swing.JScrollPane" name="cpsGraphScrollPane">
-                          <Properties>
-                            <Property name="columnHeaderView" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                              <ComponentRef name="default"/>
-                            </Property>
-                          </Properties>
                           <AccessibilityProperties>
                             <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
                           </AccessibilityProperties>
@@ -2829,6 +2824,8 @@
                         </Property>
                       </Properties>
                       <Events>
+                        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="bsValueTextFieldFocusGained"/>
+                        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="bsValueTextFieldFocusLost"/>
                         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="bsValueTextFieldKeyReleased"/>
                         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="bsValueTextFieldKeyTyped"/>
                       </Events>

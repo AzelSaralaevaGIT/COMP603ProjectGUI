@@ -1650,6 +1650,14 @@ public class ShareversityGUI extends javax.swing.JFrame
         bsValueTextField.setForeground(new java.awt.Color(88, 88, 88));
         bsValueTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
         bsValueTextField.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        bsValueTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                bsValueTextFieldFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                bsValueTextFieldFocusLost(evt);
+            }
+        });
         bsValueTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 bsValueTextFieldKeyReleased(evt);
@@ -2323,6 +2331,8 @@ public class ShareversityGUI extends javax.swing.JFrame
         else
         {
             bsNumSharesSpinner.setValue(0);
+            bsValueTextField.setValue(0);
+            bsValueTextField.setText("");
         }
     }//GEN-LAST:event_bsValueTextFieldKeyReleased
 
@@ -2350,14 +2360,19 @@ public class ShareversityGUI extends javax.swing.JFrame
         long CPSvalue = 100; // placeholder
         boolean change = bsNumSharesSpinner.isEnabled();
         
-
-            if (change == true)
-            {
-                double value = (double)bsNumSharesSpinner.getValue()*CPSvalue;
-                bsValueTextField.setValue(value);
-            }
-        
+        if (change)
+        {
+            double value = (double)bsNumSharesSpinner.getValue()*CPSvalue;
+            bsValueTextField.setValue(value);
+        }
     }//GEN-LAST:event_bsNumSharesSpinnerStateChanged
+
+    private void bsValueTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_bsValueTextFieldFocusLost
+    }//GEN-LAST:event_bsValueTextFieldFocusLost
+
+    private void bsValueTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_bsValueTextFieldFocusGained
+        bsValueTextField.setText(""); 
+    }//GEN-LAST:event_bsValueTextFieldFocusGained
 
     /*
         This method gets this year and gets the previous 100 years as a list of years as a DefaultComboBoxModel (for registering year of birth)
