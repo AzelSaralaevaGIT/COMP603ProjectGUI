@@ -20,14 +20,21 @@ import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 import org.jfree.chart.plot.XYPlot;
 
-/*
-    This class generates the CostPerShare graph to be used in the GUI using the jFreeChart library
-*/
+/**
+ * This class generates a JPanel with an interactive line chart using JFreeChart to display
+ * the cost per share over time for a selected company. Methods are provided to customize the chart
+ * appearance and enable click interactions to display details on a selected data point.
+ */
 
 public class CostPerShareGraph extends JPanel  {
 
     JFreeChart lineChart;
     ChartPanel chartPanel; 
+    XYPlot plot;
+    XYLineAndShapeRenderer renderer;
+    StandardXYToolTipGenerator tooltipGenerator;
+    XYSeriesCollection dataSet;
+    ChartDotClickMouseListener customMouseListener;
     
     public CostPerShareGraph(String chartTitle, ArrayList<Company> companyList, int chosenCompanyIndex, javax.swing.JPanel panel) {
         lineChart = ChartFactory.createXYLineChart(
@@ -36,18 +43,18 @@ public class CostPerShareGraph extends JPanel  {
            createDataset(companyList, chosenCompanyIndex),
            PlotOrientation.VERTICAL,
            true,true,false);
-        
-        XYPlot plot = lineChart.getXYPlot();
+
+        plot = lineChart.getXYPlot();
         
         // Create a renderer with lines and shapes (dots)
-        XYLineAndShapeRenderer renderer = new XYLineAndShapeRenderer(true, true);
+        renderer = new XYLineAndShapeRenderer(true, true);
         plot.setRenderer(renderer);
 
-        // Create a SimpleDateFormat with your desired date format
-        SimpleDateFormat customDateFormat = new SimpleDateFormat("dd/MM/yy");
+        // Reformatting date (from milliseconds)
+        SimpleDateFormat customDateFormat = new SimpleDateFormat("dd-MM-yy");
 
         // Set a tooltip generator for the renderer with the custom date format
-        StandardXYToolTipGenerator tooltipGenerator = new StandardXYToolTipGenerator(
+        tooltipGenerator = new StandardXYToolTipGenerator(
             "{1}: {2}",  // Tooltip format
             customDateFormat,  // Custom date format
             java.text.NumberFormat.getCurrencyInstance()  // Number format
@@ -74,24 +81,55 @@ public class CostPerShareGraph extends JPanel  {
         XYTextAnnotation annotation = new XYTextAnnotation("Today", (double)series.getX(lastIndex), (double)series.getY(lastIndex));
         plot.addAnnotation(annotation);
         
+        // remove legend (uneeded, takes up space)
         lineChart.removeLegend();
         
         lineChart.setAntiAlias(true); // sets whether the edges of text/graph lines are smoothed (causes blurriness)
         
+        // chart panel creation
         chartPanel = new ChartPanel(lineChart);
         chartPanel.setPreferredSize(panel.getSize());
-        chartPanel.setDomainZoomable(false);
+        chartPanel.setDomainZoomable(false); // disable zoom as this can mess up the graph axis formatting
         chartPanel.setRangeZoomable(false);
-        chartPanel.setInitialDelay(0);
+        chartPanel.setInitialDelay(0); // attempt to make tooltips faster
         chartPanel.setDismissDelay(1000);
         chartPanel.setReshowDelay(0);
         add(chartPanel);
     }
 
+    // Get methods
     public JFreeChart getLineChart() {
         return lineChart;
     }
 
+    public XYPlot getPlot() {
+        return plot;
+    }
+
+    public ChartPanel getChartPanel() {
+        return chartPanel;
+    }
+
+    public XYLineAndShapeRenderer getRenderer() {
+        return renderer;
+    }
+
+    public StandardXYToolTipGenerator getTooltipGenerator() {
+        return tooltipGenerator;
+    }
+
+    public XYSeriesCollection getDataSet() {
+        return dataSet;
+    }
+
+    public ChartDotClickMouseListener getCustomMouseListener() {
+        return customMouseListener;
+    }
+    
+    /*
+        This method creates the dataSet (values) to be used in the XY plot line graph
+        by pulling the cost per share history from a company
+    */
     private XYSeriesCollection createDataset(ArrayList<Company> companyList, int chosenCompanyIndex) {
         Company chosenCompany = companyList.get(chosenCompanyIndex);
 
@@ -123,4 +161,13 @@ public class CostPerShareGraph extends JPanel  {
         chartPanel.setPreferredSize(customDimensions);
     }
     
+    /*
+        This method allows a generated CostPerShareGraph to have selectable dots
+        using the custom ChartMouseListener - ChartDotClickMouseListener
+    */
+    public void enableClickableDots(javax.swing.JTable tableToUpdate)
+    {
+        getChartPanel().addChartMouseListener(new ChartDotClickMouseListener(this, tableToUpdate));
+    }
 }
+
