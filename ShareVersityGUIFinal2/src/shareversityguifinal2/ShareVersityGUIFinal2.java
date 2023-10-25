@@ -24,6 +24,13 @@ public class ShareVersityGUIFinal2 {
         System.out.println("I am testing youuuu");
         System.out.println("I am testing github desktop");
 
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new ShareversityGUI().setVisible(true);
+            }
+        });
+        
     }
     
 }

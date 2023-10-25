@@ -11,13 +11,13 @@ java.sql.SQLException: Failed to start database 'ShareVersityDB_Ebd' with class 
 	at org.apache.derby.jdbc.InternalDriver.getNewEmbedConnection(Unknown Source)
 	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
 	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
-	at org.apache.derby.jdbc.AutoloadedDriver.connect(Unknown Source)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
-	at shareversityguifinal2.DatabaseManager.establishConnection(DatabaseManager.java:57)
-	at shareversityguifinal2.DatabaseManager.<init>(DatabaseManager.java:37)
-	at shareversityguifinal2.ShareVersityDatabase.<init>(ShareVersityDatabase.java:22)
-	at shareversityguifinal2.ShareVersityDatabaseMain.main(ShareVersityDatabaseMain.java:15)
+	at org.apache.de----------------------------------------------------------------
+Wed Oct 25 23:15:20 NZDT 2023: Shutting down Derby engine
+----------------------------------------------------------------
+Wed Oct 25 23:15:20 NZDT 2023:
+Shutting down instance a816c00e-018b-64f5-f48b-00001a4f123d on database directory C:\Users\Fran\Documents\GitHub\COMP603ProjectGUI\ShareVersityGUIFinal2\ShareVersityDB_Ebd with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@2cdf8d8a 
+----------------------------------------------------------------
+)
 Caused by: ERROR XJ040: Failed to start database 'ShareVersityDB_Ebd' with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@5c29bfd, see the next exception for details.
 	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.wrapArgsForTransportAcrossDRDA(Unknown Source)

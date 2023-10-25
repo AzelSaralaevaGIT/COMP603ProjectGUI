@@ -13,12 +13,14 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.annotations.XYTextAnnotation;
 import org.jfree.chart.axis.DateAxis;
 import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.axis.ValueAxis;
 import org.jfree.chart.labels.StandardXYToolTipGenerator;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 import org.jfree.chart.plot.XYPlot;
+import org.jfree.ui.RectangleInsets;
 
 /**
  * This class generates a JPanel with an interactive line chart using JFreeChart to display
@@ -68,11 +70,6 @@ public class CostPerShareGraph extends JPanel  {
         dateAxis.setDateFormatOverride(customDateFormat);
         plot.setDomainAxis(dateAxis);
         
-        NumberAxis rangeAxis = (NumberAxis) plot.getRangeAxis();
-
-        // Set the desired range for the y-axis (adjust these values as needed)
-        rangeAxis.setRange(companyList.get(chosenCompanyIndex).computeMinPrice()-1, companyList.get(chosenCompanyIndex).computeMaxPrice()+1);
-
         // Add an annotation to label the last point as "Today"
         XYSeriesCollection ds = createDataset(companyList, chosenCompanyIndex);
         XYSeries series = ds.getSeries(0);
@@ -84,7 +81,17 @@ public class CostPerShareGraph extends JPanel  {
         // remove legend (uneeded, takes up space)
         lineChart.removeLegend();
         
-        lineChart.setAntiAlias(true); // sets whether the edges of text/graph lines are smoothed (causes blurriness)
+        // add extra spacing to right outside graph
+        lineChart.setPadding(new RectangleInsets(0,0,0,10));
+        
+        // sets whether the edges of text/graph lines are smoothed (causes blurriness)
+        lineChart.setAntiAlias(true); 
+        
+        // Set margin inside graph range axis dynamically (to make "selected" label visible in all cases)
+        double lowerBound = companyList.get(chosenCompanyIndex).computeMinPrice();
+        double upperBound = companyList.get(chosenCompanyIndex).computeMaxPrice();
+        double rangePadding = (upperBound-lowerBound)*0.1; // padding is 10% difference of the highest value and lowest value
+        plot.getRangeAxis().setRange(lowerBound-rangePadding, upperBound+rangePadding);
         
         // chart panel creation
         chartPanel = new ChartPanel(lineChart);

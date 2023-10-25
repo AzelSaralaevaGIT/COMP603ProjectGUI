@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package shareversityguifinal2;
 
 import java.io.BufferedReader;
@@ -55,6 +51,23 @@ public class Account
     public Account(String username, String password)  
     {
        retrieveAccountFromFile(username,password); 
+       this.accountPortfolio = new Portfolio(this); 
+    }
+    
+    public void setRegisterAccount(String username, String password, String fullName, String bankAccountNumber, String dateOfBirth)
+    {
+        this.username = username;
+        this.password = password;
+        this.fullName = fullName;
+        this.bankAccountNumber = bankAccountNumber;
+        this.dateOfBirth = dateOfBirth;
+        this.acountWallet = new Wallet();
+        this.accountPortfolio = new Portfolio();
+    }
+    
+    public void setLoginAccount(String username, String password)
+    {
+        retrieveAccountFromFile(username,password); 
        this.accountPortfolio = new Portfolio(this); 
     }
     
