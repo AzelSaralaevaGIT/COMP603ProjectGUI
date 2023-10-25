@@ -14,7 +14,7 @@ public class ShareVersityDatabaseMain {
         ShareVersityDatabase shareVersityDB = new ShareVersityDatabase();
 
         // Connect to the database and create the table and insert data
-        shareVersityDB.connectShareVersityDB();
+        shareVersityDB.connectShareVersityDatabase();
 
         // Perform database operations, for example, retrieve account information
         ResultSet accountInfo = (ResultSet) shareVersityDB.getAccountInfo();
