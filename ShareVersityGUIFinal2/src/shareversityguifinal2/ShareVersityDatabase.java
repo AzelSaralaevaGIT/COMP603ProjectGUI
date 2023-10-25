@@ -48,37 +48,7 @@ public class ShareVersityDatabase
         }
     }
 
-    public void createPromotionTable() 
-    {
-            /* You may need the following SQL statements for this method:
-            
-            * Create the table:
-            CREATE TABLE PROMOTION (CATEGORY VARCHAR(20), DISCOUNT INT);
-            
-            * Insert records into the table:
-            INSERT INTO PROMOTION VALUES ('Fiction', 0),
-            ('Non-fiction', 10),
-            ('Textbook', 20);
-            
-            */
-        try 
-        {
-            Statement statement = conn.createStatement();
-            
-            String newTable = "PROMOTION";
-            this.checkExistedTable(newTable);
-            this.statement.addBatch("CREATE TABLE PROMOTION (CATEGORY VARCHAR(20), DISCOUNT INT)");
-            this.statement.addBatch("INSERT INTO PROMOTION VALUES ('Fiction', 0),\n" 
-                    + "('Non-fiction', 10),\n" 
-                    + "('Textbook', 20)");
-            this.statement.executeBatch();
-        } 
-        catch (SQLException ex) 
-        {
-            Logger.getLogger(ex.getMessage());
-        }
-    }
-    
+
     public ResultSet getAccountInfo() {
         /* You may need the following SQL statements for this method:
 
@@ -91,7 +61,7 @@ public class ShareVersityDatabase
         ResultSet rs = null;
         try 
         {
-            rs = this.statement.executeQuery("SELECT TITLE, PRICE, DISCOUNT "
+            rs = this.statement.executeQuery("SELECT USERNAME, FULLNAME, BANKACCOUNTNUMBER, DATEOFBIRTH, WALLETAMOUNT "
                 + "FROM BOOK, PROMOTION "
                 + "WHERE BOOK.CATEGORY=PROMOTION.CATEGORY");
         }
