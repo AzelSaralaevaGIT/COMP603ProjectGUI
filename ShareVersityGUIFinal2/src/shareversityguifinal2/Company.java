@@ -276,4 +276,21 @@ public class Company
     {
         return printCompanyInfo() + "\n\n" + printCompanyGraph();
     }
+    
+    public String getFormattedCategories()
+    {
+        String out = "";
+        
+        for (int i=0; i<companyCategories.size(); i++)
+        {
+            out += getCompanyCategories().get(i).getName();
+            
+            if (i < companyCategories.size()-1)
+            {
+                out += ", ";
+            }
+        }
+        
+        return out;
+    }
 }

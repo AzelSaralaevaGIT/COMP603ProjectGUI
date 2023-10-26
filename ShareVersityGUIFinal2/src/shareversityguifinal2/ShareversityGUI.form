@@ -1152,23 +1152,30 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="portfolioInvestmentsLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="portfolioStatisticsLabel" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="portfolioInvestmentsInfoLabel" pref="588" max="32767" attributes="0"/>
-                                      <Component id="portfolioStatsPanel" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="portfolioInvestmentsScrollPane" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="268" max="-2" attributes="0"/>
+                                      <Component id="portfolioLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="portfolioInvestmentsScrollPane" pref="588" max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="portfolioInvestmentsLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="portfolioStatisticsLabel" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="portfolioInvestmentsInfoLabel" pref="588" max="32767" attributes="0"/>
+                                                  <Component id="portfolioStatsPanel" alignment="0" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="268" max="-2" attributes="0"/>
-                              <Component id="portfolioLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1182,12 +1189,12 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="portfolioInvestmentsInfoLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="portfolioInvestmentsScrollPane" min="-2" max="-2" attributes="0"/>
+                              <Component id="portfolioInvestmentsScrollPane" min="-2" pref="186" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="portfolioStatisticsLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="portfolioStatsPanel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="868" max="32767" attributes="0"/>
+                              <EmptySpace pref="95" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1310,25 +1317,25 @@
                                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="portfolioStatsInfoLabel8" min="-2" pref="264" max="-2" attributes="0"/>
+                                          <Component id="portfolioTotalValueLabel" min="-2" pref="264" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="portfolioStatsInfoLabel9" min="-2" pref="256" max="-2" attributes="0"/>
+                                          <Component id="portfolioTotalValueVariable" min="-2" pref="256" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                           <Group type="102" alignment="1" attributes="0">
-                                              <Component id="portfolioStatsInfoLabel6" min="-2" pref="264" max="-2" attributes="0"/>
+                                              <Component id="portfolioTotalROILabel" min="-2" pref="264" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="portfolioStatsInfoLabel7" min="-2" pref="256" max="-2" attributes="0"/>
+                                              <Component id="portfolioTotalROIVariable" min="-2" pref="256" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
                                               <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Component id="portfolioStatsInfoLabel3" min="-2" pref="264" max="-2" attributes="0"/>
-                                                  <Component id="portfolioStatsInfoLabel4" min="-2" pref="264" max="-2" attributes="0"/>
+                                                  <Component id="portfolioTotalProfitLossLabel" min="-2" pref="264" max="-2" attributes="0"/>
+                                                  <Component id="portfolioTotalAmountInvestedLabel" min="-2" pref="264" max="-2" attributes="0"/>
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="portfolioStatsInfoLabel2" min="-2" pref="256" max="-2" attributes="0"/>
-                                                  <Component id="portfolioStatsInfoLabel5" min="-2" pref="256" max="-2" attributes="0"/>
+                                                  <Component id="portfolioTotalAmountInvestedVariable" min="-2" pref="256" max="-2" attributes="0"/>
+                                                  <Component id="portfolioTotalProfitLossVariable" min="-2" pref="256" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -1342,23 +1349,23 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="portfolioStatsInfoLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="portfolioStatsInfoLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="portfolioTotalAmountInvestedVariable" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="portfolioTotalAmountInvestedLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="portfolioStatsInfoLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="portfolioStatsInfoLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="portfolioTotalProfitLossLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="portfolioTotalProfitLossVariable" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="portfolioStatsInfoLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="portfolioStatsInfoLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="portfolioTotalROILabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="portfolioTotalROIVariable" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="portfolioStatsInfoLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="portfolioStatsInfoLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="portfolioTotalValueLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="portfolioTotalValueVariable" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace pref="30" max="32767" attributes="0"/>
                               </Group>
@@ -1366,31 +1373,7 @@
                         </DimensionLayout>
                       </Layout>
                       <SubComponents>
-                        <Component class="javax.swing.JLabel" name="portfolioStatsInfoLabel2">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI" size="16" style="1"/>
-                            </Property>
-                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="58" green="58" red="58" type="rgb"/>
-                            </Property>
-                            <Property name="horizontalAlignment" type="int" value="4"/>
-                            <Property name="text" type="java.lang.String" value="$90.0"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="portfolioStatsInfoLabel3">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI" size="16" style="1"/>
-                            </Property>
-                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="58" green="58" red="58" type="rgb"/>
-                            </Property>
-                            <Property name="horizontalAlignment" type="int" value="2"/>
-                            <Property name="text" type="java.lang.String" value="Total profit/loss:"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="portfolioStatsInfoLabel4">
+                        <Component class="javax.swing.JLabel" name="portfolioTotalAmountInvestedLabel">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Segoe UI" size="16" style="1"/>
@@ -1402,7 +1385,31 @@
                             <Property name="text" type="java.lang.String" value="Total amount invested:"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="portfolioStatsInfoLabel5">
+                        <Component class="javax.swing.JLabel" name="portfolioTotalAmountInvestedVariable">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="16" style="1"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="58" green="58" red="58" type="rgb"/>
+                            </Property>
+                            <Property name="horizontalAlignment" type="int" value="4"/>
+                            <Property name="text" type="java.lang.String" value="$90.0"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="portfolioTotalProfitLossLabel">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="16" style="1"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="58" green="58" red="58" type="rgb"/>
+                            </Property>
+                            <Property name="horizontalAlignment" type="int" value="2"/>
+                            <Property name="text" type="java.lang.String" value="Total profit/loss:"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="portfolioTotalProfitLossVariable">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Segoe UI" size="16" style="1"/>
@@ -1414,7 +1421,7 @@
                             <Property name="text" type="java.lang.String" value="$-1.40"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="portfolioStatsInfoLabel6">
+                        <Component class="javax.swing.JLabel" name="portfolioTotalROILabel">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Segoe UI" size="16" style="1"/>
@@ -1426,7 +1433,7 @@
                             <Property name="text" type="java.lang.String" value="Total return on investment (ROI)"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="portfolioStatsInfoLabel7">
+                        <Component class="javax.swing.JLabel" name="portfolioTotalROIVariable">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Segoe UI" size="16" style="1"/>
@@ -1438,7 +1445,7 @@
                             <Property name="text" type="java.lang.String" value="-0.0155%"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="portfolioStatsInfoLabel8">
+                        <Component class="javax.swing.JLabel" name="portfolioTotalValueLabel">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Segoe UI Black" size="16" style="1"/>
@@ -1450,7 +1457,7 @@
                             <Property name="text" type="java.lang.String" value="Total value:"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="portfolioStatsInfoLabel9">
+                        <Component class="javax.swing.JLabel" name="portfolioTotalValueVariable">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Segoe UI Black" size="16" style="1"/>
@@ -2288,28 +2295,17 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="93" max="32767" attributes="0"/>
-                              <Component id="investInfoLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="lowRiskInvestmentsLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="portfolioStatisticsLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="investScrollPane1" alignment="0" pref="575" max="32767" attributes="0"/>
-                                          <Component id="investScrollPane2" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="298" max="-2" attributes="0"/>
-                                      <Component id="investLabel" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="lowRiskInvestmentsLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="portfolioStatisticsLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="investScrollPane2" alignment="0" pref="575" max="32767" attributes="0"/>
+                                  <Component id="investScrollPane1" alignment="0" pref="575" max="32767" attributes="0"/>
+                                  <Component id="investInfoLabel" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="investLabel" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="101" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2324,11 +2320,11 @@
                               <Component id="lowRiskInvestmentsLabel" min="-2" pref="26" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="investScrollPane1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                               <Component id="portfolioStatisticsLabel3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="investScrollPane2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="849" max="32767" attributes="0"/>
+                              <EmptySpace pref="975" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2342,6 +2338,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ef" green="ea" red="fd" type="rgb"/>
                         </Property>
+                        <Property name="horizontalAlignment" type="int" value="0"/>
                         <Property name="text" type="java.lang.String" value="Invest"/>
                         <Property name="toolTipText" type="java.lang.String" value=""/>
                         <Property name="verticalAlignment" type="int" value="1"/>
@@ -2355,6 +2352,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ef" green="ea" red="fd" type="rgb"/>
                         </Property>
+                        <Property name="horizontalAlignment" type="int" value="0"/>
                         <Property name="text" type="java.lang.String" value="&lt;HTML&gt;&lt;b&gt;Click an investment to view more information and for the option to buy shares"/>
                         <Property name="toolTipText" type="java.lang.String" value=""/>
                       </Properties>
@@ -2384,6 +2382,9 @@
                       </Properties>
                     </Component>
                     <Container class="javax.swing.JScrollPane" name="investScrollPane1">
+                      <Properties>
+                        <Property name="autoscrolls" type="boolean" value="true"/>
+                      </Properties>
                       <AuxValues>
                         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                       </AuxValues>
@@ -2402,22 +2403,7 @@
                               <Color blue="58" green="58" red="58" type="rgb"/>
                             </Property>
                             <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                              <StringArray count="14">
-                                <StringItem index="0" value="Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60"/>
-                                <StringItem index="1" value="Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60"/>
-                                <StringItem index="2" value="Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60"/>
-                                <StringItem index="3" value="Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60"/>
-                                <StringItem index="4" value="Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60"/>
-                                <StringItem index="5" value="Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60"/>
-                                <StringItem index="6" value="Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60"/>
-                                <StringItem index="7" value="Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60"/>
-                                <StringItem index="8" value="Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60"/>
-                                <StringItem index="9" value="Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60"/>
-                                <StringItem index="10" value="Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60"/>
-                                <StringItem index="11" value="Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60"/>
-                                <StringItem index="12" value="Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60"/>
-                                <StringItem index="13" value="Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                             <Property name="selectionMode" type="int" value="1"/>
                             <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -2438,6 +2424,9 @@
                       </SubComponents>
                     </Container>
                     <Container class="javax.swing.JScrollPane" name="investScrollPane2">
+                      <Properties>
+                        <Property name="autoscrolls" type="boolean" value="true"/>
+                      </Properties>
                       <AuxValues>
                         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                       </AuxValues>
@@ -2456,22 +2445,7 @@
                               <Color blue="58" green="58" red="58" type="rgb"/>
                             </Property>
                             <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                              <StringArray count="14">
-                                <StringItem index="0" value="Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60"/>
-                                <StringItem index="1" value="Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60"/>
-                                <StringItem index="2" value="Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60"/>
-                                <StringItem index="3" value="Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60"/>
-                                <StringItem index="4" value="Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60"/>
-                                <StringItem index="5" value="Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60"/>
-                                <StringItem index="6" value="Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60"/>
-                                <StringItem index="7" value="Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60"/>
-                                <StringItem index="8" value="Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60"/>
-                                <StringItem index="9" value="Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60"/>
-                                <StringItem index="10" value="Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60"/>
-                                <StringItem index="11" value="Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60"/>
-                                <StringItem index="12" value="Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60"/>
-                                <StringItem index="13" value="Delicious Bites | Profit: $-1.40 | ROI: -0.0155% | Value: $88.60"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                             <Property name="selectionMode" type="int" value="1"/>
                             <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -2588,13 +2562,13 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="investmentInfoLabel" min="-2" pref="20" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="investInfoDescScrollPane" pref="150" max="32767" attributes="0"/>
+                                      <Component id="investInfoDescScrollPane" pref="132" max="32767" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="portfolioStatisticsLabel5" min="-2" pref="26" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="investCPSGraphPanel" min="-2" pref="256" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="investmentTooltipLabel" min="-2" pref="19" max="-2" attributes="0"/>
+                                      <Component id="investmentTooltipLabel" min="-2" pref="37" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -3366,96 +3340,8 @@
                     </Constraint>
                   </Constraints>
 
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="walletBalancePanel" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="topUpAmountLabel" min="-2" pref="168" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                                              <Component id="topUpDollarSign" min="-2" pref="20" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="walletTopUpTextField" min="-2" pref="176" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                              <Component id="walletTopUpButton" min="-2" pref="145" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                              <Component id="withdrawAmountLabel" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                              <Component id="withdrawDollarSign" min="-2" pref="20" max="-2" attributes="0"/>
-                                              <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="walletWithdrawTextField" min="-2" pref="176" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="walletWithdrawButton" min="-2" pref="145" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="198" max="-2" attributes="0"/>
-                                      <Component id="walletWithdrawEntireBalanceCheckbox" min="-2" pref="332" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="306" max="-2" attributes="0"/>
-                                      <Component id="walletLabel" min="-2" pref="152" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace pref="108" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
-                              <Component id="walletLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                              <Component id="walletBalancePanel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                              <Component id="walletWithdrawEntireBalanceCheckbox" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                                      <Component id="withdrawDollarSign" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                                      <Component id="walletWithdrawButton" alignment="3" min="-2" pref="61" max="-2" attributes="0"/>
-                                      <Component id="walletWithdrawTextField" alignment="3" min="-2" pref="61" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="withdrawAmountLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="walletTopUpButton" alignment="3" min="-2" pref="61" max="-2" attributes="0"/>
-                                          <Component id="walletTopUpTextField" alignment="3" min="-2" pref="61" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
-                                              <Component id="topUpAmountLabel" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="topUpDollarSign" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <EmptySpace pref="897" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+                    <Property name="useNullLayout" type="boolean" value="false"/>
                   </Layout>
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="walletLabel">
@@ -3470,6 +3356,11 @@
                         <Property name="toolTipText" type="java.lang.String" value=""/>
                         <Property name="verticalAlignment" type="int" value="1"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="306" y="117" width="152" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Container class="javax.swing.JPanel" name="walletBalancePanel">
                       <Properties>
@@ -3477,6 +3368,11 @@
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="79" y="221" width="-1" height="-1"/>
+                        </Constraint>
+                      </Constraints>
 
                       <Layout>
                         <DimensionLayout dim="0">
@@ -3539,6 +3435,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Withdraw Amount:  "/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="81" y="406" width="-1" height="60"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="walletWithdrawButton">
                       <Properties>
@@ -3559,17 +3460,28 @@
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="walletWithdrawButtonActionPerformed"/>
                       </Events>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="497" y="409" width="145" height="61"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="withdrawDollarSign">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI" size="26" style="1"/>
+                          <Font name="Segoe UI" size="30" style="1"/>
                         </Property>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="58" green="58" red="58" type="rgb"/>
                         </Property>
+                        <Property name="horizontalAlignment" type="int" value="0"/>
                         <Property name="text" type="java.lang.String" value="$"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="267" y="412" width="30" height="50"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JButton" name="walletTopUpButton">
                       <Properties>
@@ -3590,17 +3502,28 @@
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="walletTopUpButtonActionPerformed"/>
                       </Events>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="497" y="504" width="145" height="61"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="topUpDollarSign">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI" size="26" style="1"/>
+                          <Font name="Segoe UI" size="30" style="1"/>
                         </Property>
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="58" green="58" red="58" type="rgb"/>
                         </Property>
+                        <Property name="horizontalAlignment" type="int" value="0"/>
                         <Property name="text" type="java.lang.String" value="$"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="267" y="503" width="30" height="60"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JLabel" name="topUpAmountLabel">
                       <Properties>
@@ -3612,6 +3535,11 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Top Up Amount:"/>
                       </Properties>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="80" y="509" width="168" height="50"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JFormattedTextField" name="walletWithdrawTextField">
                       <Properties>
@@ -3634,6 +3562,11 @@
                         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="walletWithdrawTextFieldKeyReleased"/>
                         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="walletWithdrawTextFieldKeyTyped"/>
                       </Events>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="295" y="409" width="190" height="61"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JFormattedTextField" name="walletTopUpTextField">
                       <Properties>
@@ -3655,6 +3588,11 @@
                         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="walletTopUpTextFieldKeyReleased"/>
                         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="walletTopUpTextFieldKeyTyped"/>
                       </Events>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="295" y="504" width="190" height="61"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                     <Component class="javax.swing.JCheckBox" name="walletWithdrawEntireBalanceCheckbox">
                       <Properties>
@@ -3665,10 +3603,16 @@
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="  Withdraw entire wallet balance"/>
+                        <Property name="horizontalAlignment" type="int" value="0"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="walletWithdrawEntireBalanceCheckboxActionPerformed"/>
                       </Events>
+                      <Constraints>
+                        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                          <AbsoluteConstraints x="80" y="360" width="560" height="-1"/>
+                        </Constraint>
+                      </Constraints>
                     </Component>
                   </SubComponents>
                 </Container>

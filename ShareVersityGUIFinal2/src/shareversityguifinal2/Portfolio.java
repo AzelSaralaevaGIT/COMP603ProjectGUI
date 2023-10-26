@@ -8,7 +8,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -332,5 +331,23 @@ public class Portfolio
         System.out.println();
         
         System.out.println(user.getAccountPortfolio().printInvestedCompanies());
+    }
+    
+    // Getters
+
+    public double getTotalValue() {
+        return totalValue;
+    }
+
+    public double getTotalReturnOnInvestment() {
+        return totalReturnOnInvestment;
+    }
+
+    public double getTotalProfit() {
+        return totalProfit;
+    }
+
+    public double getTotalInvested() {
+        return totalInvested;
     }
 }
