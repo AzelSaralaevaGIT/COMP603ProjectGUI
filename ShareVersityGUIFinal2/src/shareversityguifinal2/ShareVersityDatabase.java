@@ -5,6 +5,7 @@ import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Logger;
 
 public class ShareVersityDatabase {
     private final DatabaseManager dbManager;
@@ -22,7 +23,7 @@ public class ShareVersityDatabase {
             this.checkExistedTable("ACCOUNTINFO");
 
             // Create the ACCOUNTINFO table and insert records
-            this.statement.addBatch("CREATE TABLE ACCOUNTINFO (USERNAME VARCHAR(50), PASSWORD VARCHAR(50), FULLNAME VARCHAR(50), BANKACCOUNTNUMBER INT, DATEOFBIRTH VARCHAR(40), WALLETAMOUNT FLOAT)");
+            this.statement.addBatch("CREATE TABLE ACCOUNTINFO (USERNAME VARCHAR(50), PASSWORD VARCHAR(50), FULLNAME VARCHAR(50), BANKACCOUNTNUMBER BIGINT, DATEOFBIRTH VARCHAR(40), WALLETAMOUNT FLOAT)");
             this.statement.addBatch("INSERT INTO ACCOUNTINFO VALUES ('AZEL00', 'password123', 'Azel Saralaeva', 714652622, '20 May 2000', 10000.00)");
             this.statement.addBatch("INSERT INTO ACCOUNTINFO VALUES ('FRAN123', 'academic111', 'Fran Caveman', 658618632, '10 August 1998', 56000.00)");
             this.statement.addBatch("INSERT INTO ACCOUNTINFO VALUES ('MARY1', 'comp603', 'Mary Johnstonson', 524897456, '5 December 1967', 33000.00)");
@@ -67,8 +68,48 @@ public class ShareVersityDatabase {
             ex.printStackTrace();
         }
     }
+    
+    public void createAccountTable() {
+    Statement statement = null;
+    try {
+        statement = conn.createStatement();
+
+        // Define the table name and check if it exists
+        String tableName = "ACCOUNT_INFORMATION";
+        this.checkExistedTable(tableName);
+
+        // Define the SQL statement for creating the table
+        String createTableSQL = "CREATE TABLE " + tableName + " ("
+                + "USERNAME VARCHAR(50),"
+                + "FULLNAME VARCHAR(50),"
+                + "DATEOFBIRTH VARCHAR(40),"
+                + "WALLETAMOUNT FLOAT"
+                + ")";
+
+        // Execute the SQL statement to create the table
+        statement.addBatch(createTableSQL);
+
+        // Execute the batch of SQL statements
+        statement.executeBatch();
+        System.out.println("Table " + tableName + " created successfully.");
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+    } finally {
+        try {
+            if (statement != null) {
+                statement.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
 
     public void closeConnection() {
         this.dbManager.closeConnections();
     }
+    
+    
+    
 }
