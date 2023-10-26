@@ -33,6 +33,8 @@ public class ShareversityGUI extends javax.swing.JFrame
     private static final InvestmentType lowRiskInvestments = new LowRiskInvestment(importedCompanies);
     private static final InvestmentType startupInvestments = new StartUpInvestment(importedCompanies);
     
+    private static final long CPSvalue = 100; // placeholder
+    
     /**
      * Creates new form ShareVersityGUI
      */
@@ -1034,7 +1036,7 @@ public class ShareversityGUI extends javax.swing.JFrame
                 .add(portfolioStatisticsLabel)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(portfolioStatsPanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(868, Short.MAX_VALUE))
         );
 
         menuRightPanels.add(portfolioRightPanel, "card2");
@@ -1717,7 +1719,7 @@ public class ShareversityGUI extends javax.swing.JFrame
         investBuySharesRightPanel.add(bsNumSharesRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 560, 210, 30));
 
         bsNumSharesSpinner.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        bsNumSharesSpinner.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, null, 0.1d));
+        bsNumSharesSpinner.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, (double)(999999.99d/(CPSvalue)), 0.1d));
         bsNumSharesSpinner.setEditor(new javax.swing.JSpinner.DefaultEditor(bsNumSharesSpinner));
         bsNumSharesSpinner.setBackground(new java.awt.Color(255, 255, 255));
         bsNumSharesSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -2317,6 +2319,7 @@ public class ShareversityGUI extends javax.swing.JFrame
         menuCardLayout.show(menuRightPanels,"invest");
         setMenuButtonColours(investButton, menuButtonList);
         System.out.println("invest button clicked");
+        System.out.println(startupInvestments.companyList.get(0).getCostPerShareHistory());
     }//GEN-LAST:event_investButtonActionPerformed
 
     private void pInvestInfoSellSharesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pInvestInfoSellSharesButtonActionPerformed
@@ -2427,8 +2430,6 @@ public class ShareversityGUI extends javax.swing.JFrame
     }//GEN-LAST:event_bsValueTextFieldKeyTyped
 
     private void bsValueTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bsValueTextFieldKeyReleased
-        long CPSvalue = 100; // placeholder
-        
         if (!(bsValueTextField.getText().isEmpty() || bsValueTextField.getText().isBlank()))
         {
             double numShares = (Double.valueOf(bsValueTextField.getText().replaceAll(",", ""))/CPSvalue);
@@ -2468,7 +2469,7 @@ public class ShareversityGUI extends javax.swing.JFrame
     }//GEN-LAST:event_bsNumSharesSpinnerKeyReleased
 
     private void bsNumSharesSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_bsNumSharesSpinnerStateChanged
-        long CPSvalue = 100; // placeholder
+        
         boolean change = bsNumSharesSpinner.isEnabled();
         
         if (change)
@@ -2657,7 +2658,7 @@ public class ShareversityGUI extends javax.swing.JFrame
             }
         }
         
-        if (length > 6) // limit to 6 characters
+        if (length >= 6) // limit to 6 characters
         {
             evt.consume();
         }
