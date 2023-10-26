@@ -273,6 +273,7 @@ public class ShareversityGUI extends javax.swing.JFrame
         topUpAmountLabel = new javax.swing.JLabel();
         walletWithdrawTextField = new javax.swing.JFormattedTextField();
         walletTopUpTextField = new javax.swing.JFormattedTextField();
+        walletWithdrawEntireBalanceCheckbox = new javax.swing.JCheckBox();
         accountInfoRightPanel = new javax.swing.JPanel();
         accountInfoLabel = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -2038,14 +2039,22 @@ public class ShareversityGUI extends javax.swing.JFrame
 
         walletWithdrawTextField.setBackground(new java.awt.Color(255, 255, 255));
         walletWithdrawTextField.setForeground(new java.awt.Color(88, 88, 88));
-        walletWithdrawTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,###.00"))));
+        walletWithdrawTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
         walletWithdrawTextField.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        walletWithdrawTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                walletWithdrawTextFieldFocusGained(evt);
+            }
+        });
         walletWithdrawTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 walletWithdrawTextFieldActionPerformed(evt);
             }
         });
         walletWithdrawTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                walletWithdrawTextFieldKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 walletWithdrawTextFieldKeyTyped(evt);
             }
@@ -2053,11 +2062,28 @@ public class ShareversityGUI extends javax.swing.JFrame
 
         walletTopUpTextField.setBackground(new java.awt.Color(255, 255, 255));
         walletTopUpTextField.setForeground(new java.awt.Color(88, 88, 88));
-        walletTopUpTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,###.00"))));
+        walletTopUpTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#,##0.00"))));
         walletTopUpTextField.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        walletTopUpTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                walletTopUpTextFieldFocusGained(evt);
+            }
+        });
         walletTopUpTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                walletTopUpTextFieldKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 walletTopUpTextFieldKeyTyped(evt);
+            }
+        });
+
+        walletWithdrawEntireBalanceCheckbox.setFont(new java.awt.Font("Segoe UI Black", 0, 19)); // NOI18N
+        walletWithdrawEntireBalanceCheckbox.setForeground(new java.awt.Color(255, 255, 255));
+        walletWithdrawEntireBalanceCheckbox.setText("  Withdraw entire wallet balance");
+        walletWithdrawEntireBalanceCheckbox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                walletWithdrawEntireBalanceCheckboxActionPerformed(evt);
             }
         });
 
@@ -2066,30 +2092,34 @@ public class ShareversityGUI extends javax.swing.JFrame
         walletRightPanelLayout.setHorizontalGroup(
             walletRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(walletRightPanelLayout.createSequentialGroup()
-                .add(79, 79, 79)
                 .add(walletRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, walletRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
-                        .add(walletBalancePanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(org.jdesktop.layout.GroupLayout.LEADING, walletRightPanelLayout.createSequentialGroup()
-                            .add(2, 2, 2)
-                            .add(withdrawAmountLabel)
-                            .add(4, 4, 4)
-                            .add(withdrawDollarSign, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .add(walletWithdrawTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 176, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                            .add(walletWithdrawButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 145, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                        .add(walletRightPanelLayout.createSequentialGroup()
-                            .add(topUpAmountLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 168, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(29, 29, 29)
-                            .add(topUpDollarSign, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                            .add(walletTopUpTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 176, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(12, 12, 12)
-                            .add(walletTopUpButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 145, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, walletRightPanelLayout.createSequentialGroup()
-                        .add(walletLabel)
-                        .add(208, 208, 208)))
+                    .add(walletRightPanelLayout.createSequentialGroup()
+                        .add(79, 79, 79)
+                        .add(walletRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
+                            .add(walletBalancePanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(walletRightPanelLayout.createSequentialGroup()
+                                .add(topUpAmountLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 168, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(29, 29, 29)
+                                .add(topUpDollarSign, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                                .add(walletTopUpTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 176, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(12, 12, 12)
+                                .add(walletTopUpButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 145, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .add(walletRightPanelLayout.createSequentialGroup()
+                                .add(2, 2, 2)
+                                .add(withdrawAmountLabel)
+                                .add(4, 4, 4)
+                                .add(withdrawDollarSign, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 20, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .add(walletWithdrawTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 176, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                                .add(walletWithdrawButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 145, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
+                    .add(walletRightPanelLayout.createSequentialGroup()
+                        .add(198, 198, 198)
+                        .add(walletWithdrawEntireBalanceCheckbox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 332, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(walletRightPanelLayout.createSequentialGroup()
+                        .add(306, 306, 306)
+                        .add(walletLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 152, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(108, Short.MAX_VALUE))
         );
         walletRightPanelLayout.setVerticalGroup(
@@ -2099,19 +2129,19 @@ public class ShareversityGUI extends javax.swing.JFrame
                 .add(walletLabel)
                 .add(49, 49, 49)
                 .add(walletBalancePanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(45, 45, 45)
+                .add(walletWithdrawEntireBalanceCheckbox)
+                .add(18, 18, 18)
                 .add(walletRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(walletRightPanelLayout.createSequentialGroup()
-                        .add(68, 68, 68)
+                        .add(13, 13, 13)
                         .add(withdrawDollarSign))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, walletRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                        .add(walletWithdrawButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 61, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(walletWithdrawTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 61, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, walletRightPanelLayout.createSequentialGroup()
-                        .add(55, 55, 55)
-                        .add(walletRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, walletRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                                .add(walletWithdrawButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 61, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(walletWithdrawTextField, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 61, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, walletRightPanelLayout.createSequentialGroup()
-                                .add(withdrawAmountLabel)
-                                .add(17, 17, 17)))))
+                        .add(withdrawAmountLabel)
+                        .add(17, 17, 17)))
                 .add(walletRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, walletRightPanelLayout.createSequentialGroup()
                         .add(34, 34, 34)
@@ -2125,7 +2155,7 @@ public class ShareversityGUI extends javax.swing.JFrame
                                 .add(5, 5, 5)
                                 .add(topUpAmountLabel))
                             .add(topUpDollarSign))))
-                .addContainerGap(936, Short.MAX_VALUE))
+                .addContainerGap(897, Short.MAX_VALUE))
         );
 
         menuRightPanels.add(walletRightPanel, "card3");
@@ -2380,7 +2410,7 @@ public class ShareversityGUI extends javax.swing.JFrame
         
         if (!(value.isBlank() || value.isEmpty()))
         {
-            value.replaceAll(",", "");
+            value = value.replaceAll(",", "");
             account.getWallet().withdraw(Double.valueOf(value));
             updateAccountDisplay();
         }
@@ -2394,7 +2424,7 @@ public class ShareversityGUI extends javax.swing.JFrame
         
         if (!(value.isBlank() || value.isEmpty()))
         {
-            value.replaceAll(",", "");
+            value = value.replaceAll(",", "");
             account.getWallet().topUp(Double.valueOf(value));
             updateAccountDisplay();
         }
@@ -2461,6 +2491,8 @@ public class ShareversityGUI extends javax.swing.JFrame
 
     private void bsValueTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bsValueTextFieldKeyTyped
         filterLetters(evt);
+        limitInputDollar(evt, bsValueTextField.getText());
+        bsValueTextField.setTransferHandler(null); // disable pasting into textfield
     }//GEN-LAST:event_bsValueTextFieldKeyTyped
 
     private void bsValueTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bsValueTextFieldKeyReleased
@@ -2482,10 +2514,14 @@ public class ShareversityGUI extends javax.swing.JFrame
 
     private void walletWithdrawTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_walletWithdrawTextFieldKeyTyped
         filterLetters(evt);
+        limitInputDollar(evt, walletWithdrawTextField.getText());
+        walletWithdrawTextField.setTransferHandler(null); // disable pasting into textfield
     }//GEN-LAST:event_walletWithdrawTextFieldKeyTyped
 
     private void walletTopUpTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_walletTopUpTextFieldKeyTyped
         filterLetters(evt);
+        limitInputDollar(evt, walletTopUpTextField.getText());
+        walletTopUpTextField.setTransferHandler(null); // disable pasting into textfield
     }//GEN-LAST:event_walletTopUpTextFieldKeyTyped
 
     private void bsNumSharesSpinnerKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bsNumSharesSpinnerKeyTyped
@@ -2541,6 +2577,44 @@ public class ShareversityGUI extends javax.swing.JFrame
     private void dialogueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dialogueButtonActionPerformed
         customDialogue.setVisible(false);
     }//GEN-LAST:event_dialogueButtonActionPerformed
+
+    private void walletWithdrawTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_walletWithdrawTextFieldFocusGained
+        walletWithdrawTextField.setText(""); 
+    }//GEN-LAST:event_walletWithdrawTextFieldFocusGained
+
+    private void walletTopUpTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_walletTopUpTextFieldFocusGained
+        walletTopUpTextField.setText(""); 
+    }//GEN-LAST:event_walletTopUpTextFieldFocusGained
+
+    private void walletWithdrawEntireBalanceCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_walletWithdrawEntireBalanceCheckboxActionPerformed
+        if (walletWithdrawEntireBalanceCheckbox.isSelected())
+        {
+            walletWithdrawTextField.setText(walletBalanceAmount.getText().replaceAll("\\$", ""));
+            walletWithdrawTextField.setEnabled(false);
+        }
+        else
+        {
+            walletWithdrawTextField.setEnabled(true);
+            walletWithdrawTextField.setText("");
+        }
+    }//GEN-LAST:event_walletWithdrawEntireBalanceCheckboxActionPerformed
+
+    // set to values to 0 if field is emptied
+    private void walletWithdrawTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_walletWithdrawTextFieldKeyReleased
+        if (walletWithdrawTextField.getText().isEmpty() || walletWithdrawTextField.getText().isBlank())
+        {
+            walletWithdrawTextField.setValue(0);
+            walletWithdrawTextField.setText("");
+        }
+    }//GEN-LAST:event_walletWithdrawTextFieldKeyReleased
+
+    private void walletTopUpTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_walletTopUpTextFieldKeyReleased
+        if (walletTopUpTextField.getText().isEmpty() || walletTopUpTextField.getText().isBlank())
+        {
+            walletTopUpTextField.setValue(0);
+            walletTopUpTextField.setText("");
+        }
+    }//GEN-LAST:event_walletTopUpTextFieldKeyReleased
 
     /*
         This method gets this year and gets the previous 100 years as a list of years as a DefaultComboBoxModel (for registering year of birth)
@@ -2630,6 +2704,24 @@ public class ShareversityGUI extends javax.swing.JFrame
             evt.consume(); 
         }
     }
+    
+    private void limitInputDollar(java.awt.event.KeyEvent evt, String text)
+    {
+        int length = 0;
+        
+        for (char c : text.toCharArray())
+        {
+            if (c != '.')
+            {
+                length++;
+            }
+        }
+        
+        if (length > 6) // limit to 6 characters
+        {
+            evt.consume();
+        }
+    }
 
     /*
         This method updates all displayed account information on the GUI
@@ -2645,6 +2737,11 @@ public class ShareversityGUI extends javax.swing.JFrame
         menuWalletBalanceValue.setText(dollarStringFormat(account.getWallet().getAccountBalance()));
         
         walletBalanceAmount.setText(dollarStringFormat(account.getWallet().getAccountBalance()));
+        
+        if (walletWithdrawEntireBalanceCheckbox.isSelected())
+        {
+            walletWithdrawTextField.setText(walletBalanceAmount.getText().replaceAll("\\$", ""));
+        }
     }
     
     /*
@@ -2652,7 +2749,7 @@ public class ShareversityGUI extends javax.swing.JFrame
     */
     private String dollarStringFormat(double dollarValue)
     {
-        DecimalFormat decimalFormat = new DecimalFormat("#,###.00");
+        DecimalFormat decimalFormat = new DecimalFormat("#,##0.00");
         String formattedNumber = "$" + decimalFormat.format(dollarValue);
         
         return formattedNumber;
@@ -2902,6 +2999,7 @@ public class ShareversityGUI extends javax.swing.JFrame
     private javax.swing.JButton walletTopUpButton;
     private javax.swing.JFormattedTextField walletTopUpTextField;
     private javax.swing.JButton walletWithdrawButton;
+    private javax.swing.JCheckBox walletWithdrawEntireBalanceCheckbox;
     private javax.swing.JFormattedTextField walletWithdrawTextField;
     private javax.swing.JLabel withdrawAmountLabel;
     private javax.swing.JLabel withdrawDollarSign;
