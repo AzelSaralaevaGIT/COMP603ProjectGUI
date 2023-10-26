@@ -14,6 +14,8 @@ import java.sql.Statement;
  *
  * @author saral
  */
+
+// database compnonent of the project responsible for database connections
 public final class DatabaseManager {
     
       /**
@@ -27,8 +29,10 @@ public final class DatabaseManager {
      * the server first. Meanwhile, you need to import 'derby.jar' to the
      * libraries.
      */
-    private static final String USER_NAME = "test"; //your DB username
-    private static final String PASSWORD = "test"; //your DB password
+    //private static final String USER_NAME = ""; //your DB username
+    //private static final String PASSWORD = ""; //your DB password
+   
+     //creates database at the root of project folder
     private static final String URL = "jdbc:derby:ShareVersityDB_Ebd;create=true";  //url of the DB host
 
     Connection conn;
@@ -54,7 +58,7 @@ public final class DatabaseManager {
         {
             try 
             {
-                conn = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
+                conn = DriverManager.getConnection(URL);
                 System.out.println(URL + "Connected successfully");
             } 
             catch (SQLException ex) 
