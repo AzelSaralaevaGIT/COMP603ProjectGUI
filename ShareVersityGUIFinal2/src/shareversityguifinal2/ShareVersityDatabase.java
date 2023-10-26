@@ -20,18 +20,18 @@ public class ShareVersityDatabase {
     public void connectShareVersityDB() {
         try {
             this.statement = conn.createStatement();
-            this.checkExistedTable("ACCOUNTINFO");
+            this.checkExistedTable("ACCOUNT_TABLE");
 
             // Create the ACCOUNTINFO table and insert records
-            this.statement.addBatch("CREATE TABLE ACCOUNTINFO (USERNAME VARCHAR(50), PASSWORD VARCHAR(50), FULLNAME VARCHAR(50), BANKACCOUNTNUMBER BIGINT, DATEOFBIRTH VARCHAR(40), WALLETAMOUNT FLOAT)");
-            this.statement.addBatch("INSERT INTO ACCOUNTINFO VALUES ('AZEL00', 'password123', 'Azel Saralaeva', 714652622, '20 May 2000', 10000.00)");
-            this.statement.addBatch("INSERT INTO ACCOUNTINFO VALUES ('FRAN123', 'academic111', 'Fran Caveman', 658618632, '10 August 1998', 56000.00)");
-            this.statement.addBatch("INSERT INTO ACCOUNTINFO VALUES ('MARY1', 'comp603', 'Mary Johnstonson', 524897456, '5 December 1967', 33000.00)");
-            this.statement.addBatch("INSERT INTO ACCOUNTINFO VALUES ('JORDAN99', 'tvtv33', 'Jordan Smith', 432897812, '1 July 2005', 500.00)");
-            this.statement.addBatch("INSERT INTO ACCOUNTINFO VALUES ('SARAHMA33', 'giveus100percentplease', 'Sarah Maverye', 714342652622, '20 June 1994', 10000.00)");
-            this.statement.addBatch("INSERT INTO ACCOUNTINFO VALUES ('ANAHIT35', 'weworkedhardonthis', 'Ana Hit', 985263523, '17 January 1977', 5555.00)");
-            this.statement.addBatch("INSERT INTO ACCOUNTINFO VALUES ('LUKE77', 'thankyou!', 'Luke Monte', 55678952202, '8 September 2001', 78564.00)");
-            this.statement.addBatch("INSERT INTO ACCOUNTINFO VALUES ('JOHNSMITH51', 'hehehe', 'John Smith', 714342622, '12 August 1989', 3345.00)");
+            this.statement.addBatch("CREATE TABLE ACCOUNT_TABLE(USERNAME VARCHAR(50), PASSWORD VARCHAR(50), FULLNAME VARCHAR(50), BANKACCOUNTNUMBER VARCHAR(20), DATEOFBIRTH VARCHAR(40), WALLETAMOUNT FLOAT)");
+            this.statement.addBatch("INSERT INTO ACCOUNT_TABLE VALUES ('AZEL00', 'password123', 'Azel Saralaeva', '71-3246-432456-97', '20 May 2000', 10000.00)");
+            this.statement.addBatch("INSERT INTO ACCOUNT_TABLE VALUES ('FRAN123', 'academic111', 'Fran Caveman', '65-2097-4567-87', '10 August 1998', 56000.00)");
+            this.statement.addBatch("INSERT INTO ACCOUNT_TABLE VALUES ('MARY1', 'comp603', 'Mary Johnstonson', '01-4564-856743-65', '5 December 1967', 33000.00)");
+            this.statement.addBatch("INSERT INTO ACCOUNT_TABLE VALUES ('JORDAN99', 'tvtv33', 'Jordan Smith', '09-5467-847426-78', '1 July 2005', 500.00)");
+            this.statement.addBatch("INSERT INTO ACCOUNT_TABLE VALUES ('SARAHMA33', '100percentplease', 'Sarah Maverye', '71-3366-236430-65', '20 June 1994', 10000.00)");
+            this.statement.addBatch("INSERT INTO ACCOUNT_TABLE VALUES ('ANAHIT35', 'weworkedhardonthis', 'Ana Hit', '98-5467-456931-94', '17 January 1977', 5555.00)");
+            this.statement.addBatch("INSERT INTO ACCOUNT_TABLE VALUES ('LUKE77', 'thankyou!', 'Luke Monte', '06-9564-183331-79', '8 September 2001', 78564.00)");
+            this.statement.addBatch("INSERT INTO ACCOUNT_TABLE VALUES ('JOHNSMITH51', 'hehehe', 'John Smith', '78-9025-564823-50', '12 August 1989', 3345.00)");
 
             this.statement.executeBatch();
         } catch (SQLException ex) {
@@ -104,6 +104,8 @@ public class ShareVersityDatabase {
         }
     }
 }
+    
+    
 
 
     public void closeConnection() {
