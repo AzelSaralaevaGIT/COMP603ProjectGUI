@@ -9,6 +9,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,7 +22,7 @@ public final class DatabaseManager {
     
     
      //creates database at the root of project folder
-    private static final String URL = "jdbc:derby:ShareVersityDB_Ebd;create=true";  //url of the DB host
+    private static final String URL = "jdbc:derby:ShareVersityDB_Ebd;create=true";  //derby.jar
 
     Connection conn;
 
@@ -51,7 +53,7 @@ public final class DatabaseManager {
             catch (SQLException ex) 
             {
                 System.out.println(ex.getMessage());
-            }
+            } 
         }
     }
 // closes connection to derby jar
