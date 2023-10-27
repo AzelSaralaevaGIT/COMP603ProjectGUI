@@ -71,10 +71,11 @@ public class ShareVersityDatabase {
         // Define the SQL statement for creating the table
         String createTableSQL = "CREATE TABLE " + tableName + " ("
                 + "COMPANYNAME VARCHAR(50),"
-                + "COMPANYDESCRIPTION VARCHAR(50),"
+                + "COMPANYDESCRIPTION VARCHAR(100),"
                 + "CEO VARCHAR(40),"
-                + "NUM_EMPLOYEES INT"
-                + "COMPANY_CATEGORIES"
+                + "NUM_EMPLOYEES INT,"
+                + "COMPANY_CATEGORIES VARCHAR(30),"
+                + "INVESTMENT_TYPES VARCHAR(20)"
                 + ")";
 
         // Execute the SQL statement to create the table
@@ -95,6 +96,7 @@ public class ShareVersityDatabase {
         }
     }
 }
+
     //inserts company into database
     public void insertCompanyRecord(String username, String fullname, String dateOfBirth, double walletAmount) {
     try {
