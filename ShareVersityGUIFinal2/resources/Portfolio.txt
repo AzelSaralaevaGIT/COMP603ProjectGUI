@@ -1,7 +1,7 @@
 azel00:
 fran01: XYZ Tech Solutions, 10.0, 5 / Global Learning Institute, 10.0, 2 / Precision Manufacturing Co., 5.3, 0 /
 Frasd: CapitalEdge Financial, 50.000000, 0 / CapitalEdge Financial, 50.000000, 0 / CapitalEdge Financial, 50.000000, 0 /
-Azello: Global Learning Institute, 50.000000, 0 /
+Azello: ConnectCom Telecom, 50.000000, 0 /
 
 
 
@@ -9,5 +9,6 @@ Azello: Global Learning Institute, 50.000000, 0 /
 
 azel00:
 azel00: AgriGenetic Solutions, 100.000000, 1 /
+
 
 

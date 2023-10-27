@@ -4,7 +4,7 @@
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="valueNumSharesButtonGroup">
     </Component>
-    <Container class="javax.swing.JDialog" name="customDialogue">
+    <Container class="javax.swing.JDialog" name="warningDialogue">
       <Properties>
         <Property name="title" type="java.lang.String" value="Warning"/>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -22,23 +22,23 @@
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="customDialogue.setPreferredSize(new Dimension(590,280));&#xa;customDialogue.setLocationRelativeTo(this);&#xa;customDialogue.setModalityType(ModalityType.APPLICATION_MODAL);&#xa;customDialogue.pack();"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="warningDialogue.setPreferredSize(new Dimension(590,280));&#xa;warningDialogue.setLocationRelativeTo(this);&#xa;warningDialogue.setModalityType(ModalityType.APPLICATION_MODAL);&#xa;warningDialogue.pack();"/>
       </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="dialoguePanel" alignment="0" max="32767" attributes="0"/>
+              <Component id="warningDialoguePanel" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="dialoguePanel" alignment="0" max="32767" attributes="0"/>
+              <Component id="warningDialoguePanel" min="-2" max="-2" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="dialoguePanel">
+        <Container class="javax.swing.JPanel" name="warningDialoguePanel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -46,57 +46,11 @@
             <Property name="name" type="java.lang.String" value="Warning" noResource="true"/>
           </Properties>
 
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="dialogueSeparator" alignment="1" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="dialogueIcon" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="dialogueTitle" pref="430" max="32767" attributes="0"/>
-                                  <Component id="dialogueDesc" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="213" max="-2" attributes="0"/>
-                              <Component id="dialogueButton" min="-2" pref="155" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace pref="30" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                              <Component id="dialogueIcon" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="dialogueTitle" min="-2" pref="66" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="dialogueDesc" min="-2" pref="88" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Component id="dialogueSeparator" min="-2" pref="5" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="dialogueButton" min="-2" pref="35" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+            <Property name="useNullLayout" type="boolean" value="false"/>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="dialogueTitle">
+            <Component class="javax.swing.JLabel" name="warningDialogueTitle">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI Black" size="20" style="0"/>
@@ -106,15 +60,25 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Dialogue Label"/>
               </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="130" y="6" width="430" height="66"/>
+                </Constraint>
+              </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="dialogueIcon">
+            <Component class="javax.swing.JLabel" name="warningDialogueIcon">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/resources/infoIcon.png"/>
+                  <Image iconType="3" name="/resources/warningIcon.png"/>
                 </Property>
               </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="25" y="32" width="-1" height="-1"/>
+                </Constraint>
+              </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="dialogueDesc">
+            <Component class="javax.swing.JLabel" name="warningDialogueDesc">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI Semibold" size="16" style="0"/>
@@ -125,20 +89,208 @@
                 <Property name="text" type="java.lang.String" value="Dialogue text"/>
                 <Property name="verticalAlignment" type="int" value="1"/>
               </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="130" y="78" width="430" height="88"/>
+                </Constraint>
+              </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="dialogueButton">
+            <Container class="javax.swing.JPanel" name="warningDialogueButtonPanel">
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="0" y="172" width="580" height="-1"/>
+                </Constraint>
+              </Constraints>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="212" max="-2" attributes="0"/>
+                          <Component id="warningOkButton" min="-2" pref="155" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                          <Component id="warningOkButton" min="-2" pref="35" max="-2" attributes="0"/>
+                          <EmptySpace pref="20" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JButton" name="warningOkButton">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI Semibold" size="14" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Ok"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="warningOkButtonActionPerformed"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JDialog" name="confirmationDialogue">
+      <Properties>
+        <Property name="title" type="java.lang.String" value="Confirmation"/>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="location" type="java.awt.Point" editor="org.netbeans.beaninfo.editors.PointEditor">
+          <Point value="[0, 0]"/>
+        </Property>
+        <Property name="resizable" type="boolean" value="false"/>
+        <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[500, 450]"/>
+        </Property>
+        <Property name="type" type="java.awt.Window$Type" editor="org.netbeans.modules.form.editors.EnumEditor">
+          <Value id="POPUP"/>
+        </Property>
+      </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="confirmationDialogue.setPreferredSize(new Dimension(590,280));&#xa;confirmationDialogue.setLocationRelativeTo(this);&#xa;confirmationDialogue.setModalityType(ModalityType.APPLICATION_MODAL);&#xa;confirmationDialogue.pack();"/>
+      </AuxValues>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Component id="confirmationDialoguePanel" alignment="0" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Component id="confirmationDialoguePanel" alignment="0" min="-2" max="-2" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Container class="javax.swing.JPanel" name="confirmationDialoguePanel">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="Warning" noResource="true"/>
+          </Properties>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+            <Property name="useNullLayout" type="boolean" value="false"/>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="confirmationDialogueTitle">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI Semibold" size="14" style="0"/>
+                  <Font name="Segoe UI Black" size="20" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Ok"/>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="58" green="58" red="58" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Dialogue Label"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dialogueButtonActionPerformed"/>
-              </Events>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="130" y="6" width="430" height="66"/>
+                </Constraint>
+              </Constraints>
             </Component>
-            <Component class="javax.swing.JSeparator" name="dialogueSeparator">
+            <Component class="javax.swing.JLabel" name="confirmationDialogueIcon">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/resources/infoIcon.png"/>
+                </Property>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="25" y="32" width="-1" height="-1"/>
+                </Constraint>
+              </Constraints>
             </Component>
+            <Component class="javax.swing.JLabel" name="confirmationDialogueDesc">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI Semibold" size="16" style="0"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="58" green="58" red="58" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Dialogue text"/>
+                <Property name="verticalAlignment" type="int" value="1"/>
+              </Properties>
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="130" y="78" width="430" height="88"/>
+                </Constraint>
+              </Constraints>
+            </Component>
+            <Container class="javax.swing.JPanel" name="confirmationDialogueButtonPanel">
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                  <AbsoluteConstraints x="0" y="172" width="580" height="-1"/>
+                </Constraint>
+              </Constraints>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                          <Component id="confirmationCancelButton" min="-2" pref="155" max="-2" attributes="0"/>
+                          <EmptySpace pref="112" max="32767" attributes="0"/>
+                          <Component id="confirmationOkButton" min="-2" pref="155" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="confirmationOkButton" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="confirmationCancelButton" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="18" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JButton" name="confirmationOkButton">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI Semibold" size="14" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Ok"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmationOkButtonActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="confirmationCancelButton">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI Semibold" size="14" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Cancel"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmationCancelButtonActionPerformed"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
       </SubComponents>
@@ -244,30 +396,25 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jPanel2" min="-2" pref="366" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="loginPasswordLabel" min="-2" pref="97" max="-2" attributes="0"/>
-                                  <Component id="loginUsernameLabel" min="-2" pref="97" max="-2" attributes="0"/>
-                                  <Component id="loginUsernameTextField" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
-                                      <Component id="loginLabel" min="-2" pref="122" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="registerMsgLabel" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                                              <Component id="registerHereButton" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="loginButton" min="-2" pref="339" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="loginPasswordLabel" min="-2" pref="97" max="-2" attributes="0"/>
+                              <Component id="loginUsernameLabel" min="-2" pref="97" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="registerMsgLabel" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                                          <Component id="registerHereButton" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <Component id="loginButton" min="-2" pref="339" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
+                              <Component id="loginLabel" alignment="0" max="32767" attributes="0"/>
+                              <Component id="showHidePasswordPanel" pref="381" max="32767" attributes="0"/>
+                              <Component id="loginUsernameTextField" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="96" max="32767" attributes="0"/>
+                          <EmptySpace pref="81" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -283,7 +430,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="loginPasswordLabel" min="-2" pref="56" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                          <Component id="showHidePasswordPanel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
                           <Component id="loginButton" min="-2" pref="56" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -305,6 +452,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ef" green="ea" red="fd" type="rgb"/>
                     </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="Log in"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                     <Property name="verticalAlignment" type="int" value="1"/>
@@ -406,7 +554,7 @@
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                 </Component>
-                <Container class="javax.swing.JPanel" name="jPanel2">
+                <Container class="javax.swing.JPanel" name="showHidePasswordPanel">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -443,7 +591,7 @@
                       </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="0" y="0" width="310" height="50"/>
+                          <AbsoluteConstraints x="0" y="0" width="330" height="50"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -460,7 +608,7 @@
                       </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="320" y="10" width="50" height="-1"/>
+                          <AbsoluteConstraints x="330" y="10" width="50" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -487,7 +635,7 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace pref="70" max="32767" attributes="0"/>
+                          <EmptySpace pref="65" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -1480,14 +1628,14 @@
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="portfolioInvestmentCostPerShareGraph" min="-2" max="-2" attributes="0"/>
                                   <Component id="portfolioInvestmentStatsLabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="portfolioInvestmentStatsPanel" pref="580" max="32767" attributes="0"/>
-                                  <Component id="portfolioCPSgraphPanel" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="pInvestInfoBackButton" min="-2" pref="235" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="pInvestInfoSellSharesButton" min="-2" pref="235" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="portfolioInfoTitle" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="portfolioInfoTitle" alignment="0" min="-2" pref="580" max="-2" attributes="0"/>
+                                  <Component id="portfolioCPSgraphPanel" alignment="0" min="-2" pref="580" max="-2" attributes="0"/>
+                                  <Component id="portfolioInvestmentStatsPanel" alignment="0" min="-2" pref="580" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
                           </Group>
@@ -1511,7 +1659,7 @@
                                   </Group>
                                   <Component id="portfolioCPSgraphPanel" min="-2" pref="270" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
-                                      <EmptySpace min="310" pref="310" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="310" max="-2" attributes="0"/>
                                       <Component id="portfolioInvestmentStatsPanel" min="-2" pref="170" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -2819,7 +2967,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="javax.swing.JButton" name="buySharesButtonFinal">
+                    <Component class="javax.swing.JButton" name="bsConfirmSharesPurchaseButton">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="91" green="48" red="64" type="rgb"/>
@@ -2834,7 +2982,7 @@
                         <Property name="toolTipText" type="java.lang.String" value=""/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buySharesButtonFinalActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bsConfirmSharesPurchaseButtonActionPerformed"/>
                       </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2929,7 +3077,7 @@
                           <Font name="Segoe UI Semibold" size="16" style="0"/>
                         </Property>
                         <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                          <Connection code="new javax.swing.SpinnerNumberModel(0.0d, 0.0d, (double)(999999.99d/(CPSvalue)), 0.1d)" type="code"/>
+                          <Connection code="new javax.swing.SpinnerNumberModel(0.0d, 0.0d, (double)(999999.99d/(cpsValue)), 0.1d)" type="code"/>
                         </Property>
                       </Properties>
                       <Events>
@@ -3055,25 +3203,20 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="buySharesConfirmationTitle" alignment="1" min="-2" pref="590" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="250" pref="250" max="-2" attributes="0"/>
-                                              <Component id="bscInvestmentStatsLabel" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="250" pref="250" max="-2" attributes="0"/>
-                                              <Component id="buySharesConfirmBackButton" min="-2" pref="235" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="bscInvestmentStatsLabel" min="-2" max="-2" attributes="0"/>
+                                          <Component id="buySharesConfirmBackButton" min="-2" pref="235" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="buySharesStatsPanel" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="bscPurchaseConfirmedPanel" alignment="1" min="-2" pref="590" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="89" max="32767" attributes="0"/>
+                              <EmptySpace pref="91" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>

@@ -182,9 +182,17 @@ public class Portfolio
     
     public void updatePortfolioStats()
     {
+        // reset values to 0
+        this.totalInvested = 0.0;
+        this.totalValue = 0.0;
+        this.totalHistoricalValue = 0.0;
+        this.totalProfit = 0.0;
+        this.totalReturnOnInvestment = 0.0;
+        
+        // recompute values
+        this.computeTotalInvested();
         this.computeTotalValue();
         this.computeTotalHistoricalValue();
-        this.computeTotalInvested();
         this.computeTotalProfit();
         this.computeTotalReturnOnInvestment();
     }
@@ -307,6 +315,13 @@ public class Portfolio
             account.getAccountPortfolio().getInvestments().get(investmentIndex).setValue(investmentValue - amount);
             account.getWallet().topUp(amount);
         }
+    };
+    
+    public void sellAllShares(Account account, Investment investmentToRemove)
+    {
+        account.getWallet().topUp(investmentToRemove.getValue());
+        account.getAccountPortfolio().getInvestments().remove(investmentToRemove);
+        account.getAccountPortfolio().updatePortfolioStats();
     };
     
     public static void main(String[] args) 

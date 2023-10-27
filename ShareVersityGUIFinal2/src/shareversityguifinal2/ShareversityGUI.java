@@ -87,13 +87,21 @@ public class ShareversityGUI extends javax.swing.JFrame
     private void initComponents() {
 
         valueNumSharesButtonGroup = new javax.swing.ButtonGroup();
-        customDialogue = new javax.swing.JDialog();
-        dialoguePanel = new javax.swing.JPanel();
-        dialogueTitle = new javax.swing.JLabel();
-        dialogueIcon = new javax.swing.JLabel();
-        dialogueDesc = new javax.swing.JLabel();
-        dialogueButton = new javax.swing.JButton();
-        dialogueSeparator = new javax.swing.JSeparator();
+        warningDialogue = new javax.swing.JDialog();
+        warningDialoguePanel = new javax.swing.JPanel();
+        warningDialogueTitle = new javax.swing.JLabel();
+        warningDialogueIcon = new javax.swing.JLabel();
+        warningDialogueDesc = new javax.swing.JLabel();
+        warningDialogueButtonPanel = new javax.swing.JPanel();
+        warningOkButton = new javax.swing.JButton();
+        confirmationDialogue = new javax.swing.JDialog();
+        confirmationDialoguePanel = new javax.swing.JPanel();
+        confirmationDialogueTitle = new javax.swing.JLabel();
+        confirmationDialogueIcon = new javax.swing.JLabel();
+        confirmationDialogueDesc = new javax.swing.JLabel();
+        confirmationDialogueButtonPanel = new javax.swing.JPanel();
+        confirmationOkButton = new javax.swing.JButton();
+        confirmationCancelButton = new javax.swing.JButton();
         loginRegisterPanel = new javax.swing.JPanel();
         loginRegisterLeftPanel = new javax.swing.JPanel();
         Logo = new javax.swing.JLabel();
@@ -106,7 +114,7 @@ public class ShareversityGUI extends javax.swing.JFrame
         loginButton = new javax.swing.JButton();
         registerHereButton = new javax.swing.JLabel();
         registerMsgLabel = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        showHidePasswordPanel = new javax.swing.JPanel();
         loginPasswordTextField = new javax.swing.JPasswordField();
         hidePasswordCheckBox = new javax.swing.JCheckBox();
         registerRightPanel = new javax.swing.JPanel();
@@ -228,7 +236,7 @@ public class ShareversityGUI extends javax.swing.JFrame
         jScrollPane1 = new javax.swing.JScrollPane();
         buySharesCPSGraph = new javax.swing.JPanel();
         buySharesBackButton = new javax.swing.JButton();
-        buySharesButtonFinal = new javax.swing.JButton();
+        bsConfirmSharesPurchaseButton = new javax.swing.JButton();
         bsValueRadioButton = new javax.swing.JRadioButton();
         bsValueDollarSign = new javax.swing.JLabel();
         bsNumSharesRadioButton = new javax.swing.JRadioButton();
@@ -279,88 +287,153 @@ public class ShareversityGUI extends javax.swing.JFrame
         AccInfoDOBLabel = new javax.swing.JLabel();
         AccInfoWalletBalanceLabel = new javax.swing.JLabel();
 
-        customDialogue.setTitle("Warning");
-        customDialogue.setBackground(new java.awt.Color(255, 255, 255));
-        customDialogue.setLocation(new java.awt.Point(0, 0));
-        customDialogue.setResizable(false);
-        customDialogue.setSize(new java.awt.Dimension(500, 450));
-        customDialogue.setType(java.awt.Window.Type.POPUP);
-        customDialogue.setPreferredSize(new Dimension(590,280));
-        customDialogue.setLocationRelativeTo(this);
-        customDialogue.setModalityType(ModalityType.APPLICATION_MODAL);
-        customDialogue.pack();
+        warningDialogue.setTitle("Warning");
+        warningDialogue.setBackground(new java.awt.Color(255, 255, 255));
+        warningDialogue.setLocation(new java.awt.Point(0, 0));
+        warningDialogue.setResizable(false);
+        warningDialogue.setSize(new java.awt.Dimension(500, 450));
+        warningDialogue.setType(java.awt.Window.Type.POPUP);
+        warningDialogue.setPreferredSize(new Dimension(590,280));
+        warningDialogue.setLocationRelativeTo(this);
+        warningDialogue.setModalityType(ModalityType.APPLICATION_MODAL);
+        warningDialogue.pack();
 
-        dialoguePanel.setBackground(new java.awt.Color(255, 255, 255));
-        dialoguePanel.setName("Warning"); // NOI18N
+        warningDialoguePanel.setBackground(new java.awt.Color(255, 255, 255));
+        warningDialoguePanel.setName("Warning"); // NOI18N
+        warningDialoguePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        dialogueTitle.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
-        dialogueTitle.setForeground(new java.awt.Color(88, 88, 88));
-        dialogueTitle.setText("Dialogue Label");
+        warningDialogueTitle.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        warningDialogueTitle.setForeground(new java.awt.Color(88, 88, 88));
+        warningDialogueTitle.setText("Dialogue Label");
+        warningDialoguePanel.add(warningDialogueTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 6, 430, 66));
 
-        dialogueIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/infoIcon.png"))); // NOI18N
+        warningDialogueIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/warningIcon.png"))); // NOI18N
+        warningDialoguePanel.add(warningDialogueIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 32, -1, -1));
 
-        dialogueDesc.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        dialogueDesc.setForeground(new java.awt.Color(88, 88, 88));
-        dialogueDesc.setText("Dialogue text");
-        dialogueDesc.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        warningDialogueDesc.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        warningDialogueDesc.setForeground(new java.awt.Color(88, 88, 88));
+        warningDialogueDesc.setText("Dialogue text");
+        warningDialogueDesc.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        warningDialoguePanel.add(warningDialogueDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 78, 430, 88));
 
-        dialogueButton.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
-        dialogueButton.setText("Ok");
-        dialogueButton.addActionListener(new java.awt.event.ActionListener() {
+        warningOkButton.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        warningOkButton.setText("Ok");
+        warningOkButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dialogueButtonActionPerformed(evt);
+                warningOkButtonActionPerformed(evt);
             }
         });
 
-        org.jdesktop.layout.GroupLayout dialoguePanelLayout = new org.jdesktop.layout.GroupLayout(dialoguePanel);
-        dialoguePanel.setLayout(dialoguePanelLayout);
-        dialoguePanelLayout.setHorizontalGroup(
-            dialoguePanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, dialogueSeparator)
-            .add(dialoguePanelLayout.createSequentialGroup()
-                .add(dialoguePanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(dialoguePanelLayout.createSequentialGroup()
-                        .add(25, 25, 25)
-                        .add(dialogueIcon)
-                        .add(30, 30, 30)
-                        .add(dialoguePanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                            .add(dialogueTitle, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
-                            .add(dialogueDesc, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .add(dialoguePanelLayout.createSequentialGroup()
-                        .add(213, 213, 213)
-                        .add(dialogueButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 155, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(30, Short.MAX_VALUE))
+        org.jdesktop.layout.GroupLayout warningDialogueButtonPanelLayout = new org.jdesktop.layout.GroupLayout(warningDialogueButtonPanel);
+        warningDialogueButtonPanel.setLayout(warningDialogueButtonPanelLayout);
+        warningDialogueButtonPanelLayout.setHorizontalGroup(
+            warningDialogueButtonPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(warningDialogueButtonPanelLayout.createSequentialGroup()
+                .add(212, 212, 212)
+                .add(warningOkButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 155, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        dialoguePanelLayout.setVerticalGroup(
-            dialoguePanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(dialoguePanelLayout.createSequentialGroup()
-                .add(dialoguePanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                    .add(dialoguePanelLayout.createSequentialGroup()
-                        .add(32, 32, 32)
-                        .add(dialogueIcon)
-                        .add(0, 0, Short.MAX_VALUE))
-                    .add(dialoguePanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .add(dialogueTitle, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 66, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(dialogueDesc, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 88, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)))
-                .add(dialogueSeparator, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(dialogueButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 35, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(14, 14, 14))
+        warningDialogueButtonPanelLayout.setVerticalGroup(
+            warningDialogueButtonPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(warningDialogueButtonPanelLayout.createSequentialGroup()
+                .add(16, 16, 16)
+                .add(warningOkButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 35, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        org.jdesktop.layout.GroupLayout customDialogueLayout = new org.jdesktop.layout.GroupLayout(customDialogue.getContentPane());
-        customDialogue.getContentPane().setLayout(customDialogueLayout);
-        customDialogueLayout.setHorizontalGroup(
-            customDialogueLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(dialoguePanel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        warningDialoguePanel.add(warningDialogueButtonPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 172, 580, -1));
+
+        org.jdesktop.layout.GroupLayout warningDialogueLayout = new org.jdesktop.layout.GroupLayout(warningDialogue.getContentPane());
+        warningDialogue.getContentPane().setLayout(warningDialogueLayout);
+        warningDialogueLayout.setHorizontalGroup(
+            warningDialogueLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(warningDialoguePanel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        customDialogueLayout.setVerticalGroup(
-            customDialogueLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(dialoguePanel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        warningDialogueLayout.setVerticalGroup(
+            warningDialogueLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(warningDialoguePanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
         );
+
+        confirmationDialogue.setTitle("Confirmation");
+        confirmationDialogue.setBackground(new java.awt.Color(255, 255, 255));
+        confirmationDialogue.setLocation(new java.awt.Point(0, 0));
+        confirmationDialogue.setResizable(false);
+        confirmationDialogue.setSize(new java.awt.Dimension(500, 450));
+        confirmationDialogue.setType(java.awt.Window.Type.POPUP);
+        confirmationDialogue.setPreferredSize(new Dimension(590,280));
+        confirmationDialogue.setLocationRelativeTo(this);
+        confirmationDialogue.setModalityType(ModalityType.APPLICATION_MODAL);
+        confirmationDialogue.pack();
+
+        confirmationDialoguePanel.setBackground(new java.awt.Color(255, 255, 255));
+        confirmationDialoguePanel.setName("Warning"); // NOI18N
+        confirmationDialoguePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        confirmationDialogueTitle.setFont(new java.awt.Font("Segoe UI Black", 0, 20)); // NOI18N
+        confirmationDialogueTitle.setForeground(new java.awt.Color(88, 88, 88));
+        confirmationDialogueTitle.setText("Dialogue Label");
+        confirmationDialoguePanel.add(confirmationDialogueTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 6, 430, 66));
+
+        confirmationDialogueIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/infoIcon.png"))); // NOI18N
+        confirmationDialoguePanel.add(confirmationDialogueIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 32, -1, -1));
+
+        confirmationDialogueDesc.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        confirmationDialogueDesc.setForeground(new java.awt.Color(88, 88, 88));
+        confirmationDialogueDesc.setText("Dialogue text");
+        confirmationDialogueDesc.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        confirmationDialoguePanel.add(confirmationDialogueDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 78, 430, 88));
+
+        confirmationOkButton.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        confirmationOkButton.setText("Ok");
+        confirmationOkButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmationOkButtonActionPerformed(evt);
+            }
+        });
+
+        confirmationCancelButton.setFont(new java.awt.Font("Segoe UI Semibold", 0, 14)); // NOI18N
+        confirmationCancelButton.setText("Cancel");
+        confirmationCancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmationCancelButtonActionPerformed(evt);
+            }
+        });
+
+        org.jdesktop.layout.GroupLayout confirmationDialogueButtonPanelLayout = new org.jdesktop.layout.GroupLayout(confirmationDialogueButtonPanel);
+        confirmationDialogueButtonPanel.setLayout(confirmationDialogueButtonPanelLayout);
+        confirmationDialogueButtonPanelLayout.setHorizontalGroup(
+            confirmationDialogueButtonPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, confirmationDialogueButtonPanelLayout.createSequentialGroup()
+                .add(79, 79, 79)
+                .add(confirmationCancelButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 155, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 112, Short.MAX_VALUE)
+                .add(confirmationOkButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 155, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(79, 79, 79))
+        );
+        confirmationDialogueButtonPanelLayout.setVerticalGroup(
+            confirmationDialogueButtonPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(confirmationDialogueButtonPanelLayout.createSequentialGroup()
+                .add(18, 18, 18)
+                .add(confirmationDialogueButtonPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(confirmationOkButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 35, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(confirmationCancelButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 35, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        confirmationDialoguePanel.add(confirmationDialogueButtonPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 172, 580, -1));
+
+        org.jdesktop.layout.GroupLayout confirmationDialogueLayout = new org.jdesktop.layout.GroupLayout(confirmationDialogue.getContentPane());
+        confirmationDialogue.getContentPane().setLayout(confirmationDialogueLayout);
+        confirmationDialogueLayout.setHorizontalGroup(
+            confirmationDialogueLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(confirmationDialoguePanel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        confirmationDialogueLayout.setVerticalGroup(
+            confirmationDialogueLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(confirmationDialoguePanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+        );
+
+        confirmationDialogue.getAccessibleContext().setAccessibleName("");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Shareversity");
@@ -389,6 +462,7 @@ public class ShareversityGUI extends javax.swing.JFrame
 
         loginLabel.setFont(new java.awt.Font("Segoe UI Black", 0, 40)); // NOI18N
         loginLabel.setForeground(new java.awt.Color(253, 234, 239));
+        loginLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         loginLabel.setText("Log in");
         loginLabel.setToolTipText("");
         loginLabel.setVerticalAlignment(javax.swing.SwingConstants.TOP);
@@ -445,8 +519,8 @@ public class ShareversityGUI extends javax.swing.JFrame
         registerMsgLabel.setText("Don't have an account? ");
         registerMsgLabel.setToolTipText("");
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        showHidePasswordPanel.setBackground(new java.awt.Color(255, 255, 255));
+        showHidePasswordPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         loginPasswordTextField.setBackground(new java.awt.Color(255, 255, 255));
         loginPasswordTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -459,7 +533,7 @@ public class ShareversityGUI extends javax.swing.JFrame
                 loginPasswordTextFieldActionPerformed(evt);
             }
         });
-        jPanel2.add(loginPasswordTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 310, 50));
+        showHidePasswordPanel.add(loginPasswordTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 50));
 
         hidePasswordCheckBox.setSelected(true);
         hidePasswordCheckBox.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/hidePwdIcon.png"))); // NOI18N
@@ -469,7 +543,7 @@ public class ShareversityGUI extends javax.swing.JFrame
                 hidePasswordCheckBoxActionPerformed(evt);
             }
         });
-        jPanel2.add(hidePasswordCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 50, -1));
+        showHidePasswordPanel.add(hidePasswordCheckBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 50, -1));
 
         org.jdesktop.layout.GroupLayout loginRightPanelLayout = new org.jdesktop.layout.GroupLayout(loginRightPanel);
         loginRightPanel.setLayout(loginRightPanelLayout);
@@ -477,24 +551,21 @@ public class ShareversityGUI extends javax.swing.JFrame
             loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(loginRightPanelLayout.createSequentialGroup()
                 .add(58, 58, 58)
-                .add(loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 366, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                        .add(loginPasswordLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 97, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(loginUsernameLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 97, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(loginUsernameTextField)
-                        .add(loginRightPanelLayout.createSequentialGroup()
-                            .add(141, 141, 141)
-                            .add(loginLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 122, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                        .add(loginRightPanelLayout.createSequentialGroup()
-                            .add(27, 27, 27)
-                            .add(loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                .add(loginRightPanelLayout.createSequentialGroup()
-                                    .add(registerMsgLabel)
-                                    .add(3, 3, 3)
-                                    .add(registerHereButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                                .add(loginButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 339, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(96, Short.MAX_VALUE))
+                .add(loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                    .add(loginPasswordLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 97, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(loginUsernameLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 97, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(loginRightPanelLayout.createSequentialGroup()
+                        .add(27, 27, 27)
+                        .add(loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(loginRightPanelLayout.createSequentialGroup()
+                                .add(registerMsgLabel)
+                                .add(3, 3, 3)
+                                .add(registerHereButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .add(loginButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 339, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                    .add(loginLabel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(showHidePasswordPanel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE)
+                    .add(loginUsernameTextField))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
         loginRightPanelLayout.setVerticalGroup(
             loginRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -508,7 +579,7 @@ public class ShareversityGUI extends javax.swing.JFrame
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(loginPasswordLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 56, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(showHidePasswordPanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(63, 63, 63)
                 .add(loginButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 56, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
@@ -676,7 +747,7 @@ public class ShareversityGUI extends javax.swing.JFrame
         registerRightPanelLayout.setHorizontalGroup(
             registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(registerRightPanelLayout.createSequentialGroup()
-                .addContainerGap(70, Short.MAX_VALUE)
+                .addContainerGap(65, Short.MAX_VALUE)
                 .add(registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, registerRightPanelLayout.createSequentialGroup()
                         .add(registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -1162,13 +1233,13 @@ public class ShareversityGUI extends javax.swing.JFrame
                 .add(portfolioInvestInfoRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                     .add(portfolioInvestmentCostPerShareGraph)
                     .add(portfolioInvestmentStatsLabel)
-                    .add(portfolioInvestmentStatsPanel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
-                    .add(portfolioCPSgraphPanel, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .add(portfolioInvestInfoRightPanelLayout.createSequentialGroup()
                         .add(pInvestInfoBackButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 235, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .add(pInvestInfoSellSharesButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 235, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                    .add(portfolioInfoTitle, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .add(portfolioInfoTitle, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 580, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(portfolioCPSgraphPanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 580, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(portfolioInvestmentStatsPanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 580, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .add(100, 100, 100))
         );
         portfolioInvestInfoRightPanelLayout.setVerticalGroup(
@@ -1622,17 +1693,17 @@ public class ShareversityGUI extends javax.swing.JFrame
         });
         investBuySharesRightPanel.add(buySharesBackButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 640, 235, 45));
 
-        buySharesButtonFinal.setBackground(new java.awt.Color(100, 72, 145));
-        buySharesButtonFinal.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
-        buySharesButtonFinal.setForeground(new java.awt.Color(255, 255, 255));
-        buySharesButtonFinal.setText("Confirm Shares Purchase");
-        buySharesButtonFinal.setToolTipText("");
-        buySharesButtonFinal.addActionListener(new java.awt.event.ActionListener() {
+        bsConfirmSharesPurchaseButton.setBackground(new java.awt.Color(100, 72, 145));
+        bsConfirmSharesPurchaseButton.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        bsConfirmSharesPurchaseButton.setForeground(new java.awt.Color(255, 255, 255));
+        bsConfirmSharesPurchaseButton.setText("Confirm Shares Purchase");
+        bsConfirmSharesPurchaseButton.setToolTipText("");
+        bsConfirmSharesPurchaseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buySharesButtonFinalActionPerformed(evt);
+                bsConfirmSharesPurchaseButtonActionPerformed(evt);
             }
         });
-        investBuySharesRightPanel.add(buySharesButtonFinal, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 640, 235, 45));
+        investBuySharesRightPanel.add(bsConfirmSharesPurchaseButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 640, 235, 45));
 
         valueNumSharesButtonGroup.add(bsValueRadioButton);
         bsValueRadioButton.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
@@ -1671,7 +1742,7 @@ public class ShareversityGUI extends javax.swing.JFrame
         investBuySharesRightPanel.add(bsNumSharesRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 560, 210, 30));
 
         bsNumSharesSpinner.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        bsNumSharesSpinner.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, (double)(999999.99d/(CPSvalue)), 0.1d));
+        bsNumSharesSpinner.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, (double)(999999.99d/(cpsValue)), 0.1d));
         bsNumSharesSpinner.setEditor(new javax.swing.JSpinner.DefaultEditor(bsNumSharesSpinner));
         bsNumSharesSpinner.setBackground(new java.awt.Color(255, 255, 255));
         bsNumSharesSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -1888,20 +1959,17 @@ public class ShareversityGUI extends javax.swing.JFrame
         investBuySharesConfirmationRightPanelLayout.setHorizontalGroup(
             investBuySharesConfirmationRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(investBuySharesConfirmationRightPanelLayout.createSequentialGroup()
+                .add(69, 69, 69)
                 .add(investBuySharesConfirmationRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                     .add(buySharesConfirmationTitle, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 590, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(investBuySharesConfirmationRightPanelLayout.createSequentialGroup()
                         .add(investBuySharesConfirmationRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(investBuySharesConfirmationRightPanelLayout.createSequentialGroup()
-                                .add(250, 250, 250)
-                                .add(bscInvestmentStatsLabel))
-                            .add(investBuySharesConfirmationRightPanelLayout.createSequentialGroup()
-                                .add(250, 250, 250)
-                                .add(buySharesConfirmBackButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 235, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                            .add(bscInvestmentStatsLabel)
+                            .add(buySharesConfirmBackButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 235, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                         .add(162, 162, 162))
                     .add(buySharesStatsPanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(bscPurchaseConfirmedPanel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 590, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
         investBuySharesConfirmationRightPanelLayout.setVerticalGroup(
             investBuySharesConfirmationRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -2197,9 +2265,9 @@ public class ShareversityGUI extends javax.swing.JFrame
         }
         else
         {
-            dialogueTitle.setText("Username or Password is missing");
-            dialogueDesc.setText("<HTML>Please ensure you have entered your username <br>and password<HTML>");
-            customDialogue.setVisible(true);
+            warningDialogueTitle.setText(String.format(html, "Username or Password is missing"));
+            warningDialogueDesc.setText(String.format(html, "Please ensure you have entered your username and password"));
+            warningDialogue.setVisible(true);
         }
     }//GEN-LAST:event_loginButtonActionPerformed
 
@@ -2277,16 +2345,16 @@ public class ShareversityGUI extends javax.swing.JFrame
     }//GEN-LAST:event_portfolioButtonActionPerformed
 
     private void portfolioInvestmentsListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_portfolioInvestmentsListMouseClicked
-        Investment selectedInvestment = getPortfolioListItemInvestment(account, portfolioInvestmentsList.getSelectedIndex());
+        chosenPortfolioInvestment = getPortfolioListItemInvestment(account, portfolioInvestmentsList.getSelectedIndex());
         
         // Check if user selected within the list and not outside selectable items white area
         java.awt.Rectangle listBounds = portfolioInvestmentsList.getCellBounds(0, portfolioInvestmentsList.getLastVisibleIndex()); 
 
-        if (selectedInvestment != null && listBounds != null)
+        if (chosenPortfolioInvestment != null && listBounds != null)
         {
             menuCardLayout.show(menuRightPanels,"portfolioInvestInfo");
             System.out.println("Investment list item clicked");
-            setPortfolioInvestmentInfoDisplay(selectedInvestment);
+            setPortfolioInvestmentInfoDisplay(chosenPortfolioInvestment);
         }
     }//GEN-LAST:event_portfolioInvestmentsListMouseClicked
     
@@ -2359,10 +2427,12 @@ public class ShareversityGUI extends javax.swing.JFrame
     }//GEN-LAST:event_investButtonActionPerformed
 
     private void pInvestInfoSellSharesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pInvestInfoSellSharesButtonActionPerformed
-        menuCardLayout.show(menuRightPanels,"portfolioSharesSold");
-        System.out.println("Sell shares button clicked");
-        
-        
+        pressedButton = pInvestInfoSellSharesButton;
+        confirmationDialogueTitle.setText(String.format(html, "Are you sure you want to sell your shares for this company?"));
+        confirmationDialogueDesc.setText(String.format("<HTML><body style='width: 320spx'>%s will disappear from your portfolio and the shares value $%.2f will be deposited into your wallet<HTML>", 
+                chosenPortfolioInvestment.getCompanyInvested().getName(),
+                chosenPortfolioInvestment.getValue()));
+        confirmationDialogue.setVisible(true);
     }//GEN-LAST:event_pInvestInfoSellSharesButtonActionPerformed
 
     private void loginPasswordTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginPasswordTextFieldActionPerformed
@@ -2383,13 +2453,27 @@ public class ShareversityGUI extends javax.swing.JFrame
         this method
     */
     private void walletWithdrawButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_walletWithdrawButtonActionPerformed
-        String value = walletWithdrawTextField.getText();
+        String value = walletWithdrawTextField.getText().replaceAll(",", "");
         
         if (!(value.isBlank() || value.isEmpty()))
         {
-            value = value.replaceAll(",", "");
-            account.getWallet().withdraw(Double.valueOf(value));
-            updateAccountDisplay();
+            if (Double.valueOf(value) > Double.valueOf(walletBalanceAmount.getText().replaceAll("[$,]", "")))
+            {
+                warningDialogueTitle.setText(String.format(html,"Unable to withdraw: Insufficient wallet balance"));
+                warningDialogueDesc.setText(String.format(html,"Please enter a withdraw amount that does not exceed your wallet balance"));
+                warningDialogue.setVisible(true);
+            }
+            else
+            {
+                account.getWallet().withdraw(Double.valueOf(value));
+                updateAccountDisplay();
+            }
+        }
+        else
+        {
+            warningDialogueTitle.setText(String.format(html,"Unable to withdraw: Field is empty"));
+            warningDialogueDesc.setText(String.format(html,"Please enter a withdraw amount and try again"));
+            warningDialogue.setVisible(true);
         }
     }//GEN-LAST:event_walletWithdrawButtonActionPerformed
 
@@ -2408,6 +2492,8 @@ public class ShareversityGUI extends javax.swing.JFrame
     }//GEN-LAST:event_walletTopUpButtonActionPerformed
 
     private void lowRiskInvestmentsListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lowRiskInvestmentsListMouseClicked
+        clearInvestValues();
+        
         menuCardLayout.show(menuRightPanels,"investInfo");
         System.out.println("low risk investment item clicked");
         
@@ -2431,12 +2517,15 @@ public class ShareversityGUI extends javax.swing.JFrame
         
     }//GEN-LAST:event_lowRiskInvestmentsListMouseReleased
 
-    private void setNewInvestment()
+    private void setNewInvestment(boolean save)
     {
         newInvestment = new Investment(chosenInvestCompany, Double.valueOf(bsValueTextField.getText().replaceAll(",", "")), 
                 new CostPerShare((double)selectedCPStable.getValueAt(0, 1), (String)selectedCPStable.getValueAt(0, 0)));
-        account.getAccountPortfolio().addInvestment(newInvestment);
-        account.getWallet().withdraw(Double.valueOf(bsValueTextField.getText().replaceAll(",", "")));
+        if (save == true)
+        {
+            account.getAccountPortfolio().addInvestment(newInvestment);
+            account.getWallet().withdraw(Double.valueOf(bsValueTextField.getText().replaceAll(",", "")));
+        }
     }
     
     private void setBuySharesConfirmedDisplay(Investment newInvestment)
@@ -2447,23 +2536,48 @@ public class ShareversityGUI extends javax.swing.JFrame
         bscAmountInvestedVariable.setText(dollarStringFormat(newInvestment.getAmountInvested()));
     }
     
-    private void buySharesButtonFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buySharesButtonFinalActionPerformed
-        menuCardLayout.show(menuRightPanels,"buySharesConfirmation");
-        System.out.println("buy shares button pressed");
+    private void bsConfirmSharesPurchaseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bsConfirmSharesPurchaseButtonActionPerformed
         
-        setNewInvestment();
-        setBuySharesConfirmedDisplay(newInvestment);
-        
-        System.out.println(account.getAccountPortfolio().getInvestments());
-        
-        updateAccountDisplay();
-        updateCompaniesDisplay();
-        setPortfolioDisplay(account);
-        
-    }//GEN-LAST:event_buySharesButtonFinalActionPerformed
+        if (cpsValue == 0.0)
+        {
+            warningDialogueTitle.setText(String.format(html, "Cost per share date not selected"));
+            warningDialogueDesc.setText(String.format(html, "Please click a point on the graph to select a cost per share"));
+            warningDialogue.setVisible(true);
+        }
+        else
+        {
+            if (bsValueTextField.getText().isEmpty() || bsValueTextField.getText().isBlank())
+            {
+                warningDialogueTitle.setText(String.format(html, "Value field is empty"));
+                warningDialogueDesc.setText(String.format(html, "Please enter the amount you want to invest into the company in the value field or adjust the number of shares"));
+                warningDialogue.setVisible(true);
+            }
+            else
+            {
+                if (Double.valueOf(bsValueTextField.getText().replaceAll(",", ""))== 0.0)
+                {
+                    warningDialogueTitle.setText(String.format(html, "Value cannot be zero"));
+                    warningDialogueDesc.setText(String.format(html, "Please enter the amount you want to invest into the company in the value field or adjust the number of shares"));
+                    warningDialogue.setVisible(true);
+                }
+                else
+                {
+                    setNewInvestment(false);
+                    pressedButton = bsConfirmSharesPurchaseButton;
+
+                    confirmationDialogueTitle.setText(String.format(html, "Are you sure you want to buy shares in this company?"));
+                    confirmationDialogueDesc.setText(String.format("<HTML><body style='width: 320spx'> $%.2f %s %s </HTML>", 
+                            newInvestment.getAmountInvested(),
+                            " will be withdrawn from your account and invested into ",
+                            newInvestment.getCompanyInvested().getName()));
+                    confirmationDialogue.setVisible(true);
+                }
+            }
+        }
+    }//GEN-LAST:event_bsConfirmSharesPurchaseButtonActionPerformed
     
     private void buySharesBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buySharesBackButtonActionPerformed
-        menuCardLayout.show(menuRightPanels,"investInfo");
+        menuCardLayout.show(menuRightPanels,"invest");
         System.out.println("buy shares back button pressed");
     }//GEN-LAST:event_buySharesBackButtonActionPerformed
 
@@ -2482,12 +2596,12 @@ public class ShareversityGUI extends javax.swing.JFrame
     }//GEN-LAST:event_portfolioInvestmentsListMousePressed
 
     private void buySharesConfirmBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buySharesConfirmBackButtonActionPerformed
-        menuCardLayout.show(menuRightPanels,"buyShares");
+        menuCardLayout.show(menuRightPanels,"invest");
         System.out.println("buySharesConfirmBackButton clicked");
     }//GEN-LAST:event_buySharesConfirmBackButtonActionPerformed
 
     private void pSharesSoldBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pSharesSoldBackButtonActionPerformed
-        menuCardLayout.show(menuRightPanels,"portfolioInvestInfo");
+        menuCardLayout.show(menuRightPanels,"portfolio");
         System.out.println("shares sold back button clicked");
     }//GEN-LAST:event_pSharesSoldBackButtonActionPerformed
 
@@ -2516,7 +2630,7 @@ public class ShareversityGUI extends javax.swing.JFrame
             {
                 if (decimalpointCount <= 1) // Only set spinner numShares if there are 1 or less decimal points to prevent NumberFormatException
                 {
-                    double numShares = (Double.valueOf(bsValueTextField.getText().replaceAll(",", ""))/CPSvalue);
+                    double numShares = (Double.valueOf(bsValueTextField.getText().replaceAll(",", ""))/cpsValue);
 
                     bsNumSharesSpinner.setValue(numShares);
                 }
@@ -2547,7 +2661,7 @@ public class ShareversityGUI extends javax.swing.JFrame
             
             if (decimalpointCount <= 1) // Only set spinner numShares if there are 1 or less decimal points to prevent NumberFormatException
             {
-                double numShares = (Double.valueOf(bsValueTextField.getText().replaceAll(",", ""))/CPSvalue);
+                double numShares = (Double.valueOf(bsValueTextField.getText().replaceAll(",", ""))/cpsValue);
         
                 bsNumSharesSpinner.setValue(numShares);
             }
@@ -2590,7 +2704,7 @@ public class ShareversityGUI extends javax.swing.JFrame
         
         if (change)
         {
-            double value = (double)bsNumSharesSpinner.getValue()*CPSvalue;
+            double value = (double)bsNumSharesSpinner.getValue()*cpsValue;
             bsValueTextField.setValue(value);
         }
     }//GEN-LAST:event_bsNumSharesSpinnerStateChanged
@@ -2601,7 +2715,7 @@ public class ShareversityGUI extends javax.swing.JFrame
         
         if (change)
         {
-            double value = (double)bsNumSharesSpinner.getValue()*CPSvalue;
+            double value = (double)bsNumSharesSpinner.getValue()*cpsValue;
             bsValueTextField.setValue(value);
         }
     }  
@@ -2633,9 +2747,9 @@ public class ShareversityGUI extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_walletWithdrawTextFieldActionPerformed
 
-    private void dialogueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dialogueButtonActionPerformed
-        customDialogue.setVisible(false);
-    }//GEN-LAST:event_dialogueButtonActionPerformed
+    private void warningOkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_warningOkButtonActionPerformed
+        warningDialogue.setVisible(false);
+    }//GEN-LAST:event_warningOkButtonActionPerformed
 
     private void walletWithdrawTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_walletWithdrawTextFieldFocusGained
         walletWithdrawTextField.setText(""); 
@@ -2680,6 +2794,8 @@ public class ShareversityGUI extends javax.swing.JFrame
     }//GEN-LAST:event_startupInvestmentsListMouseReleased
 
     private void startupInvestmentsListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_startupInvestmentsListMouseClicked
+        clearInvestValues();
+        
         menuCardLayout.show(menuRightPanels,"investInfo");
         System.out.println("startup investment item clicked");
         
@@ -2688,8 +2804,7 @@ public class ShareversityGUI extends javax.swing.JFrame
     }//GEN-LAST:event_startupInvestmentsListMouseClicked
 
     private void selectedCPStablePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_selectedCPStablePropertyChange
-        
-        
+
     }//GEN-LAST:event_selectedCPStablePropertyChange
 
     public void selectedCPStableChanged(TableModelEvent evt)
@@ -2698,7 +2813,7 @@ public class ShareversityGUI extends javax.swing.JFrame
         {
             if (selectedCPStable.getValueAt(0, 1) != null)
             {
-                CPSvalue = (double)selectedCPStable.getValueAt(0, 1);
+                cpsValue = (double)selectedCPStable.getValueAt(0, 1);
                 bsValueTextFieldKeyReleased();
                 bsNumSharesSpinnerStateChanged();
                 System.out.println("clicked");
@@ -2709,6 +2824,35 @@ public class ShareversityGUI extends javax.swing.JFrame
     private void buySharesCPSGraphMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buySharesCPSGraphMouseClicked
     
     }//GEN-LAST:event_buySharesCPSGraphMouseClicked
+
+    private void confirmationOkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmationOkButtonActionPerformed
+        if (pressedButton.equals(pInvestInfoSellSharesButton))
+        {
+            account.getAccountPortfolio().sellAllShares(account, chosenPortfolioInvestment);
+            menuCardLayout.show(menuRightPanels,"portfolioSharesSold");
+            updateAccountDisplay();
+            updateCompaniesDisplay();
+            updatePortfolioDisplay(account);
+        }
+        if (pressedButton.equals(bsConfirmSharesPurchaseButton))
+        {
+            setNewInvestment(true);
+            menuCardLayout.show(menuRightPanels,"buySharesConfirmation");
+            System.out.println("buy shares button pressed");
+
+
+            setBuySharesConfirmedDisplay(newInvestment);
+
+            updateAccountDisplay();
+            updateCompaniesDisplay();
+            updatePortfolioDisplay(account);
+        }
+        confirmationDialogue.setVisible(false);
+    }//GEN-LAST:event_confirmationOkButtonActionPerformed
+
+    private void confirmationCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmationCancelButtonActionPerformed
+        confirmationDialogue.setVisible(false);
+    }//GEN-LAST:event_confirmationCancelButtonActionPerformed
 
     /*
         This method gets this year and gets the previous 100 years as a list of years as a DefaultComboBoxModel (for registering year of birth)
@@ -2770,7 +2914,6 @@ public class ShareversityGUI extends javax.swing.JFrame
     /*
         This method sets the selected colour to grey and the other unselected button to pink 
     */
-    
     private void setMenuButtonColours(javax.swing.JButton selectedButton, ArrayList<javax.swing.JButton> menuButtonList)
     {
         java.awt.Color selectedColour = new java.awt.Color(88, 88, 88); // gray
@@ -2787,8 +2930,7 @@ public class ShareversityGUI extends javax.swing.JFrame
     /*
         This method prevents letters from being typed into text fields
         by taking the key event and checking if it is a digit before consuming
-    */
-    
+    */    
     private void filterLetters(java.awt.event.KeyEvent evt) 
     {                                          
         char c = evt.getKeyChar();
@@ -2799,6 +2941,9 @@ public class ShareversityGUI extends javax.swing.JFrame
         }
     }
     
+    /*
+        This method prevents more than 6 digits from being typed into a textfield
+    */ 
     private void limitInputDollar(java.awt.event.KeyEvent evt, String text)
     {
         int length = 0;
@@ -2839,7 +2984,7 @@ public class ShareversityGUI extends javax.swing.JFrame
         }
         
         // Portfolio panel/s
-        setPortfolioDisplay(account);
+        updatePortfolioDisplay(account);
     }
     
     /*
@@ -2852,7 +2997,7 @@ public class ShareversityGUI extends javax.swing.JFrame
         setPortfolioInvestmentsList(portfolioInvestmentsList, account);
     }
     
-    private void setPortfolioDisplay (Account account)
+    private void updatePortfolioDisplay (Account account)
     {
         portfolioTotalAmountInvestedVariable.setText(dollarStringFormat(account.getAccountPortfolio().getTotalInvested()));
         portfolioTotalProfitLossVariable.setText(dollarStringFormat(account.getAccountPortfolio().getTotalProfit()));
@@ -2861,7 +3006,7 @@ public class ShareversityGUI extends javax.swing.JFrame
     }
     
     /*
-        This method
+        This method populates CompanyInvestList JList with information about Companies from a company list.
     */
     private void setCompanyInvestList(javax.swing.JList jList, ArrayList<Company> companyList)
     {
@@ -2877,7 +3022,7 @@ public class ShareversityGUI extends javax.swing.JFrame
     }
     
     /*
-        This method
+        This method sets the content PortfolioInvestmentsList with information about investments related to the given Account.
     */
     private void setPortfolioInvestmentsList(javax.swing.JList jList, Account account)
     {
@@ -3043,6 +3188,17 @@ public class ShareversityGUI extends javax.swing.JFrame
         return isEmpty;
     }
     
+    private void clearInvestValues()
+    {
+        cpsValue = 0.0;
+        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) selectedCPStable.getModel();
+        model.setRowCount(0); // removing row clears all values
+        model.setRowCount(1); // set row count back to 1 to re-enable table input
+        bsValueTextField.setValue(0.0);
+        bsValueTextField.setText("");
+        bsNumSharesSpinner.setValue(0.0);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -3098,6 +3254,7 @@ public class ShareversityGUI extends javax.swing.JFrame
     private javax.swing.JLabel accountInfoLabel;
     private javax.swing.JPanel accountInfoPanel;
     private javax.swing.JPanel accountInfoRightPanel;
+    private javax.swing.JButton bsConfirmSharesPurchaseButton;
     private javax.swing.JRadioButton bsNumSharesRadioButton;
     private javax.swing.JSpinner bsNumSharesSpinner;
     private javax.swing.JLabel bsSimulationInfo;
@@ -3116,21 +3273,21 @@ public class ShareversityGUI extends javax.swing.JFrame
     private javax.swing.JPanel bscPurchaseConfirmedPanel;
     private javax.swing.JLabel bssSharesSoldLabel;
     private javax.swing.JButton buySharesBackButton;
-    private javax.swing.JButton buySharesButtonFinal;
     private javax.swing.JPanel buySharesCPSGraph;
     private javax.swing.JButton buySharesConfirmBackButton;
     private javax.swing.JLabel buySharesConfirmationTitle;
     private javax.swing.JPanel buySharesStatsPanel;
     private javax.swing.JLabel buySharesTitleLabel;
+    private javax.swing.JButton confirmationCancelButton;
+    private javax.swing.JDialog confirmationDialogue;
+    private javax.swing.JPanel confirmationDialogueButtonPanel;
+    private javax.swing.JLabel confirmationDialogueDesc;
+    private javax.swing.JLabel confirmationDialogueIcon;
+    private javax.swing.JPanel confirmationDialoguePanel;
+    private javax.swing.JLabel confirmationDialogueTitle;
+    private javax.swing.JButton confirmationOkButton;
     private javax.swing.JScrollPane cpsGraphScrollPane;
-    private javax.swing.JDialog customDialogue;
     private static javax.swing.JComboBox<String> dayComboBox;
-    private javax.swing.JButton dialogueButton;
-    private javax.swing.JLabel dialogueDesc;
-    private javax.swing.JLabel dialogueIcon;
-    private javax.swing.JPanel dialoguePanel;
-    private javax.swing.JSeparator dialogueSeparator;
-    private javax.swing.JLabel dialogueTitle;
     private javax.swing.JCheckBox hidePasswordCheckBox;
     private javax.swing.JButton investButton;
     private javax.swing.JPanel investBuySharesConfirmationRightPanel;
@@ -3152,7 +3309,6 @@ public class ShareversityGUI extends javax.swing.JFrame
     private javax.swing.JTabbedPane investmentTabbedPane;
     private javax.swing.JLabel investmentTooltipLabel;
     private javax.swing.JFormattedTextField jFormattedTextField4;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton loginButton;
     private javax.swing.JLabel loginHereButton;
@@ -3254,6 +3410,7 @@ public class ShareversityGUI extends javax.swing.JFrame
     private javax.swing.JTextField registerUsernameTextField;
     private javax.swing.JTable selectedCPStable;
     private javax.swing.JScrollPane selectedCPStableScrollPane;
+    private javax.swing.JPanel showHidePasswordPanel;
     private javax.swing.JList<String> startupInvestmentsList;
     private javax.swing.JLabel topUpAmountLabel;
     private javax.swing.JLabel topUpDollarSign;
@@ -3269,6 +3426,13 @@ public class ShareversityGUI extends javax.swing.JFrame
     private javax.swing.JButton walletWithdrawButton;
     private javax.swing.JCheckBox walletWithdrawEntireBalanceCheckbox;
     private javax.swing.JFormattedTextField walletWithdrawTextField;
+    private javax.swing.JDialog warningDialogue;
+    private javax.swing.JPanel warningDialogueButtonPanel;
+    private javax.swing.JLabel warningDialogueDesc;
+    private javax.swing.JLabel warningDialogueIcon;
+    private javax.swing.JPanel warningDialoguePanel;
+    private javax.swing.JLabel warningDialogueTitle;
+    private javax.swing.JButton warningOkButton;
     private javax.swing.JLabel withdrawAmountLabel;
     private javax.swing.JLabel withdrawDollarSign;
     private javax.swing.JComboBox<String> yearComboBox;
@@ -3278,10 +3442,14 @@ public class ShareversityGUI extends javax.swing.JFrame
     private CardLayout menuCardLayout;
     private ArrayList<javax.swing.JButton> menuButtonList;
     
-    private double CPSvalue; 
+    private javax.swing.JButton pressedButton;
+    
+    final String html = "<html><body style='width: 320spx'>%1s"; // HTML style for use in dialogue popups String formatter
+    
+    private double cpsValue; 
     
     private Investment newInvestment;
-    private Company chosenPortfolioCompany;
+    private Investment chosenPortfolioInvestment;
     private Company chosenInvestCompany;
     
     // Class objects with information to be saved
