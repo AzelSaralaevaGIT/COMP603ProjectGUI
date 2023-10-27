@@ -39,16 +39,6 @@ public class ShareVersityDatabase {
         }
     }
 
-    public ResultSet getAccountInfo() {
-        ResultSet rs = null;
-        try {
-            rs = this.statement.executeQuery("SELECT USERNAME, FULLNAME, BANKACCOUNTNUMBER, DATEOFBIRTH, WALLETAMOUNT FROM ACCOUNTINFO");
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        return rs;
-    }
-
     public void checkExistedTable(String name) {
         try {
             DatabaseMetaData dbmd = this.conn.getMetaData();
@@ -69,21 +59,22 @@ public class ShareVersityDatabase {
         }
     }
     
-    public void createAccountTable() {
+    public void createCompaniesList() {
     Statement statement = null;
     try {
         statement = conn.createStatement();
 
         // Define the table name and check if it exists
-        String tableName = "ACCOUNT_INFORMATION";
+        String tableName = "COMPANIES";
         this.checkExistedTable(tableName);
 
         // Define the SQL statement for creating the table
         String createTableSQL = "CREATE TABLE " + tableName + " ("
-                + "USERNAME VARCHAR(50),"
-                + "FULLNAME VARCHAR(50),"
-                + "DATEOFBIRTH VARCHAR(40),"
-                + "WALLETAMOUNT FLOAT"
+                + "COMPANYNAME VARCHAR(50),"
+                + "COMPANYDESCRIPTION VARCHAR(50),"
+                + "CEO VARCHAR(40),"
+                + "NUM_EMPLOYEES INT"
+                + "COMPANY_CATEGORIES"
                 + ")";
 
         // Execute the SQL statement to create the table
@@ -104,8 +95,30 @@ public class ShareVersityDatabase {
         }
     }
 }
+    //inserts company into database
+    public void insertCompanyRecord(String username, String fullname, String dateOfBirth, double walletAmount) {
+    try {
+        String insertSQL = "INSERT INTO COMPANIES (USERNAME, FULLNAME, DATEOFBIRTH, WALLETAMOUNT) " +
+                            "VALUES ('" + username + "', '" + fullname + "', '" + dateOfBirth + "', " + walletAmount + ")";
+        statement.executeUpdate(insertSQL);
+        System.out.println("Company record inserted successfully.");
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+    }
+}
+
     
     
+    // retrieves account information from database 
+    public ResultSet getAccountInfo() {
+    ResultSet rs = null;
+    try {
+        rs = this.statement.executeQuery("SELECT USERNAME, FULLNAME, BANKACCOUNTNUMBER, DATEOFBIRTH, WALLETAMOUNT FROM ACCOUNT_TABLE");
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+    }
+    return rs;
+}
 
 
     public void closeConnection() {

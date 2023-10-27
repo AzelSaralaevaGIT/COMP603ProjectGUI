@@ -18,20 +18,7 @@ import java.sql.Statement;
 // database compnonent of the project responsible for database connections
 public final class DatabaseManager {
     
-      /**
-     * If you try to connect the database on the server, you must start the
-     * server first. Meanwhile, you need to import 'derbyclient.jar' to the
-     * libraries.
-     */
-    //    private static final String URL = "jdbc:derby://localhost:1527/BookStoreDB";
-    /**
-     * If you try to connect the database embedded in the project, you must stop
-     * the server first. Meanwhile, you need to import 'derby.jar' to the
-     * libraries.
-     */
-    //private static final String USER_NAME = ""; //your DB username
-    //private static final String PASSWORD = ""; //your DB password
-   
+    
      //creates database at the root of project folder
     private static final String URL = "jdbc:derby:ShareVersityDB_Ebd;create=true";  //url of the DB host
 
@@ -67,7 +54,7 @@ public final class DatabaseManager {
             }
         }
     }
-
+// closes connection to derby jar
     public void closeConnections() {
         if (conn != null) {
             try {
