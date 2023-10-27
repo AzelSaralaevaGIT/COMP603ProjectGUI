@@ -1894,7 +1894,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="87" max="32767" attributes="0"/>
+                              <EmptySpace pref="104" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2748,6 +2748,8 @@
                         <Property name="text" type="java.lang.String" value="Buy Shares: Delicious Bites"/>
                         <Property name="toolTipText" type="java.lang.String" value=""/>
                         <Property name="verticalAlignment" type="int" value="1"/>
+                        <Property name="autoscrolls" type="boolean" value="true"/>
+                        <Property name="horizontalTextPosition" type="int" value="0"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2787,6 +2789,9 @@
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buySharesCPSGraphMouseClicked"/>
+                          </Events>
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
                         </Container>
@@ -2969,7 +2974,7 @@
                         </Constraint>
                       </Constraints>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel4">
+                    <Component class="javax.swing.JLabel" name="bsSimulationInfo">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI Semibold" size="18" style="2"/>
@@ -3006,7 +3011,7 @@
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="2" rowCount="1">
                                 <Column editable="false" title="Date" type="java.lang.String">
-                                  <Data value=""/>
+                                  <Data value=" "/>
                                 </Column>
                                 <Column editable="false" title="Cost per Share Value ($)" type="java.lang.Double"/>
                               </Table>
@@ -3019,8 +3024,12 @@
                               <TableHeader reorderingAllowed="true" resizingAllowed="false"/>
                             </Property>
                           </Properties>
+                          <Events>
+                            <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="selectedCPStablePropertyChange"/>
+                          </Events>
                           <AuxValues>
                             <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="// Center the headers&#xa;((javax.swing.table.DefaultTableCellRenderer)selectedCPStable.getTableHeader().getDefaultRenderer())&#xa;    .setHorizontalAlignment(javax.swing.JLabel.CENTER);&#xa;&#xa;// Center the row&#xa;javax.swing.table.DefaultTableCellRenderer centerRenderer = new javax.swing.table.DefaultTableCellRenderer();&#xa;centerRenderer.setHorizontalAlignment( javax.swing.JLabel.CENTER );&#xa;selectedCPStable.setDefaultRenderer(String.class, centerRenderer);&#xa;selectedCPStable.setDefaultRenderer(Double.class, centerRenderer);"/>
+                            <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="selectedCPStable.getModel().addTableModelListener(new TableModelListener() {&#xa;                @Override&#xa;                public void tableChanged(TableModelEvent evt) {&#xa;                    selectedCPStableChanged(evt);&#xa;                }&#xa;            });"/>
                           </AuxValues>
                         </Component>
                       </SubComponents>
@@ -3045,26 +3054,26 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="70" pref="70" max="-2" attributes="0"/>
-                              <Component id="bscPurchaseConfirmedPanel" min="-2" pref="579" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="250" pref="250" max="-2" attributes="0"/>
-                              <Component id="bscInvestmentStatsLabel" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="70" pref="70" max="-2" attributes="0"/>
-                              <Component id="buySharesStatsPanel" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="250" pref="250" max="-2" attributes="0"/>
-                              <Component id="buySharesConfirmBackButton" min="-2" pref="235" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="investLabel3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="buySharesConfirmationTitle" alignment="1" min="-2" pref="590" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="250" pref="250" max="-2" attributes="0"/>
+                                              <Component id="bscInvestmentStatsLabel" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="250" pref="250" max="-2" attributes="0"/>
+                                              <Component id="buySharesConfirmBackButton" min="-2" pref="235" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="buySharesStatsPanel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="bscPurchaseConfirmedPanel" alignment="1" min="-2" pref="590" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="45" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -3072,10 +3081,10 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                              <Component id="investLabel3" min="-2" max="-2" attributes="0"/>
+                              <Component id="buySharesConfirmationTitle" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                              <Component id="bscPurchaseConfirmedPanel" min="-2" pref="170" max="-2" attributes="0"/>
-                              <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
+                              <Component id="bscPurchaseConfirmedPanel" min="-2" pref="190" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="bscInvestmentStatsLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
                               <Component id="buySharesStatsPanel" min="-2" max="-2" attributes="0"/>
@@ -3086,7 +3095,7 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JLabel" name="investLabel3">
+                    <Component class="javax.swing.JLabel" name="buySharesConfirmationTitle">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI Black" size="40" style="0"/>
@@ -3094,6 +3103,7 @@
                         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ef" green="ea" red="fd" type="rgb"/>
                         </Property>
+                        <Property name="horizontalAlignment" type="int" value="0"/>
                         <Property name="text" type="java.lang.String" value="Buy Shares: Delicious Bites"/>
                         <Property name="toolTipText" type="java.lang.String" value=""/>
                         <Property name="verticalAlignment" type="int" value="1"/>
@@ -3112,13 +3122,14 @@
                       <SubComponents>
                         <Component class="javax.swing.JLabel" name="bscInvestIcon">
                           <Properties>
+                            <Property name="horizontalAlignment" type="int" value="0"/>
                             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                               <Image iconType="3" name="/resources/investIcon.png"/>
                             </Property>
                           </Properties>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                              <AbsoluteConstraints x="240" y="20" width="-1" height="-1"/>
+                              <AbsoluteConstraints x="0" y="10" width="590" height="-1"/>
                             </Constraint>
                           </Constraints>
                         </Component>
@@ -3130,11 +3141,12 @@
                             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
-                            <Property name="text" type="java.lang.String" value="Investment Purchase Confirmed!"/>
+                            <Property name="horizontalAlignment" type="int" value="0"/>
+                            <Property name="text" type="java.lang.String" value="&lt;HTML&gt;&lt;center&gt;Investment Purchase Confirmed!&lt;br&gt;&#xa;The Investment has been added to your portfolio&lt;/HTML&gt;"/>
                           </Properties>
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                              <AbsoluteConstraints x="110" y="100" width="-1" height="-1"/>
+                              <AbsoluteConstraints x="0" y="90" width="590" height="-1"/>
                             </Constraint>
                           </Constraints>
                         </Component>
@@ -3185,16 +3197,16 @@
                                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="pscAmountInvestedLabel" min="-2" pref="204" max="-2" attributes="0"/>
+                                          <Component id="bscAmountInvestedLabel" min="-2" pref="204" max="-2" attributes="0"/>
                                           <Component id="bscNumSharesLabel" min="-2" pref="204" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="bscPurchaseCPSLabel" min="-2" pref="215" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="41" max="32767" attributes="0"/>
+                                  <EmptySpace pref="51" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                       <Component id="bscPurchaseCPSVariable" alignment="1" pref="248" max="32767" attributes="0"/>
                                       <Component id="bscNumSharesVariable" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="pscAmountInvestedVariables" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="bscAmountInvestedVariable" alignment="1" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                               </Group>
@@ -3210,14 +3222,14 @@
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="bscNumSharesVariable" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="pscAmountInvestedVariables" min="-2" max="-2" attributes="0"/>
+                                          <Component id="bscAmountInvestedVariable" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <Component id="bscPurchaseCPSLabel" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="bscNumSharesLabel" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="pscAmountInvestedLabel" min="-2" max="-2" attributes="0"/>
+                                          <Component id="bscAmountInvestedLabel" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace pref="49" max="32767" attributes="0"/>
@@ -3248,7 +3260,7 @@
                             <Property name="text" type="java.lang.String" value="Number of shares:"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="pscAmountInvestedLabel">
+                        <Component class="javax.swing.JLabel" name="bscAmountInvestedLabel">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Segoe UI Semibold" size="18" style="1"/>
@@ -3283,7 +3295,7 @@
                             <Property name="text" type="java.lang.String" value="4.27"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="pscAmountInvestedVariables">
+                        <Component class="javax.swing.JLabel" name="bscAmountInvestedVariable">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Segoe UI Semibold" size="18" style="0"/>
@@ -3615,7 +3627,7 @@
                                       <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                                       <Component id="accountInfoLabel" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jPanel1" alignment="0" min="-2" pref="590" max="-2" attributes="0"/>
+                                  <Component id="accountInfoPanel" alignment="0" min="-2" pref="590" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="96" max="32767" attributes="0"/>
                           </Group>
@@ -3627,7 +3639,7 @@
                               <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
                               <Component id="accountInfoLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                              <Component id="jPanel1" min="-2" pref="345" max="-2" attributes="0"/>
+                              <Component id="accountInfoPanel" min="-2" pref="345" max="-2" attributes="0"/>
                               <EmptySpace pref="911" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -3647,7 +3659,7 @@
                         <Property name="verticalAlignment" type="int" value="1"/>
                       </Properties>
                     </Component>
-                    <Container class="javax.swing.JPanel" name="jPanel1">
+                    <Container class="javax.swing.JPanel" name="accountInfoPanel">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
