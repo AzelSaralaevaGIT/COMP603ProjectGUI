@@ -110,6 +110,10 @@ public class Investment
         this.value = value;
     }
 
+    public void setCompanyInvested(Company companyInvested) {
+        this.companyInvested = companyInvested;
+    }
+
     @Override
     public String toString() 
     {
