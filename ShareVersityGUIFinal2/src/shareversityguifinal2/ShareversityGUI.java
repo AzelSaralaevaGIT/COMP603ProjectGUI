@@ -2436,6 +2436,7 @@ public class ShareversityGUI extends javax.swing.JFrame
         newInvestment = new Investment(chosenInvestCompany, Double.valueOf(bsValueTextField.getText().replaceAll(",", "")), 
                 new CostPerShare((double)selectedCPStable.getValueAt(0, 1), (String)selectedCPStable.getValueAt(0, 0)));
         account.getAccountPortfolio().addInvestment(newInvestment);
+        account.getWallet().withdraw(Double.valueOf(bsValueTextField.getText().replaceAll(",", "")));
     }
     
     private void setBuySharesConfirmedDisplay(Investment newInvestment)
@@ -2511,11 +2512,14 @@ public class ShareversityGUI extends javax.swing.JFrame
                 }
             }
             
-            if (decimalpointCount <= 1) // Only set spinner numShares if there are 1 or less decimal points to prevent NumberFormatException
+            if (!(bsValueTextField.getText().equals(".")))
             {
-                double numShares = (Double.valueOf(bsValueTextField.getText().replaceAll(",", ""))/CPSvalue);
-        
-                bsNumSharesSpinner.setValue(numShares);
+                if (decimalpointCount <= 1) // Only set spinner numShares if there are 1 or less decimal points to prevent NumberFormatException
+                {
+                    double numShares = (Double.valueOf(bsValueTextField.getText().replaceAll(",", ""))/CPSvalue);
+
+                    bsNumSharesSpinner.setValue(numShares);
+                }
             }
         }
         else
