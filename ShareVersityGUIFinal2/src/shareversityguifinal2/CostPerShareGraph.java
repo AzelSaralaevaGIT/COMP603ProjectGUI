@@ -12,8 +12,6 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.annotations.XYTextAnnotation;
 import org.jfree.chart.axis.DateAxis;
-import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.axis.ValueAxis;
 import org.jfree.chart.labels.StandardXYToolTipGenerator;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
@@ -103,6 +101,75 @@ public class CostPerShareGraph extends JPanel  {
         chartPanel.setReshowDelay(0);
         add(chartPanel);
     }
+    
+    /*
+        Alternate constructor using Company object for company selection instead of index
+    */
+    public CostPerShareGraph(String chartTitle, Company chosenCompany, javax.swing.JPanel panel) {
+        lineChart = ChartFactory.createXYLineChart(
+           chartTitle,
+           "Days","Cost per Share ($)",
+           createDataset(chosenCompany),
+           PlotOrientation.VERTICAL,
+           true,true,false);
+
+        plot = lineChart.getXYPlot();
+        
+        // Create a renderer with lines and shapes (dots)
+        renderer = new XYLineAndShapeRenderer(true, true);
+        plot.setRenderer(renderer);
+
+        // Reformatting date (from milliseconds)
+        SimpleDateFormat customDateFormat = new SimpleDateFormat("dd-MM-yy");
+
+        // Set a tooltip generator for the renderer with the custom date format
+        tooltipGenerator = new StandardXYToolTipGenerator(
+            "{1}: {2}",  // Tooltip format
+            customDateFormat,  // Custom date format
+            java.text.NumberFormat.getCurrencyInstance()  // Number format
+        );
+        
+        renderer.setBaseToolTipGenerator(tooltipGenerator);
+        renderer.setSeriesPaint(0, new Color(153, 107, 229));
+        
+        // Configure the x-axis as a date axis with a custom date format
+        DateAxis dateAxis = new DateAxis("Date");
+        dateAxis.setDateFormatOverride(customDateFormat);
+        plot.setDomainAxis(dateAxis);
+        
+        // Add an annotation to label the last point as "Today"
+        XYSeriesCollection ds = createDataset(chosenCompany);
+        XYSeries series = ds.getSeries(0);
+        int lastIndex = series.getItemCount() - 1;
+        
+        XYTextAnnotation annotation = new XYTextAnnotation("Today", (double)series.getX(lastIndex), (double)series.getY(lastIndex));
+        plot.addAnnotation(annotation);
+        
+        // remove legend (uneeded, takes up space)
+        lineChart.removeLegend();
+        
+        // add extra spacing to right outside graph
+        lineChart.setPadding(new RectangleInsets(0,0,0,10));
+        
+        // sets whether the edges of text/graph lines are smoothed (causes blurriness)
+        lineChart.setAntiAlias(true); 
+        
+        // Set margin inside graph range axis dynamically (to make "selected" label visible in all cases)
+        double lowerBound = chosenCompany.computeMinPrice();
+        double upperBound = chosenCompany.computeMaxPrice();
+        double rangePadding = (upperBound-lowerBound)*0.1; // padding is 10% difference of the highest value and lowest value
+        plot.getRangeAxis().setRange(lowerBound-rangePadding, upperBound+rangePadding);
+        
+        // chart panel creation
+        chartPanel = new ChartPanel(lineChart);
+        chartPanel.setPreferredSize(panel.getSize());
+        chartPanel.setDomainZoomable(false); // disable zoom as this can mess up the graph axis formatting
+        chartPanel.setRangeZoomable(false);
+        chartPanel.setInitialDelay(0); // attempt to make tooltips faster
+        chartPanel.setDismissDelay(1000);
+        chartPanel.setReshowDelay(0);
+        add(chartPanel);
+    }
 
     // Get methods
     public JFreeChart getLineChart() {
@@ -139,6 +206,30 @@ public class CostPerShareGraph extends JPanel  {
     */
     private XYSeriesCollection createDataset(ArrayList<Company> companyList, int chosenCompanyIndex) {
         Company chosenCompany = companyList.get(chosenCompanyIndex);
+
+        XYSeries series = new XYSeries("Cost per Share");
+        
+        SimpleDateFormat customDateFormat = new SimpleDateFormat("dd-MM-yy");
+
+        for (int cpsIndex = 0; cpsIndex < chosenCompany.getCostPerShareHistory().size(); cpsIndex++) {
+            String dateString = chosenCompany.getCostPerShareHistory().get(cpsIndex).getDate(); // Get the date as a string
+            try {
+                Date date = customDateFormat.parse(dateString); // Parse the string as a Date
+                series.add(date.getTime(), chosenCompany.getCostPerShareHistory().get(cpsIndex).getCost()); // Have to convert Date to milliseconds in order for add method to work...
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+
+        XYSeriesCollection dataset = new XYSeriesCollection(series);
+
+        return dataset;
+    }
+    
+    /*
+        Alternate method using Company object for company selection instead of index
+    */
+    private XYSeriesCollection createDataset(Company chosenCompany) {
 
         XYSeries series = new XYSeries("Cost per Share");
         
