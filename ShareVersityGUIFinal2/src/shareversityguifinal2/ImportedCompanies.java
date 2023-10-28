@@ -8,6 +8,9 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -42,6 +45,7 @@ public final class ImportedCompanies
     
     private String companiesFilePath = "./resources/Companies.txt";
     private HashMap<Company, InvestmentTypeEnum> allCompanies; 
+  
 
     /**
      * Initializes the ImportedCompanies object and reads all company data from the file.
@@ -50,6 +54,50 @@ public final class ImportedCompanies
     {
         this.readAllCompanies(); // sets allCompanies HashMap
     }
+    
+    
+     //read companies table
+    // Retrieve all companies from the database
+    public void retrieveAllCompanies() {
+        
+        ShareVersityDatabase shareversitydb = new ShareVersityDatabase();
+
+    try {
+        
+        Statement statement = conn.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM COMPANIES");
+
+        while (resultSet.next()) {
+            String companyName = resultSet.getString("COMPANYNAME");
+            String companyDescription = resultSet.getString("COMPANYDESCRIPTION");
+            String ceo = resultSet.getString("CEO");
+            int numEmployees = resultSet.getInt("NUM_EMPLOYEES");
+            String categories = resultSet.getString("COMPANY_CATEGORIES");
+            String investmentTypes = resultSet.getString("INVESTMENT_TYPES");
+            double costPerShareNow = resultSet.getDouble("COST_PER_SHARE_NOW");
+
+            // Create a Company object with the retrieved data
+            
+             // Create a new Company object from the retrieved data
+            Company company = new Company(companyName, companyDescription, ceo, numEmployees, categories, investmentTypes, costPerShareNow);
+
+
+            // Add the company to your data structure
+            allCompanies.put(company, investment);
+            // You can add the company to a list or perform any desired operation
+            // For example, add it to your allCompanies map or list.
+        }
+
+        resultSet.close();
+        statement.close();
+    } catch (SQLException ex) {
+        ex.printStackTrace();
+    }
+}
+    
+    
+    
+    
     
     /**
      * Reads all company data from the specified file and populates the allCompanies HashMap.

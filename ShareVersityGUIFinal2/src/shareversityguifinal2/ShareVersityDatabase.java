@@ -7,13 +7,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Logger;
-import org.apache.derby.iapi.sql.PreparedStatement;
 
 public class ShareVersityDatabase {
     
     private final DatabaseManager dbManager;
     private final Connection conn;
     private Statement statement;
+
 
     public ShareVersityDatabase() {
         dbManager = new DatabaseManager();
@@ -96,6 +96,9 @@ public class ShareVersityDatabase {
        Logger.getLogger(ex.getMessage());
     } 
 }
+    
+  
+
 
     //creation of createInvestmentTable
     public void createInvestmentTable()
@@ -155,6 +158,7 @@ public class ShareVersityDatabase {
     } 
 }
 
+    //insert new account created into the Account table
     public void insertAccount(String username, String password, String fullname, String bankAccountNumber, String dateOfBirth, double walletAmount) {
     try {
         String insertSQL = "INSERT INTO ACCOUNT_TABLE (USERNAME, PASSWORD, FULLNAME, BANKACCOUNTNUMBER, DATEOFBIRTH, WALLETAMOUNT) " +

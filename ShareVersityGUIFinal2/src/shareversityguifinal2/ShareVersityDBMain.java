@@ -4,6 +4,7 @@
  */
 package shareversityguifinal2;
 
+import java.sql.ResultSet;
 import java.util.Scanner;
 
 /**
@@ -41,7 +42,7 @@ public class ShareVersityDBMain {
       
         shareversitydb.insertAccount(username, password, fullname, bankAccountNumber, dateOfBirth, 0);
         
-        shareversitydb.getAccountInfo();
+        ResultSet accountInfo = shareversitydb.getAccountInfo();
         shareversitydb.closeConnection();
     }
 }
