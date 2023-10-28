@@ -69,10 +69,11 @@ public class ShareVersityDatabase {
     
     try {
         statement = conn.createStatement();
-        this.checkExistedTable("COMPANIES");
+        String tableName = "COMPANIES";
+        this.checkExistedTable(tableName);
 
         // Define the SQL statement for creating the table
-        this.statement.addBatch("CREATE TABLE COMPANIES(COMPANYNAME VARCHAR(50), COMPANYDESCRIPTION VARCHAR(200), CEO VARCHAR(40), NUM_EMPLOYEES INT, COMPANY_CATEGORIES VARCHAR(30), INVESTMENT_TYPES VARCHAR(20), COST_PER_SHARE_NOW DOUBLE)");
+        this.statement.addBatch("CREATE TABLE COMPANIES(COMPANYNAME VARCHAR(100), COMPANYDESCRIPTION VARCHAR(350), CEO VARCHAR(150), NUM_EMPLOYEES INT, COMPANY_CATEGORIES VARCHAR(100), INVESTMENT_TYPES VARCHAR(150), COST_PER_SHARE_NOW DOUBLE)");
         
         this.statement.addBatch("INSERT INTO COMPANIES VALUES ('XYZ Tech Solutions', 'XYZ Tech Solutions is a leadingty provider of software and hardware solutions for businesses worldwide. The company specializes in developing innovative tools for streamlining operations and enhancing productivity.', 'Jane Smith', 800, 'TECHNOLOGY MANUFACTURING', 'LOWRISK', 125.45)");
         this.statement.addBatch("INSERT INTO COMPANIES VALUES ('Global Learning Institute', 'Global Learning Institute is a renowned educational organization that offers online and on-site courses for students of all ages. Their comprehensive curriculum covers a wide range of subjects and skills.', 'Michael Johnson', 350, 'EDUCATION', 'LOWRISK', 65.78)");
@@ -84,13 +85,14 @@ public class ShareVersityDatabase {
         this.statement.addBatch("INSERT INTO COMPANIES VALUES ('Delicious Bites', 'Delicious Bites is a rapidly growing food chain that serves a variety of delectable dishes prepared with fresh, locally sourced ingredients, catering to diverse culinary preferences.', 'Daniel Martin', 350, 'FOOD', 'LOWRISK', 20.75)");
         this.statement.addBatch("INSERT INTO COMPANIES VALUES ('CapitalEdge Financial', 'CapitalEdge Financial offers a wide range of financial services, including investment management, wealth advisory, and retirement planning, tailored to clients' long-term financial goals.', 'Robert Turner', 75, 'FINANCE', 'LOWRISK', 160.90)");
         this.statement.addBatch("INSERT INTO COMPANIES VALUES ('ConnectCom Telecom', 'ConnectCom Telecom is a leading telecommunications company that provides high-speed internet, mobile services, and advanced communication solutions to keep people connected globally.', 'Sophia Lee', 400, 'TELECOMMUNICATION', 'LOWRISK', 75.30)");
-        this.statement.addBatch("INSERT INTO COMPANIES VALUES ('NanoTech Innovations', 'NanoTech Innovations is a cutting-edge technology startup focused on developing nanomaterials with revolutionary applications in electronics, energy storage, and medical devices.', 'Alex Walker', 30, 'TECHNOLOGY', 'STARTUP', 18.75)");
+        this.statement.addBatch("INSERT INTO COMPANIES VALUES ('NanoTech Innovations', 'NanoTech Innovations is a cutting-edge technology startup focused on developing nanomaterials with revolutionary applications in electronics, energy storage, and medical devices.', 'Alex Walker', 30, 'TECHNOLOGY', 'StartUp', 18.75)");
         this.statement.addBatch("INSERT INTO COMPANIES VALUES ('EduSpark Learning', 'EduSpark Learning is an education technology startup that leverages AI to create personalized learning experiences for students, enhancing their understanding and academic performance.', 'Ryan Adams', 15, 'EDUCATION', 'STARTUP', 8.50)");
         this.statement.addBatch("INSERT INTO COMPANIES VALUES ('AgriGenetic Solutions', 'AgriGenetic Solutions is a startup that pioneers advanced genetic techniques to create disease-resistant and high-yielding crop varieties, aiming to revolutionize modern agriculture.', 'Maria Ramirez', 20, 'AGRICULTURE', 'STARTUP', 10.25)");
         this.statement.addBatch("INSERT INTO COMPANIES VALUES ('NanoFab Creations', 'NanoFab Creations is a startup specializing in nanoscale fabrication, producing intricate nanostructures for use in electronics, optics, and other emerging technologies.', 'Chris Bennett', 10, 'MANUFACTURING', 'STARTUP', 12.90)");
         this.statement.addBatch("INSERT INTO COMPANIES VALUES ('SwiftGo', 'SwiftGo is a startup that offers an on-demand transportation platform, providing affordable and convenient rides through a user-friendly app that connects drivers and passengers.', 'Kevin Clark', 25, 'TRANSPORT', 'STARTUP', 5.50)");
         this.statement.addBatch("INSERT INTO COMPANIES VALUES ('HealthTech Innovators', 'HealthTech Innovators is a startup focused on developing innovative healthcare solutions, including wearable devices and telemedicine platforms, to improve patient outcomes.', 'Linda Foster', 40, 'HEALTHCARE TECHNOLOGY', 'STARTUP', 7.80)");
-        // Execute the SQL statement to create the table
+
+// Execute the SQL statement to create the table
         this.statement.executeBatch();
         System.out.println("Companies Table created.");
         
@@ -108,8 +110,8 @@ public class ShareVersityDatabase {
         this.checkExistedTable(tableName);
 
         // Define the SQL statement for creating the table
-        this.statement.addBatch("CREATE TABLE INVESTMENT(USERNAME VARCHAR(50),COMPANYNAME VARCHAR(50), AMOUNT_INVESTED DOUBLE)");
-        this.statement.addBatch("INSERT INTO INVESTMENT VALUES ('azel010', 'Testing', 50.00)");
+        this.statement.addBatch("CREATE TABLE INVESTMENT(USERNAME VARCHAR(50),COMPANYNAME VARCHAR(50), AMOUNT_INVESTED DOUBLE, PURCHASE_CPS DOUBLE)");
+        this.statement.addBatch("INSERT INTO INVESTMENT VALUES ('azel010', 'Testing', 50.00, 5.00)");
         // Execute the SQL statement to create the table
         this.statement.executeBatch();
         System.out.println("Investment table created");
