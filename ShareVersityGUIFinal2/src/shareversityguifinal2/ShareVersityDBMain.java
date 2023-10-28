@@ -40,6 +40,8 @@ public class ShareVersityDBMain {
         dateOfBirth = scan.nextLine();
       
         shareversitydb.insertAccount(username, password, fullname, bankAccountNumber, dateOfBirth, 0);
+        
+        shareversitydb.getAccountInfo();
         shareversitydb.closeConnection();
     }
 }

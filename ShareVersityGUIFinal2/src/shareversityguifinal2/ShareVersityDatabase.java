@@ -133,18 +133,18 @@ public class ShareVersityDatabase {
         this.checkExistedTable(tableName);
 
         // Define the SQL statement for creating the table
-        this.statement.addBatch("CREATE TABLE COST_PER_SHARE_HISTORY(COMPANYNAME VARCHAR(100), COST_PER_SHARE_VALUE DOUBLE, ID INT)"); 
+        this.statement.addBatch("CREATE TABLE COST_PER_SHARE_HISTORY(COMPANYNAME VARCHAR(100), COST_PER_SHARE_VALUE DOUBLE)"); 
         
-        this.statement.addBatch("INSERT INTO COST_PER_SHARE_HISTORY VALUES ('XYZ Tech Solutions', 3.45, 1)"); //name of company, cost for each of their shares that the CPS graph is based off (the cps for today) and id number in table
-        this.statement.addBatch("INSERT INTO COST_PER_SHARE_HISTORY VALUES ('Global Learning Institute', 6.11, 2)");
-        this.statement.addBatch("INSERT INTO COST_PER_SHARE_HISTORY VALUES ('GreenHarvest Farms', 1.99, 3)");
-        this.statement.addBatch("INSERT INTO COST_PER_SHARE_HISTORY VALUES ('Precision Manufacturing Co.', 2.01, 4)");
-        this.statement.addBatch("INSERT INTO COST_PER_SHARE_HISTORY VALUES ('Swift Logistics', 1.75, 5)");
-        this.statement.addBatch("INSERT INTO COST_PER_SHARE_HISTORY VALUES ('EduSpark Learning', 3.33, 6)");
-        this.statement.addBatch("INSERT INTO COST_PER_SHARE_HISTORY VALUES ('AgriGenetic Solutions', 4.88, 7)");
-        this.statement.addBatch("INSERT INTO COST_PER_SHARE_HISTORY VALUES ('NanoFab Creations', 4.19, 8)");
-        this.statement.addBatch("INSERT INTO COST_PER_SHARE_HISTORY VALUES ('SwiftGo', 6.21, 9)");
-        this.statement.addBatch("INSERT INTO COST_PER_SHARE_HISTORY VALUES ('HealthTech Innovators', 5.76, 10)");
+        this.statement.addBatch("INSERT INTO COST_PER_SHARE_HISTORY VALUES ('XYZ Tech Solutions', 3.45)"); //name of company, cost for each of their shares that the CPS graph is based off (the cps for today) and id number in table
+        this.statement.addBatch("INSERT INTO COST_PER_SHARE_HISTORY VALUES ('Global Learning Institute', 6.11)");
+        this.statement.addBatch("INSERT INTO COST_PER_SHARE_HISTORY VALUES ('GreenHarvest Farms', 1.99)");
+        this.statement.addBatch("INSERT INTO COST_PER_SHARE_HISTORY VALUES ('Precision Manufacturing Co.', 2.01)");
+        this.statement.addBatch("INSERT INTO COST_PER_SHARE_HISTORY VALUES ('Swift Logistics', 1.75)");
+        this.statement.addBatch("INSERT INTO COST_PER_SHARE_HISTORY VALUES ('EduSpark Learning', 3.33)");
+        this.statement.addBatch("INSERT INTO COST_PER_SHARE_HISTORY VALUES ('AgriGenetic Solutions', 4.88");
+        this.statement.addBatch("INSERT INTO COST_PER_SHARE_HISTORY VALUES ('NanoFab Creations', 4.19");
+        this.statement.addBatch("INSERT INTO COST_PER_SHARE_HISTORY VALUES ('SwiftGo', 6.21");
+        this.statement.addBatch("INSERT INTO COST_PER_SHARE_HISTORY VALUES ('HealthTech Innovators', 5.76");
 
 // Execute the SQL statement to create the table
         this.statement.executeBatch();
@@ -170,16 +170,25 @@ public class ShareVersityDatabase {
 
     
     
-    // retrieves account information from database 
+ 
+    
+    // retrieves account info
     public ResultSet getAccountInfo() {
-    ResultSet rs = null;
-    try {
-        rs = this.statement.executeQuery("SELECT USERNAME, FULLNAME, BANKACCOUNTNUMBER, DATEOFBIRTH, WALLETAMOUNT FROM ACCOUNT_TABLE");
-    } catch (SQLException ex) {
-        ex.printStackTrace();
+
+        ResultSet rs = null;
+        try 
+        {
+            rs = this.statement.executeQuery("SELECT USERNAME, FULLNAME, WALLETAMOUNT "
+                + "FROM ACCOUNT_TABLE");
+        }
+        catch (SQLException ex)
+        {
+            System.out.println(ex.getMessage());
+        }
+
+        return (rs);
     }
-    return rs;
-}
+
 
 
     public void closeConnection() {
