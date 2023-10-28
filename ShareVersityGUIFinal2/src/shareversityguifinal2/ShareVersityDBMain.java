@@ -14,8 +14,10 @@ public class ShareVersityDBMain {
         
         ShareVersityDatabase shareversitydb = new ShareVersityDatabase();
         shareversitydb.connectShareVersityDB();
-        shareversitydb.createCompaniesList();
+        shareversitydb.createInvestmentTable();
+        shareversitydb.createCompaniesTable();
         //create another table
+        
         shareversitydb.closeConnection();
     }
 }

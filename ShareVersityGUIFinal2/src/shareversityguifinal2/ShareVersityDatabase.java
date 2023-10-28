@@ -1,4 +1,4 @@
-package shareversityguifinal2;
+ package shareversityguifinal2;
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
@@ -6,11 +6,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Logger;
+import org.apache.derby.iapi.sql.PreparedStatement;
 
 public class ShareVersityDatabase {
     
     private final DatabaseManager dbManager;
-   
+    private final Connection conn;
+    private Statement statement;
 
     public ShareVersityDatabase() {
         dbManager = new DatabaseManager();
@@ -32,6 +34,8 @@ public class ShareVersityDatabase {
             this.statement.addBatch("INSERT INTO ACCOUNT_TABLE VALUES ('ANAHIT35', 'weworkedhardonthis', 'Ana Hit', '98-5467-456931-94', '17 January 1977', 5555.00)");
             this.statement.addBatch("INSERT INTO ACCOUNT_TABLE VALUES ('LUKE77', 'thankyou!', 'Luke Monte', '06-9564-183331-79', '8 September 2001', 78564.00)");
             this.statement.addBatch("INSERT INTO ACCOUNT_TABLE VALUES ('JOHNSMITH51', 'hehehe', 'John Smith', '78-9025-564823-50', '12 August 1989', 3345.00)");
+            
+            
 
             this.statement.executeBatch();
         } catch (SQLException ex) {
@@ -59,33 +63,16 @@ public class ShareVersityDatabase {
         }
     }
     
-    public void createCompaniesList() {
    
-    Statement statement = null;
+
+    public void createCompaniesTable() {
+    
     try {
         statement = conn.createStatement();
+        this.checkExistedTable("COMPANIES");
 
-        // Define the table name and check if it exists
-        String tableName = "COMPANIES";
-        this.checkExistedTable(tableName);
-
-        DatabaseMetaData dbm = conn.getMetaData();
-        ResultSet tables = dbm.getTables(null, null, tableName, null);
-
-        if (!tables.next()) {
         // Define the SQL statement for creating the table
-        String createTableSQL = "CREATE TABLE " + tableName + " ("
-                + "COMPANYNAME VARCHAR(50),"
-                + "COMPANYDESCRIPTION VARCHAR(200),"
-                + "CEO VARCHAR(40),"
-                + "NUM_EMPLOYEES INT,"
-                + "COMPANY_CATEGORIES VARCHAR(30),"
-                + "INVESTMENT_TYPES VARCHAR(20)," 
-                + "COST_PER_SHARE_NOW DOUBLE"
-                + ")";
-        // Execute the SQL statement to create the table
-        statement.addBatch(createTableSQL);
-        }
+        this.statement.addBatch("CREATE TABLE COMPANIES(COMPANYNAME VARCHAR(50), COMPANYDESCRIPTION VARCHAR(200), CEO VARCHAR(40), NUM_EMPLOYEES INT, COMPANY_CATEGORIES VARCHAR(30), INVESTMENT_TYPES VARCHAR(20), COST_PER_SHARE_NOW DOUBLE)");
         
         this.statement.addBatch("INSERT INTO COMPANIES VALUES ('XYZ Tech Solutions', 'XYZ Tech Solutions is a leadingty provider of software and hardware solutions for businesses worldwide. The company specializes in developing innovative tools for streamlining operations and enhancing productivity.', 'Jane Smith', 800, 'TECHNOLOGY MANUFACTURING', 'LOWRISK', 125.45)");
         this.statement.addBatch("INSERT INTO COMPANIES VALUES ('Global Learning Institute', 'Global Learning Institute is a renowned educational organization that offers online and on-site courses for students of all ages. Their comprehensive curriculum covers a wide range of subjects and skills.', 'Michael Johnson', 350, 'EDUCATION', 'LOWRISK', 65.78)");
@@ -103,26 +90,41 @@ public class ShareVersityDatabase {
         this.statement.addBatch("INSERT INTO COMPANIES VALUES ('NanoFab Creations', 'NanoFab Creations is a startup specializing in nanoscale fabrication, producing intricate nanostructures for use in electronics, optics, and other emerging technologies.', 'Chris Bennett', 10, 'MANUFACTURING', 'STARTUP', 12.90)");
         this.statement.addBatch("INSERT INTO COMPANIES VALUES ('SwiftGo', 'SwiftGo is a startup that offers an on-demand transportation platform, providing affordable and convenient rides through a user-friendly app that connects drivers and passengers.', 'Kevin Clark', 25, 'TRANSPORT', 'STARTUP', 5.50)");
         this.statement.addBatch("INSERT INTO COMPANIES VALUES ('HealthTech Innovators', 'HealthTech Innovators is a startup focused on developing innovative healthcare solutions, including wearable devices and telemedicine platforms, to improve patient outcomes.', 'Linda Foster', 40, 'HEALTHCARE TECHNOLOGY', 'STARTUP', 7.80)");
-    
-
-        // Execute the batch of SQL statements
-        statement.executeBatch();
-        System.out.println("Table " + tableName + " created successfully.");
+        // Execute the SQL statement to create the table
+        this.statement.executeBatch();
+        System.out.println("Companies Table created.");
+        
     } catch (SQLException ex) {
-        ex.printStackTrace();
-    } finally {
-        try {
-            if (statement != null) {
-                statement.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+       Logger.getLogger(ex.getMessage());
+    } 
 }
 
+    //creation of createInvestmentTable
+    public void createInvestmentTable()
+    {
+         try {
+        statement = conn.createStatement();
+        String tableName = "INVESTMENT";
+        this.checkExistedTable(tableName);
+
+        // Define the SQL statement for creating the table
+        this.statement.addBatch("CREATE TABLE INVESTMENT(USERNAME VARCHAR(50),COMPANYNAME VARCHAR(50), AMOUNT_INVESTED DOUBLE)");
+        this.statement.addBatch("INSERT INTO INVESTMENT VALUES ('azel010', 'Testing', 50.00)");
+        // Execute the SQL statement to create the table
+        this.statement.executeBatch();
+        System.out.println("Investment table created");
+        
+    } catch (SQLException ex) {
+       Logger.getLogger(ex.getMessage());
+    } 
+    }
+    
+    
+    
+    
+
     //inserts company into database
-    public void insertCompanyRecord(String username, String fullname, String dateOfBirth, double walletAmount) {
+    public void creatAccountR(String username, String fullname, String dateOfBirth, double walletAmount) {
     try {
         String insertSQL = "INSERT INTO COMPANIES (USERNAME, FULLNAME, DATEOFBIRTH, WALLETAMOUNT) " +
                             "VALUES ('" + username + "', '" + fullname + "', '" + dateOfBirth + "', " + walletAmount + ")";
