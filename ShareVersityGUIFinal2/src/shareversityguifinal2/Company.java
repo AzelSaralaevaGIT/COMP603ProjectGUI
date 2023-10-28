@@ -6,8 +6,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
 /*
-This class holds information for the Company name, description, CEO, number of 
-employees, company categories, shares avaliable, current cost per share, and cost per share history.
+    This class holds information for the Company name, description, CEO, number of 
+    employees, company categories, shares avaliable, current cost per share, and cost per share history.
 */
 
 public class Company
@@ -22,7 +22,6 @@ public class Company
     private String ceo; //current Company CEO 
     private int numEmployees; //number of Employees in Company
     private ArrayList<CategoriesEnum> companyCategories;
-    private String sharesAvaliable; //available shares on stock market
     private CostPerShare costPerShareNow; //current cost per share
     private ArrayList<CostPerShare> costPerShareHistory;
     
@@ -35,24 +34,23 @@ public class Company
    /**
  * Initializes a new Company with the provided information.
  *
- * @param name              The name of the company.
- * @param desc              A brief description of the company.
- * @param ceo               The CEO of the company.
- * @param numEmp            The number of employees in the company.
- * @param companyCategories The categories to which the company belongs.
- * @param costPerShareNow   The current cost per share.
- * @param sharesAvailable   The number of shares available for trading.
- * @param investmentType    The type of investment associated with the company.
+ * @param name                   The name of the company.
+ * @param desc                   A brief description of the company.
+ * @param ceo                    The CEO of the company.
+ * @param numEmp                 The number of employees in the company.
+ * @param companyCategories      The categories to which the company belongs.
+ * @param costPerShareValueNow   The current cost per share value.
+ * @param investmentType         The type of investment associated with the company.
  */
-    public Company(String name, String desc, String ceo, int numEmp, ArrayList<CategoriesEnum> companyCategories, CostPerShare costPerShareNow, String sharesAvaliable, InvestmentTypeEnum investmentType) 
+    
+    public Company(String name, String desc, String ceo, int numEmp, ArrayList<CategoriesEnum> companyCategories, double costPerShareValueNow, InvestmentTypeEnum investmentType) 
     {
         this.name = name;
         this.description = desc;
         this.ceo = ceo;
         this.numEmployees = numEmp;
         this.companyCategories = companyCategories;
-        this.sharesAvaliable = sharesAvaliable;
-        this.costPerShareNow = costPerShareNow;
+        this.costPerShareNow = new CostPerShare(costPerShareValueNow, LocalDate.now().format(formatter));
         this.spVolatility = investmentType.getVolatility();
         
         this.random = new Random();
@@ -97,11 +95,6 @@ public class Company
     public CostPerShare getCostPerShareNow() 
     {
         return costPerShareNow;
-    }
-
-    public String getSharesAvaliable() 
-    {
-        return sharesAvaliable;
     }
     
     public CostPerShare getCurrentCPS() 
@@ -238,9 +231,6 @@ public class Company
             out += (i == companyCategories.size()-1 ? "" : ", ");
         }
         
-        out += "\nSHARES AVAILABLE: " + sharesAvaliable + "\n" + 
-               "COST PER SHARE: " + costPerShareNow;
-        
         return out;
     }
     
@@ -294,3 +284,5 @@ public class Company
         return out;
     }
 }
+
+

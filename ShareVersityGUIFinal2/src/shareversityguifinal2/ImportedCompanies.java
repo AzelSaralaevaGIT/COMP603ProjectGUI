@@ -26,173 +26,66 @@ import java.util.logging.Logger;
  * @author Fran
  */
 
-/*
-Each company in the text file will have: 
-    1 name
-    2 description
-    3 CEO
-    4 number of employees
-    5 categories
-    6 cost per share now
-    7 shares avaliable
-    8 investment type
-    (( empty line separator )) >> next 8 line Company ...
-*/
-
 //Class responsible for reading and managing imported company data from a file
 public final class ImportedCompanies
 {   
     
     private String companiesFilePath = "./resources/Companies.txt";
     private HashMap<Company, InvestmentTypeEnum> allCompanies; 
-  
-
+    ShareVersityDatabase shareversitydb;
+    int count = 0;
+    
     /**
      * Initializes the ImportedCompanies object and reads all company data from the file.
      */
     public ImportedCompanies() 
     {
-        this.readAllCompanies(); // sets allCompanies HashMap
+        shareversitydb = new ShareVersityDatabase();
+        this.retrieveAllCompanies(); // sets allCompanies HashMap
     }
     
-    
-     //read companies table
+    // read companies table
     // Retrieve all companies from the database
-    public void retrieveAllCompanies() {
-        
-        ShareVersityDatabase shareversitydb = new ShareVersityDatabase();
-
-    try {
-        
-        Statement statement = conn.createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM COMPANIES");
-
-        while (resultSet.next()) {
-            String companyName = resultSet.getString("COMPANYNAME");
-            String companyDescription = resultSet.getString("COMPANYDESCRIPTION");
-            String ceo = resultSet.getString("CEO");
-            int numEmployees = resultSet.getInt("NUM_EMPLOYEES");
-            String categories = resultSet.getString("COMPANY_CATEGORIES");
-            String investmentTypes = resultSet.getString("INVESTMENT_TYPES");
-            double costPerShareNow = resultSet.getDouble("COST_PER_SHARE_NOW");
-
-            // Create a Company object with the retrieved data
-            
-             // Create a new Company object from the retrieved data
-            Company company = new Company(companyName, companyDescription, ceo, numEmployees, categories, investmentTypes, costPerShareNow);
-
-
-            // Add the company to your data structure
-            allCompanies.put(company, investment);
-            // You can add the company to a list or perform any desired operation
-            // For example, add it to your allCompanies map or list.
-        }
-
-        resultSet.close();
-        statement.close();
-    } catch (SQLException ex) {
-        ex.printStackTrace();
-    }
-}
-    
-    
-    
-    
-    
-    /**
-     * Reads all company data from the specified file and populates the allCompanies HashMap.
-     */
-    public void readAllCompanies()
+    public void retrieveAllCompanies() 
     {
         allCompanies = new HashMap<>();
         
-        FileReader fileReader = null;
-        try 
-        {
-            fileReader = new FileReader(companiesFilePath);
-        } 
-        catch (FileNotFoundException ex) 
-        {
-            Logger.getLogger(ImportedCompanies.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        BufferedReader inputStream = new BufferedReader(fileReader);
-        String line;
-
-        // Temporary variables
-        String name = null;
-        String description = null;
-        String ceo = null;
-        int numEmployees = 0;
-        ArrayList<CategoriesEnum> categories = new ArrayList<>();
-        CostPerShare cpsNow = null;
-        String sharesAvaliable = null;
-        InvestmentTypeEnum investment = null;
-
-        int count = 0;
-
-        try 
-        {
-            while((line=inputStream.readLine()) != null) // Read until end of file (null)
-            {
-                StringTokenizer str = new StringTokenizer(line);
-
-                switch(count)
-                {
-                    case 0:
-                        name = line;
-                        break;
-                    case 1:
-                        description = line;
-                        break;
-                    case 2:
-                        ceo = line;
-                        break;
-                    case 3:
-                        numEmployees = Integer.valueOf(line);
-                        break;
-                    case 4:
-                        while(str.hasMoreTokens())
-                        {
-                            String[] splitCategory = str.nextToken().split(" "); // read each category on line, split by spaces
-                            for (String c : splitCategory)
-                            {
-                                categories.add(CategoriesEnum.valueOf(c));
-                            }
-                        }
-                        break;
-                    case 5:
-                        cpsNow = new CostPerShare(Double.valueOf(line), LocalDate.now().format(Company.getFormatter()));
-                        break;
-                    case 6:
-                        sharesAvaliable = line;
-                        break;
-                    case 7:
-                        investment = InvestmentTypeEnum.valueOf(line);
-                        break;
-                }
-                
+        try {
+            Statement statement = shareversitydb.getConnection().createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM COMPANIES");
+            
+            while (resultSet.next()) {
                 count++;
+                String companyName = resultSet.getString("COMPANYNAME");
+                String companyDescription = resultSet.getString("COMPANYDESCRIPTION");
+                String ceo = resultSet.getString("CEO");
+                int numEmployees = resultSet.getInt("NUM_EMPLOYEES");
+
+                String[] parts = resultSet.getString("COMPANY_CATEGORIES").split(" ");
+                ArrayList<String> categoriesStringList = new ArrayList<>(Arrays.asList(parts));
                 
-                if (count == 8) // When up to the final line, create new Company object from file info
+                ArrayList<CategoriesEnum> categoriesEnumList = new ArrayList<>();
+                for (String category : categoriesStringList)
                 {
-                    // Create new Company object from 8 read lines from txt file
-                    Company company = new Company(name, description, ceo, numEmployees, categories, cpsNow, sharesAvaliable, investment);
-
-                    // Add company into allCompanies HashMap
-                    this.allCompanies.put(company, investment);
-
-                    // resetting variables for next company (8 lines)
-                    count = 0;
-                    categories = new ArrayList<>();
-
-                    inputStream.readLine(); // Read extra line -- empty line separator between companies
+                    categoriesEnumList.add(CategoriesEnum.valueOf(category.toUpperCase()));
                 }
+
+                InvestmentTypeEnum investmentType = InvestmentTypeEnum.valueOf(resultSet.getString("INVESTMENT_TYPES").toUpperCase());
+                double costPerShareNow = resultSet.getDouble("COST_PER_SHARE_NOW");
+
+                // Create a Company object with the retrieved data
+                Company company = new Company(companyName, companyDescription, ceo, numEmployees, categoriesEnumList, costPerShareNow, investmentType);
+                
+                // Add the company to allCompanies hashmap
+                allCompanies.put(company, investmentType);
             }
+            resultSet.close();
+            statement.close();
         } 
-        catch (IOException ex) 
+        
+        catch (SQLException ex) 
         {
-            Logger.getLogger(ImportedCompanies.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
         }
     }
     

@@ -22,7 +22,7 @@ public class Portfolio
     private ArrayList<Investment> investments;
     private double totalReturnOnInvestment;
     private double totalValue;
-    private double totalHistoricalValue;
+    //private double totalHistoricalValue;
     private double totalInvested;
     private double totalProfit;
     
@@ -31,7 +31,7 @@ public class Portfolio
     {
         this.investments = new ArrayList<>();
         this.totalValue = 0.0;
-        this.totalHistoricalValue = 0.0;
+        //this.totalHistoricalValue = 0.0;
         this.totalInvested = 0.0;
         this.totalProfit = 0.0;
         this.totalReturnOnInvestment = 0.0;
@@ -42,7 +42,7 @@ public class Portfolio
     {
         this.investments = retrieveInvestmentsFromFile(account);
         computeTotalValue();
-        computeTotalHistoricalValue();
+        //computeTotalHistoricalValue();
         computeTotalInvested();
         computeTotalProfit();
         computeTotalReturnOnInvestment();
@@ -185,14 +185,14 @@ public class Portfolio
         // reset values to 0
         this.totalInvested = 0.0;
         this.totalValue = 0.0;
-        this.totalHistoricalValue = 0.0;
+        //this.totalHistoricalValue = 0.0;
         this.totalProfit = 0.0;
         this.totalReturnOnInvestment = 0.0;
         
         // recompute values
         this.computeTotalInvested();
         this.computeTotalValue();
-        this.computeTotalHistoricalValue();
+        //this.computeTotalHistoricalValue();
         this.computeTotalProfit();
         this.computeTotalReturnOnInvestment();
     }
@@ -213,6 +213,7 @@ public class Portfolio
         }
     }
     
+    /*
     // Sum of historical value 
     public final void computeTotalHistoricalValue()
     {
@@ -220,7 +221,7 @@ public class Portfolio
         {
             this.totalHistoricalValue += i.getHistoricalValue();
         }
-    }
+    }*/
     
     // Sum of all invested amounts
     public final void computeTotalInvested()
@@ -282,7 +283,7 @@ public class Portfolio
         out += String.format("Total amount invested:  $%.2f \n", this.totalInvested);
         out += String.format("Total profit:           $%.2f \n", this.totalProfit);
         out += String.format("Total ROI:              %.4f%%\n", this.totalReturnOnInvestment);
-        out += String.format("Total historical value: $%.2f \n", this.totalHistoricalValue);
+        //out += String.format("Total historical value: $%.2f \n", this.totalHistoricalValue);
         out += String.format(">>   Total value: $%.2f   <<", this.totalValue);
         
         return out;

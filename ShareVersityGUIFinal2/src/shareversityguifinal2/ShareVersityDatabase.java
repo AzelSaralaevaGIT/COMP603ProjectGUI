@@ -171,11 +171,6 @@ public class ShareVersityDatabase {
     }
 }
 
-
-    
-    
- 
-    
     // retrieves account info
     public ResultSet getAccountInfo() {
 
@@ -193,12 +188,11 @@ public class ShareVersityDatabase {
         return (rs);
     }
 
-
+    public Connection getConnection() {
+        return conn;
+    }
 
     public void closeConnection() {
         this.dbManager.closeConnections();
     }
-    
-    
-    
 }

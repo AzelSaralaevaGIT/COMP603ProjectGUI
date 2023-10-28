@@ -1,20 +1,13 @@
-Sat Oct 28 22:00:18 NZDT 2023 : Apache Derby Network Server - 10.14.2.0 - (1828579) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Sat Oct 28 22:00:18 NZDT 2023:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-018b-7583-4353-000069614e3c 
-on database directory C:\Users\saral\OneDrive\Documents\NetBeansProjects\ShareVersityGUI\COMP603ProjectGUI\ShareVersityGUIFINAL\COMP603ProjectGUI\ShareVersityGUIFinal2\ShareVersityDB_Ebd with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@2cdf8d8a 
-Loaded from file:/C:/Users/saral/OneDrive/Desktop/UNIVERSITY/YEAR%202-%20BCIS/COMP603-%20Program%20Design%20and%20Construction/db-derby-10.14.2.0-bin/db-derby-10.14.2.0-bin/lib/derby.jar
+Sun Oct 29 02:29:45 NZDT 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-018b-7679-f3fd-00001f3750c0 
+on database directory C:\Users\Fran\Documents\GitHub\COMP603ProjectGUI\ShareVersityGUIFinal2\ShareVersityDB_Ebd with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@5c29bfd 
+Loaded from file:/C:/Users/Fran/Documents/GitHub/COMP603ProjectGUI/ShareVersityGUIFinal2/lib/derby.jar
 java.vendor=Oracle Corporation
-java.runtime.version=11.0.18+9-LTS-195
-user.dir=C:\Users\saral\OneDrive\Desktop\UNIVERSITY\YEAR 2- BCIS\COMP603- Program Design and Construction\db-derby-10.14.2.0-bin\db-derby-10.14.2.0-bin
-os.name=Windows 11
+java.runtime.version=11.0.19+9-LTS-224
+user.dir=C:\Users\Fran\Documents\GitHub\COMP603ProjectGUI\ShareVersityGUIFinal2
+os.name=Windows 10
 os.arch=amd64
 os.version=10.0
-derby.system.home=C:\Users\saral\OneDrive\Documents\NetBeansProjects\ShareVersityGUI\COMP603ProjectGUI\ShareVersityGUIFINAL\COMP603ProjectGUI\ShareVersityGUIFinal2
+derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
-----------------------------------------------------------------
-Sun Oct 29 00:05:36 NZDT 2023: Shutting down Derby engine
-----------------------------------------------------------------
-Sun Oct 29 00:05:36 NZDT 2023:
-Shutting down instance a816c00e-018b-7583-4353-000069614e3c on database directory C:\Users\saral\OneDrive\Documents\NetBeansProjects\ShareVersityGUI\COMP603ProjectGUI\ShareVersityGUIFINAL\COMP603ProjectGUI\ShareVersityGUIFinal2\ShareVersityDB_Ebd with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@2cdf8d8a 
-----------------------------------------------------------------
