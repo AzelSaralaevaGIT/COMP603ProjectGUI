@@ -129,11 +129,11 @@ public class ShareversityGUI extends javax.swing.JFrame
         registerFullNameTextField = new javax.swing.JTextField();
         registerFullNameLabel = new javax.swing.JLabel();
         registerBankAccountLabel = new javax.swing.JLabel();
-        dayComboBox = new javax.swing.JComboBox<>();
-        yearComboBox = new javax.swing.JComboBox<>();
-        monthComboBox = new javax.swing.JComboBox<>();
+        registerDayComboBox = new javax.swing.JComboBox<>();
+        registerYearComboBox = new javax.swing.JComboBox<>();
+        registerMonthComboBox = new javax.swing.JComboBox<>();
         RegisterDateOfBirthLabel = new javax.swing.JLabel();
-        jFormattedTextField4 = new javax.swing.JFormattedTextField();
+        registerBankAccountNumber = new javax.swing.JFormattedTextField();
         menuPanel = new javax.swing.JPanel();
         menuSplitPanel = new javax.swing.JSplitPane();
         menuLeftPanel = new javax.swing.JPanel();
@@ -677,6 +677,11 @@ public class ShareversityGUI extends javax.swing.JFrame
                 registerFullNameTextFieldActionPerformed(evt);
             }
         });
+        registerFullNameTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                registerFullNameTextFieldKeyTyped(evt);
+            }
+        });
 
         registerFullNameLabel.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         registerFullNameLabel.setForeground(new java.awt.Color(253, 234, 239));
@@ -688,42 +693,42 @@ public class ShareversityGUI extends javax.swing.JFrame
         registerBankAccountLabel.setText("Bank Account Number");
         registerBankAccountLabel.setToolTipText("");
 
-        dayComboBox.setBackground(new java.awt.Color(255, 255, 255));
-        dayComboBox.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        dayComboBox.setForeground(new java.awt.Color(51, 51, 51));
-        dayComboBox.addMouseListener(new java.awt.event.MouseAdapter() {
+        registerDayComboBox.setBackground(new java.awt.Color(255, 255, 255));
+        registerDayComboBox.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        registerDayComboBox.setForeground(new java.awt.Color(51, 51, 51));
+        registerDayComboBox.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                dayComboBoxMouseClicked(evt);
+                registerDayComboBoxMouseClicked(evt);
             }
         });
-        dayComboBox.addActionListener(new java.awt.event.ActionListener() {
+        registerDayComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dayComboBoxActionPerformed(evt);
+                registerDayComboBoxActionPerformed(evt);
             }
         });
 
-        yearComboBox.setBackground(new java.awt.Color(255, 255, 255));
-        yearComboBox.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        yearComboBox.setForeground(new java.awt.Color(51, 51, 51));
-        yearComboBox.setModel(this.generateYearArray());
-        yearComboBox.addActionListener(new java.awt.event.ActionListener() {
+        registerYearComboBox.setBackground(new java.awt.Color(255, 255, 255));
+        registerYearComboBox.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        registerYearComboBox.setForeground(new java.awt.Color(51, 51, 51));
+        registerYearComboBox.setModel(this.generateYearArray());
+        registerYearComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                yearComboBoxActionPerformed(evt);
+                registerYearComboBoxActionPerformed(evt);
             }
         });
 
-        monthComboBox.setBackground(new java.awt.Color(255, 255, 255));
-        monthComboBox.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        monthComboBox.setForeground(new java.awt.Color(51, 51, 51));
-        monthComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
-        monthComboBox.addMouseListener(new java.awt.event.MouseAdapter() {
+        registerMonthComboBox.setBackground(new java.awt.Color(255, 255, 255));
+        registerMonthComboBox.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        registerMonthComboBox.setForeground(new java.awt.Color(51, 51, 51));
+        registerMonthComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
+        registerMonthComboBox.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                monthComboBoxMouseClicked(evt);
+                registerMonthComboBoxMouseClicked(evt);
             }
         });
-        monthComboBox.addActionListener(new java.awt.event.ActionListener() {
+        registerMonthComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                monthComboBoxActionPerformed(evt);
+                registerMonthComboBoxActionPerformed(evt);
             }
         });
 
@@ -732,15 +737,15 @@ public class ShareversityGUI extends javax.swing.JFrame
         RegisterDateOfBirthLabel.setText("Date of birth");
         RegisterDateOfBirthLabel.setToolTipText("");
 
-        jFormattedTextField4.setBackground(new java.awt.Color(255, 255, 255));
-        jFormattedTextField4.setBorder(javax.swing.BorderFactory.createEmptyBorder(8, 8, 8, 8));
-        jFormattedTextField4.setForeground(new java.awt.Color(51, 51, 51));
+        registerBankAccountNumber.setBackground(new java.awt.Color(255, 255, 255));
+        registerBankAccountNumber.setBorder(javax.swing.BorderFactory.createEmptyBorder(8, 8, 8, 8));
+        registerBankAccountNumber.setForeground(new java.awt.Color(51, 51, 51));
         try {
-            jFormattedTextField4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-####-#######-###")));
+            registerBankAccountNumber.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##-####-#######-###")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextField4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        registerBankAccountNumber.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         org.jdesktop.layout.GroupLayout registerRightPanelLayout = new org.jdesktop.layout.GroupLayout(registerRightPanel);
         registerRightPanel.setLayout(registerRightPanelLayout);
@@ -770,14 +775,14 @@ public class ShareversityGUI extends javax.swing.JFrame
                                 .add(registerUsernameLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 97, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .add(registerUsernameTextField)
                                 .add(registerRightPanelLayout.createSequentialGroup()
-                                    .add(dayComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 108, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(registerDayComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 108, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                    .add(monthComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 156, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(registerMonthComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 156, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                    .add(yearComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 111, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                    .add(registerYearComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 111, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                                 .add(RegisterDateOfBirthLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 155, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .add(registerBankAccountLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 232, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(jFormattedTextField4)))
+                                .add(registerBankAccountNumber)))
                         .add(51, 51, 51))))
         );
         registerRightPanelLayout.setVerticalGroup(
@@ -800,15 +805,15 @@ public class ShareversityGUI extends javax.swing.JFrame
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(registerBankAccountLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 29, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(4, 4, 4)
-                .add(jFormattedTextField4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(registerBankAccountNumber, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 50, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(RegisterDateOfBirthLabel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 29, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, monthComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, registerMonthComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(registerRightPanelLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                        .add(dayComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(yearComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                        .add(registerDayComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(registerYearComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 48, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                 .add(18, 18, 18)
                 .add(registerButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 56, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -2251,18 +2256,28 @@ public class ShareversityGUI extends javax.swing.JFrame
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         String username = loginUsernameTextField.getText();
         String password = String.valueOf(loginPasswordTextField.getPassword());
-        
+
         if (!loginTextFieldsAreEmpty(username, password))
         {
-            account.setLoginAccount(username, password);
-            System.out.println(account);
+            if (account.checkAccountExists(username, password))
+            {
+                account.setLoginAccount(username, password);
 
-            updateAccountDisplay();
-            updateCompaniesDisplay();
+                setPortfolioCompanyList();
+                updateAccountDisplay();
+                updateCompaniesDisplay();
 
-            mainCardLayout.show(this.getContentPane(),"menuPanel");
-            System.out.println("Login button clicked");
+                mainCardLayout.show(this.getContentPane(),"menuPanel");
+                menuCardLayout.show(menuRightPanels, "portfolio");
+            }
+            else
+            {
+                warningDialogueTitle.setText(String.format(html, "Username or Password is incorrect"));
+                warningDialogueDesc.setText(String.format(html, "Please ensure you have entered your username and password correctly"));
+                warningDialogue.setVisible(true);
+            }
         }
+        
         else
         {
             warningDialogueTitle.setText(String.format(html, "Username or Password is missing"));
@@ -2274,8 +2289,48 @@ public class ShareversityGUI extends javax.swing.JFrame
     private void registerHereButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerHereButtonMouseClicked
     }//GEN-LAST:event_registerHereButtonMouseClicked
 
+    
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
-        // TODO add your handling code here:
+        pressedButton = registerButton;
+        
+        String newUsername = registerUsernameTextField.getText().trim();
+        String newPassword = registerPasswordTextField.getText().trim();
+        String newFullName = registerFullNameTextField.getText().trim();
+        String newBankAccountNumber = registerBankAccountNumber.getText().trim();
+        String newDateOfBirth = String.format("%s %s %s", registerDayComboBox.getSelectedItem(), registerMonthComboBox.getSelectedItem(), registerYearComboBox.getSelectedItem());
+        
+        if (newUsername.length() == 0 || newPassword.length() == 0 || newFullName.length() == 0 || newBankAccountNumber.contains(" "))
+        {
+            warningDialogueTitle.setText(String.format(html, "Account Information missing"));
+            warningDialogueDesc.setText(String.format(html, "Please make sure all account information is entered"));
+            warningDialogue.setVisible(true);
+        }
+        else
+        {
+            if (newUsername.length() < 3 || newPassword.length() < 5)
+            {
+                warningDialogueTitle.setText(String.format(html, "Username or Password is too short"));
+                warningDialogueDesc.setText(String.format(html, "Please enter a username that is more than 3 characters and a password that is more than 5 characters"));
+                warningDialogue.setVisible(true);
+            }
+            else
+            {
+                newAccount = new Account(newUsername, newPassword, newFullName, newBankAccountNumber, newDateOfBirth);
+                
+                if (newAccount.checkAccountExists(newUsername))
+                {
+                    warningDialogueTitle.setText(String.format(html, "Username already exists"));
+                    warningDialogueDesc.setText(String.format(html, "The entered username already exists, please enter another username"));
+                    warningDialogue.setVisible(true);
+                }
+                else
+                {
+                    confirmationDialogueTitle.setText(String.format(html, "Account confirmation"));
+                    confirmationDialogueDesc.setText(String.format(html,"Do you want to create an account with the details entered?"));
+                    confirmationDialogue.setVisible(true);
+                }
+            }
+        }
     }//GEN-LAST:event_registerButtonActionPerformed
 
     private void loginHereButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginHereButtonMouseClicked
@@ -2294,54 +2349,47 @@ public class ShareversityGUI extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_registerFullNameTextFieldActionPerformed
 
-    private void dayComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dayComboBoxActionPerformed
+    private void registerDayComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerDayComboBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_dayComboBoxActionPerformed
+    }//GEN-LAST:event_registerDayComboBoxActionPerformed
 
-    private void yearComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearComboBoxActionPerformed
+    private void registerYearComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerYearComboBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_yearComboBoxActionPerformed
+    }//GEN-LAST:event_registerYearComboBoxActionPerformed
     
-    private void monthComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthComboBoxActionPerformed
+    private void registerMonthComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerMonthComboBoxActionPerformed
         updateDayComboBox();
-        System.out.println("days updated");
-    }//GEN-LAST:event_monthComboBoxActionPerformed
+    }//GEN-LAST:event_registerMonthComboBoxActionPerformed
 
-    private void dayComboBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dayComboBoxMouseClicked
+    private void registerDayComboBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerDayComboBoxMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_dayComboBoxMouseClicked
+    }//GEN-LAST:event_registerDayComboBoxMouseClicked
 
-    private void monthComboBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_monthComboBoxMouseClicked
-        //updateDayComboBox();
-        //System.out.println("days updated");
-    }//GEN-LAST:event_monthComboBoxMouseClicked
+    private void registerMonthComboBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerMonthComboBoxMouseClicked
+
+    }//GEN-LAST:event_registerMonthComboBoxMouseClicked
 
     private void accountInfoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountInfoButtonActionPerformed
         menuCardLayout.show(menuRightPanels,"accountInfo");
         setMenuButtonColours(accountInfoButton, menuButtonList);
-        System.out.println("account information button clicked");
     }//GEN-LAST:event_accountInfoButtonActionPerformed
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         mainCardLayout.show(this.getContentPane(),"loginRegisterPanel");
-        System.out.println("logout button clicked");
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void pInvestInfoBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pInvestInfoBackButtonActionPerformed
         menuCardLayout.show(menuRightPanels,"portfolio");
-        System.out.println("Investment back button clicked");
     }//GEN-LAST:event_pInvestInfoBackButtonActionPerformed
 
     private void walletButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_walletButtonActionPerformed
         menuCardLayout.show(menuRightPanels,"wallet");
         setMenuButtonColours(walletButton, menuButtonList);
-        System.out.println("wallet button clicked");
     }//GEN-LAST:event_walletButtonActionPerformed
 
     private void portfolioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_portfolioButtonActionPerformed
         menuCardLayout.show(menuRightPanels,"portfolio");
         setMenuButtonColours(portfolioButton, menuButtonList);
-        System.out.println("portfolio button clicked");
     }//GEN-LAST:event_portfolioButtonActionPerformed
 
     private void portfolioInvestmentsListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_portfolioInvestmentsListMouseClicked
@@ -2353,11 +2401,13 @@ public class ShareversityGUI extends javax.swing.JFrame
         if (chosenPortfolioInvestment != null && listBounds != null)
         {
             menuCardLayout.show(menuRightPanels,"portfolioInvestInfo");
-            System.out.println("Investment list item clicked");
             setPortfolioInvestmentInfoDisplay(chosenPortfolioInvestment);
         }
     }//GEN-LAST:event_portfolioInvestmentsListMouseClicked
     
+    /**
+        Updates and displays investment information for a selected portfolio investment
+    */
     private void setPortfolioInvestmentInfoDisplay(Investment investment)
     {
         boolean found = false;
@@ -2419,13 +2469,24 @@ public class ShareversityGUI extends javax.swing.JFrame
         pssTotalValueVariable.setText(dollarStringFormat(investment.getValue()));
     }
     
+    /*
+        This method is triggered when the "Invest" button is clicked. It performs the following actions:
+         - Updates the display of available companies for investment.
+         - Navigates to the "invest" panel.
+         - Sets the color of the "Invest" button in the menu to indicate the current menu selection.
+    */
     private void investButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_investButtonActionPerformed
+        updateCompaniesDisplay();
         menuCardLayout.show(menuRightPanels,"invest");
         setMenuButtonColours(investButton, menuButtonList);
-        System.out.println("invest button clicked");
-        System.out.println(startupInvestments.companyList.get(0).getCostPerShareHistory());
     }//GEN-LAST:event_investButtonActionPerformed
 
+    /**
+        This method is triggered when the "Sell Shares" button is clicked in the portfolio investment information panel.
+        It performs the following actions:
+        - Sets the 'pressedButton' variable to indicate that the "Sell Shares" button triggered this action.
+        - Displays a confirmation dialog to confirm the user's intention to sell their shares for the selected company.
+    */
     private void pInvestInfoSellSharesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pInvestInfoSellSharesButtonActionPerformed
         pressedButton = pInvestInfoSellSharesButton;
         confirmationDialogueTitle.setText(String.format(html, "Are you sure you want to sell your shares for this company?"));
@@ -2441,16 +2502,16 @@ public class ShareversityGUI extends javax.swing.JFrame
 
     private void registerHereButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerHereButtonMouseReleased
         loginRegisterCardLayout.show(loginRegisterRightPanels,"register");
-        System.out.println("register Here button clicked");
     }//GEN-LAST:event_registerHereButtonMouseReleased
 
     private void loginHereButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginHereButtonMouseReleased
         loginRegisterCardLayout.show(loginRegisterRightPanels,"login");
-        System.out.println("login Here button clicked");
     }//GEN-LAST:event_loginHereButtonMouseReleased
 
     /*
-        this method
+        This method handles the action when the user clicks the wallet withdrawal button.
+        It retrieves the withdrawal amount from the text field, checks if it's a valid amount, 
+        and then processes the withdrawal if the amount is within the available wallet balance. 
     */
     private void walletWithdrawButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_walletWithdrawButtonActionPerformed
         String value = walletWithdrawTextField.getText().replaceAll(",", "");
@@ -2465,7 +2526,7 @@ public class ShareversityGUI extends javax.swing.JFrame
             }
             else
             {
-                account.getWallet().withdraw(Double.valueOf(value));
+                account.getWallet().withdraw((double)walletWithdrawTextField.getValue());
                 updateAccountDisplay();
             }
         }
@@ -2478,7 +2539,9 @@ public class ShareversityGUI extends javax.swing.JFrame
     }//GEN-LAST:event_walletWithdrawButtonActionPerformed
 
     /*
-        this method
+        This method handles the action when the user clicks the wallet top-up button.
+        It retrieves the top-up amount from the text field, processes the top-up if a valid 
+        amount is provided, and updates the account display accordingly.
     */
     private void walletTopUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_walletTopUpButtonActionPerformed
         String value = walletTopUpTextField.getText();
@@ -2489,13 +2552,18 @@ public class ShareversityGUI extends javax.swing.JFrame
             account.getWallet().topUp(Double.valueOf(value));
             updateAccountDisplay();
         }
+        else
+        {
+            warningDialogueTitle.setText(String.format(html,"Unable to top up: Field is empty"));
+            warningDialogueDesc.setText(String.format(html,"Please enter a top up amount and try again"));
+            warningDialogue.setVisible(true);
+        }
     }//GEN-LAST:event_walletTopUpButtonActionPerformed
 
     private void lowRiskInvestmentsListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lowRiskInvestmentsListMouseClicked
         clearInvestValues();
         
         menuCardLayout.show(menuRightPanels,"investInfo");
-        System.out.println("low risk investment item clicked");
         
         chosenInvestCompany = getInvestListItemCompany(lowRiskInvestments.companyList, lowRiskInvestmentsList.getSelectedIndex());
         
@@ -2504,24 +2572,31 @@ public class ShareversityGUI extends javax.swing.JFrame
   
     private void investInfoBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_investInfoBackButtonActionPerformed
         menuCardLayout.show(menuRightPanels,"invest");
-        System.out.println("investInfoBackButton clicked");
     }//GEN-LAST:event_investInfoBackButtonActionPerformed
 
     private void investInfoBuySharesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_investInfoBuySharesButtonActionPerformed
         menuCardLayout.show(menuRightPanels,"buyShares");
         this.bsValueRadioButtonActionPerformed(evt);
-        System.out.println("buy shares button clicked");
     }//GEN-LAST:event_investInfoBuySharesButtonActionPerformed
     
     private void lowRiskInvestmentsListMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lowRiskInvestmentsListMouseReleased
         
     }//GEN-LAST:event_lowRiskInvestmentsListMouseReleased
 
+    /*
+        This method sets a new investment based on user input. It creates a new Investment object
+        with the chosen investment company, the provided investment amount, and cost per share.
+        If the 'save' parameter is set to true, the new investment is added to the account's portfolio, 
+        and the investment amount is withdrawn from the account's wallet.
+    */
     private void setNewInvestment(boolean save)
     {
         newInvestment = new Investment(chosenInvestCompany, Double.valueOf(bsValueTextField.getText().replaceAll(",", "")), 
                 new CostPerShare((double)selectedCPStable.getValueAt(0, 1), (String)selectedCPStable.getValueAt(0, 0)));
-        if (save == true)
+        
+        // If save boolean is true, add the new investment to the account's portfolio
+        // and withdraw the investment amount from the account's wallet.
+        if (save)
         {
             account.getAccountPortfolio().addInvestment(newInvestment);
             account.getWallet().withdraw(Double.valueOf(bsValueTextField.getText().replaceAll(",", "")));
@@ -2536,17 +2611,23 @@ public class ShareversityGUI extends javax.swing.JFrame
         bscAmountInvestedVariable.setText(dollarStringFormat(newInvestment.getAmountInvested()));
     }
     
+    /*
+        This method is triggered when the "Confirm Shares Purchase" button is pressed.
+        It validates the input for buying shares and displays warning or confirmation dialogs accordingly.
+    */
     private void bsConfirmSharesPurchaseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bsConfirmSharesPurchaseButtonActionPerformed
         
-        if (cpsValue == 0.0)
+        if (cpsValue == 0.0)  
         {
+            // Display a warning if the cost per share date is not selected.
             warningDialogueTitle.setText(String.format(html, "Cost per share date not selected"));
             warningDialogueDesc.setText(String.format(html, "Please click a point on the graph to select a cost per share"));
             warningDialogue.setVisible(true);
         }
         else
         {
-            if (bsValueTextField.getText().isEmpty() || bsValueTextField.getText().isBlank())
+            // Display a warning if the value field is empty.
+            if (bsValueTextField.getText().isEmpty() || bsValueTextField.getText().isBlank()) // empty value field warning dialogue window
             {
                 warningDialogueTitle.setText(String.format(html, "Value field is empty"));
                 warningDialogueDesc.setText(String.format(html, "Please enter the amount you want to invest into the company in the value field or adjust the number of shares"));
@@ -2554,13 +2635,24 @@ public class ShareversityGUI extends javax.swing.JFrame
             }
             else
             {
-                if (Double.valueOf(bsValueTextField.getText().replaceAll(",", ""))== 0.0)
+                double value = Double.valueOf(bsValueTextField.getText().replaceAll(",", ""));
+                
+                // Display a warning if the investment value is zero.
+                if (value == 0.0)  
                 {
                     warningDialogueTitle.setText(String.format(html, "Value cannot be zero"));
                     warningDialogueDesc.setText(String.format(html, "Please enter the amount you want to invest into the company in the value field or adjust the number of shares"));
                     warningDialogue.setVisible(true);
                 }
-                else
+                // Display a warning if the investment value exceeds the wallet balance.
+                if (value > account.getWallet().getAccountBalance())
+                {
+                    warningDialogueTitle.setText(String.format(html, "Insufficient wallet funds"));
+                    warningDialogueDesc.setText(String.format(html, "Please provide an amount below your wallet balance, or top up in the wallet tab for more funds"));
+                    warningDialogue.setVisible(true);
+                }
+                // If the input is valid, prepare a new investment and display a confirmation dialog.
+                if (value <= account.getWallet().getAccountBalance() && value > 0.0) 
                 {
                     setNewInvestment(false);
                     pressedButton = bsConfirmSharesPurchaseButton;
@@ -2568,7 +2660,7 @@ public class ShareversityGUI extends javax.swing.JFrame
                     confirmationDialogueTitle.setText(String.format(html, "Are you sure you want to buy shares in this company?"));
                     confirmationDialogueDesc.setText(String.format("<HTML><body style='width: 320spx'> $%.2f %s %s </HTML>", 
                             newInvestment.getAmountInvested(),
-                            " will be withdrawn from your account and invested into ",
+                            " will be withdrawn from your wallet and invested into ",
                             newInvestment.getCompanyInvested().getName()));
                     confirmationDialogue.setVisible(true);
                 }
@@ -2578,7 +2670,6 @@ public class ShareversityGUI extends javax.swing.JFrame
     
     private void buySharesBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buySharesBackButtonActionPerformed
         menuCardLayout.show(menuRightPanels,"invest");
-        System.out.println("buy shares back button pressed");
     }//GEN-LAST:event_buySharesBackButtonActionPerformed
 
     private void bsValueRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bsValueRadioButtonActionPerformed
@@ -2597,12 +2688,10 @@ public class ShareversityGUI extends javax.swing.JFrame
 
     private void buySharesConfirmBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buySharesConfirmBackButtonActionPerformed
         menuCardLayout.show(menuRightPanels,"invest");
-        System.out.println("buySharesConfirmBackButton clicked");
     }//GEN-LAST:event_buySharesConfirmBackButtonActionPerformed
 
     private void pSharesSoldBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pSharesSoldBackButtonActionPerformed
         menuCardLayout.show(menuRightPanels,"portfolio");
-        System.out.println("shares sold back button clicked");
     }//GEN-LAST:event_pSharesSoldBackButtonActionPerformed
 
     private void bsValueTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bsValueTextFieldKeyTyped
@@ -2643,37 +2732,7 @@ public class ShareversityGUI extends javax.swing.JFrame
             bsValueTextField.setText("");
         }
     }//GEN-LAST:event_bsValueTextFieldKeyReleased
-    
-    private void bsValueTextFieldKeyReleased() {                                             
-        String val = bsValueTextField.getText();
-                
-        if (!(val.isEmpty() || val.isBlank()))
-        {
-            int decimalpointCount = 0;
-            
-            for (int i=0; i<val.length(); i++)
-            {
-                if (val.charAt(i) == '.')
-                {
-                    decimalpointCount++;
-                }
-            }
-            
-            if (decimalpointCount <= 1) // Only set spinner numShares if there are 1 or less decimal points to prevent NumberFormatException
-            {
-                double numShares = (Double.valueOf(bsValueTextField.getText().replaceAll(",", ""))/cpsValue);
-        
-                bsNumSharesSpinner.setValue(numShares);
-            }
-        }
-        else
-        {
-            bsNumSharesSpinner.setValue(0);
-            bsValueTextField.setValue(0);
-            bsValueTextField.setText("");
-        }
-    }   
-    
+
     private void walletWithdrawTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_walletWithdrawTextFieldKeyTyped
         filterLetters(evt);
         limitInputDollar(evt, walletWithdrawTextField.getText());
@@ -2709,17 +2768,6 @@ public class ShareversityGUI extends javax.swing.JFrame
         }
     }//GEN-LAST:event_bsNumSharesSpinnerStateChanged
 
-    private void bsNumSharesSpinnerStateChanged() {                                                
-
-        boolean change = bsNumSharesSpinner.isEnabled();
-        
-        if (change)
-        {
-            double value = (double)bsNumSharesSpinner.getValue()*cpsValue;
-            bsValueTextField.setValue(value);
-        }
-    }  
-    
     private void bsValueTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_bsValueTextFieldFocusLost
     }//GEN-LAST:event_bsValueTextFieldFocusLost
 
@@ -2797,7 +2845,6 @@ public class ShareversityGUI extends javax.swing.JFrame
         clearInvestValues();
         
         menuCardLayout.show(menuRightPanels,"investInfo");
-        System.out.println("startup investment item clicked");
         
         chosenInvestCompany = getInvestListItemCompany(startupInvestments.companyList, startupInvestmentsList.getSelectedIndex());
         updateSelectedCompanyDisplay(chosenInvestCompany);
@@ -2807,6 +2854,11 @@ public class ShareversityGUI extends javax.swing.JFrame
 
     }//GEN-LAST:event_selectedCPStablePropertyChange
 
+    /**
+        This method is called when the Cost Per Share (CPS), is changed.
+        It responds to TableModelEvent updates and retrieves the CPS value from the first table row.
+        If the selected cell contains a non-null value, it updates the 'cpsValue' variable and triggers actions in response to CPS changes.
+    */
     public void selectedCPStableChanged(TableModelEvent evt)
     {
         if (evt.getType() == TableModelEvent.UPDATE)
@@ -2814,9 +2866,6 @@ public class ShareversityGUI extends javax.swing.JFrame
             if (selectedCPStable.getValueAt(0, 1) != null)
             {
                 cpsValue = (double)selectedCPStable.getValueAt(0, 1);
-                bsValueTextFieldKeyReleased();
-                bsNumSharesSpinnerStateChanged();
-                System.out.println("clicked");
             }
         }
     }
@@ -2825,34 +2874,86 @@ public class ShareversityGUI extends javax.swing.JFrame
     
     }//GEN-LAST:event_buySharesCPSGraphMouseClicked
 
+    // This method clears wallet panel components to default values
+    private void clearWalletPanelInfo()
+    {
+        walletWithdrawTextField.setValue(0);
+        walletWithdrawTextField.setText("");
+        walletWithdrawTextField.setEnabled(true);
+        walletTopUpTextField.setValue(0);
+        walletTopUpTextField.setText("");
+        walletWithdrawEntireBalanceCheckbox.setSelected(false);
+    }
+    
+    /*
+        This method is triggered when the "OK" button in the confirmation dialog is pressed.
+        It performs different actions based on the button that triggered the confirmation dialog:
+        - If the "Sell Shares" button triggered the dialog, it sells all shares for the chosen portfolio investment, updates displays, and navigates to the "portfolioSharesSold" panel.
+        - If the "Confirm Shares Purchase" button triggered the dialog, it confirms the purchase of shares, updates displays, and navigates to the "buySharesConfirmation" panel.
+        - If the "Register" button triggered the dialog, it saves a new account to a file, displays a confirmation message, and navigates to the login panel.
+
+        After processing, it hides the confirmation dialog.
+    */
     private void confirmationOkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmationOkButtonActionPerformed
+        // Sell all shares for the chosen portfolio investment and update displays.
         if (pressedButton.equals(pInvestInfoSellSharesButton))
         {
             account.getAccountPortfolio().sellAllShares(account, chosenPortfolioInvestment);
-            menuCardLayout.show(menuRightPanels,"portfolioSharesSold");
+            
+            // Update all displays 
             updateAccountDisplay();
+            clearWalletPanelInfo();
             updateCompaniesDisplay();
             updatePortfolioDisplay(account);
+            
+            menuCardLayout.show(menuRightPanels,"portfolioSharesSold");
         }
+        // Confirm the purchase of shares, update displays, and navigate to the "buySharesConfirmation" panel.
         if (pressedButton.equals(bsConfirmSharesPurchaseButton))
         {
             setNewInvestment(true);
             menuCardLayout.show(menuRightPanels,"buySharesConfirmation");
-            System.out.println("buy shares button pressed");
-
-
+            
+            // Update all displays 
             setBuySharesConfirmedDisplay(newInvestment);
-
             updateAccountDisplay();
+            clearWalletPanelInfo();
             updateCompaniesDisplay();
             updatePortfolioDisplay(account);
         }
+        // Save a new account to a file, display a confirmation message, and navigate to the login panel.
+        if (pressedButton.equals(registerButton))
+        {
+            newAccount.saveAccountToFile();
+            
+            // temporarily change warning dialogue to confirmation look
+            String originalTitle = warningDialogue.getTitle();
+            javax.swing.Icon originalIcon = warningDialogueIcon.getIcon();
+            
+            warningDialogue.setTitle("Confirmation");
+            warningDialogueIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/infoIcon.png")));
+            
+            warningDialogueTitle.setText(String.format(html, "Account created successfully"));
+            warningDialogueDesc.setText(String.format(html, "Your account has been created successfully. Please login with your details on the login page."));
+            warningDialogue.setVisible(true);
+            
+            loginRegisterCardLayout.show(loginRegisterRightPanels,"login");
+            
+            // revert warning dialogue to original style
+            warningDialogue.setTitle(originalTitle);
+            warningDialogueIcon.setIcon(originalIcon);
+        }
+        // Hide the confirmation dialog.
         confirmationDialogue.setVisible(false);
     }//GEN-LAST:event_confirmationOkButtonActionPerformed
 
     private void confirmationCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmationCancelButtonActionPerformed
         confirmationDialogue.setVisible(false);
     }//GEN-LAST:event_confirmationCancelButtonActionPerformed
+
+    private void registerFullNameTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_registerFullNameTextFieldKeyTyped
+        filterNumbers(evt);
+    }//GEN-LAST:event_registerFullNameTextFieldKeyTyped
 
     /*
         This method gets this year and gets the previous 100 years as a list of years as a DefaultComboBoxModel (for registering year of birth)
@@ -2887,7 +2988,7 @@ public class ShareversityGUI extends javax.swing.JFrame
     */
     private static void updateDayComboBox() 
     {
-        int selectedMonthIndex = monthComboBox.getSelectedIndex();
+        int selectedMonthIndex = registerMonthComboBox.getSelectedIndex();
         int daysInMonth = getDaysInMonth(selectedMonthIndex);
 
         DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
@@ -2895,7 +2996,7 @@ public class ShareversityGUI extends javax.swing.JFrame
             model.addElement(String.valueOf(i));
         }
 
-        dayComboBox.setModel(model); 
+        registerDayComboBox.setModel(model); 
     }
     
     /*
@@ -2936,6 +3037,20 @@ public class ShareversityGUI extends javax.swing.JFrame
         char c = evt.getKeyChar();
         
         if ((!(Character.isDigit(c) || c == '.')))
+        {
+            evt.consume();
+        }
+    }
+    
+    /*
+        This method prevents numbers from being typed into text fields
+        by taking the key event and checking if it is a digit before consuming
+    */    
+    private void filterNumbers(java.awt.event.KeyEvent evt) 
+    {                                          
+        char c = evt.getKeyChar();
+        
+        if (Character.isDigit(c))
         {
             evt.consume(); 
         }
@@ -2992,9 +3107,76 @@ public class ShareversityGUI extends javax.swing.JFrame
     */
     private void updateCompaniesDisplay()
     {
-        setCompanyInvestList(lowRiskInvestmentsList, lowRiskInvestments.companyList);
-        setCompanyInvestList(startupInvestmentsList, startupInvestments.companyList);
         setPortfolioInvestmentsList(portfolioInvestmentsList, account);
+        
+        setPortfolioCompanyList();
+        updatePortfolioDisplay(account);
+        
+        setModifiedCompanyLists();
+        setCompanyInvestList(lowRiskInvestmentsList, modifiedLowRiskCompanyList);
+        setCompanyInvestList(startupInvestmentsList, modifiedStartupCompanyList);
+    }
+    
+    // Return a modified company list that removes portfolio companies from an input company list
+    private void setModifiedCompanyLists() {
+    modifiedLowRiskCompanyList = new ArrayList<>(lowRiskInvestments.companyList);
+    modifiedStartupCompanyList = new ArrayList<>(startupInvestments.companyList);
+
+    // Create a list to store companies to be removed.
+    ArrayList<Company> companiesToRemove = new ArrayList<>();
+
+    // Iterate over lowRiskInvestments.companyList and mark companies for removal.
+    for (Company iCompany : lowRiskInvestments.companyList) {
+        for (Company pCompany : portfolioCompanyList) {
+            if (iCompany.getName().equals(pCompany.getName())) {
+                companiesToRemove.add(iCompany);
+                break;  // Exit inner loop to avoid concurrent modification.
+            }
+        }
+    }
+
+    // Remove marked companies from modifiedLowRiskCompanyList.
+    modifiedLowRiskCompanyList.removeAll(companiesToRemove);
+
+    // Repeat the same process for modifiedStartupCompanyList.
+    companiesToRemove.clear();
+
+    for (Company iCompany : startupInvestments.companyList) {
+        for (Company pCompany : portfolioCompanyList) {
+            if (iCompany.getName().equals(pCompany.getName())) {
+                companiesToRemove.add(iCompany);
+                break;  // Exit inner loop to avoid concurrent modification.
+            }
+        }
+    }
+
+    // Remove marked companies from modifiedStartupCompanyList.
+    modifiedStartupCompanyList.removeAll(companiesToRemove);
+}
+    
+    /*
+        Setting portfolioCompanyList - for use in filtering out already invested companies from the company selection list in Invest panel
+    */
+    private void setPortfolioCompanyList()
+    {
+        portfolioCompanyList = new ArrayList<>();
+        portfolioCompanyList.clear();
+        
+        ArrayList<Company> combinedList = new ArrayList<>();
+        combinedList.addAll(lowRiskInvestments.companyList);
+        combinedList.addAll(startupInvestments.companyList);
+        
+        for (Company company : combinedList)
+        {
+            for (Investment investment : account.getAccountPortfolio().getInvestments())
+            {
+                if (investment.getCompanyInvested().getName().equalsIgnoreCase(company.getName()))
+                {
+                    portfolioCompanyList.add(company);
+                }
+            }
+        }
+        
     }
     
     private void updatePortfolioDisplay (Account account)
@@ -3287,7 +3469,6 @@ public class ShareversityGUI extends javax.swing.JFrame
     private javax.swing.JLabel confirmationDialogueTitle;
     private javax.swing.JButton confirmationOkButton;
     private javax.swing.JScrollPane cpsGraphScrollPane;
-    private static javax.swing.JComboBox<String> dayComboBox;
     private javax.swing.JCheckBox hidePasswordCheckBox;
     private javax.swing.JButton investButton;
     private javax.swing.JPanel investBuySharesConfirmationRightPanel;
@@ -3308,7 +3489,6 @@ public class ShareversityGUI extends javax.swing.JFrame
     private javax.swing.JLabel investmentInfoLabel;
     private javax.swing.JTabbedPane investmentTabbedPane;
     private javax.swing.JLabel investmentTooltipLabel;
-    private javax.swing.JFormattedTextField jFormattedTextField4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton loginButton;
     private javax.swing.JLabel loginHereButton;
@@ -3333,7 +3513,6 @@ public class ShareversityGUI extends javax.swing.JFrame
     private javax.swing.JPanel menuWalletBalance;
     private javax.swing.JLabel menuWalletBalanceTitle;
     private javax.swing.JLabel menuWalletBalanceValue;
-    private static javax.swing.JComboBox<String> monthComboBox;
     private javax.swing.JLabel newAccountLabel;
     private javax.swing.JLabel pAmountInvestedLabel;
     private javax.swing.JLabel pAmountInvestedVariable;
@@ -3398,16 +3577,20 @@ public class ShareversityGUI extends javax.swing.JFrame
     private javax.swing.JLabel pssTotalValueLabel;
     private javax.swing.JLabel pssTotalValueVariable;
     private javax.swing.JLabel registerBankAccountLabel;
+    private javax.swing.JFormattedTextField registerBankAccountNumber;
     private javax.swing.JButton registerButton;
+    private static javax.swing.JComboBox<String> registerDayComboBox;
     private javax.swing.JLabel registerFullNameLabel;
     private javax.swing.JTextField registerFullNameTextField;
     private javax.swing.JLabel registerHereButton;
+    private static javax.swing.JComboBox<String> registerMonthComboBox;
     private javax.swing.JLabel registerMsgLabel;
     private javax.swing.JLabel registerPasswordLabel;
     private javax.swing.JTextField registerPasswordTextField;
     private javax.swing.JPanel registerRightPanel;
     private javax.swing.JLabel registerUsernameLabel;
     private javax.swing.JTextField registerUsernameTextField;
+    private javax.swing.JComboBox<String> registerYearComboBox;
     private javax.swing.JTable selectedCPStable;
     private javax.swing.JScrollPane selectedCPStableScrollPane;
     private javax.swing.JPanel showHidePasswordPanel;
@@ -3435,7 +3618,6 @@ public class ShareversityGUI extends javax.swing.JFrame
     private javax.swing.JButton warningOkButton;
     private javax.swing.JLabel withdrawAmountLabel;
     private javax.swing.JLabel withdrawDollarSign;
-    private javax.swing.JComboBox<String> yearComboBox;
     // End of variables declaration//GEN-END:variables
     private CardLayout mainCardLayout;
     private CardLayout loginRegisterCardLayout;
@@ -3446,11 +3628,17 @@ public class ShareversityGUI extends javax.swing.JFrame
     
     final String html = "<html><body style='width: 320spx'>%1s"; // HTML style for use in dialogue popups String formatter
     
-    private double cpsValue; 
+    private double cpsValue; // selected CPS value based on table (Invest page)
+    
+    private ArrayList<Company> portfolioCompanyList;
+    private ArrayList<Company> modifiedLowRiskCompanyList;
+    private ArrayList<Company> modifiedStartupCompanyList;
     
     private Investment newInvestment;
     private Investment chosenPortfolioInvestment;
     private Company chosenInvestCompany;
+    
+    private Account newAccount;
     
     // Class objects with information to be saved
     private Account account;

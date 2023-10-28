@@ -319,8 +319,8 @@ public class Portfolio
     
     public void sellAllShares(Account account, Investment investmentToRemove)
     {
-        account.getWallet().topUp(investmentToRemove.getValue());
         account.getAccountPortfolio().getInvestments().remove(investmentToRemove);
+        account.getWallet().topUp(investmentToRemove.getValue());
         account.getAccountPortfolio().updatePortfolioStats();
     };
     

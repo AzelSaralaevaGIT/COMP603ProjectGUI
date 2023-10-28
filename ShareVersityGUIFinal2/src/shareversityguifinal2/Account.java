@@ -243,7 +243,40 @@ public class Account
            while((line = fileReader.readLine()) != null)
            {
                String [] parts = line.split(",");
-               if(parts.length == 6 && username.equals(parts[0]) && password.equals(password))
+               if(parts.length == 6 && username.equals(parts[0]) && password.equals(parts[1]))
+               {   
+                    accountExists = true; 
+               }
+           }
+       } 
+       catch (FileNotFoundException ex) 
+       {
+            Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       
+       catch (IOException ex) 
+       {
+            Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       
+       return accountExists;
+    }
+    
+    //Method that returns true if there is currently an existing account with same username
+    public boolean checkAccountExists(String username)
+    {
+       boolean accountExists = false;
+        
+       try
+       {
+           BufferedReader fileReader = new BufferedReader(new FileReader(accountFilePath));
+           
+           String line; 
+           
+           while((line = fileReader.readLine()) != null)
+           {
+               String [] parts = line.split(",");
+               if(parts.length == 6 && username.equals(parts[0]))
                {   
                     accountExists = true; 
                }

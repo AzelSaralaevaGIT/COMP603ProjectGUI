@@ -662,15 +662,15 @@
                                           <Component id="registerUsernameLabel" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
                                           <Component id="registerUsernameTextField" alignment="0" max="32767" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="dayComboBox" min="-2" pref="108" max="-2" attributes="0"/>
+                                              <Component id="registerDayComboBox" min="-2" pref="108" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="monthComboBox" min="-2" pref="156" max="-2" attributes="0"/>
+                                              <Component id="registerMonthComboBox" min="-2" pref="156" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="yearComboBox" min="-2" pref="111" max="-2" attributes="0"/>
+                                              <Component id="registerYearComboBox" min="-2" pref="111" max="-2" attributes="0"/>
                                           </Group>
                                           <Component id="RegisterDateOfBirthLabel" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
                                           <Component id="registerBankAccountLabel" alignment="0" min="-2" pref="232" max="-2" attributes="0"/>
-                                          <Component id="jFormattedTextField4" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="registerBankAccountNumber" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
@@ -699,15 +699,15 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="registerBankAccountLabel" min="-2" pref="29" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                          <Component id="jFormattedTextField4" min="-2" pref="50" max="-2" attributes="0"/>
+                          <Component id="registerBankAccountNumber" min="-2" pref="50" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="RegisterDateOfBirthLabel" min="-2" pref="29" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="monthComboBox" alignment="1" min="-2" pref="48" max="-2" attributes="0"/>
+                              <Component id="registerMonthComboBox" alignment="1" min="-2" pref="48" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="dayComboBox" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
-                                  <Component id="yearComboBox" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+                                  <Component id="registerDayComboBox" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+                                  <Component id="registerYearComboBox" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -878,6 +878,7 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerFullNameTextFieldActionPerformed"/>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="registerFullNameTextFieldKeyTyped"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="registerFullNameLabel">
@@ -904,7 +905,7 @@
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="dayComboBox">
+                <Component class="javax.swing.JComboBox" name="registerDayComboBox">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -917,15 +918,15 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="dayComboBoxMouseClicked"/>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dayComboBoxActionPerformed"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="registerDayComboBoxMouseClicked"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerDayComboBoxActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="yearComboBox">
+                <Component class="javax.swing.JComboBox" name="registerYearComboBox">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -941,13 +942,13 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="yearComboBoxActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerYearComboBoxActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="monthComboBox">
+                <Component class="javax.swing.JComboBox" name="registerMonthComboBox">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -976,8 +977,8 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="monthComboBoxMouseClicked"/>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="monthComboBoxActionPerformed"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="registerMonthComboBoxMouseClicked"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerMonthComboBoxActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -996,7 +997,7 @@
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField4">
+                <Component class="javax.swing.JFormattedTextField" name="registerBankAccountNumber">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
