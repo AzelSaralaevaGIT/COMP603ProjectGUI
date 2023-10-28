@@ -2395,14 +2395,8 @@ public class ShareversityGUI extends javax.swing.JFrame
     private void portfolioInvestmentsListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_portfolioInvestmentsListMouseClicked
         chosenPortfolioInvestment = getPortfolioListItemInvestment(account, portfolioInvestmentsList.getSelectedIndex());
         
-        // Check if user selected within the list and not outside selectable items white area
-        java.awt.Rectangle listBounds = portfolioInvestmentsList.getCellBounds(0, portfolioInvestmentsList.getLastVisibleIndex()); 
-
-        if (chosenPortfolioInvestment != null && listBounds != null)
-        {
-            menuCardLayout.show(menuRightPanels,"portfolioInvestInfo");
-            setPortfolioInvestmentInfoDisplay(chosenPortfolioInvestment);
-        }
+        menuCardLayout.show(menuRightPanels,"portfolioInvestInfo");
+        setPortfolioInvestmentInfoDisplay(chosenPortfolioInvestment);
     }//GEN-LAST:event_portfolioInvestmentsListMouseClicked
     
     /**
@@ -2564,9 +2558,9 @@ public class ShareversityGUI extends javax.swing.JFrame
         clearInvestValues();
         
         menuCardLayout.show(menuRightPanels,"investInfo");
-        
+
         chosenInvestCompany = getInvestListItemCompany(lowRiskInvestments.companyList, lowRiskInvestmentsList.getSelectedIndex());
-        
+
         updateSelectedCompanyDisplay(chosenInvestCompany);
     }//GEN-LAST:event_lowRiskInvestmentsListMouseClicked
   
@@ -2844,10 +2838,15 @@ public class ShareversityGUI extends javax.swing.JFrame
     private void startupInvestmentsListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_startupInvestmentsListMouseClicked
         clearInvestValues();
         
-        menuCardLayout.show(menuRightPanels,"investInfo");
-        
-        chosenInvestCompany = getInvestListItemCompany(startupInvestments.companyList, startupInvestmentsList.getSelectedIndex());
-        updateSelectedCompanyDisplay(chosenInvestCompany);
+        java.awt.Rectangle listBounds = portfolioInvestmentsList.getCellBounds(0, portfolioInvestmentsList.getLastVisibleIndex()); 
+
+        if (listBounds != null)
+        {
+            menuCardLayout.show(menuRightPanels,"investInfo");
+
+            chosenInvestCompany = getInvestListItemCompany(startupInvestments.companyList, startupInvestmentsList.getSelectedIndex());
+            updateSelectedCompanyDisplay(chosenInvestCompany);
+        }
     }//GEN-LAST:event_startupInvestmentsListMouseClicked
 
     private void selectedCPStablePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_selectedCPStablePropertyChange
