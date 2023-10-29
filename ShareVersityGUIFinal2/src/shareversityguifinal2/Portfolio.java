@@ -6,7 +6,11 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -38,9 +42,9 @@ public class Portfolio
     }
     
     // If account has existing investments
-    public Portfolio(Account account) 
+    public Portfolio(Account account, ImportedCompanies importedCompanies) 
     {
-        this.investments = retrieveInvestmentsFromFile(account);
+        this.investments = retrieveInvestmentsFromDB(account, importedCompanies);
         computeTotalValue();
         //computeTotalHistoricalValue();
         computeTotalInvested();
@@ -49,72 +53,66 @@ public class Portfolio
     }
     
     /*
-        This method retrieves an array of Investment objects assigned to an Account username
+        This method retrieves an array of Investment objects assigned to an Account username from the database
         to be used in creating the porfolio of the Account
     */
-    public final ArrayList<Investment> retrieveInvestmentsFromFile(Account account)
+    public final ArrayList<Investment> retrieveInvestmentsFromDB(Account account, ImportedCompanies importedCompanies)
     {
-        ArrayList<Investment> investmentsFromFile = new ArrayList<>();
+        ArrayList<Investment> investmentsFromDB = new ArrayList<>();
+        Statement statement = null;
 
-    try {
-        // FileReader reading into the txt file
-        BufferedReader fileReader = new BufferedReader(new FileReader(portfolioFilePath));
+        try {
+            ShareVersityDatabase shareversitydb = new ShareVersityDatabase();
+            statement = shareversitydb.getConnection().createStatement();
+            
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM INVESTMENT");
 
-        String line; // reads from Portfolio txt file
-
-        while ((line = fileReader.readLine()) != null) 
-        {
-            ImportedCompanies importedCompanies = new ImportedCompanies();
-
-            String[] parts = line.split(":");
-
-            if (parts.length == 2) 
-            {
-                String accountUsername = parts[0].trim();
-
-                if (accountUsername.equals(account.getUsername())) 
+            while (resultSet.next()) { //USERNAME VARCHAR(50),COMPANYNAME VARCHAR(50), AMOUNT_INVESTED DOUBLE, PURCHASE_CPS DOUBLE
+                String dbUsername = resultSet.getString("USERNAME");
+                
+                if (dbUsername.equalsIgnoreCase(account.getUsername()))
                 {
-                    String[] investmentParts = parts[1].split("/");
+                    String dbCompanyName = resultSet.getString("COMPANYNAME");
+                    double dbAmountInvested = resultSet.getDouble("AMOUNT_INVESTED");
+                    int dbPurchaseCPSindex = resultSet.getInt("PURCHASE_CPS_INDEX");
 
-                    for (String part : investmentParts) 
+                    for (Company company : importedCompanies.getAllCompanies().keySet())
                     {
-                        String[] tokens = part.trim().split(",\\s*"); // Split using a comma followed by optional spaces
-
-                        if (tokens.length == 3) 
+                        if (dbCompanyName.equals(company.getName()))
                         {
-                            String companyName = tokens[0].trim();
-                            double amountInvested = Double.parseDouble(tokens[1].trim());
-                            int numDays = Integer.parseInt(tokens[2].trim());
-
-                            for (Map.Entry<Company, InvestmentTypeEnum> entry : importedCompanies.getAllCompanies().entrySet()) 
-                            {
-                                if (entry.getKey().getName().equalsIgnoreCase(companyName)) 
-                                {
-                                    Company invCompany = entry.getKey();
-                                    Investment investment = new Investment(invCompany, amountInvested, invCompany.getCostPerShareHistory().get(numDays));
-                                    investmentsFromFile.add(investment);
-                                    break;
-                                }
-                            }
+                            investmentsFromDB.add(new Investment(company, dbAmountInvested, company.getCostPerShareHistory().get(dbPurchaseCPSindex)));
                         }
                     }
                 }
             }
+            resultSet.close();
+            statement.close();
+        } 
+
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
         }
-        fileReader.close();
-
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
+        finally
+        {
+            if (statement != null)
+            {
+                try 
+                {
+                    statement.close();
+                } 
+                catch (SQLException ex) 
+                {
+                    System.out.println("Error closing statement");
+                }
+            }
         }
-
-        return investmentsFromFile;
-
+    
+        return investmentsFromDB;
     }
    
     /*
-        This method Overwrites the or appends
+        This method Overwrites or appends an account's portfolio investments to the database
     */
     public void saveInvestmentsToFile(Account account)
     {
@@ -172,6 +170,49 @@ public class Portfolio
         catch (IOException ex) 
         {
             System.err.println("IOException Error: " + ex.getMessage());
+        }
+    }
+    
+    /*
+        This method Overwrites or appends an account's portfolio investments to the database
+    */
+    public void saveInvestmentsToDB(Account account)
+    {
+        Statement statement = null;
+        try 
+        {  
+            ShareVersityDatabase shareversitydb = new ShareVersityDatabase();
+            statement = shareversitydb.getConnection().createStatement();
+
+            String clearAccountInvestments = "DELETE FROM INVESTMENT WHERE UPPER(USERNAME) = UPPER('"+account.getUsername()+"')";
+            statement.executeUpdate(clearAccountInvestments);
+            
+            for (Investment investment : account.getAccountPortfolio().getInvestments())
+            {
+                String insertInvestments = "INSERT INTO INVESTMENT (USERNAME, COMPANYNAME, AMOUNT_INVESTED, PURCHASE_CPS_INDEX)" +
+                " VALUES ('" + account.getUsername() + "', '" + investment.getCompanyInvested().getName() + "', " + investment.getAmountInvested() + ", " + investment.getPurchaseCPS().getDaysAgo() + ")";
+                System.out.println(insertInvestments);
+                statement.executeUpdate(insertInvestments);
+            }
+            System.out.println("Investments inserted successfully.");
+        }
+        catch (SQLException ex) 
+        {
+            System.out.println(ex.getMessage());
+        }
+        finally
+        {
+            if (statement != null)
+            {
+                try 
+                {
+                    statement.close();
+                } 
+                catch (SQLException ex) 
+                {
+                    System.out.println("Error closing statement");
+                }
+            }
         }
     }
 
@@ -324,30 +365,6 @@ public class Portfolio
         account.getWallet().topUp(investmentToRemove.getValue());
         account.getAccountPortfolio().updatePortfolioStats();
     };
-    
-    public static void main(String[] args) 
-    {
-        ImportedCompanies i = new ImportedCompanies();
-        InvestmentType lowRiskInvestments = new LowRiskInvestment(i);
-        System.out.println(lowRiskInvestments); 
-        
-        //Account retrievedAccount = new Account("azel00", "12345");
-        Account user = new Account("Azello", "12345", "Frannyyeye", "123-123-123", "91st Desepter 1900");
-        user.getWallet().topUp(100);
-        
-        //user.saveAccountToFile();
-
-        System.out.println(user.getAccountPortfolio());
-        
-        Investment investment1 = new Investment(lowRiskInvestments.companyList.get(10-1), 50.0, lowRiskInvestments.companyList.get(10-1).getCurrentCPS());
-        user.getAccountPortfolio().addInvestment(investment1);
-        
-        user.getAccountPortfolio().saveInvestmentsToFile(user);
-        
-        System.out.println();
-        
-        System.out.println(user.getAccountPortfolio().printInvestedCompanies());
-    }
     
     // Getters
 

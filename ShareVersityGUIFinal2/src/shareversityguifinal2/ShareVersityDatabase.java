@@ -109,20 +109,20 @@ public class ShareVersityDatabase {
         this.checkExistedTable(tableName);
 
         // Define the SQL statement for creating the table
-        this.statement.addBatch("CREATE TABLE INVESTMENT(USERNAME VARCHAR(50),COMPANYNAME VARCHAR(50), AMOUNT_INVESTED DOUBLE, PURCHASE_CPS DOUBLE)");
-        this.statement.addBatch("INSERT INTO INVESTMENT VALUES ('AZEL00', 'XYZ Tech Solutions', 50.00, 5.00)");
-        this.statement.addBatch("INSERT INTO INVESTMENT VALUES ('AZEL00', 'XYZ Tech Solutions', 20.00, 7.00)");
-        this.statement.addBatch("INSERT INTO INVESTMENT VALUES ('FRAN123', 'Global Learning Institute', 10.00, 6.50)");
-        this.statement.addBatch("INSERT INTO INVESTMENT VALUES ('MARY1', 'GreenHarvest Farms', 45.00, 5.00)");
-        this.statement.addBatch("INSERT INTO INVESTMENT VALUES ('JORDAN99', 'XYZ Tech Solutions', 5.00, 3.56)");
-        this.statement.addBatch("INSERT INTO INVESTMENT VALUES ('SARAHMA33', 'XYZ Tech Solutions', 12.00, 2.00)");
+        this.statement.addBatch("CREATE TABLE INVESTMENT(USERNAME VARCHAR(50),COMPANYNAME VARCHAR(50), AMOUNT_INVESTED DOUBLE, PURCHASE_CPS_INDEX INTEGER)");
+        this.statement.addBatch("INSERT INTO INVESTMENT VALUES ('AZEL00', 'XYZ Tech Solutions', 50.00, 5)");
+        this.statement.addBatch("INSERT INTO INVESTMENT VALUES ('AZEL00', 'Swift Logistics', 20.00, 7)");
+        this.statement.addBatch("INSERT INTO INVESTMENT VALUES ('FRAN123', 'Global Learning Institute', 10.00, 6)");
+        this.statement.addBatch("INSERT INTO INVESTMENT VALUES ('MARY1', 'GreenHarvest Farms', 45.00, 5)");
+        this.statement.addBatch("INSERT INTO INVESTMENT VALUES ('JORDAN99', 'XYZ Tech Solutions', 5.00, 3)");
+        this.statement.addBatch("INSERT INTO INVESTMENT VALUES ('SARAHMA33', 'XYZ Tech Solutions', 12.00, 2)");
         // Execute the SQL statement to create the table
         this.statement.executeBatch();
         System.out.println("Investment table has been created");
         
-    } catch (SQLException ex) {
-       Logger.getLogger(ex.getMessage());
-    } 
+        } catch (SQLException ex) {
+           Logger.getLogger(ex.getMessage());
+        } 
     }
     
     

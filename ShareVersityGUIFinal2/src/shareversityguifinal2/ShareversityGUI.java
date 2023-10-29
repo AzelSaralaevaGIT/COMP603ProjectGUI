@@ -10,14 +10,12 @@ import java.awt.Toolkit;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.HashMap;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.SwingUtilities;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
-import javax.swing.text.PasswordView;
 
 /**
  *
@@ -2259,16 +2257,19 @@ public class ShareversityGUI extends javax.swing.JFrame
 
         if (!loginTextFieldsAreEmpty(username, password))
         {
-            if (account.checkAccountExists(username, password))
+            if (account.accountExists(username, password))
             {
-                account.setLoginAccount(username, password);
+                account.setLoginAccount(username, password, importedCompanies);
 
+                clearLogin();
+                clearRegister();
                 setPortfolioCompanyList();
                 updateAccountDisplay();
                 updateCompaniesDisplay();
 
                 mainCardLayout.show(this.getContentPane(),"menuPanel");
                 menuCardLayout.show(menuRightPanels, "portfolio");
+                setMenuButtonColours(portfolioButton, menuButtonList);
             }
             else
             {
@@ -2317,7 +2318,7 @@ public class ShareversityGUI extends javax.swing.JFrame
             {
                 newAccount = new Account(newUsername, newPassword, newFullName, newBankAccountNumber, newDateOfBirth);
                 
-                if (newAccount.checkAccountExists(newUsername))
+                if (newAccount.accountExists(newUsername))
                 {
                     warningDialogueTitle.setText(String.format(html, "Username already exists"));
                     warningDialogueDesc.setText(String.format(html, "The entered username already exists, please enter another username"));
@@ -2376,6 +2377,7 @@ public class ShareversityGUI extends javax.swing.JFrame
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         mainCardLayout.show(this.getContentPane(),"loginRegisterPanel");
+        account.getAccountPortfolio().saveInvestmentsToDB(account);
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void pInvestInfoBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pInvestInfoBackButtonActionPerformed
@@ -2395,8 +2397,11 @@ public class ShareversityGUI extends javax.swing.JFrame
     private void portfolioInvestmentsListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_portfolioInvestmentsListMouseClicked
         chosenPortfolioInvestment = getPortfolioListItemInvestment(account, portfolioInvestmentsList.getSelectedIndex());
         
-        menuCardLayout.show(menuRightPanels,"portfolioInvestInfo");
-        setPortfolioInvestmentInfoDisplay(chosenPortfolioInvestment);
+        if (chosenPortfolioInvestment != null)
+        {
+            setPortfolioInvestmentInfoDisplay(chosenPortfolioInvestment);
+            menuCardLayout.show(menuRightPanels,"portfolioInvestInfo");
+        }
     }//GEN-LAST:event_portfolioInvestmentsListMouseClicked
     
     /**
@@ -2520,7 +2525,8 @@ public class ShareversityGUI extends javax.swing.JFrame
             }
             else
             {
-                account.getWallet().withdraw((double)walletWithdrawTextField.getValue());
+                account.getWallet().withdraw(Double.valueOf(value));
+                account.saveAccountToDB(); // update database account with new wallet balance
                 updateAccountDisplay();
             }
         }
@@ -2544,6 +2550,7 @@ public class ShareversityGUI extends javax.swing.JFrame
         {
             value = value.replaceAll(",", "");
             account.getWallet().topUp(Double.valueOf(value));
+            account.saveAccountToDB(); // update database account with new wallet balance
             updateAccountDisplay();
         }
         else
@@ -2557,11 +2564,13 @@ public class ShareversityGUI extends javax.swing.JFrame
     private void lowRiskInvestmentsListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lowRiskInvestmentsListMouseClicked
         clearInvestValues();
         
-        menuCardLayout.show(menuRightPanels,"investInfo");
+        chosenInvestCompany = getInvestListItemCompany(modifiedLowRiskCompanyList, lowRiskInvestmentsList.getSelectedIndex());
 
-        chosenInvestCompany = getInvestListItemCompany(lowRiskInvestments.companyList, lowRiskInvestmentsList.getSelectedIndex());
-
-        updateSelectedCompanyDisplay(chosenInvestCompany);
+        if (chosenInvestCompany != null)
+        {
+            updateSelectedCompanyDisplay(chosenInvestCompany);
+            menuCardLayout.show(menuRightPanels,"investInfo");
+        }
     }//GEN-LAST:event_lowRiskInvestmentsListMouseClicked
   
     private void investInfoBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_investInfoBackButtonActionPerformed
@@ -2694,7 +2703,12 @@ public class ShareversityGUI extends javax.swing.JFrame
         bsValueTextField.setTransferHandler(null); // disable pasting into textfield
     }//GEN-LAST:event_bsValueTextFieldKeyTyped
 
-    private void bsValueTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bsValueTextFieldKeyReleased
+    /*
+        This method updates the company invest panel's num shares spinner based on the input value:
+        number of shares = input value / cost per share value
+    */
+    private void updateNumSharesSpinner()
+    {
         String val = bsValueTextField.getText();
                 
         if (!(val.isEmpty() || val.isBlank()))
@@ -2725,6 +2739,10 @@ public class ShareversityGUI extends javax.swing.JFrame
             bsValueTextField.setValue(0);
             bsValueTextField.setText("");
         }
+    }
+    
+    private void bsValueTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bsValueTextFieldKeyReleased
+        updateNumSharesSpinner();
     }//GEN-LAST:event_bsValueTextFieldKeyReleased
 
     private void walletWithdrawTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_walletWithdrawTextFieldKeyTyped
@@ -2837,15 +2855,13 @@ public class ShareversityGUI extends javax.swing.JFrame
 
     private void startupInvestmentsListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_startupInvestmentsListMouseClicked
         clearInvestValues();
+
+        chosenInvestCompany = getInvestListItemCompany(modifiedStartupCompanyList, startupInvestmentsList.getSelectedIndex());
         
-        java.awt.Rectangle listBounds = portfolioInvestmentsList.getCellBounds(0, portfolioInvestmentsList.getLastVisibleIndex()); 
-
-        if (listBounds != null)
+        if (chosenInvestCompany != null)
         {
-            menuCardLayout.show(menuRightPanels,"investInfo");
-
-            chosenInvestCompany = getInvestListItemCompany(startupInvestments.companyList, startupInvestmentsList.getSelectedIndex());
             updateSelectedCompanyDisplay(chosenInvestCompany);
+            menuCardLayout.show(menuRightPanels,"investInfo");
         }
     }//GEN-LAST:event_startupInvestmentsListMouseClicked
 
@@ -2865,6 +2881,7 @@ public class ShareversityGUI extends javax.swing.JFrame
             if (selectedCPStable.getValueAt(0, 1) != null)
             {
                 cpsValue = (double)selectedCPStable.getValueAt(0, 1);
+                updateNumSharesSpinner();
             }
         }
     }
@@ -2894,10 +2911,12 @@ public class ShareversityGUI extends javax.swing.JFrame
         After processing, it hides the confirmation dialog.
     */
     private void confirmationOkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmationOkButtonActionPerformed
-        // Sell all shares for the chosen portfolio investment and update displays.
+        // Sell all shares for the chosen portfolio investment and update database & displays.
         if (pressedButton.equals(pInvestInfoSellSharesButton))
         {
             account.getAccountPortfolio().sellAllShares(account, chosenPortfolioInvestment);
+            account.saveAccountToDB();
+            account.getAccountPortfolio().saveInvestmentsToDB(account);
             
             // Update all displays 
             updateAccountDisplay();
@@ -2907,11 +2926,12 @@ public class ShareversityGUI extends javax.swing.JFrame
             
             menuCardLayout.show(menuRightPanels,"portfolioSharesSold");
         }
-        // Confirm the purchase of shares, update displays, and navigate to the "buySharesConfirmation" panel.
+        // Confirm the purchase of shares, update database & displays, and navigate to the "buySharesConfirmation" panel.
         if (pressedButton.equals(bsConfirmSharesPurchaseButton))
         {
             setNewInvestment(true);
-            menuCardLayout.show(menuRightPanels,"buySharesConfirmation");
+            account.saveAccountToDB();
+            account.getAccountPortfolio().saveInvestmentsToDB(account);
             
             // Update all displays 
             setBuySharesConfirmedDisplay(newInvestment);
@@ -2919,11 +2939,14 @@ public class ShareversityGUI extends javax.swing.JFrame
             clearWalletPanelInfo();
             updateCompaniesDisplay();
             updatePortfolioDisplay(account);
+            
+            menuCardLayout.show(menuRightPanels,"buySharesConfirmation");
         }
         // Save a new account to a file, display a confirmation message, and navigate to the login panel.
         if (pressedButton.equals(registerButton))
         {
-            newAccount.saveAccountToFile();
+            confirmationDialogue.setVisible(false);
+            newAccount.saveAccountToDB();
             
             // temporarily change warning dialogue to confirmation look
             String originalTitle = warningDialogue.getTitle();
@@ -2936,6 +2959,9 @@ public class ShareversityGUI extends javax.swing.JFrame
             warningDialogueDesc.setText(String.format(html, "Your account has been created successfully. Please login with your details on the login page."));
             warningDialogue.setVisible(true);
             
+            // Clear login text fields and navigate to login panel
+            clearLogin();
+            clearRegister();
             loginRegisterCardLayout.show(loginRegisterRightPanels,"login");
             
             // revert warning dialogue to original style
@@ -3122,33 +3148,10 @@ public class ShareversityGUI extends javax.swing.JFrame
     modifiedStartupCompanyList = new ArrayList<>(startupInvestments.companyList);
 
     // Create a list to store companies to be removed.
-    ArrayList<Company> companiesToRemove = new ArrayList<>();
-
-    // Iterate over lowRiskInvestments.companyList and mark companies for removal.
-    for (Company iCompany : lowRiskInvestments.companyList) {
-        for (Company pCompany : portfolioCompanyList) {
-            if (iCompany.getName().equals(pCompany.getName())) {
-                companiesToRemove.add(iCompany);
-                break;  // Exit inner loop to avoid concurrent modification.
-            }
-        }
-    }
+    ArrayList<Company> companiesToRemove = new ArrayList<>(portfolioCompanyList);
 
     // Remove marked companies from modifiedLowRiskCompanyList.
     modifiedLowRiskCompanyList.removeAll(companiesToRemove);
-
-    // Repeat the same process for modifiedStartupCompanyList.
-    companiesToRemove.clear();
-
-    for (Company iCompany : startupInvestments.companyList) {
-        for (Company pCompany : portfolioCompanyList) {
-            if (iCompany.getName().equals(pCompany.getName())) {
-                companiesToRemove.add(iCompany);
-                break;  // Exit inner loop to avoid concurrent modification.
-            }
-        }
-    }
-
     // Remove marked companies from modifiedStartupCompanyList.
     modifiedStartupCompanyList.removeAll(companiesToRemove);
 }
@@ -3161,15 +3164,11 @@ public class ShareversityGUI extends javax.swing.JFrame
         portfolioCompanyList = new ArrayList<>();
         portfolioCompanyList.clear();
         
-        ArrayList<Company> combinedList = new ArrayList<>();
-        combinedList.addAll(lowRiskInvestments.companyList);
-        combinedList.addAll(startupInvestments.companyList);
-        
-        for (Company company : combinedList)
+        for (Company company : importedCompanies.getAllCompanies().keySet())
         {
             for (Investment investment : account.getAccountPortfolio().getInvestments())
             {
-                if (investment.getCompanyInvested().getName().equalsIgnoreCase(company.getName()))
+                if (investment.getCompanyInvested().equals(company))
                 {
                     portfolioCompanyList.add(company);
                 }
@@ -3378,6 +3377,25 @@ public class ShareversityGUI extends javax.swing.JFrame
         bsValueTextField.setValue(0.0);
         bsValueTextField.setText("");
         bsNumSharesSpinner.setValue(0.0);
+    }
+    
+    private void clearLogin()
+    {
+        // Clear login panel fields
+        loginUsernameTextField.setText("");
+        loginPasswordTextField.setText("");
+    }
+    
+    private void clearRegister()
+    {
+        // Clear register panel fields
+        registerFullNameTextField.setText("");
+        registerUsernameTextField.setText("");
+        registerBankAccountNumber.setText("");
+        registerPasswordTextField.setText("");
+        registerDayComboBox.setSelectedIndex(0);
+        registerMonthComboBox.setSelectedIndex(0);
+        registerYearComboBox.setSelectedIndex(0);
     }
     
     /**

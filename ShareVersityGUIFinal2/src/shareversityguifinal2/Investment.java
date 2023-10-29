@@ -1,11 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package shareversityguifinal2;
 
 /**
- *
+ * The Investment class represents an investment in a specific company's shares.
+ * It calculates and stores various financial stats related to the investment, 
+ * such as profit and return on investment
+ * 
+ * This class provides methods for computing and accessing these financial stats.
+ * 
  * @author Fran
  */
 public class Investment 
@@ -17,7 +18,6 @@ public class Investment
     private CostPerShare currentCPS;
     private double profit;
     private double returnOnInvestment;
-    private double historicalValue; // value before withdrawals
     private double value;
 
     public Investment(Company companyInvested, double amountInvested, CostPerShare purchaseCPS) 
@@ -26,13 +26,15 @@ public class Investment
         this.amountInvested = amountInvested;
         this.purchaseCPS = purchaseCPS;
         this.currentCPS = companyInvested.getCurrentCPS();
+        
+        // Compute these instance variables from input
         this.computeNumShares();
         this.computeProfit();
         this.computeROI();
         this.computeValue();
-        this.historicalValue = value;
     }
     
+    // Computed Investment stats 
     public final void computeNumShares()
     {
         this.numShares = this.amountInvested / this.purchaseCPS.getCost();
@@ -53,6 +55,7 @@ public class Investment
         this.returnOnInvestment = this.profit/this.amountInvested;
     }
 
+    // Getters
     public Company getCompanyInvested() {
         return companyInvested;
     }
@@ -70,11 +73,6 @@ public class Investment
     public double getValue() 
     {
         return value;
-    }
-
-    public double getHistoricalValue() 
-    {
-        return historicalValue;
     }
 
     public double getNumShares() 
@@ -95,6 +93,7 @@ public class Investment
         return purchaseCPS;
     }
 
+    // Setters
     public void setAmountInvested(double amountInvested) 
     {
         this.amountInvested = amountInvested;
@@ -114,6 +113,7 @@ public class Investment
         this.companyInvested = companyInvested;
     }
 
+    // toString (for debugging)
     @Override
     public String toString() 
     {
@@ -126,22 +126,8 @@ public class Investment
         out += "Amount invested: $"+this.amountInvested + "\n";
         out += String.format("Profit/Loss: $%.2f \n", this.profit);
         out += String.format("Return on Investment: %.4f%% \n", this.returnOnInvestment);
-        out += String.format("Historical value: $%.2f \n", this.historicalValue);
         out += String.format(">> Value: $%.2f <<\n", this.value);
         
         return out;
-    }
-    
-    public static void main(String[] args) 
-    {
-        /*
-        Company apple = new Company();
-        
-        Investment investment1 = new Investment(apple, 900.0, apple.getCostPerShareHistory().get(30));
-        
-        System.out.println(apple.printCompanyGraph());
-        
-        System.out.println(investment1);*/
-        
     }
 }

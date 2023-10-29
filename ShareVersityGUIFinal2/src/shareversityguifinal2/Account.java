@@ -2,12 +2,13 @@ package shareversityguifinal2;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
 
 import java.io.FileReader;
 import java.io.FileWriter;
-
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -43,17 +44,6 @@ public class Account
         this.accountPortfolio = new Portfolio();
     }
     
-    /** 
-     * Account constructor for retrieving account information saved in txt file from Username and Password
-     * @param username
-     * @param password
-     */
-    public Account(String username, String password)  
-    {
-       retrieveAccountFromFile(username,password); 
-       this.accountPortfolio = new Portfolio(this); 
-    }
-    
     public void setRegisterAccount(String username, String password, String fullName, String bankAccountNumber, String dateOfBirth)
     {
         this.username = username;
@@ -65,10 +55,10 @@ public class Account
         this.accountPortfolio = new Portfolio();
     }
     
-    public void setLoginAccount(String username, String password)
+    public void setLoginAccount(String username, String password, ImportedCompanies importedCompanies)
     {
-        retrieveAccountFromFile(username,password); 
-       this.accountPortfolio = new Portfolio(this); 
+       retrieveAccountFromDB(username,password); 
+       this.accountPortfolio = new Portfolio(this, importedCompanies); 
     }
     
     /** 
@@ -116,183 +106,208 @@ public class Account
         return accountPortfolio;
     }
     
-    // Method that saves user's entered information onto txtfile "AccountInfo.txt" 
-    // Or will update if the account already ecists 
-    
-    public void saveAccountToFile()
+    /*
+        This method saves the current Account object to the database, if the account doesn't already exist
+    */
+    public void saveAccountToDB()
     {
-        boolean accountFound = false;
-
+        Statement statement = null;
         try 
-        {
-            BufferedReader fileReader = new BufferedReader(new FileReader(accountFilePath));
-            StringBuilder fileContents = new StringBuilder(); // StringBuilder to save each line of file contents 
+        {  
+            if (!(accountExists(username))) // Insert new account if account doesn't exist
+            {
+                ShareVersityDatabase shareversitydb = new ShareVersityDatabase();
+                statement = shareversitydb.getConnection().createStatement();
 
-            String line; // read from Portfolio txt file
-            
-            // Generate the line to add based on Account object variables in the following order
-            String accountInfo = String.format("%s,%s,%s,%s,%s,%s", username, password,fullName, bankAccountNumber, dateOfBirth, String.valueOf(acountWallet.getAccountBalance()));
-            
-// While reading lines from the file, this loop iterates through each line:
-// - It splits the line into parts using a comma as the delimiter.
-// - It checks if the first part (parts[0]) equals the username associated with the current account and if there are exactly 6 parts in the line.
-//   If both conditions are met, it means that the line corresponds to the account we want to update.
-//   In this case, it sets the 'accountFound' flag to true and replaces the line with the updated 'accountInfo' in the 'fileContents' StringBuilder.
-// - If the line doesn't match the account information being updated, it appends the line to the 'fileContents' StringBuilder to keep it in the updated file.
-//   This ensures that the rest of the file remains unchanged.
-            while((line = fileReader.readLine()) != null)
+                String accountInsert = "INSERT INTO ACCOUNT_TABLE (USERNAME, PASSWORD, FULLNAME, BANKACCOUNTNUMBER, DATEOFBIRTH, WALLETAMOUNT) " +
+                    "VALUES ('" + this.username + "', '" + this.password + "','" + this.fullName + "', '" + this.bankAccountNumber + "', '" + this.dateOfBirth + "', " + this.getWallet().getAccountBalance() + ")";
+                statement.executeUpdate(accountInsert);
+                System.out.println("Account inserted successfully.");
+            } 
+            else // Update existing account
             {
-                String[] parts = line.split(",");
+                ShareVersityDatabase shareversitydb = new ShareVersityDatabase();
+                statement = shareversitydb.getConnection().createStatement();
+
+                String accountUpdate = "UPDATE ACCOUNT_TABLE SET " +
+                    "PASSWORD = '" + this.password + "', " +
+                    "FULLNAME = '" + this.fullName + "', " +
+                    "BANKACCOUNTNUMBER = '" + this.bankAccountNumber + "', " +
+                    "DATEOFBIRTH = '" + this.dateOfBirth + "', " +
+                    "WALLETAMOUNT = " + this.getWallet().getAccountBalance() +
+                    "WHERE USERNAME = '" + this.username + "'";
                 
-                if(parts[0].equals(this.username) && parts.length == 6)
-                {
-                    accountFound = true;
-                    
-                    fileContents.append(accountInfo).append("\n"); // Overwrite line of file with matching Account username
+                int rowsUpdated = statement.executeUpdate(accountUpdate);
+
+                if (rowsUpdated > 0) {
+                    System.out.println("Account updated successfully.");
                 }
-                
-                else
-                {
-                    fileContents.append(line).append("\n"); // Append rest of file to stringbuilder
-                }
-            }
-            fileReader.close();
-            
-            fileContents.append("\n");
-            accountInfo += "\n";
-            
-            if (accountFound) // If account exists, overwrite the file with the updated line 
-            {
-                BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(accountFilePath));
-                bufferedWriter.write(fileContents.toString());
-                bufferedWriter.close();
-            }
-            if (accountFound == false) // If account doesn't exist, append to file instead of overwriting 
-            {
-                BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(accountFilePath, true));
-                bufferedWriter.write(accountInfo);
-                bufferedWriter.close();
             }
         }
-        catch (IOException ex) 
+        catch (SQLException ex) 
         {
-            System.err.println("IOException Error: " + ex.getMessage());
+            System.out.println(ex.getMessage());
+        }
+        finally
+        {
+            if (statement != null)
+            {
+                try 
+                {
+                    statement.close();
+                } 
+                catch (SQLException ex) 
+                {
+                    System.out.println("Error closing statement");
+                }
+            }
         }
     }
     
-    //Method that retrieves information from txt file "AccountInfo.txt"
-    //when logging in, users full name entered which retrieves Account Info
-    //from AccountInfo.txt file
-    //Acts as setter
-    public final void retrieveAccountFromFile(String username, String password)  
+    // Method that retrieves information from database via matching username and password
+    public final void retrieveAccountFromDB(String username, String password)  
     {  
-        // Check if the account exists in the file with the given username and password.
-       if (checkAccountExists(username, password) == true)
-       {
-            try
-            {
-                // Initialize a file reader to read from the accountInfo text file. 
-                BufferedReader fileReader = new BufferedReader(new FileReader(accountFilePath));
+        Statement statement = null;
+        if (accountExists(username, password))
+        {
+            try {
+                ShareVersityDatabase shareversitydb = new ShareVersityDatabase();
+                statement = shareversitydb.getConnection().createStatement();
+                ResultSet resultSet = statement.executeQuery("SELECT * FROM ACCOUNT_TABLE");
 
-                String line; // reads from accountInfo txt file
-                
-                //iterate through each line in the file
-                while((line = fileReader.readLine()) != null)
-                {
-                    String [] parts = line.split(",");
-                     // Check if the line has exactly 6 parts and matches the provided username and password.
-                    if(parts.length == 6 && parts.length == 6 && username.equals(parts[0]) && password.equals(password))
+                while (resultSet.next()) { //USERNAME, PASSWORD, FULLNAME, BANKACCOUNTNUMBER, DATEOFBIRTH, WALLETAMOUNT
+                    String dbUsername = resultSet.getString("USERNAME");
+                    String dbPassword = resultSet.getString("PASSWORD");
+                    String dbFullName = resultSet.getString("FULLNAME");
+                    String dbBankAccountNumber = resultSet.getString("BANKACCOUNTNUMBER");
+                    String dbDateOfBirth = resultSet.getString("DATEOFBIRTH");
+                    double dbWalletAmount = resultSet.getDouble("WALLETAMOUNT");
+
+                    if (dbUsername.equalsIgnoreCase(username) && dbPassword.equalsIgnoreCase(password))
                     {
-                        //checking if user name and password match set account information
-                        if(parts.length == 6 && username.equals(parts[0]) && password.equals(password))
-                        {
-                            // Set the account information based on the data from the matching line.
-                            this.username = parts[0].trim();
-                            this.password = parts[1].trim();
-                            this.fullName = parts[2].trim();
-                            this.bankAccountNumber = parts[3].trim();
-                            this.dateOfBirth = parts[4].trim();
-                            this.acountWallet = new Wallet(Double.valueOf(parts[5].trim()));
-                        }
+                        this.username = dbUsername;
+                        this.password = dbPassword;
+                        this.fullName = dbFullName;
+                        this.bankAccountNumber = dbBankAccountNumber;
+                        this.dateOfBirth = dbDateOfBirth;
+                        this.acountWallet = new Wallet(dbWalletAmount);
                     }
                 }
+                resultSet.close();
+                statement.close();
             } 
-            catch (FileNotFoundException ex) // Exception handling
-            {
-                 Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
-            }
 
-            catch (IOException ex) //Exception handling
+            catch (SQLException ex) 
             {
-                 Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
+                ex.printStackTrace();
             }
-       }
+            finally
+            {
+                if (statement != null)
+                {
+                    try 
+                    {
+                        statement.close();
+                    } 
+                    catch (SQLException ex) 
+                    {
+                        System.out.println("Error closing statement");
+                    }
+                }
+            }
+        }
     }
     
-    //Method that returns true if there is currently an existing account with same username/password
-    public boolean checkAccountExists(String username, String password)
+    // Method returns true if there is currently an existing account with same username/password in the database
+    public boolean accountExists(String username, String password)
     {
        boolean accountExists = false;
+       Statement statement = null;
         
-       try
-       {
-           BufferedReader fileReader = new BufferedReader(new FileReader(accountFilePath));
-           
-           String line; 
-           
-           while((line = fileReader.readLine()) != null)
-           {
-               String [] parts = line.split(",");
-               if(parts.length == 6 && username.equals(parts[0]) && password.equals(parts[1]))
-               {   
-                    accountExists = true; 
-               }
-           }
-       } 
-       catch (FileNotFoundException ex) 
-       {
-            Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
-       }
-       
-       catch (IOException ex) 
-       {
-            Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
-       }
-       
-       return accountExists;
+        try {
+            ShareVersityDatabase shareversitydb = new ShareVersityDatabase();
+            statement = shareversitydb.getConnection().createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT USERNAME, PASSWORD FROM ACCOUNT_TABLE");
+            
+            while (resultSet.next()) {  
+                String dbUsername = resultSet.getString("USERNAME");
+                String dbPassword = resultSet.getString("PASSWORD");
+
+                if (dbUsername.equalsIgnoreCase(username) && dbPassword.equalsIgnoreCase(password))
+                {
+                    accountExists = true;
+                }
+            }
+            resultSet.close();
+            statement.close();
+        } 
+        
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+        finally
+        {
+            if (statement != null)
+            {
+                try 
+                {
+                    statement.close();
+                } 
+                catch (SQLException ex) 
+                {
+                    System.out.println("Error closing statement");
+                }
+            }
+        }
+        
+        return accountExists;
     }
     
-    //Method that returns true if there is currently an existing account with same username
-    public boolean checkAccountExists(String username)
+    // Method that returns true if there is currently an existing account with same username in the database
+    public boolean accountExists(String username)
     {
        boolean accountExists = false;
+       Statement statement = null;
         
-       try
-       {
-           BufferedReader fileReader = new BufferedReader(new FileReader(accountFilePath));
-           
-           String line; 
-           
-           while((line = fileReader.readLine()) != null)
-           {
-               String [] parts = line.split(",");
-               if(parts.length == 6 && username.equals(parts[0]))
-               {   
-                    accountExists = true; 
-               }
-           }
-       } 
-       catch (FileNotFoundException ex) 
-       {
-            Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
-       }
-       
-       catch (IOException ex) 
-       {
-            Logger.getLogger(Account.class.getName()).log(Level.SEVERE, null, ex);
-       }
-       
-       return accountExists;
+        try {
+            ShareVersityDatabase shareversitydb = new ShareVersityDatabase();
+            statement = shareversitydb.getConnection().createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT USERNAME, PASSWORD FROM ACCOUNT_TABLE");
+            
+            while (resultSet.next()) {  
+                String dbUsername = resultSet.getString("USERNAME");
+                String dbPassword = resultSet.getString("PASSWORD");
+
+                if (dbUsername.equalsIgnoreCase(username))
+                {
+                    accountExists = true;
+                }
+            }
+            resultSet.close();
+            statement.close();
+        } 
+        
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+        finally
+        {
+            if (statement != null)
+            {
+                try 
+                {
+                    statement.close();
+                } 
+                catch (SQLException ex) 
+                {
+                    System.out.println("Error closing statement");
+                }
+            }
+        }
+        
+        return accountExists;
     }
     
     //toString that prints username, fullname, bankAccount, dateofBirth, and wallet balance

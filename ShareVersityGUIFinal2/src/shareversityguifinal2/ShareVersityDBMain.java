@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package shareversityguifinal2;
 
 import java.sql.ResultSet;
@@ -22,6 +18,7 @@ public class ShareVersityDBMain {
         //create another table
         shareversitydb.createCostPerShareHistoryTable();
         
+        /*
         String username = null;
         String password = null;
         String fullname = null;
@@ -43,6 +40,8 @@ public class ShareVersityDBMain {
         shareversitydb.insertAccount(username, password, fullname, bankAccountNumber, dateOfBirth, 0);
         
         ResultSet accountInfo = shareversitydb.getAccountInfo();
+        */
+        
         shareversitydb.closeConnection();
     }
 }

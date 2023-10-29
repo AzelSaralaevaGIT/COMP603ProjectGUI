@@ -14,7 +14,7 @@ public class Company
 {
     //private instance variables to ensure encapsulation, retrieved via their getters
     private static final LocalDate today = LocalDate.now();
-    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy"); // date formatter
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yy"); // date formatter
     private double spVolatility; // Volatility of the share price (percentage)
     
     private String name; //name of Company
