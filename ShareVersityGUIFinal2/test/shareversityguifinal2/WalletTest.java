@@ -17,11 +17,18 @@ import static org.junit.Assert.*;
  */
 public class WalletTest {
     
+    
+
+    /**
+     *
+     */
     public WalletTest() {
+       
     }
     
     @BeforeClass
     public static void setUpClass() {
+        
     }
     
     @AfterClass
@@ -36,88 +43,60 @@ public class WalletTest {
     public void tearDown() {
     }
 
+    
     /**
-     * Test of topUp method, of class Wallet.
+     * Test of top up method, of class Wallet 
      */
     @Test
-    public void testTopUp() {
-        System.out.println("topUp");
-        double amount = 0.0;
-        Wallet instance = new Wallet();
-        instance.topUp(amount);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testTopUpPositive()
+    {
+        System.out.println("Testing positive top up!");
+        Wallet walletA = new Wallet();
+        double positiveTopUp = 100.0;
+        walletA.topUp(positiveTopUp); // trying to top up with positive amount
+        assertEquals(positiveTopUp, walletA.getAccountBalance(), 0.001); 
+        // expecting balance to have been topped up by 100 in Wallet
     }
+    
+    
+    /**
+     * Test of top up method, of class Wallet
+     */
+    @Test
+    public void testTopUpNegative()
+    {
+        System.out.println("Testing negative top up!");
+        Wallet walletB = new Wallet();
+        double negativeTopUp = -50.0;
+        double expected = 0.0;
+        double actual = walletB.getAccountBalance();
+        walletB.topUp(negativeTopUp); // trying to top up with negative amount
+        assertEquals(expected,actual, 0.001); //additional paramter delta to avoid problems with round-off errors with floating point comparisons
+        // balance shouldn't change, stay 0
+    }
+    
+    
 
     /**
      * Test of withdraw method, of class Wallet.
      */
+    
     @Test
     public void testWithdraw() {
-        System.out.println("withdraw");
-        double amount = 0.0;
-        Wallet instance = new Wallet();
-        instance.withdraw(amount);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println("Testing positive withdrawal!");
+        Wallet walletC = new Wallet();
+        double withdrawalAmount = 50.0;
+        double actual = walletC.getAccountBalance();
+        double expected = 50.0;
+        walletC.withdraw(withdrawalAmount);
+        //
+        assertEquals(expected, actual, 0.001);
+        
+       
     }
+    
 
-    /**
-     * Test of checkNegativeTopUp method, of class Wallet.
-     */
-    @Test
-    public void testCheckNegativeTopUp() {
-        System.out.println("checkNegativeTopUp");
-        double amount = 0.0;
-        Wallet instance = new Wallet();
-        boolean expResult = false;
-        boolean result = instance.checkNegativeTopUp(amount);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
-    /**
-     * Test of checkOverWithdraw method, of class Wallet.
-     */
-    @Test
-    public void testCheckOverWithdraw() {
-        System.out.println("checkOverWithdraw");
-        double amount = 0.0;
-        Wallet instance = new Wallet();
-        boolean expResult = false;
-        boolean result = instance.checkOverWithdraw(amount);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
-    /**
-     * Test of getAccountBalance method, of class Wallet.
-     */
-    @Test
-    public void testGetAccountBalance() {
-        System.out.println("getAccountBalance");
-        Wallet instance = new Wallet();
-        double expResult = 0.0;
-        double result = instance.getAccountBalance();
-        assertEquals(expResult, result, 0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of toString method, of class Wallet.
-     */
-    @Test
-    public void testToString() {
-        System.out.println("toString");
-        Wallet instance = new Wallet();
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
     
 }
