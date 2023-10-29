@@ -109,7 +109,7 @@ public class WalletTest {
         assertTrue(walletD.checkOverWithdraw(withdrawalAmountOne)); //should return true as initial balance is 0, and attempting to withdraw 100.0, so is overwithdrawing
         
         double withdrawalAmountTwo = 10.0;
-        //testing when wihtdrawal amountt equal to balance
+        //testing when wihtdrawal amount equal to balance
         assertFalse(walletD.checkOverWithdraw(withdrawalAmountTwo)); // should return false as it's not above balance in wallet and they haven't overwithdrawn
         
         double withdrawalAmountThree = 0.0;
