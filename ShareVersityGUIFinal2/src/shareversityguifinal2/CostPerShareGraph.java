@@ -21,7 +21,7 @@ import org.jfree.chart.plot.XYPlot;
 import org.jfree.ui.RectangleInsets;
 
 /**
- * This class generates a JPanel with an interactive line chart using JFreeChart to display
+ * This class generates a ChartPanel with an interactive line chart using JFreeChart to display
  * the cost per share over time for a selected company. Methods are provided to customize the chart
  * appearance and enable click interactions to display details on a selected data point.
  */
