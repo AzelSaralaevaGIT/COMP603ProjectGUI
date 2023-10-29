@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package shareversityguifinal2;
 
 import java.sql.Connection;
@@ -11,7 +7,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- *
+ * The DatabaseManager class is responsible for managing database connections and executing queries on the database.
+ * It establishes a connection to the Derby database and provides methods for querying and updating the database.
+ * The class can also be used to close the database connection.
+ * 
  * @author saral
  */
 
@@ -46,7 +45,7 @@ public final class DatabaseManager {
             try 
             {
                 conn = DriverManager.getConnection(URL);
-                System.out.println(URL + "Connected successfully");
+                //System.out.println(URL + "Connected successfully");
             } 
             catch (SQLException ex) 
             {

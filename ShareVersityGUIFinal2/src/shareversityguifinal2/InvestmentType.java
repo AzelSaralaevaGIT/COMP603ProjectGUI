@@ -2,6 +2,14 @@ package shareversityguifinal2;
 
 import java.util.ArrayList;
 
+/**
+ * The `InvestmentType` class is an abstract class representing different investment types such as Low Risk and Startup investments.
+ * It provides methods for buying shares, checking investment day range, and managing a list of relevant companies.
+ * Subclasses extend this class to define specific investment types by setting the company list.
+ * 
+ * @author Fran
+ */
+
 public abstract class InvestmentType  
 {
     protected ArrayList<Company> companyList;

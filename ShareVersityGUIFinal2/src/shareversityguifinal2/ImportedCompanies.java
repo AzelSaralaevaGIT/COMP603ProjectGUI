@@ -8,7 +8,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 /**
- *
+ * This class is responsible for managing database connections and executing queries on the database. 
+ * It provides methods to establish a connection to the Derby database, query the database, update the database, and close the connection.
+ * 
  * @author Fran
  */
 

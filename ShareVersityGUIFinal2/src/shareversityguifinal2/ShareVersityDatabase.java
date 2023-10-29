@@ -1,6 +1,5 @@
  package shareversityguifinal2;
 
-import java.lang.System.Logger.Level;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.ResultSet;
@@ -8,6 +7,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Logger;
 
+ /**
+ * This class is responsible for managing the database operations of the ShareVersity application. 
+ * It handles database connections, creation of tables, and insertion of sample data into the database, including the "ACCOUNT_TABLE," "COMPANIES," and "INVESTMENT" tables.
+ * 
+ * @author saral
+ */
 public class ShareVersityDatabase {
     
     private final DatabaseManager dbManager;
@@ -64,7 +69,7 @@ public class ShareVersityDatabase {
     }
     
    
-//creation of Companies table
+// creation of Companies table
     public void createCompaniesTable() {
     
     try {
@@ -92,14 +97,11 @@ public class ShareVersityDatabase {
         this.statement.executeBatch();
         System.out.println("Companies Table has been created.");
         
-    } catch (SQLException ex) {
-       Logger.getLogger(ex.getMessage());
-    } 
-}
+        } catch (SQLException ex) {
+           Logger.getLogger(ex.getMessage());
+        } 
+    }
     
-  
-
-
     //creation of createInvestmentTable
     public void createInvestmentTable()
     {
@@ -112,6 +114,7 @@ public class ShareVersityDatabase {
         this.statement.addBatch("CREATE TABLE INVESTMENT(USERNAME VARCHAR(50),COMPANYNAME VARCHAR(50), AMOUNT_INVESTED DOUBLE, PURCHASE_CPS_INDEX INTEGER)");
         this.statement.addBatch("INSERT INTO INVESTMENT VALUES ('AZEL00', 'XYZ Tech Solutions', 50.00, 5)");
         this.statement.addBatch("INSERT INTO INVESTMENT VALUES ('AZEL00', 'Swift Logistics', 20.00, 7)");
+        this.statement.addBatch("INSERT INTO INVESTMENT VALUES ('AZEL00', 'Swift Logistics', 20.00, 7)");
         this.statement.addBatch("INSERT INTO INVESTMENT VALUES ('FRAN123', 'Global Learning Institute', 10.00, 6)");
         this.statement.addBatch("INSERT INTO INVESTMENT VALUES ('MARY1', 'GreenHarvest Farms', 45.00, 5)");
         this.statement.addBatch("INSERT INTO INVESTMENT VALUES ('JORDAN99', 'XYZ Tech Solutions', 5.00, 3)");
@@ -123,69 +126,6 @@ public class ShareVersityDatabase {
         } catch (SQLException ex) {
            Logger.getLogger(ex.getMessage());
         } 
-    }
-    
-    
-    
-    //creation of cost per share history
-    public void createCostPerShareHistoryTable() {
-    
-    try {
-        statement = conn.createStatement();
-        String tableName = "COST_PER_SHARE_HISTORY";
-        this.checkExistedTable(tableName);
-
-        // Define the SQL statement for creating the table
-        this.statement.addBatch("CREATE TABLE COST_PER_SHARE_HISTORY(COMPANYNAME VARCHAR(100), COST_PER_SHARE_VALUE DOUBLE)"); 
-        
-        this.statement.addBatch("INSERT INTO COST_PER_SHARE_HISTORY VALUES ('XYZ Tech Solutions', 3.45)"); //name of company, cost for each of their shares that the CPS graph is based off (the cps for today) and id number in table
-        this.statement.addBatch("INSERT INTO COST_PER_SHARE_HISTORY VALUES ('Global Learning Institute', 6.11)");
-        this.statement.addBatch("INSERT INTO COST_PER_SHARE_HISTORY VALUES ('GreenHarvest Farms', 1.99)");
-        this.statement.addBatch("INSERT INTO COST_PER_SHARE_HISTORY VALUES ('Precision Manufacturing Co.', 2.01)");
-        this.statement.addBatch("INSERT INTO COST_PER_SHARE_HISTORY VALUES ('Swift Logistics', 1.75)");
-        this.statement.addBatch("INSERT INTO COST_PER_SHARE_HISTORY VALUES ('EduSpark Learning', 3.33)");
-        this.statement.addBatch("INSERT INTO COST_PER_SHARE_HISTORY VALUES ('AgriGenetic Solutions', 4.88");
-        this.statement.addBatch("INSERT INTO COST_PER_SHARE_HISTORY VALUES ('NanoFab Creations', 4.19");
-        this.statement.addBatch("INSERT INTO COST_PER_SHARE_HISTORY VALUES ('SwiftGo', 6.21");
-        this.statement.addBatch("INSERT INTO COST_PER_SHARE_HISTORY VALUES ('HealthTech Innovators', 5.76");
-
-// Execute the SQL statement to create the table
-        this.statement.executeBatch();
-        System.out.println("Cost Per Share History Table created.");
-        
-    } catch (SQLException ex) {
-       Logger.getLogger(ex.getMessage());
-    } 
-}
-
-    //insert new account created into the Account table
-    public void insertAccount(String username, String password, String fullname, String bankAccountNumber, String dateOfBirth, double walletAmount) {
-    try {
-        String insertSQL = "INSERT INTO ACCOUNT_TABLE (USERNAME, PASSWORD, FULLNAME, BANKACCOUNTNUMBER, DATEOFBIRTH, WALLETAMOUNT) " +
-            "VALUES ('" + username + "', '" + password + "','" + fullname + "', '" + bankAccountNumber + "', '" + dateOfBirth + "', " + walletAmount + ")";
-        statement.executeUpdate(insertSQL);
-        System.out.println("Account inserted successfully.");
-    } catch (SQLException ex) {
-         Logger.getLogger(ex.getMessage());
-        
-    }
-}
-
-    // retrieves account info
-    public ResultSet getAccountInfo() {
-
-        ResultSet rs = null;
-        try 
-        {
-            rs = this.statement.executeQuery("SELECT USERNAME, FULLNAME, WALLETAMOUNT "
-                + "FROM ACCOUNT_TABLE");
-        }
-        catch (SQLException ex)
-        {
-            System.out.println(ex.getMessage());
-        }
-
-        return (rs);
     }
 
     public Connection getConnection() {

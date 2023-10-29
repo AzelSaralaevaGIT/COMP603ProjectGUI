@@ -1,5 +1,12 @@
 package shareversityguifinal2;
 
+/**
+ * This enumeration represents different types of investments in the ShareVersity application.
+ * It includes types such as Low Risk and Startup investments, each associated with a name and a volatility value.
+ * 
+ * @author Fran
+ */
+
 //Enumeration representing different types of investments
 public enum InvestmentTypeEnum 
 {

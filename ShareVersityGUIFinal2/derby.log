@@ -1,19 +1,12 @@
 ----------------------------------------------------------------
-<<<<<<< HEAD
-Sun Oct 29 18:08:02 NZDT 2023:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-018b-79d4-f882-00001f07aea8 
-on database directory C:\Users\Fran\Documents\GitHub\COMP603ProjectGUI\ShareVersityGUIFinal2\ShareVersityDB_Ebd with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@2cdf8d8a 
+Sun Oct 29 19:40:40 NZDT 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-018b-7a29-c664-00001f37ced0 
+on database directory C:\Users\Fran\Documents\GitHub\COMP603ProjectGUI\ShareVersityGUIFinal2\ShareVersityDB_Ebd with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@5c29bfd 
 Loaded from file:/C:/Users/Fran/Documents/GitHub/COMP603ProjectGUI/ShareVersityGUIFinal2/lib/derby.jar
-=======
-Sun Oct 29 16:28:34 NZDT 2023:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-018b-7979-e81e-00000ee00000 
-on database directory C:\Users\saral\OneDrive\Documents\NetBeansProjects\ShareVersityGUI\COMP603ProjectGUI\ShareVersityGUIFINAL\COMP603ProjectGUI\ShareVersityGUIFinal2\ShareVersityDB_Ebd with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@4f4a7090 
-Loaded from file:/C:/Users/saral/OneDrive/Documents/NetBeansProjects/ShareVersityGUI/COMP603ProjectGUI/ShareVersityGUIFINAL/COMP603ProjectGUI/ShareVersityGUIFinal2/lib/derby.jar
->>>>>>> bacf9737afcaf14e6e54960bbee6cf7dced34766
 java.vendor=Oracle Corporation
-java.runtime.version=11.0.18+9-LTS-195
-user.dir=C:\Users\saral\OneDrive\Documents\NetBeansProjects\ShareVersityGUI\COMP603ProjectGUI\ShareVersityGUIFINAL\COMP603ProjectGUI\ShareVersityGUIFinal2
-os.name=Windows 11
+java.runtime.version=11.0.19+9-LTS-224
+user.dir=C:\Users\Fran\Documents\GitHub\COMP603ProjectGUI\ShareVersityGUIFinal2
+os.name=Windows 10
 os.arch=amd64
 os.version=10.0
 derby.system.home=null

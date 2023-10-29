@@ -1,24 +1,30 @@
 package shareversityguifinal2;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author saral
  */
+
+/**
+ *  The Portfolio class represents an investment portfolio for a ShareVersity user account.
+ *  It manages a list of investments in various companies, calculates portfolio statistics,
+ *  and provides methods for buying, selling, and updating investments.
+ * 
+ *  It interacts with a database to retrieve and save investments for existing accounts,
+ *  and it also performs various computations related to the portfolio's value, profit, return on investment, etc.
+ * 
+ *  This class includes methods to:
+ *      - Retrieve investments from the database for existing accounts.
+ *      - Save portfolio investments to the database.
+ *      - Update portfolio statistics (total value, total invested, total profit, return on investment).
+ *      - Add, remove, and sell investments in the portfolio.
+ *      - Print information about the portfolio and its investments.
+ * */
 public class Portfolio
 {
     private final String portfolioFilePath = "./resources/Portfolio.txt";
@@ -110,68 +116,6 @@ public class Portfolio
     
         return investmentsFromDB;
     }
-   
-    /*
-        This method Overwrites or appends an account's portfolio investments to the database
-    */
-    public void saveInvestmentsToFile(Account account)
-    {
-        boolean accountFound = false;
-        
-        try 
-        { 
-            BufferedReader fileReader = new BufferedReader(new FileReader(portfolioFilePath));
-            StringBuilder fileContents = new StringBuilder(); // StringBuilder to save each line of file contents  
-            
-            String line; // read from Portfolio txt file
-            
-            // Generate the line to add based on associated Account username and Investments array
-            String lineToAdd = account.getUsername()+ ":";
-            for (Investment investment : investments)
-            {
-                 lineToAdd += String.format(" %s, %f, %d /", investment.getCompanyInvested().getName(), investment.getAmountInvested(), investment.getPurchaseCPS().getDaysAgo());
-            }
-            
-            // Loops through each line of the file
-            while((line = fileReader.readLine()) != null)
-            {
-               String[] accountPart = line.split(": ");
-               
-               if (accountPart[0].equals(account.getUsername()) && accountPart.length == 2) 
-               {
-                   accountFound = true;
-                   
-                   fileContents.append(lineToAdd).append("\n"); // Overwrite line of file with matching Account username
-               }
-               else
-               {
-                   fileContents.append(line).append("\n"); 
-               }
-            }
-            fileReader.close();
-            
-            fileContents.append("\n");
-            lineToAdd += "\n";
-            
-            if (accountFound) // If account exists, overwrite the file with the updated line
-            {
-                BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(portfolioFilePath));
-                bufferedWriter.write(fileContents.toString());
-                bufferedWriter.close();
-            }
-            if (accountFound == false) // If account doesn't exist, append to file instead of overwriting 
-            {
-                BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(portfolioFilePath, true));
-                bufferedWriter.write(lineToAdd);
-                bufferedWriter.close();
-            }
-        }
-        
-        catch (IOException ex) 
-        {
-            System.err.println("IOException Error: " + ex.getMessage());
-        }
-    }
     
     /*
         This method Overwrites or appends an account's portfolio investments to the database
@@ -191,7 +135,6 @@ public class Portfolio
             {
                 String insertInvestments = "INSERT INTO INVESTMENT (USERNAME, COMPANYNAME, AMOUNT_INVESTED, PURCHASE_CPS_INDEX)" +
                 " VALUES ('" + account.getUsername() + "', '" + investment.getCompanyInvested().getName() + "', " + investment.getAmountInvested() + ", " + investment.getPurchaseCPS().getDaysAgo() + ")";
-                System.out.println(insertInvestments);
                 statement.executeUpdate(insertInvestments);
             }
             System.out.println("Investments inserted successfully.");
@@ -238,7 +181,7 @@ public class Portfolio
         this.computeTotalReturnOnInvestment();
     }
     
-    // add transaction to user portfolio
+    // add new investment transaction to user portfolio
     public void addInvestment(Investment newInvestment)
     {
         this.investments.add(newInvestment);
@@ -253,16 +196,6 @@ public class Portfolio
             this.totalValue += i.getValue();
         }
     }
-    
-    /*
-    // Sum of historical value 
-    public final void computeTotalHistoricalValue()
-    {
-        for (Investment i : investments)
-        {
-            this.totalHistoricalValue += i.getHistoricalValue();
-        }
-    }*/
     
     // Sum of all invested amounts
     public final void computeTotalInvested()

@@ -8,8 +8,12 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
- * @author saral
+ * This class contains 2 JUnit test cases for the Portfolio class.
+ * It tests various methods of the Portfolio class, including adding and selling investments.
+ * 
+ * It sets up test variables, performs test cases, and asserts expected behavior.
+ * 
+ * @author Fran
  */
 public class PortfolioTest {
 
@@ -28,10 +32,8 @@ public class PortfolioTest {
         testImportedCompanies = new ImportedCompanies();
         testLowRiskInvestments = new LowRiskInvestment(testImportedCompanies);
         
-        // wallet balance $90
-        // $10 invested into XYZ
         testAccount = new Account();
-        testAccount.setLoginAccount("testAccount", "12345", testImportedCompanies); 
+        testAccount.setLoginAccount("AZEL00", "password123", testImportedCompanies); 
         
         testCPS = testAccount.getAccountPortfolio().getInvestments().get(0).getPurchaseCPS();
         testNewInvestment = new Investment(testLowRiskInvestments.companyList.get(0), 10.0, testCPS);

@@ -3,6 +3,14 @@ package shareversityguifinal2;
 import java.util.ArrayList;
 import java.util.Map;
 
+/**
+ * This class represents a specific type of investment, "Low Risk," 
+ * It extends the abstract `InvestmentType` class and is responsible for filtering and managing low-risk investment companies 
+ * based on the `InvestmentTypeEnum` enumeration. It provides a list of low-risk companies and sets the `companyList` for this type of investment.
+ * 
+ * @author saral
+ */
+
 public class LowRiskInvestment extends InvestmentType
 {
     public LowRiskInvestment(ImportedCompanies allCompanies) 
@@ -39,14 +47,5 @@ public class LowRiskInvestment extends InvestmentType
         System.out.println(lowRiskInvestments); 
         
         System.out.println(lowRiskInvestments.companyList.get(0));
-        
-        
     }
 }
-    
-    
-      
-
-    
-    
-

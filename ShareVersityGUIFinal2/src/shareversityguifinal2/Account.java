@@ -1,18 +1,18 @@
 package shareversityguifinal2;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-// Account Class
+/**
+ * The Account class represents a user account with various attributes such as username, password, full name, bank account number, and date of birth.
+ * It also includes the user's wallet and portfolio.
+ * 
+ * This class provides methods for creating, retrieving, and saving user account information to a database.
+ * 
+ * @author saral
+ */
+
 public class Account 
 {
     //private instance variables to ensure encapsulation, retrieved via their getters
@@ -322,5 +322,3 @@ public class Account
     }
     
 }
-    
-

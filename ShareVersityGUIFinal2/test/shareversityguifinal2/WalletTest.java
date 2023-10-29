@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
- */
 package shareversityguifinal2;
 
 import org.junit.After;
@@ -12,16 +8,14 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
+ * The WalletTest class contains JUnit test cases for the Wallet class.
+ * It tests various methods of the Wallet class, including top-up, withdrawal, and checking for overwithdrawal.
+ * 
+ * It sets up test variables, performs test cases, and asserts expected behavior.
+ * 
  * @author saral
  */
 public class WalletTest {
-    
-   
-
-    /**
-     *
-     */
     public WalletTest() {
        
     }
@@ -117,6 +111,4 @@ public class WalletTest {
         assertFalse(walletD.checkOverWithdraw(withdrawalAmountThree)); //should return false as it's trying to withdraw $0.0 and not overwithdrawing
         
     }
-
-    
 }

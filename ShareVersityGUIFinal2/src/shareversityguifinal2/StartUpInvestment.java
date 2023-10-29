@@ -1,13 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package shareversityguifinal2;
 
 /**
- * Represents a type of investment focused on startup companies.
- * Extends the InvestmentType class.
+ * The `StartUpInvestment` class represents a specific type of investment, "Startup," 
+ * It extends the abstract `InvestmentType` class and is responsible for filtering and managing startup investment 
+ * companies based on the `InvestmentTypeEnum` enumeration. It provides a list of startup companies and sets the `companyList` for this type of investment.
+ * 
+ * @author saral
  */
+
 import java.util.ArrayList;
 import java.util.Map;
 
