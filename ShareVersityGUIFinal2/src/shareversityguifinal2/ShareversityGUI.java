@@ -18,18 +18,19 @@ import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 
 /**
- *
+ * This class contains the main GUI of the program
+ * 
  * @author Fran
  */
-
 public class ShareversityGUI extends javax.swing.JFrame 
 {
+    // Setting window width/height and getting screen width/height for setting application size and positioning
     private static final int WINDOWWIDTH = 1024;
     private static final int WINDOWHEIGHT = 764;
     private static final int SCREENWIDTH = Toolkit.getDefaultToolkit().getScreenSize().width;
     private static final int SCREENHEIGHT = Toolkit.getDefaultToolkit().getScreenSize().height;
     
-     // TEMP -- data for testing graph output
+    // Companies imported from database to be used in application
     private static final ImportedCompanies importedCompanies = new ImportedCompanies();
     private static final InvestmentType lowRiskInvestments = new LowRiskInvestment(importedCompanies);
     private static final InvestmentType startupInvestments = new StartUpInvestment(importedCompanies);
