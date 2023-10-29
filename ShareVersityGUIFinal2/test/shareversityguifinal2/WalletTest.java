@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
  */
 public class WalletTest {
     
-    
+   
 
     /**
      *
@@ -75,28 +75,48 @@ public class WalletTest {
         // balance shouldn't change, stay 0
     }
     
-    
 
     /**
      * Test of withdraw method, of class Wallet.
      */
     
     @Test
-    public void testWithdraw() {
-        System.out.println("Testing positive withdrawal!");
+    public void testWithdrawal() {
+        System.out.println("Testing withdrawal!");
         Wallet walletC = new Wallet();
+        walletC.topUp(100.0);
         double withdrawalAmount = 50.0;
-        double actual = walletC.getAccountBalance();
-        double expected = 50.0;
-        walletC.withdraw(withdrawalAmount);
-        //
-        assertEquals(expected, actual, 0.001);
         
-       
+        walletC.withdraw(withdrawalAmount);
+        
+        double expected = 50.0;
+        double actual = walletC.getAccountBalance();
+        //initial amount in wallet $100, withdrawing $50
+        assertEquals(expected, actual, 0.001);
     }
     
-
-
+    /**
+    * Test of overWithdraw method, of class Wallet.
+    */
+    @Test
+    public void testOverWithdrawal()
+    {
+        System.out.println("Testing overWithdrawal!");
+        Wallet walletD = new Wallet();
+        walletD.topUp(10.0); // top up $10.0 for the test
+        double withdrawalAmountOne = 100.0;
+        //testing when amount is greater than the balance
+        assertTrue(walletD.checkOverWithdraw(withdrawalAmountOne)); //should return true as initial balance is 0, and attempting to withdraw 100.0, so is overwithdrawing
+        
+        double withdrawalAmountTwo = 10.0;
+        //testing when wihtdrawal amountt equal to balance
+        assertFalse(walletD.checkOverWithdraw(withdrawalAmountTwo)); // should return false as it's not above balance in wallet and they haven't overwithdrawn
+        
+        double withdrawalAmountThree = 0.0;
+        //testing when withdrawal amount is zero
+        assertFalse(walletD.checkOverWithdraw(withdrawalAmountThree)); //should return false as it's trying to withdraw $0.0 and not overwithdrawing
+        
+    }
 
     
 }
