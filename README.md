@@ -1,7 +1,7 @@
 # Shareversity
-Shareversity is a hypothetical shares trading platform for the AUT course Program Construction and Design 
-Share prices over time are randomly generated
-You can buy shares from a selected date, then sell these shares with its value relative to its cost per share in the present 
+Shareversity is a hypothetical shares trading platform for the AUT course Program Construction and Design.
+- Share prices over time are randomly generated
+- You can buy shares from a selected date, then sell these shares with its value relative to its cost per share in the present 
 
 **Features include:**
 - Implementation of a graphical user interface
